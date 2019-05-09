@@ -8408,6 +8408,9 @@ body.area-page {
       transform: translateY(-55%);
       background: #fafafa;
       z-index: -1; }
+      @media only screen and (max-width: 767px) {
+        .our-team__inner::after {
+          display: none; } }
   .our-team__heading {
     font-size: 21px;
     line-height: 32px;
