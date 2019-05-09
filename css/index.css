@@ -8357,6 +8357,9 @@ body.area-page {
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center; } }
+    @media only screen and (max-width: 767px) {
+      .our-team__holder {
+        margin-bottom: 90px; } }
   .our-team__thumb {
     -ms-flex-negative: 0;
     flex-shrink: 0;
@@ -8427,6 +8430,9 @@ body.area-page {
     padding-left: 22px;
     border-left: 2px solid #f8bc39;
     margin-bottom: 120px; }
+    @media only screen and (max-width: 767px) {
+      .our-team__caption {
+        margin-bottom: 70px; } }
   .our-team__label {
     font-size: 21px;
     line-height: 30px;
