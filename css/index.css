@@ -455,19 +455,19 @@ img {
 
 .area-breadcrumb li + li::before {
   background-image: url(../images/sprite.png);
-  background-position: -463px -209px;
+  background-position: -475px -234px;
   width: 17px;
   height: 17px; }
 
 .area__contacts-email::before, .clients-block__head-item.email::after {
   background-image: url(../images/sprite.png);
-  background-position: -485px -209px;
+  background-position: -380px -260px;
   width: 18px;
   height: 16px; }
 
 .clients-block__head-item.name::after, .orders-block__head-item.client::after {
   background-image: url(../images/sprite.png);
-  background-position: -452px -260px;
+  background-position: -475px -260px;
   width: 10px;
   height: 12px; }
 
@@ -485,7 +485,7 @@ img {
 
 .recent-orders__head-item.status::after, .orders-block__head-item.status::after {
   background-image: url(../images/sprite.png);
-  background-position: -467px -260px;
+  background-position: -490px -260px;
   width: 8px;
   height: 12px; }
 
@@ -515,19 +515,19 @@ img {
 
 .contact-btn::before {
   background-image: url(../images/sprite.png);
-  background-position: -406px -234px;
+  background-position: -429px -234px;
   width: 18px;
   height: 19px; }
 
 .footer .emails::before, .socials-options .emails::before {
   background-image: url(../images/sprite.png);
-  background-position: -475px -234px;
+  background-position: -488px -209px;
   width: 18px;
   height: 16px; }
 
 .discounts-block__head-item.expires::after, .clients-block__head-item.date::after, .recent-orders__head-item.date::after, .orders-block__head-item.date::after {
   background-image: url(../images/sprite.png);
-  background-position: -435px -260px;
+  background-position: -458px -260px;
   width: 12px;
   height: 12px; }
 
@@ -563,7 +563,7 @@ img {
 
 .login-link::before {
   background-image: url(../images/sprite.png);
-  background-position: -418px -260px;
+  background-position: -441px -260px;
   width: 12px;
   height: 12px; }
 
@@ -575,13 +575,13 @@ img {
 
 .orders-content__text::after {
   background-image: url(../images/sprite.png);
-  background-position: -380px -260px;
+  background-position: -403px -260px;
   width: 16px;
   height: 13px; }
 
 .footer .phones::before {
   background-image: url(../images/sprite.png);
-  background-position: -429px -234px;
+  background-position: -406px -234px;
   width: 18px;
   height: 19px; }
 
@@ -593,13 +593,13 @@ img {
 
 .signup-link::before {
   background-image: url(../images/sprite.png);
-  background-position: -401px -260px;
+  background-position: -424px -260px;
   width: 12px;
   height: 12px; }
 
 .to-top__btn::before {
   background-image: url(../images/sprite.png);
-  background-position: -498px -234px;
+  background-position: -497px -234px;
   width: 16px;
   height: 16px; }
 
@@ -8243,6 +8243,7 @@ body.area-page {
     width: 33.33333%;
     text-align: center;
     text-decoration: none;
+    position: relative;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     color: #000; }
@@ -8261,18 +8262,19 @@ body.area-page {
       position: relative; }
       @media only screen and (max-width: 767px) {
         .home-tiles-item__inner {
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-          flex-direction: column;
-          -webkit-box-pack: justify;
-          -ms-flex-pack: justify;
-          justify-content: space-between;
-          -webkit-box-align: center;
-          -ms-flex-align: center;
-          align-items: center;
-          padding: 15px;
-          background: transparent; } }
+          -webkit-box-pack: start;
+          -ms-flex-pack: start;
+          justify-content: flex-start;
+          padding: 15px 0 0;
+          background: transparent;
+          margin: 0; } }
+    .home-tiles-item .arrow {
+      position: absolute;
+      display: none;
+      right: 10px;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%); }
     .home-tiles-item:first-child .home-tiles-item__inner::after {
       content: '';
       position: absolute;
@@ -8284,15 +8286,18 @@ body.area-page {
       .home-tiles-item {
         padding-bottom: 10px;
         width: 100%;
-        border-bottom: 1px solid #c8c8c8; }
-        .home-tiles-item:last-child {
-          border: none; } }
+        border-bottom: 1px solid #c8c8c8; } }
     @media only screen and (min-width: 1025px) {
       .home-tiles-item:hover {
         color: #31dbce; }
         .home-tiles-item:hover .home-tiles__thumb {
           -webkit-box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.08);
           box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.08); } }
+    @media only screen and (max-width: 767px) {
+      .home-tiles-item {
+        padding-right: 20px; }
+        .home-tiles-item .arrow {
+          display: block; } }
   .home-tiles__thumb {
     width: 125px;
     height: 125px;
@@ -8314,7 +8319,9 @@ body.area-page {
     transition: all 0.3s ease-in-out; }
     @media only screen and (max-width: 767px) {
       .home-tiles__thumb {
-        margin: 0 0 15px; } }
+        margin: 0 20px 0 0;
+        width: 95px;
+        height: 95px; } }
   .home-tiles__title {
     font-size: 48px;
     font-weight: 600;
@@ -8325,12 +8332,12 @@ body.area-page {
       .home-tiles__title {
         font-size: 32px;
         line-height: 38px;
-        max-width: 100%;
-        text-align: center; } }
+        max-width: 100%; } }
   @media only screen and (max-width: 767px) {
     .home-tiles {
       -ms-flex-wrap: wrap;
-      flex-wrap: wrap; } }
+      flex-wrap: wrap;
+      margin-bottom: 60px; } }
 
 .our-team {
   margin-bottom: 125px; }
@@ -8684,7 +8691,7 @@ body.area-page {
         height: 601px; } }
     @media only screen and (max-width: 767px) {
       .scene::before, .scene::after {
-        display: none; } }
+        width: 140px; } }
   .scene::before {
     left: 0;
     -webkit-transform: translateX(-100%);
@@ -8725,6 +8732,9 @@ body.area-page {
     transform: scale(-1, 1); }
   .scene .page-title {
     margin-bottom: 110px; }
+    @media only screen and (max-width: 767px) {
+      .scene .page-title {
+        padding: 0 40px; } }
   .scene__heading {
     font-size: 24px;
     line-height: 32px;
@@ -8743,6 +8753,9 @@ body.area-page {
       transform: translate(-50%, -100%);
       top: 0;
       z-index: -1; }
+      @media only screen and (max-width: 767px) {
+        .scene__heading::before {
+          font-size: 90px; } }
   .scene-decor {
     font-size: 32px;
     font-weight: 700;
@@ -8862,6 +8875,12 @@ body.area-page {
       -webkit-transform: translateY(-50%);
       transform: translateY(-50%);
       background-image: url(../images/heart.png); }
+      @media only screen and (max-width: 767px) {
+        .advantages .page-title::before {
+          left: 50%;
+          top: -110px;
+          -webkit-transform: translateX(-50%);
+          transform: translateX(-50%); } }
   .advantages__heading {
     font-size: 21px;
     margin-bottom: 85px; }
@@ -8910,6 +8929,18 @@ body.area-page {
         background: -webkit-gradient(linear, left top, right top, from(#fc6a42), color-stop(97%, #fc6a42), color-stop(97%, transparent), to(transparent));
         background: linear-gradient(90deg, #fc6a42, #fc6a42 97%, transparent 97%, transparent 100%);
         background-size: 157px 3px; }
+    .advantages-item.item-2 .advantages-item__title::after {
+      background: -webkit-gradient(linear, left top, right top, from(#31dbce), color-stop(97%, #31dbce), color-stop(97%, transparent), to(transparent));
+      background: linear-gradient(90deg, #31dbce, #31dbce 97%, transparent 97%, transparent 100%);
+      background-size: 157px 3px; }
+    .advantages-item.item-3 .advantages-item__title::after {
+      background: -webkit-gradient(linear, left top, right top, from(#f8bc39), color-stop(97%, #f8bc39), color-stop(97%, transparent), to(transparent));
+      background: linear-gradient(90deg, #f8bc39, #f8bc39 97%, transparent 97%, transparent 100%);
+      background-size: 157px 3px; }
+    .advantages-item.item-4 .advantages-item__title::after {
+      background: -webkit-gradient(linear, left top, right top, from(#c8c8c8), color-stop(97%, #c8c8c8), color-stop(97%, transparent), to(transparent));
+      background: linear-gradient(90deg, #c8c8c8, #c8c8c8 97%, transparent 97%, transparent 100%);
+      background-size: 157px 3px; }
     @media only screen and (max-width: 768px) {
       .advantages-item {
         width: 100%;
