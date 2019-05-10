@@ -23702,7 +23702,6 @@ __webpack_require__(25);
 document.addEventListener("DOMContentLoaded", function () {
   (0, _sliders2.default)();
   (0, _main2.default)();
-  (0, _animations2.default)();
   (0, _popup2.default)();
   global.customeSelct = new _select2.default();
   global.tabs = new _tabs2.default({});
@@ -23797,7 +23796,17 @@ document.addEventListener("DOMContentLoaded", function () {
         instance.setMax(selectedDate);
       }
     });
-  }
+  };
+  (0, _jquery2.default)(".anchor").on("click", function (event) {
+    event.preventDefault();
+    var id = (0, _jquery2.default)(this).attr('href'),
+        top = (0, _jquery2.default)(id).offset().top;
+    (0, _jquery2.default)('body,html').animate({ scrollTop: top }, 900);
+  });
+  (0, _jquery2.default)('.order-item a').on('click', function () {
+    (0, _jquery2.default)('.order-item').removeClass('active');
+    (0, _jquery2.default)(this).parents('.order-item').addClass('active');
+  });
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
