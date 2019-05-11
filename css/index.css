@@ -6286,6 +6286,7 @@ body.area-page {
     box-shadow: none;
     width: auto;
     height: auto;
+    max-width: 100%;
     border-radius: 0; }
   .contact-page .login-heading__inner {
     width: 100%;
@@ -6294,6 +6295,10 @@ body.area-page {
       margin-bottom: 25px; }
   .contact-page .login-heading__content {
     width: 35%; }
+    @media only screen and (max-width: 767px) {
+      .contact-page .login-heading__content {
+        width: 100%;
+        margin: 15px 0 0; } }
   .contact-page .page {
     margin-bottom: 60px; }
   @media only screen and (max-width: 1500px) {
