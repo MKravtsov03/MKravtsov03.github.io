@@ -6296,6 +6296,9 @@ body.area-page {
     width: 35%; }
   .contact-page .page {
     margin-bottom: 60px; }
+  @media only screen and (max-width: 1500px) {
+    .contact-page .header {
+      padding: 15px 0; } }
 
 .contact-form.login-form .row {
   -webkit-box-pack: center;
@@ -6835,6 +6838,10 @@ body.area-page {
 .qs-datepicker .qs-square:not(.qs-empty):not(.qs-disabled):not(.qs-day):not(.qs-active):hover {
   background: orange; }
 
+@media only screen and (max-width: 1500px) {
+  .error-wrapp .header {
+    padding: 15px 0; } }
+
 .error-page-heading {
   background: #fff;
   -webkit-box-shadow: 0 30px 40px 0 rgba(0, 0, 0, 0.03);
@@ -6855,6 +6862,9 @@ body.area-page {
       .error-page-heading .container {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap; } }
+  @media only screen and (max-width: 1500px) {
+    .error-page-heading {
+      padding: 30px 0; } }
   @media only screen and (max-width: 767px) {
     .error-page-heading {
       padding: 20px 0;
@@ -9439,6 +9449,9 @@ body.area-page {
   padding-bottom: 120px; }
   .login-page .footer {
     display: none; }
+  @media only screen and (max-width: 1500px) {
+    .login-page .header {
+      padding: 15px 0; } }
   @media only screen and (max-width: 767px) {
     .login-page {
       padding-bottom: 60px; } }
@@ -9547,6 +9560,9 @@ body.area-page {
       .login-heading__content {
         width: 100%;
         text-align: center; } }
+  @media only screen and (max-width: 1500px) {
+    .login-heading {
+      margin: 10px 0 70px; } }
   @media only screen and (max-width: 992px) {
     .login-heading {
       -ms-flex-wrap: wrap;
