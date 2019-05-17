@@ -1171,7 +1171,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 .wrapp {
   min-height: 100vh;
   overflow: hidden; }
-  @media only screen and (max-width: 1500px) {
+  @media only screen and (max-width: 1700px) {
     .wrapp {
       zoom: 0.8; } }
   @media only screen and (max-width: 1200px) {
