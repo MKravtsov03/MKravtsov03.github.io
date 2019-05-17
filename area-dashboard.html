@@ -225,9 +225,9 @@
           <a class="area__sidebar-back" href="#">BACK TO LANDING PAGE</a>
         </div>
         <div class="area-mobile__nav">
-          <div class="area-mobile__nav-current clients">
-            <img src="data/area-nav-img-3.png" width="24" height="24" alt="">
-            Clients
+          <div class="area-mobile__nav-current dashboard">
+            <img src="data/area-nav-img-1.png" width="24" height="24" alt="">
+            Dashboard
           </div>
           <ul class="area-mobile__nav-list">
             <li class="area-mobile__nav-item">
@@ -273,7 +273,7 @@
         <div class="area__sidebar-subtitle">ACTIVITY</div>
         <nav class="area__nav">
           <ul class="area__nav-list">
-            <li class="area__nav-item">
+            <li class="area__nav-item area__nav-item--dashboard active">
               <a href="#">
                 <img src="data/area-nav-img-1.png" width="32" height="32" alt="">
                 <span>Dashboard</span>
@@ -285,7 +285,7 @@
                 <span>Orders</span>
               </a>
             </li>
-            <li class="area__nav-item   area__nav-item--clients active">
+            <li class="area__nav-item">
               <a href="#">
                 <img src="data/area-nav-img-3.png" width="32" height="32" alt="">
                 <span>Clients</span>
@@ -363,302 +363,702 @@
         </ul>
       </div>
       <div class="area__main">
-        <div class="clients-block">
-
+        <div class="dashboard-block">
           <div class="clients-block__top">
             <ul class="area-breadcrumb">
               <li class="area-breadcrumb__item">
-                <a href="#">Clients</a>
-              </li>
-              <li class="area-breadcrumb__item">
-                <span>
-                  <img src="data/client-avatar.png" width="60" height="60" alt="">
-                  Sarah Malone
-                </span>
+                <span>Dashboard</span>
               </li>
             </ul>
-            <div class="edit-profile-button">edit</div>
+            <div class="export-block">
+              <div class="export-block__title">
+                Export
+                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/sprite.svg#down-arrow"></use></svg>
+              </div>
+              <select name="export">
+                <option value="">Year 2018</option>
+                <option value="">Year 2017</option>
+                <option value="">Year 2016</option>
+              </select>
+            </div>
+          </div> 
+          <div class="dashboard-info">
+            <canvas height="280" id="dashboard-chart"></canvas>
           </div>
-
-          <div class="clients-block__accaunt">
-            <div class="clients-block__accaunt-top">
-              <div class="clients-block__accaunt-title">Account Informations</div>
-              <div class="clients-block__accaunt-setting">
-                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/sprite.svg#vertical-dots"></use></svg>
+          <div class="dashboard-triggers">
+            <div class="dashboard-triggers__list">
+              <div class="dashboard-triggers__item">
+                <img src="data/dashboard-triggers-img-1.png" width="120" height="120" alt="">
+                <div class="dashboard-triggers__item-box">
+                  <div class="dashboard-triggers__item-value">174</div>
+                  <div class="dashboard-triggers__item-text">CLIENTS</div>
+                </div>
+                <div class="dashboard-triggers__item-info">
+                  <div class="dashboard-triggers__item-quant">14 NEW</div>
+                  <div class="dashboard-triggers__item-date">THIS MONTH</div>
+                </div>
+              </div>
+              <div class="dashboard-triggers__item">
+                <img src="data/dashboard-triggers-img-2.png" width="" height="" alt="">
+                <div class="dashboard-triggers__item-box">
+                  <div class="dashboard-triggers__item-value">1,823</div>
+                  <div class="dashboard-triggers__item-text">ORDERS</div>
+                </div>
+                <div class="dashboard-triggers__item-info">
+                  <div class="dashboard-triggers__item-quant">163 NEW</div>
+                  <div class="dashboard-triggers__item-date">THIS MONTH</div>
+                </div>
+              </div>
+              <div class="dashboard-triggers__item">
+                <img src="data/dashboard-triggers-img-3.png" width="" height="" alt="">
+                <div class="dashboard-triggers__item-box">
+                  <div class="dashboard-triggers__item-value">$14,832.96</div>
+                  <div class="dashboard-triggers__item-text">REVENUE</div>
+                </div>
+                <div class="dashboard-triggers__item-info">
+                  <div class="dashboard-triggers__item-quant">$2,890</div>
+                  <div class="dashboard-triggers__item-date">THIS MONTH</div>
+                </div>
               </div>
             </div>
-            <ul class="clients-block__accaunt-list">
-              <li>
-                Email
-                <span>sarah.m.99@gmail.com</span>
-              </li>
-              <li>
-                Company
-                <span>Sarah MGoods INC</span>
-              </li>
-              <li>
-                City
-                <span>Bucharest</span>
-              </li>
-              <li>
-                Country
-                <span>Romania</span>
-              </li>
-              <li>
-                Address
-                <span>Street Name, Apartment, Number, Postal Code</span>
-              </li>
-              <li>
-                Phone Number
-                <span>+40 723 233 889</span>
-              </li>
-              <li>
-                Skype Address
-                <span>sarahm</span>
-              </li>
-            </ul>
           </div>
-
           <div class="recent-orders__wrap">
-            <div class="recent-orders__main-title">Recent Orders</div>
+            <div class="recent-orders__main-title">Services</div>
             <div class="recent-orders__table">
               <div class="recent-orders__head">
-                <div class="recent-orders__head-item">Order</div>
-                <div class="recent-orders__head-item">service</div>
-                <div class="recent-orders__head-item date">date</div>
-                <div class="recent-orders__head-item status">status</div>
+                <div class="recent-orders__head-item">SERVICE</div>
+                <div class="recent-orders__head-item">ORDERED</div>
+                <div class="recent-orders__head-item date">LATEST</div>
+                <div class="recent-orders__head-item">REVENUE</div>
               </div>
               <div class="recent-orders__list">
                 <div class="recent-orders__item">
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-order">
-                      <span>#</span>
-                      55TFF29O
+                    <div class="recent-orders__item-name">
+                      Guest Posting Services
+                      <span>SEO</span>
                     </div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-service">
-                      Web Design
-                      <small>Logo Design, Web Design & Development</small>
-                    </div>
+                    <div class="recent-orders__item-ordered">84</div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-date">17 Dec.</div>
+                    <div class="recent-orders__item-date">18 Dec.</div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-status">
-                      <div class="status-block submitted">SUBMITTED</div>
+                    <div class="recent-orders__item-revenue">
+                      $8,800
                     </div>
                   </div>
                 </div>
                 <div class="recent-orders__item">
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-order">
-                      <span>#</span>
-                      55TFF29O
+                    <div class="recent-orders__item-name">
+                      Guest Posting Services
+                      <span>SEO</span>
                     </div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-service">
-                      Web Design
-                      <small>Logo Design, Web Design & Development</small>
+                    <div class="recent-orders__item-ordered">
+                      84
+                      <span class="low">LOWEST</span>
                     </div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-date">17 Dec.</div>
+                    <div class="recent-orders__item-date">18 Dec.</div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-status">
-                      <div class="status-block working">WORKING</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="recent-orders__item">
-                  <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-order">
-                      <span>#</span>
-                      55TFF29O
-                    </div>
-                  </div>
-                  <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-service">
-                      Web Design
-                      <small>Logo Design, Web Design & Development</small>
-                    </div>
-                  </div>
-                  <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-date">17 Dec.</div>
-                  </div>
-                  <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-status">
-                      <div class="status-block canceled">CANCELED</div>
+                    <div class="recent-orders__item-revenue">
+                      $8,800
                     </div>
                   </div>
                 </div>
                 <div class="recent-orders__item">
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-order">
-                      <span>#</span>
-                      55TFF29O
+                    <div class="recent-orders__item-name">
+                      Guest Posting Services
+                      <span>SEO</span>
                     </div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-service">
-                      Web Design
-                      <small>Logo Design, Web Design & Development</small>
-                    </div>
+                    <div class="recent-orders__item-ordered">84</div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-date">17 Dec.</div>
+                    <div class="recent-orders__item-date">18 Dec.</div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-status">
-                      <div class="status-block complete">COMPLETE</div>
+                    <div class="recent-orders__item-revenue">
+                      $8,800
                     </div>
                   </div>
                 </div>
                 <div class="recent-orders__item">
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-order">
-                      <span>#</span>
-                      55TFF29O
+                    <div class="recent-orders__item-name">
+                      Guest Posting Services
+                      <span>SEO</span>
                     </div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-service">
-                      Web Design
-                      <small>Logo Design, Web Design & Development</small>
-                    </div>
+                    <div class="recent-orders__item-ordered">84</div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-date">17 Dec.</div>
+                    <div class="recent-orders__item-date">18 Dec.</div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-status">
-                      <div class="status-block overdue">OVERDUE</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="recent-orders__item">
-                  <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-order">
-                      <span>#</span>
-                      55TFF29O
-                    </div>
-                  </div>
-                  <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-service">
-                      Web Design
-                      <small>Logo Design, Web Design & Development</small>
-                    </div>
-                  </div>
-                  <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-date">17 Dec.</div>
-                  </div>
-                  <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-status">
-                      <div class="status-block pending">PENDING</div>
+                    <div class="recent-orders__item-revenue">
+                      <span class="low">LOWEST</span>
+                      $8,800
                     </div>
                   </div>
                 </div>
                 <div class="recent-orders__item">
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-order">
-                      <span>#</span>
-                      55TFF29O
+                    <div class="recent-orders__item-name">
+                      Guest Posting Services
+                      <span>SEO</span>
                     </div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-service">
-                      Web Design
-                      <small>Logo Design, Web Design & Development</small>
+                    <div class="recent-orders__item-ordered">
+                      84
+                      <span class="hight">HIGHEST</span>
                     </div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-date">17 Dec.</div>
+                    <div class="recent-orders__item-date">18 Dec.</div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-status">
-                      <div class="status-block submitted">SUBMITTED</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="recent-orders__item">
-                  <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-order">
-                      <span>#</span>
-                      55TFF29O
-                    </div>
-                  </div>
-                  <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-service">
-                      Web Design
-                      <small>Logo Design, Web Design & Development</small>
-                    </div>
-                  </div>
-                  <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-date">17 Dec.</div>
-                  </div>
-                  <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-status">
-                      <div class="status-block working">WORKING</div>
+                    <div class="recent-orders__item-revenue">
+                      $8,800
                     </div>
                   </div>
                 </div>
                 <div class="recent-orders__item">
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-order">
-                      <span>#</span>
-                      55TFF29O
+                    <div class="recent-orders__item-name">
+                      Guest Posting Services
+                      <span>SEO</span>
                     </div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-service">
-                      Web Design
-                      <small>Logo Design, Web Design & Development</small>
-                    </div>
+                    <div class="recent-orders__item-ordered">84</div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-date">17 Dec.</div>
+                    <div class="recent-orders__item-date">18 Dec.</div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-status">
-                      <div class="status-block canceled">CANCELED</div>
+                    <div class="recent-orders__item-revenue">
+                      <span class="hight">HIGHEST</span>
+                      $8,800
                     </div>
                   </div>
                 </div>
                 <div class="recent-orders__item">
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-order">
-                      <span>#</span>
-                      55TFF29O
+                    <div class="recent-orders__item-name">
+                      Guest Posting Services
+                      <span>SEO</span>
                     </div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-service">
-                      Web Design
-                      <small>Logo Design, Web Design & Development</small>
-                    </div>
+                    <div class="recent-orders__item-ordered">84</div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-date">17 Dec.</div>
+                    <div class="recent-orders__item-date">18 Dec.</div>
                   </div>
                   <div class="recent-orders__item-block">
-                    <div class="recent-orders__item-status">
-                      <div class="status-block complete">COMPLETE</div>
+                    <div class="recent-orders__item-revenue">
+                      $8,800
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="dashboard-orders">
+            <div class="dashboard-orders__main-title">Orders Status</div>
+            <div class="dashboard-orders__list">
+              <div class="dashboard-orders__item">
+                <div class="dashboard-orders__value">143</div>
+                <div class="dashboard-orders__status submitted">SUBMITTED</div>
+                <div class="dashboard-orders__text">Orders</div>
+              </div>
+              <div class="dashboard-orders__item">
+                <div class="dashboard-orders__value">143</div>
+                <div class="dashboard-orders__status working">WORKING</div>
+                <div class="dashboard-orders__text">Orders</div>
+              </div>
+              <div class="dashboard-orders__item">
+                <div class="dashboard-orders__value">143</div>
+                <div class="dashboard-orders__status overdue">OVERDUE</div>
+                <div class="dashboard-orders__text">Orders</div>
+              </div>
+              <div class="dashboard-orders__item">
+                <div class="dashboard-orders__value">143</div>
+                <div class="dashboard-orders__status complete">COMPLETE</div>
+                <div class="dashboard-orders__text">Orders</div>
+              </div>
+              <div class="dashboard-orders__item">
+                <div class="dashboard-orders__value">143</div>
+                <div class="dashboard-orders__status pending">PENDING</div>
+                <div class="dashboard-orders__text">Orders</div>
+              </div>
+              <div class="dashboard-orders__item">
+                <div class="dashboard-orders__value">143</div>
+                <div class="dashboard-orders__status canceled">CANCELED</div>
+                <div class="dashboard-orders__text">Orders</div>
+              </div>
+            </div>
+          </div>
+          <div class="statistic-block">
+            <div class="statistic-block__left">
+              <div class="statistic-block__top">
+                <div class="statistic-block__title">Website</div>
+                <div class="statistic-block__labels">
+                  <div class="statistic-block__labels-item visits">Visits</div>
+                  <div class="statistic-block__labels-item conversion">Conversion</div>
+                  <div class="statistic-block__labels-item clicks">Clicks</div>
+                </div>
+                <select name="statistic-select" id="statistic-select">
+                  <option value="statisticWeek">This Week</option>
+                  <option value="statisticMonth">This Month</option>
+                  <option value="statisticYear">This Year</option>
+                </select>
+              </div>
 
+              <canvas height="300" id="line-chart"></canvas>
+            </div>
+            <div class="statistic-block__right">
+              <canvas height="320" id="radar-chart"></canvas>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
   </div>
+
+  <script>
+    // Main Chart options:
+    const mainCart ={ 
+      type: 'bar',
+      data: {
+        labels: [ 
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+        ],
+        datasets: [
+          {
+            label: 'All',
+            backgroundColor: "#c8c8c8",
+            height: "200px",
+            data: [2200, 1100, 2700, 3400, 0, 1550, 0, 1320, 0, 2660, 2800, 3330, ],
+          }, 
+          {
+            label: 'Highest',
+            backgroundColor: "#31dbce",
+            data: [0, 0, 0, 0, 4865, 0, 0, 0, 0, 0, 0, 0, ],
+          }, 
+          {
+            label: 'Average',
+            backgroundColor: "#f9bd3a",
+            data: [0, 0, 0, 0, 0, 0, 1743, 0, 0, 0, 0, 0, ],
+          }, 
+          {
+            label: 'Lowest',
+            backgroundColor: "#fb6a42",
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 689, 0, 0, 0, ],
+          }
+        ],
+      },
+      options: {
+        tooltips: {
+          displayColors: true,
+          callbacks:{
+            mode: 'x',
+          },
+        },
+        scales: {
+          xAxes: [{
+            stacked: true,
+            ticks: {
+              fontColor: "#000",
+            },
+            gridLines: {
+              display: false,
+            },
+          }],
+          yAxes: [{
+            stacked: true,
+            ticks: {
+              userCallback(tick) {
+                return '$ ' + tick.toString();
+              },
+              beginAtZero: false,
+              fontColor: "#000",
+              fontStyle: "bold",
+              fontSize: 14,
+              padding: 15,
+              stepSize: 500
+            },
+            type: 'linear',
+          }]
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: { 
+          display: false 
+        },
+      }
+    };
+
+    // Line Chart options:
+    
+    var statisticWeek = {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Visits',
+          backgroundColor: '#fff',
+          borderColor: '#fb6a42',
+          fill: false,
+          pointRadius: 7,
+          data: [
+            100,
+            200,
+            2000,
+            400,
+            1500,
+            1700,
+            900
+          ],
+        }, 
+        {
+          label: 'Conversion',
+          fill: false,
+          backgroundColor: '#fff',
+          borderColor: '#f9bd3a',
+          pointRadius: 7,
+          data: [
+            10,
+            200,
+            30,
+            440,
+            120,
+            60,
+            550
+          ],
+        },
+        {
+          label: 'Clicks',
+          fill: false,
+          backgroundColor: '#fff',
+          borderColor: '#31dbce',
+          pointRadius: 7,
+          data: [
+            1000,
+            20,
+            1200,
+            740,
+            1200,
+            1500,
+            2000
+          ],
+        }]
+      },
+      options: {
+        responsive: true,
+        legend: {
+          display: false,
+          position: 'top',
+          labels: {
+            boxWidth: 15,
+            padding: 10,
+            width: 20,
+            fontColor: "#000",
+            fontStyle: "bold",
+            fontSize: 14,
+          }
+        },
+        scales: {
+          xAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+            },
+            ticks: {
+              fontColor: "#000",
+              fontStyle: "bold",
+              fontSize: 14,
+            }
+          }],
+          yAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+            },
+            ticks: {
+              beginAtZero: false,
+              fontColor: "#000",
+              fontStyle: "bold",
+              fontSize: 14,
+              padding: 15,
+              stepSize: 500
+            },
+          }]
+        }
+      }
+    };
+
+    var statisticMonth = {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Visits',
+          backgroundColor: '#fff',
+          borderColor: '#fb6a42',
+          fill: false,
+          pointRadius: 7,
+          data: [
+            100,
+            200,
+            2000,
+            400,
+            1500,
+            1700,
+            900
+          ],
+        }, 
+        {
+          label: 'Conversion',
+          fill: false,
+          backgroundColor: '#fff',
+          borderColor: '#f9bd3a',
+          pointRadius: 7,
+          data: [
+            10,
+            200,
+            30,
+            440,
+            120,
+            60,
+            550
+          ],
+        },
+        {
+          label: 'Clicks',
+          fill: false,
+          backgroundColor: '#fff',
+          borderColor: '#31dbce',
+          pointRadius: 7,
+          data: [
+            1000,
+            20,
+            1200,
+            740,
+            1200,
+            1500,
+            2000
+          ],
+        }]
+      },
+      options: {
+        responsive: true,
+        legend: {
+          display: false,
+          position: 'top',
+          labels: {
+            boxWidth: 15,
+            padding: 10,
+            width: 20,
+            fontColor: "#000",
+            fontStyle: "bold",
+            fontSize: 14,
+          }
+        },
+        scales: {
+          xAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+            },
+            ticks: {
+              fontColor: "#000",
+              fontStyle: "bold",
+              fontSize: 14,
+            }
+          }],
+          yAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+            },
+            ticks: {
+              beginAtZero: false,
+              fontColor: "#000",
+              fontStyle: "bold",
+              fontSize: 14,
+              padding: 15,
+              stepSize: 500
+            },
+          }]
+        }
+      }
+    };
+
+    var statisticYear = {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Visits',
+          backgroundColor: '#fff',
+          borderColor: '#fb6a42',
+          fill: false,
+          pointRadius: 7,
+          data: [
+            200,
+            200,
+            900,
+            400,
+            1000,
+            1100,
+            900
+          ],
+        }, 
+        {
+          label: 'Conversion',
+          fill: false,
+          backgroundColor: '#fff',
+          borderColor: '#f9bd3a',
+          pointRadius: 7,
+          data: [
+            100,
+            200,
+            1000,
+            400,
+            1500,
+            1700,
+            900
+          ],
+        }]
+      },
+      options: {
+        responsive: true,
+        legend: {
+          display: false,
+          position: 'top',
+          labels: {
+            boxWidth: 15,
+            padding: 10,
+            width: 20,
+            fontColor: "#000",
+            fontStyle: "bold",
+            fontSize: 14,
+          }
+        },
+        scales: {
+          xAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+            },
+            ticks: {
+              fontColor: "#000",
+              fontStyle: "bold",
+              fontSize: 14,
+            }
+          }],
+          yAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+            },
+            ticks: {
+              beginAtZero: false,
+              fontColor: "#000",
+              fontStyle: "bold",
+              fontSize: 14,
+              padding: 15,
+              stepSize: 500
+            },
+          }]
+        }
+      }
+    };
+
+    // Radar Chart options:
+    var configRadar = {
+      data: {
+        datasets: [{
+          data: [
+            3000,
+            2800,
+            2500,
+          ],
+          backgroundColor: [
+            '#fb6a42',
+            '#f9bd3a',
+            '#31dbce',
+          ],
+        }],
+        labels: [
+          'SEO',
+          'Web Design',
+          'Refals',
+        ]
+      },
+      options: {
+        responsive: true,
+        legend: {
+          position: 'bottom',
+          labels: {
+            usePointStyle: false,
+            boxWidth: 15,
+            padding: 10,
+            width: 20,
+            fontColor: "#000",
+            fontStyle: "bold",
+            fontSize: 14,
+          }
+        },
+        scale: {
+          ticks: {
+            beginAtZero: true,
+            fontSize: 0
+          },
+          reverse: false
+        },
+        animation: {
+          animateRotate: false,
+          animateScale: true
+        }
+      }
+    };
+
+  </script>
+
   <script src="/js/app.js"></script>
+
+
+  <script>
+    // render Line Chart:
+    var ctxLine = document.getElementById('line-chart').getContext('2d');
+    window.myLine = new Chart(ctxLine, statisticWeek); // after select change, change config options
+  </script>
 
 </body>
 
