@@ -5580,6 +5580,10 @@ body.area-page {
     -ms-flex-pack: center;
     justify-content: center;
     cursor: pointer; }
+    .header-controls__link.comments {
+      padding: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none; }
     @media only screen and (max-width: 1249px) {
       .header-controls__link {
         margin: 0 10px; } }
