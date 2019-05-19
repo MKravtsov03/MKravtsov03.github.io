@@ -1174,12 +1174,6 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   @media only screen and (max-width: 1700px) {
     .wrapp {
       zoom: 0.8; } }
-  @media only screen and (max-width: 1500px) {
-    .wrapp {
-      zoom: 0.7; } }
-  @media only screen and (max-width: 1300px) {
-    .wrapp {
-      zoom: 0.6; } }
   @media only screen and (max-width: 1200px) {
     .wrapp {
       zoom: 1; } }
