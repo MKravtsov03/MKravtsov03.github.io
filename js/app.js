@@ -11314,7 +11314,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
   (0, _jquery2.default)('.scrollabel').mCustomScrollbar();
-  (0, _jquery2.default)('.menu-handler, .header-top .burger').on('click', function () {
+  (0, _jquery2.default)('.menu-handler, .header-top .burger, .menu-close').on('click', function () {
     (0, _jquery2.default)('.menu-line').toggleClass('active');
     (0, _jquery2.default)('.menu-wrapp').toggleClass('active');
     (0, _jquery2.default)('.header-top .burger').toggleClass('active');
@@ -11426,7 +11426,7 @@ initMarkapMenu();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ["dev", "about.html", "architecture.html", "complictation.html", "design-1.html", "design-2.html", "design.html", "index.html", "repair-1.html", "repair.html"];
+exports.default = ["dev", "about.html", "architecture.html", "article.html", "blog.html", "complictation.html", "design-1.html", "design-2.html", "design.html", "index.html", "portfolio.html", "repair-1.html", "repair.html"];
 
 /***/ }),
 /* 10 */
