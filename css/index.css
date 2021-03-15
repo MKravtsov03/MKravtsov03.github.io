@@ -2047,12 +2047,27 @@ yx-axis
     width: 100%;
     max-width: 1325px;
     padding: 0 15px;
-    color: #000; }
+    color: #000;
+    margin: 50px 0; }
+    @media only screen and (max-width: 992px) {
+      .error-page__inner {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        text-align: center; }
+        .error-page__inner > div {
+          width: 100%;
+          max-width: 100%; } }
   .error-page__thumb {
     max-width: 50%; }
   .error-page__caption {
     width: 50%;
     padding-left: 90px; }
+    @media only screen and (max-width: 992px) {
+      .error-page__caption {
+        padding: 40px 0; } }
   .error-page__title {
     font-size: 60px;
     font-weight: 800;
@@ -2063,6 +2078,59 @@ yx-axis
     text-transform: uppercase; }
     .error-page__subtitle span {
       font-weight: 800; }
+  .error-page__footer {
+    width: 100%;
+    max-width: 1325px;
+    padding: 0 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .error-page__footer .footer-nav {
+      -webkit-columns: 3;
+      -moz-columns: 3;
+      columns: 3;
+      width: 50%; }
+      .error-page__footer .footer-nav li::before {
+        background: rgba(224, 93, 104, 0.35); }
+      .error-page__footer .footer-nav li a {
+        color: #151515;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center; }
+      @media only screen and (max-width: 992px) {
+        .error-page__footer .footer-nav {
+          -webkit-columns: 2;
+          -moz-columns: 2;
+          columns: 2;
+          width: 100%; } }
+    @media only screen and (max-width: 992px) {
+      .error-page__footer {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        text-align: center; }
+        .error-page__footer > div {
+          width: 100%;
+          max-width: 100%; } }
+  .error-page__desc {
+    font-size: 32px;
+    text-transform: uppercase;
+    color: #000;
+    margin-right: 40px; }
+    .error-page__desc span {
+      color: #E05D68;
+      display: block; }
+    @media only screen and (max-width: 1600px) {
+      .error-page__desc {
+        font-size: 24px; } }
+    @media only screen and (max-width: 992px) {
+      .error-page__desc {
+        margin: 0 0 40px; } }
 
 .about-page {
   position: relative; }
