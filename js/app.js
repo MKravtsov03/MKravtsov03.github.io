@@ -11426,7 +11426,7 @@ initMarkapMenu();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ["dev", "404.html", "about.html", "architecture.html", "article.html", "blog.html", "complictation.html", "contacts.html", "design-1.html", "design-2.html", "design.html", "index.html", "portfolio.html", "repair-1.html", "repair.html"];
+exports.default = ["dev", "404.html", "about.html", "architecture.html", "article.html", "blog.html", "complictation.html", "contacts.html", "design-1.html", "design-2.html", "design-case.html", "design.html", "index.html", "portfolio.html", "repair-1.html", "repair.html"];
 
 /***/ }),
 /* 10 */
@@ -13969,6 +13969,28 @@ exports.default = function () {
   });
   $('.project-nav-arrow.next').on('click', function () {
     $('.project-slider').slick('slickNext');
+  });
+  $('.press-slider').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    dots: true,
+    responsive: [{
+      breakpoint: 1400,
+      settings: {
+        slidesToShow: 3
+      }
+    }, {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 2
+      }
+    }, {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 1,
+        arrows: false
+      }
+    }]
   });
 };
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
