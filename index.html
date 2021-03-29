@@ -17,6 +17,73 @@
   <body>
     <div class="wrapper">
       <header class="header">
+    <form class="modal">
+        <div class="modal-inner">
+            <div class="modal-close">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.462895 1.49508C0.128161 1.15311 0.128162 0.598663 0.462896 0.256692C0.79763 -0.0852798 1.34034 -0.0852796 1.67507 0.256692L9.74895 8.50513C10.0837 8.84711 10.0837 9.40155 9.74895 9.74352C9.41421 10.0855 8.8715 10.0855 8.53677 9.74352L0.462895 1.49508Z" fill="#4C5458"/>
+                    <path d="M1.46323 9.74331C1.1285 10.0853 0.585785 10.0853 0.251051 9.74331C-0.0836836 9.40134 -0.0836835 8.84689 0.251051 8.50492L8.32492 0.256478C8.65966 -0.085493 9.20237 -0.0854927 9.5371 0.256479C9.87184 0.59845 9.87184 1.1529 9.5371 1.49487L1.46323 9.74331Z" fill="#4C5458"/>
+                </svg>
+            </div>
+            <div class="styled-title">
+                <div class="styled-title__text">
+                    Оставить заявку
+                </div>
+                <div class="styled-title__corner">
+                    <div class="corner"></div>
+                </div>
+            </div>
+            <div class="form-radio-group">
+                <div class="form-radio-group__label">
+                    <span>УСЛУГА</span>
+                </div>
+                <div class="form-radio-group__row">
+                    <label class="form-radio">
+                        <input type="radio" value="1" name="service">
+                        <div class="form-radio__label">
+                            Архитектура
+                        </div>
+                    </label>
+                    <label class="form-radio">
+                        <input type="radio" value="2" name="service">
+                        <div class="form-radio__label">
+                            Архитектура
+                        </div>
+                    </label>
+                    <label class="form-radio">
+                        <input type="radio" value="3" name="service">
+                        <div class="form-radio__label">
+                            Дизайн
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Имя" class="form-field">
+            </div>
+            <div class="form-group">
+                <input type="tel" placeholder="Телефон" class="form-field">
+            </div>
+            <div class="form-group">
+                <textarea class="form-area" placeholder="Доп. комментарий"></textarea>
+            </div>
+            <button class="btn btn--lined">
+                <div class="btn__inner">
+                    Отправить
+                </div>
+                <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0)">
+                        <path d="M24.1879 18.4094L28.3984 14.1988L24.1879 9.98828L22.9229 11.2533L24.9738 13.3043L3.05176e-05 13.3043V15.0934L24.9738 15.0934L22.9229 17.1443L24.1879 18.4094Z" fill="white"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0">
+                            <rect width="28.3984" height="28.3984" fill="white" transform="translate(28.3984) rotate(90)"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </button>
+        </div>
+    </form>
     <div class="menu-line">
         <div class="menu-handler">
             <div class="burger"><span></span></div>
@@ -215,7 +282,7 @@
         <div class="main-heading__inner">
           <div class="main-heading__container">
           <a href="" class="main-heading-link btn">
-            <div class="btn__inner">
+            <div class="btn__inner set-modal">
               Доверить нам проект
             </div>
             <svg width="34" height="12" viewBox="0 0 34 12" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -11319,6 +11319,18 @@ document.addEventListener("DOMContentLoaded", function () {
     (0, _jquery2.default)('.menu-wrapp').toggleClass('active');
     (0, _jquery2.default)('.header-top .burger').toggleClass('active');
   });
+  (0, _jquery2.default)('.set-modal').on('click', function (e) {
+    e.preventDefault();
+    (0, _jquery2.default)('.modal').addClass('active');
+  });
+  (0, _jquery2.default)('.modal').on('click', function (e) {
+    if (!(0, _jquery2.default)(e.target).closest(".modal-inner").length) {
+      (0, _jquery2.default)('.modal').removeClass('active');
+    }
+  });
+  (0, _jquery2.default)('.modal-close').on('click', function () {
+    (0, _jquery2.default)('.modal').removeClass('active');
+  });
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
