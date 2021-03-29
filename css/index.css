@@ -2023,6 +2023,7 @@ yx-axis
     position: relative;
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
+    overflow-y: auto;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out; }
     @media only screen and (max-width: 767px) {
