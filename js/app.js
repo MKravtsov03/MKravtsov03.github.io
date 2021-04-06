@@ -14012,6 +14012,21 @@ exports.default = function () {
       }
     }]
   });
+  (0, _jquery2.default)('.products-slider').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [{
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 2
+      }
+    }, {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1
+      }
+    }]
+  });
   if ((0, _jquery2.default)(window).width() < 1201) {
     (0, _jquery2.default)('.plans-list').slick({
       slidesToShow: 2,
