@@ -13920,7 +13920,7 @@ module.exports = __webpack_amd_options__;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function($) {
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -13928,8 +13928,16 @@ Object.defineProperty(exports, "__esModule", {
 
 __webpack_require__(13);
 
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
 exports.default = function () {
-  $('.portfolio-slider').slick({
+  (0, _jquery2.default)('.portfolio-slider').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [{
@@ -13939,7 +13947,7 @@ exports.default = function () {
       }
     }]
   });
-  $('.testimonials-slider').slick({
+  (0, _jquery2.default)('.testimonials-slider').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     centerMode: true,
@@ -13948,22 +13956,22 @@ exports.default = function () {
     variableWidth: true,
     focusOnSelect: true
   });
-  $('.team-nav').slick({
+  (0, _jquery2.default)('.team-nav').slick({
     slidesToShow: 4,
     slidesToScroll: 1,
     focusOnSelect: true,
     vertical: true,
-    asNavFor: $('.team-slider')
+    asNavFor: (0, _jquery2.default)('.team-slider')
   });
-  $('.team-slider').slick({
+  (0, _jquery2.default)('.team-slider').slick({
     fade: true,
-    asNavFor: $('.team-nav')
+    asNavFor: (0, _jquery2.default)('.team-nav')
   });
-  $('.project-slider').slick({
+  (0, _jquery2.default)('.project-slider').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
     dots: true,
-    appendDots: $('.project-nav-dots'),
+    appendDots: (0, _jquery2.default)('.project-nav-dots'),
     responsive: [{
       breakpoint: 1100,
       settings: {
@@ -13976,13 +13984,13 @@ exports.default = function () {
       }
     }]
   });
-  $('.project-nav-arrow.prev').on('click', function () {
-    $('.project-slider').slick('slickPrev');
+  (0, _jquery2.default)('.project-nav-arrow.prev').on('click', function () {
+    (0, _jquery2.default)('.project-slider').slick('slickPrev');
   });
-  $('.project-nav-arrow.next').on('click', function () {
-    $('.project-slider').slick('slickNext');
+  (0, _jquery2.default)('.project-nav-arrow.next').on('click', function () {
+    (0, _jquery2.default)('.project-slider').slick('slickNext');
   });
-  $('.press-slider').slick({
+  (0, _jquery2.default)('.press-slider').slick({
     slidesToShow: 4,
     slidesToScroll: 1,
     dots: true,
@@ -14004,8 +14012,21 @@ exports.default = function () {
       }
     }]
   });
+  if ((0, _jquery2.default)(window).width() < 1201) {
+    (0, _jquery2.default)('.plans-list').slick({
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      variableWidth: true,
+      responsive: [{
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          variableWidth: false
+        }
+      }]
+    });
+  }
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 13 */
