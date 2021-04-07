@@ -11438,7 +11438,7 @@ initMarkapMenu();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ["dev", "404.html", "about.html", "architecture.html", "article.html", "blog.html", "complictation.html", "contacts.html", "design-1.html", "design-2.html", "design-case.html", "design.html", "index.html", "portfolio.html", "repair-1.html", "repair.html"];
+exports.default = ["dev", "404.html", "about.html", "architecture.html", "article.html", "blog.html", "coming-soon.html", "complictation.html", "contacts.html", "design-1.html", "design-2.html", "design-case-2.html", "design-case.html", "design.html", "index.html", "portfolio.html", "repair-1.html", "repair.html"];
 
 /***/ }),
 /* 10 */
