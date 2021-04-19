@@ -3297,12 +3297,13 @@ yx-axis
   padding: 130px 0 300px;
   background-position: right center;
   background-repeat: no-repeat; }
+  .example-holder {
+    max-width: 1600px;
+    margin: 0 auto; }
   .example-inner {
-    max-width: 630px; }
-    @media only screen and (max-width: 1600px) {
-      .example-inner {
-        padding: 30px;
-        background: rgba(255, 255, 255, 0.3); } }
+    max-width: 630px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.3); }
     @media only screen and (max-width: 767px) {
       .example-inner {
         padding: 30px 15px; } }
@@ -4916,7 +4917,8 @@ yx-axis
         -ms-flex-pack: center;
         justify-content: center; } }
   .footer-item {
-    min-width: calc(33.33333% - 70px); }
+    min-width: calc(33.33333% - 70px);
+    color: #fff; }
     .footer-item__title {
       position: relative;
       font-size: 22px;
