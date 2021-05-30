@@ -11313,7 +11313,7 @@ document.addEventListener("DOMContentLoaded", function () {
       (0, _jquery2.default)(this).find('.team-item__thumb').after(title);
     });
   };
-  (0, _jquery2.default)('.scrollabel').mCustomScrollbar();
+  (0, _jquery2.default)('.scrollabel, .seo-text-inner').mCustomScrollbar();
   (0, _jquery2.default)('.menu-handler, .header-top .burger, .menu-close').on('click', function () {
     (0, _jquery2.default)('.menu-line').toggleClass('active');
     (0, _jquery2.default)('.menu-wrapp').toggleClass('active');
@@ -11330,6 +11330,56 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   (0, _jquery2.default)('.modal-close').on('click', function () {
     (0, _jquery2.default)('.modal').removeClass('active');
+  });
+  (0, _jquery2.default)(window).scroll(function () {
+    if ((0, _jquery2.default)('#infographic')) {
+      var cPos = (0, _jquery2.default)('.infographic').offset().top;
+      var nextPos = (0, _jquery2.default)('.infographic').next().offset().top;
+      var topWindow = (0, _jquery2.default)(window).scrollTop();
+      if (cPos < topWindow + 200 && nextPos > topWindow) {
+        (0, _jquery2.default)('.infographic-item').each(function (index) {
+          if (index === 1) {
+            (0, _jquery2.default)(this).css({
+              'transition': 'all .1s linear',
+              'transform': 'translateY(' + (topWindow - cPos) / 4 + 'px)'
+            });
+          } else if (index === 2) {
+            (0, _jquery2.default)(this).css({
+              'transition': 'all .2s linear',
+              'transform': 'translateY(' + (topWindow - cPos) / 5 + 'px)'
+            });
+          } else {
+            (0, _jquery2.default)(this).css({
+              'transition': 'all .1.5s linear',
+              'transform': 'translateY(' + (topWindow - cPos) / 5 + 'px)'
+            });
+          }
+        });
+      }
+      if (cPos < topWindow + 200 && !(0, _jquery2.default)('.infographic').hasClass('counted')) {
+        var i = 1;
+        var cc = 1;
+        var time = 6;
+        (0, _jquery2.default)('.infographic').addClass('counted');
+        if (cc < 2) {
+          (0, _jquery2.default)(".infographic-item__count").addClass("viz");
+          (0, _jquery2.default)('.infographic-item__count').each(function () {
+            var num = (0, _jquery2.default)(this).data('count');
+            var step = 1000 * time / num;
+            var that = (0, _jquery2.default)(this);
+            var int = setInterval(function () {
+              if (i <= num) {
+                that.html(i);
+              } else {
+                cc += 2;
+                clearInterval(int);
+              }
+              i++;
+            }, step);
+          });
+        }
+      }
+    }
   });
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
@@ -11438,7 +11488,7 @@ initMarkapMenu();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ["dev", "404.html", "about.html", "architecture.html", "article.html", "blog.html", "coming-soon.html", "complictation.html", "contacts.html", "design-1.html", "design-2.html", "design-case-2.html", "design-case.html", "design.html", "identic.html", "index.html", "portfolio.html", "repair-1.html", "repair.html", "thanks.html"];
+exports.default = ["dev", "404.html", "about.html", "architecture.html", "article.html", "blog.html", "coming-soon.html", "complictation.html", "contacts.html", "design-1.html", "design-2.html", "design-case-2.html", "design-case.html", "design.html", "furniture.html", "identic.html", "index.html", "portfolio.html", "repair-1.html", "repair.html", "thanks.html"];
 
 /***/ }),
 /* 10 */
@@ -14045,6 +14095,26 @@ exports.default = function () {
     slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [{
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 2
+      }
+    }, {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1
+      }
+    }]
+  });
+  (0, _jquery2.default)('.furniture-materials-slider').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [{
+      breakpoint: 1300,
+      settings: {
+        slidesToShow: 3
+      }
+    }, {
       breakpoint: 1200,
       settings: {
         slidesToShow: 2
