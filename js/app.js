@@ -11170,9 +11170,9 @@ function initMarkapMenu() {
   button.addEventListener("click", toggleNav);
 };
 
-if (window.location.hostname === "localhost") {
-  initMarkapMenu();
-}
+// if (window.location.hostname === "localhost") {
+//   initMarkapMenu();
+// }
 
 /***/ }),
 /* 8 */
