@@ -11171,7 +11171,7 @@ function initMarkapMenu() {
 };
 
 // if (window.location.hostname === "localhost") {
-//   initMarkapMenu();
+  initMarkapMenu();
 // }
 
 /***/ }),
