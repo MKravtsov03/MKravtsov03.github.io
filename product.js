@@ -571,7 +571,7 @@ getCouponTemplate = () => function (values) {
                 Some description text here
             </div>
             <div class="coupon-value"> 
-                ${values.coupon}
+                ${(values.coupon || 'XXXXXXXXXXXX').match(/.{1,4}/g).join('-')}
             </div>
         </div>
     `
@@ -682,7 +682,7 @@ unlayer.registerTool({
             options: {
                 coupon: {
                     label: 'Coupon',
-                    defaultValue: '1',
+                    defaultValue: '',
                     widget: 'dropdown',
                 },
             },
