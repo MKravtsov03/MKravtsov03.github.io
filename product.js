@@ -426,21 +426,43 @@ const CouponStyles = () =>
                 text-align: center;
                 padding: 15px;
             }
+            
             .coupon-title {
                 font-size: 24px;
                 font-weight: 600;
             }
+            
             .coupon-description {
                 line-height: 16px;
                 font-size: 14px;
                 margin-bottom: 20px;
             }
+            
             .coupon-value {
                 font-family: 'Rubik', sans-serif;
                 font-size: 22px;
                 font-weight: 600;
                 color: #0B68FF;
                 margin-bottom: 20px;
+            }
+            
+            .button {
+              font-weight: 400;
+              color: #ffffff;
+              text-align: center;
+              vertical-align: middle;
+              background-color: #000;
+              border: 1px solid #0c54c9;
+              border-radius: 8px;
+              padding: .75rem;
+              font-size: 1rem;
+              line-height: 1.5;
+              transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+              cursor: pointer;
+            }
+            
+            .no-underline {
+              text-decoration: none;
             }
         `
     }
