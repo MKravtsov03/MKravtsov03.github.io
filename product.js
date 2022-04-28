@@ -583,7 +583,7 @@ const couponToolTemplate = getCouponTemplate();
 unlayer.registerTool({
     name: 'product_tool',
     label: 'Product',
-    icon: 'fa-box',
+    icon: 'https://mkravtsov03.github.io/product-icon.svg',
     supportedDisplayModes: ['web', 'email'],
     options: {
         productContent: {
@@ -673,7 +673,7 @@ unlayer.registerTool({
 unlayer.registerTool({
     name: 'coupon_tool',
     label: 'Coupon',
-    icon: 'fa-box',
+    icon: 'fa-tag',
     supportedDisplayModes: ['web', 'email'],
     options: {
         coupon: {
