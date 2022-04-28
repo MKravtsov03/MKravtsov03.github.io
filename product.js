@@ -419,6 +419,31 @@ const ProductStyles = () =>
 `;
     };
 
+const CouponStyles = () =>
+    function (values) {
+        return `
+            .coupon-wrapper {
+                text-align: center;
+                padding: 15px;
+            }
+            .coupon-title {
+                font-size: 24px;
+                font-weight: 600;
+            }
+            .coupon-description {
+                line-height: 16px;
+                font-size: 14px;
+                margin-bottom: 30px;
+            }
+            .coupon-value {
+                font-family: 'Rubik', sans-serif;
+                font-size: 22px;
+                font-weight: 600;
+                color: #0B68FF;
+            }
+        `
+    }
+
 const getProductTemplate = () =>
     function (values) {
         const products = values?.productContent?.products.length
@@ -703,7 +728,7 @@ unlayer.registerTool({
             },
         },
         head: {
-            css: ProductStyles(),
+            css: CouponStyles(),
             js: function (values) {},
         },
     },
