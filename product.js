@@ -491,7 +491,7 @@ const getProductTemplate = () =>
         `
     }
 
-const toolTemplate = getProductTemplate()
+const productToolTemplate = getProductTemplate()
 
 const detailsLabelsMap = {
     button: 'Button',
@@ -557,6 +557,28 @@ const layoutsList = (layouts) => {
     </div>
 `
 }
+
+
+getCouponTemplate = () => function (values) {
+    console.log(values)
+    return (
+    `
+        <div class="coupon-wrapper">
+            <div class="coupon-title">
+                Use coupon for Discount
+            </div>
+            <div class="coupon-description">
+                Some description text here
+            </div>
+            <div class="coupon-value"> 
+                ${values.coupon}
+            </div>
+        </div>
+    `
+    )
+}
+
+const couponToolTemplate = getCouponTemplate();
 
 unlayer.registerTool({
     name: 'product_tool',
@@ -630,15 +652,54 @@ unlayer.registerTool({
     renderer: {
         Viewer: unlayer.createViewer({
             render(values) {
-                return toolTemplate(values);
+                return productToolTemplate(values);
             },
         }),
         exporters: {
             web: function (values) {
-                return toolTemplate(values);
+                return productToolTemplate(values);
             },
             email: function (values) {
-                return toolTemplate(values);
+                return productToolTemplate(values);
+            },
+        },
+        head: {
+            css: ProductStyles(),
+            js: function (values) {},
+        },
+    },
+})
+
+unlayer.registerTool({
+    name: 'coupon_tool',
+    label: 'Coupon',
+    icon: 'fa-box',
+    supportedDisplayModes: ['web', 'email'],
+    options: {
+        coupon: {
+            title: 'Coupon',
+            position: 1,
+            options: {
+                coupon: {
+                    label: 'Coupon',
+                    defaultValue: '1',
+                    widget: 'dropdown',
+                },
+            },
+        },
+    },
+    renderer: {
+        Viewer: unlayer.createViewer({
+            render(values) {
+                return couponToolTemplate(values);
+            },
+        }),
+        exporters: {
+            web: function (values) {
+                return couponToolTemplate(values);
+            },
+            email: function (values) {
+                return couponToolTemplate(values);
             },
         },
         head: {
