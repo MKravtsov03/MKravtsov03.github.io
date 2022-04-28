@@ -433,13 +433,14 @@ const CouponStyles = () =>
             .coupon-description {
                 line-height: 16px;
                 font-size: 14px;
-                margin-bottom: 30px;
+                margin-bottom: 20px;
             }
             .coupon-value {
                 font-family: 'Rubik', sans-serif;
                 font-size: 22px;
                 font-weight: 600;
                 color: #0B68FF;
+                margin-bottom: 20px;
             }
         `
     }
@@ -598,6 +599,7 @@ getCouponTemplate = () => function (values) {
             <div class="coupon-value"> 
                 ${(values.coupon || 'XXXXXXXXXXXX').match(/.{1,4}/g).join('-')}
             </div>
+             <a class="button no-underline" href="" target="_blank">${values.couponBtn}</a>
         </div>
     `
     )
@@ -709,6 +711,11 @@ unlayer.registerTool({
                     label: 'Coupon',
                     defaultValue: '',
                     widget: 'dropdown',
+                },
+                couponBtn: {
+                    label: 'Button Content',
+                    defaultValue: 'Buy it Now',
+                    widget: 'text',
                 },
             },
         },
