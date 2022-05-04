@@ -664,6 +664,11 @@ unlayer.registerTool({
                   defaultValue: 'Buy it Now',
                   widget: 'text',
                 },
+                btnBorder: {
+                  label: 'Button border',
+                  defaultValue: '',
+                  widget: 'border',
+                },
             },
         },
     },
