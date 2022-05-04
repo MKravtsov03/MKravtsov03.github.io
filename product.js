@@ -475,7 +475,7 @@ const getProductTemplate = () =>
             :
             [values?.data?.products[0]?.id];
         const { layout } = values?.productContent
-
+        console.log(values)
         const productTitleRenderer = (product) => `
             <div class="product-title">${product?.productTitle || 'Product Title'}</div> 
         `;
