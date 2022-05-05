@@ -11067,6 +11067,10 @@ var _select = __webpack_require__(13);
 
 var _select2 = _interopRequireDefault(_select);
 
+var _tabs = __webpack_require__(14);
+
+var _tabs2 = _interopRequireDefault(_tabs);
+
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -11076,7 +11080,7 @@ global.jQuery = _jquery2.default;
 document.addEventListener('DOMContentLoaded', function () {
   (0, _main2.default)();
   (0, _sliders2.default)();
-
+  var tabs = new _tabs2.default();
   global.customPopups = new _popups2.default();
   global.customSelect = new _select2.default();
 });
@@ -11171,7 +11175,7 @@ function initMarkapMenu() {
 };
 
 // if (window.location.hostname === "localhost") {
-  initMarkapMenu();
+initMarkapMenu();
 // }
 
 /***/ }),
@@ -11184,7 +11188,7 @@ function initMarkapMenu() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ["dev", "404.html", "account-change-password.html", "account-edit-profile.html", "account-main.html", "account-not-subscribed.html", "account-privacy.html", "account-public-profile.html", "account-subscribed.html", "account-welcome.html", "author.html", "bottle.html", "change-password.html", "choose-nickname.html", "contact-main.html", "contact-submit-mezcal-brand.html", "email-confirmation.html", "forgot-password.html", "index.html", "login.html", "password-changed.html", "post-individual.html", "recover-email-sent-box.html", "register.html"];
+exports.default = ["dev", "404.html", "account-change-password.html", "account-edit-profile.html", "account-main.html", "account-not-subscribed.html", "account-privacy.html", "account-public-profile.html", "account-subscribed.html", "account-welcome.html", "author.html", "bottle-review-empty.html", "bottle-review-form.html", "bottle.html", "bottles.html", "brand-page.html", "brands.html", "change-password.html", "choose-nickname.html", "contact-main.html", "contact-submit-mezcal-brand.html", "email-confirmation.html", "forgot-password.html", "index.html", "login.html", "password-changed.html", "post-individual.html", "post-recipe.html", "recover-email-sent-box.html", "register.html"];
 
 /***/ }),
 /* 9 */
@@ -11219,7 +11223,38 @@ exports.default = function () {
       (0, _jquery2.default)(this).toggleClass('active');
       (0, _jquery2.default)(this).siblings('.footer-accardion__content').slideToggle();
     });
+    (0, _jquery2.default)('.rating-filter__title').on('click', function toogleAccardion() {
+      (0, _jquery2.default)(this).toggleClass('active');
+      (0, _jquery2.default)('.rating-filter__list').slideToggle();
+    });
   }
+  (0, _jquery2.default)(window).on('load resize', function () {
+    if (window.innerWidth < 768) {
+      (0, _jquery2.default)('.bottle-heading').prepend((0, _jquery2.default)('.bottle-heading__top'));
+      (0, _jquery2.default)('.review').each(function () {
+        (0, _jquery2.default)(this).find('.review__meta-inner').append((0, _jquery2.default)(this).find('.review__info .review-rating'));
+      });
+
+      (0, _jquery2.default)('.brands-list-item').each(function () {
+        (0, _jquery2.default)(this).find('.brands-list-item__right').append((0, _jquery2.default)(this).find('.brands-list-item__title'));
+        (0, _jquery2.default)(this).find('.brands-list-item__right').append((0, _jquery2.default)(this).find('.brands-list-item__region'));
+        (0, _jquery2.default)(this).find('.brands-list-item__right').append((0, _jquery2.default)(this).find('.brands-list-item__variations'));
+        (0, _jquery2.default)(this).find('.brands-list-item__right').append((0, _jquery2.default)(this).find('.brands-list-item__rating'));
+      });
+    } else {
+      (0, _jquery2.default)('.review').each(function () {
+        (0, _jquery2.default)(this).find('.review__info').append((0, _jquery2.default)(this).find('.review__meta-inner .review-rating'));
+      });
+      (0, _jquery2.default)('.bottle-heading__inner').prepend((0, _jquery2.default)('.bottle-heading__top'));
+
+      (0, _jquery2.default)('.brands-list-item').each(function () {
+        (0, _jquery2.default)(this).find('.brand-cell').append((0, _jquery2.default)(this).find('.brands-list-item__title'));
+        (0, _jquery2.default)(this).find('.region-cell').append((0, _jquery2.default)(this).find('.brands-list-item__region'));
+        (0, _jquery2.default)(this).find('.variations-cell').append((0, _jquery2.default)(this).find('.brands-list-item__variations'));
+        (0, _jquery2.default)(this).find('.rating-cell').append((0, _jquery2.default)(this).find('.brands-list-item__rating'));
+      });
+    }
+  });
 
   (0, _jquery2.default)('#image').change(function uploadImages() {
     (0, _jquery2.default)("#frames").html('');
@@ -11245,8 +11280,13 @@ exports.default = function () {
   (0, _jquery2.default)('.main-textarea').each(function eachTextarea() {
     var dafaultLength = (0, _jquery2.default)(this).val().length;
     (0, _jquery2.default)(this).siblings('.form-label').find('small').find('span').html(dafaultLength);
-    (0, _jquery2.default)(this).on('load keyup', function handleChange() {
+    (0, _jquery2.default)(this).on('load input', function handleChange() {
       var msgLength = (0, _jquery2.default)(this).val().length;
+      if (msgLength >= 800) {
+        var msg = (0, _jquery2.default)(this).val();
+        (0, _jquery2.default)(this).val(msg.slice(0, 799));
+        msgLength = msg.length;
+      }
       (0, _jquery2.default)(this).siblings('.form-label').find('small').find('span').html(msgLength);
     });
   });
@@ -11274,6 +11314,61 @@ exports.default = function () {
       (0, _jquery2.default)(this).find('.public-profile__product-left').append(head);
     });
   }
+
+  if (window.innerWidth < 1024) {
+    var insta = (0, _jquery2.default)('.side-instagram');
+
+    (0, _jquery2.default)('.more-stories').after(insta);
+    (0, _jquery2.default)('.article--recipe').find('.article-comment').after(insta);
+  }
+
+  var clicked = false;
+  (0, _jquery2.default)('.mark__rate .rate__item').click(function clickRate() {
+    var index = (0, _jquery2.default)(this).index() + 1;
+    (0, _jquery2.default)(this).parent().attr('data-rate', index);
+    (0, _jquery2.default)(this).parents('.mark__rate').siblings('.rate-input').val(index);
+  });
+
+  (0, _jquery2.default)('.mark__rate .rate__item').click(function () {
+    clicked = true;
+  });
+
+  (0, _jquery2.default)('a.to-link').on('click', function ancordsLinks(e) {
+    var id = (0, _jquery2.default)(this).attr('href');
+    e.preventDefault();
+    var top = (0, _jquery2.default)(id).offset().top - 100;
+    (0, _jquery2.default)('body,html').animate({ scrollTop: top }, 1000);
+  });
+
+  (0, _jquery2.default)('.filter-item__title').on('click', function toogleAccardion() {
+    (0, _jquery2.default)(this).toggleClass('closed');
+    (0, _jquery2.default)(this).siblings('.filter-item__list').slideToggle();
+  });
+
+  (0, _jquery2.default)('.filters-trigger').on('click', function () {
+    (0, _jquery2.default)('.bottles-filters').addClass('active');
+    (0, _jquery2.default)('.bottles-overlay').addClass('active');
+  });
+
+  (0, _jquery2.default)('.bottle-filters__close, .bottles-overlay').on('click', function () {
+    (0, _jquery2.default)('.bottles-filters').removeClass('active');
+    (0, _jquery2.default)('.bottles-overlay').removeClass('active');
+  });
+
+  (0, _jquery2.default)('.search__button').on('click', function openSearch() {
+    (0, _jquery2.default)(this).parents('.search').addClass('active');
+    (0, _jquery2.default)(this).parents('.search').find('.search__input').focus();
+  });
+  (0, _jquery2.default)('.search__close').on('click', function openSearch() {
+    (0, _jquery2.default)(this).parents('.search').removeClass('active');
+  });
+
+  (0, _jquery2.default)(document).on('click', '.anchor', function anchorScroll(event) {
+    event.preventDefault();
+    (0, _jquery2.default)('html, body').animate({
+      scrollTop: (0, _jquery2.default)(_jquery2.default.attr(this, 'href')).offset().top - 110
+    }, 500);
+  });
 };
 
 /***/ }),
@@ -11362,6 +11457,44 @@ exports.default = function () {
     variableWidth: true,
     prevArrow: (0, _jquery2.default)('.profile-welcome__review-navigation > .prev-arrow').html('<svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 1L2 5L6 9" stroke="#5A5E62" stroke-width="1.5"/></svg>'),
     nextArrow: (0, _jquery2.default)('.profile-welcome__review-navigation > .next-arrow').html('<svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L1 9" stroke="#5A5E62" stroke-width="1.5"/></svg>')
+  });
+  (0, _jquery2.default)('.alternatives-slider').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    accessibility: false,
+    infinite: true,
+    arrows: true,
+    dots: false,
+    rows: 0,
+    prevArrow: (0, _jquery2.default)('.alternatives__nav > .prev-arrow').html('<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">\n<path d="M14 5H2M2 5L6 1M2 5L6 9" stroke="#5A5E62" stroke-width="1.5"/>\n</svg>\n'),
+    nextArrow: (0, _jquery2.default)('.alternatives__nav > .next-arrow').html('<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">\n<path d="M0 5H12M12 5L8 1M12 5L8 9" stroke="#5A5E62" stroke-width="1.5"/>\n</svg>\n')
+  });
+
+  (0, _jquery2.default)('.more-stories__list').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    accessibility: false,
+    infinite: true,
+    arrows: false,
+    dots: false,
+    rows: 0,
+    responsive: [{
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 3
+      }
+    }, {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2
+      }
+    }, {
+      breakpoint: 580,
+      settings: {
+        slidesToShow: 2,
+        variableWidth: true
+      }
+    }]
   });
 };
 
@@ -14920,6 +15053,155 @@ var Select = function () {
 }();
 
 exports.default = Select;
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+var _createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+  };
+}();
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+var Tabs = function () {
+  function Tabs(options) {
+    _classCallCheck(this, Tabs);
+
+    var defaultOption = {
+      selector: ".tabs-list",
+      activeClass: "active",
+      checkHash: true,
+      tabLinks: "a",
+      attribute: "href",
+      event: "click",
+      onChange: null
+    };
+    this.options = _extends({}, defaultOption, options);
+
+    return this.init(this.options);
+  }
+
+  _createClass(Tabs, [{
+    key: "init",
+    value: function init(options) {
+      var _this = this;
+
+      var tabs = document.querySelectorAll(options.selector);
+      tabs.forEach(function (element) {
+        _this.setInitialState(element);
+      });
+    }
+  }, {
+    key: "update",
+    value: function update(selector) {
+      var _this2 = this;
+
+      var tabs = document.querySelectorAll(selector || this.options.selector);
+      tabs.forEach(function (element) {
+        _this2.setInitialState(element);
+      });
+    }
+  }, {
+    key: "setInitialState",
+    value: function setInitialState(element) {
+      var _this3 = this;
+
+      var links = element.querySelectorAll(this.options.tabLinks);
+      this.addEvents(links);
+      var historyLink = null;
+      if (this.options.checkHash && window.location.hash) {
+        historyLink = element.querySelector("[" + this.options.attribute + "=\"" + window.location.hash + "\"]");
+      }
+      if (historyLink) {
+        this.setActiveTab(historyLink);
+      } else {
+        links.forEach(function (link, index) {
+          if (index === 0) {
+            _this3.setActiveTab(link);
+          }
+        });
+      }
+    }
+  }, {
+    key: "addEvents",
+    value: function addEvents(links) {
+      var _this4 = this;
+
+      links.forEach(function (link) {
+        link.addEventListener(_this4.options.event, function (event) {
+          event.preventDefault();
+          if (!event.currentTarget.classList.contains(_this4.options.activeClass)) {
+            _this4.setActiveTab(link);
+          }
+        });
+      });
+    }
+  }, {
+    key: "setActiveTab",
+    value: function setActiveTab(activeTab) {
+      activeTab.classList.add(this.options.activeClass);
+      var activeTabID = activeTab.getAttribute(this.options.attribute);
+      if (activeTabID === "#") return;
+      var activeTabBlock = document.querySelector(activeTabID);
+      if (activeTabBlock) {
+        activeTabBlock.classList.add("active");
+      }
+      this.removeTabs(activeTab);
+      if (typeof this.options.onChange === "function") {
+        this.options.onChange();
+      }
+    }
+  }, {
+    key: "removeTabs",
+    value: function removeTabs(activeTab) {
+      var _this5 = this;
+
+      var tabNav = activeTab.closest(this.options.selector);
+      tabNav.querySelectorAll(this.options.tabLinks).forEach(function (element) {
+        if (element !== activeTab) {
+          element.classList.remove("active");
+          var tabID = element.getAttribute(_this5.options.attribute);
+          var tabBlock = document.querySelector(tabID);
+          if (tabBlock) {
+            tabBlock.classList.remove("active");
+          }
+        }
+      });
+    }
+  }]);
+
+  return Tabs;
+}();
+
+exports.default = Tabs;
 
 /***/ })
 /******/ ]);
