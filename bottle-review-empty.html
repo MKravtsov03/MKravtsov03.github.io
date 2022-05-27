@@ -74,8 +74,79 @@
           <li>
             <a href="#">Mezcal Bottles</a>
           </li>
-          <li>
+          <li class="with-child">
             <a href="#">Learning Center</a>
+            <div class="submenu">
+              <div class="submenu__inner">
+                <ul class="submenu__list">
+                  <li>
+                    <a class="submenu-item" href="">
+                      <div class="submenu-item__img">
+                        <img src="data/menu-item-1.png" width="114" height="114"  alt="">
+                      </div>
+                      <div class="submenu-item__title">
+                        What is
+                        Mezcal?
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="submenu-item" href="">
+                      <div class="submenu-item__img">
+                        <img src="data/menu-item-2.png" width="114" height="114"  alt="">
+                      </div>
+                      <div class="submenu-item__title">
+                        Mezcal vs
+                        Tequila
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="submenu-item" href="">
+                      <div class="submenu-item__img">
+                        <img src="data/menu-item-3.png" width="114" height="114"  alt="">
+                      </div>
+                      <div class="submenu-item__title">
+                        Affordable
+                        Mezcal?
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="submenu-item" href="">
+                      <div class="submenu-item__img">
+                        <img src="data/menu-item-4.png" width="114" height="114"  alt="">
+                      </div>
+                      <div class="submenu-item__title">
+                        How to Drink Mezcal?
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="submenu-item" href="">
+                      <div class="submenu-item__img">
+                        <img src="data/menu-item-5.png" width="114" height="114"  alt="">
+                      </div>
+                      <div class="submenu-item__title">
+                        Worm in
+                        Mezcal
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="submenu-item" href="">
+                      <div class="submenu-item__img">
+                        <img src="data/menu-item-6.png" width="114" height="114"  alt="">
+                      </div>
+                      <div class="submenu-item__title">
+                        Mezcal
+                        Cocktails
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </li>
           <li>
             <a href="#">Blog</a>
@@ -377,470 +448,172 @@
       ></div>
       <div class="bottle-tabs">
         <div class="bottle-tabs__container">
-          <ul class="bottle-tabs__list tabs-list">
-            <li>
-              <a href="#feedback">Our Feedback</a>
-            </li>
-            <li>
-              <a href="#reviews">Reviews</a>
-            </li>
-            <li>
-              <a href="#more">More from Brand</a>
-            </li>
-          </ul>
-          <div class="bottle-tabs-wrapp">
-            <div id="feedback" class="tab feedback">
-              <div class="feedback-inner">
-                <div class="feedback-title">
-                  <div class="feedback-title__icon">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12.8 9.6H6.8L8.4 8H12.8V9.6ZM3.2 9.6V7.6L8.704 2.112C8.856 1.96 9.112 1.96 9.272 2.112L10.68 3.528C10.84 3.688 10.84 3.936 10.68 4.096L5.176 9.6H3.2ZM14.4 0H1.6C1.17565 0 0.768687 0.168571 0.468629 0.468629C0.168571 0.768687 0 1.17565 0 1.6V16L3.2 12.8H14.4C14.8243 12.8 15.2313 12.6314 15.5314 12.3314C15.8314 12.0313 16 11.6243 16 11.2V1.6C16 0.712 15.28 0 14.4 0Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </div>
-                  <div class="feedback-title__text">
-                    Our take on Sombra Joven
-                  </div>
+          <div class="bottle-tabs__holder">
+            <ul class="bottle-tabs__list">
+              <li>
+                <a class="anchor" href="#feedback">Our Feedback</a>
+              </li>
+              <li>
+                <a class="anchor" href="#reviews">Reviews</a>
+              </li>
+              <li>
+                <a class="anchor" href="#more">More from Brand</a>
+              </li>
+            </ul>
+          </div>
+          <div id="feedback" class="feedback">
+            <div class="feedback-inner">
+              <div class="feedback-title">
+                <div class="feedback-title__icon">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12.8 9.6H6.8L8.4 8H12.8V9.6ZM3.2 9.6V7.6L8.704 2.112C8.856 1.96 9.112 1.96 9.272 2.112L10.68 3.528C10.84 3.688 10.84 3.936 10.68 4.096L5.176 9.6H3.2ZM14.4 0H1.6C1.17565 0 0.768687 0.168571 0.468629 0.468629C0.168571 0.768687 0 1.17565 0 1.6V16L3.2 12.8H14.4C14.8243 12.8 15.2313 12.6314 15.5314 12.3314C15.8314 12.0313 16 11.6243 16 11.2V1.6C16 0.712 15.28 0 14.4 0Z"
+                      fill="white"
+                    />
+                  </svg>
                 </div>
-                <div class="feedback__content">
-                  <p>
-                    Sombra Agave de Oaxaca was born from the mission to preserve
-                    the passion, traditions, and culture embodied in Mezcal
-                    production with the help of Eduardo and Julio Mestres.
-                  </p>
-                  <p>
-                    Sombra was born from the mission to preserve the passion,
-                    traditions, and culture embodied in Mezcal production. The
-                    company spent decades sampling Mezcal from villages across
-                    native Mexico.
-                  </p>
-                  <p>
-                    Local Maestros Mezcaleros use methods passed down through
-                    generations to produce authentic, super-premium Mezcal.
-                  </p>
-                  <ul>
-                    <li>
-                      Traditional Authentic Mezcal
-                    </li>
-                    <li>
-                      Competitive Price / Bottle ($$ Range)
-                    </li>
-                    <li>
-                      One of the best option for Cocktails
-                    </li>
-                  </ul>
-                  <h4>
-                    The perfect Mezcal for Cocktails
-                  </h4>
-                  <p>
-                    From smokey to sweet, from citrus to clay and from cinnamon
-                    to pepper, there is a whole world for your taste buds to
-                    discover. Mezcal – the agave spirit better known as
-                    tequila's cooler and smokier cousin – has experienced a lot
-                    of hype over the past few years.
-                  </p>
+                <div class="feedback-title__text">
+                  Our take on Sombra Joven
                 </div>
               </div>
-              <div class="feedback-aside">
-                <div class="feedback-aside__item">
-                  <div class="where-buy">
-                    <div class="h4 feedback-aside__title">
-                      Where to Buy
-                    </div>
-                    <div class="where-buy__list">
-                      <a href="" class="where-buy-item">
-                        <div class="where-buy-item__img">
-                          <img
-                            src="./data/where-img-1.jpg"
-                            width="40"
-                            height="40"
-                            alt=""
-                          />
-                        </div>
-                        <div class="where-buy-item__inner">
-                          <div class="where-buy-item__label">
-                            Available on
-                          </div>
-                          <div class="where-buy-item__link">
-                            TotalWine.com
-                          </div>
-                        </div>
-                        <div class="where-buy-item__icon">
-                          <svg
-                            width="12"
-                            height="12"
-                            viewBox="0 0 12 12"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M6.89112 0V1.24444H9.09105L3.06729 7.36089L3.93133 8.23822L9.95509 2.12178V4.35556H11.1807V0H6.89112ZM9.95509 9.95556H1.37598V1.24444H5.66553V0H1.37598C0.695777 0 0.150391 0.56 0.150391 1.24444V9.95556C0.150391 10.2856 0.279515 10.6021 0.509357 10.8355C0.739199 11.0689 1.05093 11.2 1.37598 11.2H9.95509C10.2801 11.2 10.5919 11.0689 10.8217 10.8355C11.0516 10.6021 11.1807 10.2856 11.1807 9.95556V5.6H9.95509V9.95556Z"
-                              fill="#1BA098"
-                            />
-                          </svg>
-                        </div>
-                      </a>
-                      <a href="" class="where-buy-item">
-                        <div class="where-buy-item__img">
-                          <img
-                            src="./data/where-img-2.jpg"
-                            width="40"
-                            height="40"
-                            alt=""
-                          />
-                        </div>
-                        <div class="where-buy-item__inner">
-                          <div class="where-buy-item__label">
-                            Available on
-                          </div>
-                          <div class="where-buy-item__link">
-                            Drizly.com
-                          </div>
-                        </div>
-                        <div class="where-buy-item__icon">
-                          <svg
-                            width="12"
-                            height="12"
-                            viewBox="0 0 12 12"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M6.89112 0V1.24444H9.09105L3.06729 7.36089L3.93133 8.23822L9.95509 2.12178V4.35556H11.1807V0H6.89112ZM9.95509 9.95556H1.37598V1.24444H5.66553V0H1.37598C0.695777 0 0.150391 0.56 0.150391 1.24444V9.95556C0.150391 10.2856 0.279515 10.6021 0.509357 10.8355C0.739199 11.0689 1.05093 11.2 1.37598 11.2H9.95509C10.2801 11.2 10.5919 11.0689 10.8217 10.8355C11.0516 10.6021 11.1807 10.2856 11.1807 9.95556V5.6H9.95509V9.95556Z"
-                              fill="#1BA098"
-                            />
-                          </svg>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="feedback-aside__item">
-                  <div class="alternatives">
-                    <div class="alternatives__heading">
-                      <div class="h4 feedback-aside__title">
-                        Alternatives
-                      </div>
-                      <div class="alternatives__nav">
-                        <div class="alternatives__arrow prev-arrow"></div>
-                        <div class="alternatives__arrow next-arrow"></div>
-                      </div>
-                    </div>
-                    <div class="alternatives-slider">
-                      <a href="#" class="best-products__item">
-                        <div class="best-products__item-box">
-                          <div class="best-products__item-title">
-                            Del Maguey Vida
-                          </div>
-                          <div class="best-products__item-rate">4.6/5</div>
-                          <div class="rate" data-rate="5">
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-</div>
-                          <div class="best-products__item-info">
-                            out of 559 Reviews
-                          </div>
-                        </div>
-                        <div class="best-products__item-image">
-                          <img src="./data/best-products-img-1.png" alt="" />
-                        </div>
-                      </a>
-                      <a href="#" class="best-products__item">
-                        <div class="best-products__item-box">
-                          <div class="best-products__item-title">
-                            Sombra Joven
-                          </div>
-                          <div class="best-products__item-rate">4.6/5</div>
-                          <div class="rate" data-rate="5">
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-</div>
-                          <div class="best-products__item-info">
-                            out of 559 Reviews
-                          </div>
-                        </div>
-                        <div class="best-products__item-image">
-                          <img src="data/best-products-img-2.png" alt="" />
-                        </div>
-                      </a>
-                      <a href="#" class="best-products__item">
-                        <div class="best-products__item-box">
-                          <div class="best-products__item-title">
-                            Fidencio Clásico Mezcal
-                          </div>
-                          <div class="best-products__item-rate">4.6/5</div>
-                          <div class="rate" data-rate="5">
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-</div>
-                          <div class="best-products__item-info">
-                            out of 559 Reviews
-                          </div>
-                        </div>
-                        <div class="best-products__item-image">
-                          <img src="data/best-products-img-3.png" alt="" />
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
+              <div class="feedback__content">
+                <p>
+                  Sombra Agave de Oaxaca was born from the mission to preserve
+                  the passion, traditions, and culture embodied in Mezcal
+                  production with the help of Eduardo and Julio Mestres.
+                </p>
+                <p>
+                  Sombra was born from the mission to preserve the passion,
+                  traditions, and culture embodied in Mezcal production. The
+                  company spent decades sampling Mezcal from villages across
+                  native Mexico.
+                </p>
+                <p>
+                  Local Maestros Mezcaleros use methods passed down through
+                  generations to produce authentic, super-premium Mezcal.
+                </p>
+                <ul>
+                  <li>
+                    Traditional Authentic Mezcal
+                  </li>
+                  <li>
+                    Competitive Price / Bottle ($$ Range)
+                  </li>
+                  <li>
+                    One of the best option for Cocktails
+                  </li>
+                </ul>
+                <h4>
+                  The perfect Mezcal for Cocktails
+                </h4>
+                <p>
+                  From smokey to sweet, from citrus to clay and from cinnamon
+                  to pepper, there is a whole world for your taste buds to
+                  discover. Mezcal – the agave spirit better known as
+                  tequila's cooler and smokier cousin – has experienced a lot
+                  of hype over the past few years.
+                </p>
               </div>
             </div>
-            <div id="reviews" class="tab">
-              <div class="reviews">
-                <div class="reviews-inner">
-                  <div class="reviews-holder">
-                    <div class="h1 reviews__title">
-                      Reviews
-                    </div>
-                    <div class="reviews-empty">
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 12.1217 2.84285 14.1566 4.34315 15.6569C5.84344 17.1571 7.87827 18 10 18C12.1217 18 14.1566 17.1571 15.6569 15.6569C17.1571 14.1566 18 12.1217 18 10ZM20 10C20 12.6522 18.9464 15.1957 17.0711 17.0711C15.1957 18.9464 12.6522 20 10 20C8.68678 20 7.38642 19.7413 6.17317 19.2388C4.95991 18.7362 3.85752 17.9997 2.92893 17.0711C1.05357 15.1957 0 12.6522 0 10C0 7.34784 1.05357 4.8043 2.92893 2.92893C4.8043 1.05357 7.34784 0 10 0C11.3132 0 12.6136 0.258658 13.8268 0.761205C15.0401 1.26375 16.1425 2.00035 17.0711 2.92893C17.9997 3.85752 18.7362 4.95991 19.2388 6.17317C19.7413 7.38642 20 8.68678 20 10ZM13.5 6C14.3 6 15 6.7 15 7.5C15 8.3 14.3 9 13.5 9C12.7 9 12 8.3 12 7.5C12 6.7 12.7 6 13.5 6ZM8 7.5C8 8.3 7.3 9 6.5 9C5.7 9 5 8.3 5 7.5C5 6.7 5.7 6 6.5 6C7.3 6 8 6.7 8 7.5ZM10 12C11.75 12 13.29 12.72 14.19 13.81L12.77 15.23C12.32 14.5 11.25 14 10 14C8.75 14 7.68 14.5 7.23 15.23L5.81 13.81C6.71 12.72 8.25 12 10 12Z" fill="#5A5E62"/>
-                      </svg>
-                      There are currently no reviews for this product.
-                    </div>
+            <div class="feedback-aside">
+              <div class="feedback-aside__item">
+                <div class="where-buy">
+                  <div class="h4 feedback-aside__title">
+                    Where to Buy
                   </div>
-                  <div id="write-review">
-                    <form class="review-form">
-                      <div class="review-form__title">
-                        Write your review
-                      </div>
-                      <div class="review-form__desc">
-                        Share your experience and tell others about it.
-                      </div>
-                      <div class="review-form-rate">
-                        <div class="review-form-rate__label">
-                          Your mark:
-                        </div>
-                        <fieldset class="review-form-rate-stars">
-                          <input
-                            value="5"
-                            type="radio"
-                            id="star5"
-                            name="rate"
-                          />
-                          <label for="star5">
-                            <svg
-                              width="29"
-                              height="26"
-                              viewBox="0 0 29 26"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M13.8905 21.8316C14.2663 21.6269 14.7204 21.6269 15.0963 21.8316L22.0335 25.611C23.0016 26.1384 24.1324 25.2563 23.8566 24.1889L22.1122 17.4395C21.9867 16.954 22.161 16.4402 22.556 16.1313L28.2604 11.6708C29.1668 10.9621 28.7275 9.50925 27.5803 9.4214L19.8135 8.82661C19.3608 8.79195 18.9618 8.51656 18.7689 8.10566L15.6342 1.42953C15.1805 0.463359 13.8063 0.463362 13.3526 1.42953L10.2178 8.10566C10.0249 8.51656 9.62591 8.79195 9.1733 8.82661L1.40643 9.4214C0.259253 9.50925 -0.179995 10.9621 0.726346 11.6708L6.43071 16.1313C6.82575 16.4402 7.00006 16.954 6.87457 17.4395L5.13019 24.1889C4.85433 25.2563 5.98519 26.1384 6.9533 25.611L13.8905 21.8316Z"
-                                fill="#5A5E62"
-                              />
-                            </svg>
-                          </label>
-                          <input
-                            value="4"
-                            type="radio"
-                            id="star4"
-                            name="rate"
-                          />
-                          <label for="star4">
-                            <svg
-                              width="29"
-                              height="26"
-                              viewBox="0 0 29 26"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M13.8905 21.8316C14.2663 21.6269 14.7204 21.6269 15.0963 21.8316L22.0335 25.611C23.0016 26.1384 24.1324 25.2563 23.8566 24.1889L22.1122 17.4395C21.9867 16.954 22.161 16.4402 22.556 16.1313L28.2604 11.6708C29.1668 10.9621 28.7275 9.50925 27.5803 9.4214L19.8135 8.82661C19.3608 8.79195 18.9618 8.51656 18.7689 8.10566L15.6342 1.42953C15.1805 0.463359 13.8063 0.463362 13.3526 1.42953L10.2178 8.10566C10.0249 8.51656 9.62591 8.79195 9.1733 8.82661L1.40643 9.4214C0.259253 9.50925 -0.179995 10.9621 0.726346 11.6708L6.43071 16.1313C6.82575 16.4402 7.00006 16.954 6.87457 17.4395L5.13019 24.1889C4.85433 25.2563 5.98519 26.1384 6.9533 25.611L13.8905 21.8316Z"
-                                fill="#5A5E62"
-                              />
-                            </svg>
-                          </label>
-                          <input
-                            value="3"
-                            type="radio"
-                            id="star3"
-                            name="rate"
-                          />
-                          <label for="star3">
-                            <svg
-                              width="29"
-                              height="26"
-                              viewBox="0 0 29 26"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M13.8905 21.8316C14.2663 21.6269 14.7204 21.6269 15.0963 21.8316L22.0335 25.611C23.0016 26.1384 24.1324 25.2563 23.8566 24.1889L22.1122 17.4395C21.9867 16.954 22.161 16.4402 22.556 16.1313L28.2604 11.6708C29.1668 10.9621 28.7275 9.50925 27.5803 9.4214L19.8135 8.82661C19.3608 8.79195 18.9618 8.51656 18.7689 8.10566L15.6342 1.42953C15.1805 0.463359 13.8063 0.463362 13.3526 1.42953L10.2178 8.10566C10.0249 8.51656 9.62591 8.79195 9.1733 8.82661L1.40643 9.4214C0.259253 9.50925 -0.179995 10.9621 0.726346 11.6708L6.43071 16.1313C6.82575 16.4402 7.00006 16.954 6.87457 17.4395L5.13019 24.1889C4.85433 25.2563 5.98519 26.1384 6.9533 25.611L13.8905 21.8316Z"
-                                fill="#5A5E62"
-                              />
-                            </svg>
-                          </label>
-                          <input
-                            value="2"
-                            type="radio"
-                            id="star2"
-                            name="rate"
-                          />
-                          <label for="star2">
-                            <svg
-                              width="29"
-                              height="26"
-                              viewBox="0 0 29 26"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M13.8905 21.8316C14.2663 21.6269 14.7204 21.6269 15.0963 21.8316L22.0335 25.611C23.0016 26.1384 24.1324 25.2563 23.8566 24.1889L22.1122 17.4395C21.9867 16.954 22.161 16.4402 22.556 16.1313L28.2604 11.6708C29.1668 10.9621 28.7275 9.50925 27.5803 9.4214L19.8135 8.82661C19.3608 8.79195 18.9618 8.51656 18.7689 8.10566L15.6342 1.42953C15.1805 0.463359 13.8063 0.463362 13.3526 1.42953L10.2178 8.10566C10.0249 8.51656 9.62591 8.79195 9.1733 8.82661L1.40643 9.4214C0.259253 9.50925 -0.179995 10.9621 0.726346 11.6708L6.43071 16.1313C6.82575 16.4402 7.00006 16.954 6.87457 17.4395L5.13019 24.1889C4.85433 25.2563 5.98519 26.1384 6.9533 25.611L13.8905 21.8316Z"
-                                fill="#5A5E62"
-                              />
-                            </svg>
-                          </label>
-                          <input
-                            value="1"
-                            type="radio"
-                            id="star1"
-                            name="rate"
-                          />
-                          <label for="star1">
-                            <svg
-                              width="29"
-                              height="26"
-                              viewBox="0 0 29 26"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M13.8905 21.8316C14.2663 21.6269 14.7204 21.6269 15.0963 21.8316L22.0335 25.611C23.0016 26.1384 24.1324 25.2563 23.8566 24.1889L22.1122 17.4395C21.9867 16.954 22.161 16.4402 22.556 16.1313L28.2604 11.6708C29.1668 10.9621 28.7275 9.50925 27.5803 9.4214L19.8135 8.82661C19.3608 8.79195 18.9618 8.51656 18.7689 8.10566L15.6342 1.42953C15.1805 0.463359 13.8063 0.463362 13.3526 1.42953L10.2178 8.10566C10.0249 8.51656 9.62591 8.79195 9.1733 8.82661L1.40643 9.4214C0.259253 9.50925 -0.179995 10.9621 0.726346 11.6708L6.43071 16.1313C6.82575 16.4402 7.00006 16.954 6.87457 17.4395L5.13019 24.1889C4.85433 25.2563 5.98519 26.1384 6.9533 25.611L13.8905 21.8316Z"
-                                fill="#5A5E62"
-                              />
-                            </svg>
-                          </label>
-                        </fieldset>
-                      </div>
-                      <div class="form-block">
-                        <div class="form-label">Title</div>
-                        <input
-                          class="main-input"
-                          type="text"
-                          name="review__title"
-                          placeholder="Base title for review..."
+                  <div class="where-buy__list">
+                    <a href="" class="where-buy-item">
+                      <div class="where-buy-item__img">
+                        <img
+                          src="./data/where-img-1.jpg"
+                          width="40"
+                          height="40"
+                          alt=""
                         />
                       </div>
-                      <div class="form-block">
-                        <div class="form-label">
-                          <span>*</span>Your Review<small
-                            ><span>0</span> / 800</small
-                          >
+                      <div class="where-buy-item__inner">
+                        <div class="where-buy-item__label">
+                          Available on
                         </div>
-                        <textarea
-                          class="main-textarea"
-                          name="review_message"
-                          placeholder="Describe your experience to others..."
-                        ></textarea>
-                      </div>
-                      <div class="form-block">
-                        <div class="form-label">Add Photos (Optional)</div>
-                        <div class="load-image">
-                          <label>
-                            <input
-                              type="file"
-                              id="image"
-                              name="image[]"
-                              multiple
-                            />
-                            <span class="load-image__button">
-                              <svg
-                                width="27"
-                                height="21"
-                                viewBox="0 0 27 21"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M26.1017 3.24346C25.5627 2.69032 24.8184 2.36345 23.9715 2.36345H19.711V2.31317C19.711 1.68459 19.4544 1.08115 19.0181 0.678864C18.5817 0.251431 17.9914 0 17.3498 0H9.65019C8.98289 0 8.39259 0.251431 7.95627 0.678864C7.51996 1.1063 7.26331 1.68459 7.26331 2.31317V2.36345H3.02852C2.18156 2.36345 1.43726 2.69032 0.898289 3.24346C0.359316 3.77147 0 4.52576 0 5.33034V17.8516C0 18.6813 0.33365 19.4105 0.898289 19.9385C1.43726 20.4665 2.20722 20.8185 3.02852 20.8185H23.9715C24.8184 20.8185 25.5627 20.4917 26.1017 19.9385C26.6407 19.4105 27 18.6562 27 17.8516V5.33034C27 4.50062 26.6663 3.77147 26.1017 3.24346ZM25.6654 17.8516H25.6397C25.6397 18.3042 25.4601 18.7065 25.1521 19.0082C24.8441 19.3099 24.4335 19.4859 23.9715 19.4859H3.02852C2.56654 19.4859 2.15589 19.3099 1.84791 19.0082C1.53992 18.7065 1.36027 18.3042 1.36027 17.8516V5.33034C1.36027 4.87777 1.53992 4.47548 1.84791 4.17376C2.15589 3.87204 2.56654 3.69604 3.02852 3.69604H7.98194C8.36692 3.69604 8.6749 3.39432 8.6749 3.01718V2.28802C8.6749 2.01145 8.77757 1.76002 8.95722 1.58402C9.13688 1.40802 9.39354 1.30744 9.67586 1.30744H17.3498C17.6321 1.30744 17.8888 1.40802 18.0684 1.58402C18.2481 1.76002 18.3508 2.01145 18.3508 2.28802V3.01718C18.3508 3.39432 18.6587 3.69604 19.0437 3.69604H23.9971C24.4591 3.69604 24.8698 3.87204 25.1778 4.17376C25.4857 4.47548 25.6654 4.87777 25.6654 5.33034V17.8516Z"
-                                  fill="#1BA098"
-                                />
-                                <path
-                                  d="M13.4992 5.41016C11.754 5.41016 10.1627 6.11416 9.03346 7.22046C7.87851 8.3519 7.18555 9.88563 7.18555 11.5954C7.18555 13.3051 7.90418 14.864 9.03346 15.9703C10.1884 17.1017 11.754 17.7806 13.4992 17.7806C15.2445 17.7806 16.8357 17.0766 17.965 15.9703C19.12 14.8388 19.8129 13.3051 19.8129 11.5954C19.8129 9.88563 19.0943 8.32676 17.965 7.22046C16.8357 6.11416 15.2445 5.41016 13.4992 5.41016ZM16.9897 15.04C16.0914 15.8948 14.8595 16.448 13.4992 16.448C12.139 16.448 10.907 15.8948 10.0087 15.04C9.11045 14.16 8.57148 12.9531 8.57148 11.6205C8.57148 10.2879 9.13612 9.08105 10.0087 8.20104C10.907 7.32103 12.139 6.79303 13.4992 6.79303C14.8595 6.79303 16.0914 7.34618 16.9897 8.20104C17.888 9.08105 18.427 10.2879 18.427 11.6205C18.4527 12.9531 17.888 14.16 16.9897 15.04Z"
-                                  fill="#1BA098"
-                                />
-                                <path
-                                  d="M22.6345 7.84294C23.3291 7.84294 23.8921 7.29134 23.8921 6.61092C23.8921 5.9305 23.3291 5.37891 22.6345 5.37891C21.94 5.37891 21.377 5.9305 21.377 6.61092C21.377 7.29134 21.94 7.84294 22.6345 7.84294Z"
-                                  fill="#1BA098"
-                                />
-                              </svg>
-                              <div class="load-image__button-title">
-                                Add photo to review
-                              </div>
-                            </span>
-                          </label>
-                          <div class="load-image__images" id="frames"></div>
+                        <div class="where-buy-item__link">
+                          TotalWine.com
                         </div>
                       </div>
-                      <button class="review-form__submit submit-button">
-                        Add Review
-                        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 4V0H4.5V4H0.5V6H4.5V10H6.5V6H10.5V4H6.5Z" fill="white"/>
-                        </svg
-                      </button>
-                    </form>
+                      <div class="where-buy-item__icon">
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M6.89112 0V1.24444H9.09105L3.06729 7.36089L3.93133 8.23822L9.95509 2.12178V4.35556H11.1807V0H6.89112ZM9.95509 9.95556H1.37598V1.24444H5.66553V0H1.37598C0.695777 0 0.150391 0.56 0.150391 1.24444V9.95556C0.150391 10.2856 0.279515 10.6021 0.509357 10.8355C0.739199 11.0689 1.05093 11.2 1.37598 11.2H9.95509C10.2801 11.2 10.5919 11.0689 10.8217 10.8355C11.0516 10.6021 11.1807 10.2856 11.1807 9.95556V5.6H9.95509V9.95556Z"
+                            fill="#1BA098"
+                          />
+                        </svg>
+                      </div>
+                    </a>
+                    <a href="" class="where-buy-item">
+                      <div class="where-buy-item__img">
+                        <img
+                          src="./data/where-img-2.jpg"
+                          width="40"
+                          height="40"
+                          alt=""
+                        />
+                      </div>
+                      <div class="where-buy-item__inner">
+                        <div class="where-buy-item__label">
+                          Available on
+                        </div>
+                        <div class="where-buy-item__link">
+                          Drizly.com
+                        </div>
+                      </div>
+                      <div class="where-buy-item__icon">
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M6.89112 0V1.24444H9.09105L3.06729 7.36089L3.93133 8.23822L9.95509 2.12178V4.35556H11.1807V0H6.89112ZM9.95509 9.95556H1.37598V1.24444H5.66553V0H1.37598C0.695777 0 0.150391 0.56 0.150391 1.24444V9.95556C0.150391 10.2856 0.279515 10.6021 0.509357 10.8355C0.739199 11.0689 1.05093 11.2 1.37598 11.2H9.95509C10.2801 11.2 10.5919 11.0689 10.8217 10.8355C11.0516 10.6021 11.1807 10.2856 11.1807 9.95556V5.6H9.95509V9.95556Z"
+                            fill="#1BA098"
+                          />
+                        </svg>
+                      </div>
+                    </a>
                   </div>
                 </div>
-                <div class="reviews-aside">
-                  <div class="aside-rating">
-                    <div class="h5">
-                      Average Rating
+              </div>
+              <div class="feedback-aside__item">
+                <div class="alternatives">
+                  <div class="alternatives__heading">
+                    <div class="h4 feedback-aside__title">
+                      Alternatives
                     </div>
-                    <div class="review-rating">
-                      <div class="review-rating-count">
-                        4/5
-                      </div>
-                      <div class="rate" data-rate="5">
+                    <div class="alternatives__nav">
+                      <div class="alternatives__arrow prev-arrow"></div>
+                      <div class="alternatives__arrow next-arrow"></div>
+                    </div>
+                  </div>
+                  <div class="alternatives-slider">
+                    <a href="#" class="best-products__item">
+                      <div class="best-products__item-box">
+                        <div class="best-products__item-title">
+                          Del Maguey Vida
+                        </div>
+                        <div class="best-products__item-rate">4.6/5</div>
+                        <div class="rate" data-rate="5">
   <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
    <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
   </svg>
@@ -857,215 +630,288 @@
    <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
   </svg>
 </div>
-                      <div class="review-rating-label">
-                        out of 353 Reviews
+                        <div class="best-products__item-info">
+                          out of 559 Reviews
+                        </div>
                       </div>
-                    </div>
-                    <div class="rating-filter">
-                      <div class="h5 rating-filter__title">
-                        Filter by Rating
-                        <svg width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M14 1L7.5 8L1 1" stroke="#0B1014"/>
-                        </svg>
+                      <div class="best-products__item-image">
+                        <img src="./data/best-products-img-1.png" alt="" />
                       </div>
-                      <div class="rating-filter__list">
-                        <label class="rating-filter__item">
-                          <span class="rating-filter__item-left">
-                            <span class="rating-box">
-                              <input type="radio" name="rating" />
-                              <span class="rating-box__overlay"></span>
-                              <svg
-                                width="10"
-                                height="8"
-                                viewBox="0 0 10 8"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M10 0.805714L3.14286 7.66286L0 4.52L0.805714 3.71428L3.14286 6.04571L9.19429 0L10 0.805714Z"
-                                  fill="white"
-                                />
-                              </svg>
-                            </span>
-                            <span class="rating-filter__item-count">5</span>
-                          </span>
-                          <span class="rating-filter__item-progress">
-                            <span
-                              class="rating-filter__item-progress-inner"
-                              style="width: calc(7 / 16 * 100%)"
-                            ></span>
-                          </span>
-                          <span class="rating-filter__item-right">
-                            <span class="rating-filter__item-count">
-                              7 / 16
-                            </span>
-                          </span>
-                        </label>
-                        <label class="rating-filter__item">
-                          <span class="rating-filter__item-left">
-                            <span class="rating-box">
-                              <input type="radio" name="rating" />
-                              <span class="rating-box__overlay"></span>
-                              <svg
-                                width="10"
-                                height="8"
-                                viewBox="0 0 10 8"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M10 0.805714L3.14286 7.66286L0 4.52L0.805714 3.71428L3.14286 6.04571L9.19429 0L10 0.805714Z"
-                                  fill="white"
-                                />
-                              </svg>
-                            </span>
-                            <span class="rating-filter__item-count">4</span>
-                          </span>
-                          <span class="rating-filter__item-progress">
-                            <span
-                              class="rating-filter__item-progress-inner"
-                              style="width: calc(5 / 16 * 100%)"
-                            ></span>
-                          </span>
-                          <span class="rating-filter__item-right">
-                            <span class="rating-filter__item-count">
-                              5 / 16
-                            </span>
-                          </span>
-                        </label>
-                        <label class="rating-filter__item">
-                          <span class="rating-filter__item-left">
-                            <span class="rating-box">
-                              <input type="radio" name="rating" />
-                              <span class="rating-box__overlay"></span>
-                              <svg
-                                width="10"
-                                height="8"
-                                viewBox="0 0 10 8"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M10 0.805714L3.14286 7.66286L0 4.52L0.805714 3.71428L3.14286 6.04571L9.19429 0L10 0.805714Z"
-                                  fill="white"
-                                />
-                              </svg>
-                            </span>
-                            <span class="rating-filter__item-count">3</span>
-                          </span>
-                          <span class="rating-filter__item-progress">
-                            <span
-                              class="rating-filter__item-progress-inner"
-                              style="width: calc(4 / 16 * 100%)"
-                            ></span>
-                          </span>
-                          <span class="rating-filter__item-right">
-                            <span class="rating-filter__item-count">
-                              4 / 16
-                            </span>
-                          </span>
-                        </label>
-                        <label class="rating-filter__item">
-                          <span class="rating-filter__item-left">
-                            <span class="rating-box">
-                              <input type="radio" name="rating" />
-                              <span class="rating-box__overlay"></span>
-                              <svg
-                                width="10"
-                                height="8"
-                                viewBox="0 0 10 8"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M10 0.805714L3.14286 7.66286L0 4.52L0.805714 3.71428L3.14286 6.04571L9.19429 0L10 0.805714Z"
-                                  fill="white"
-                                />
-                              </svg>
-                            </span>
-                            <span class="rating-filter__item-count">2</span>
-                          </span>
-                          <span class="rating-filter__item-progress">
-                            <span
-                              class="rating-filter__item-progress-inner"
-                              style="width: calc(2 / 16 * 100%)"
-                            ></span>
-                          </span>
-                          <span class="rating-filter__item-right">
-                            <span class="rating-filter__item-count">
-                              2 / 16
-                            </span>
-                          </span>
-                        </label>
-                        <label class="rating-filter__item">
-                          <span class="rating-filter__item-left">
-                            <span class="rating-box">
-                              <input type="radio" name="rating" />
-                              <span class="rating-box__overlay"></span>
-                              <svg
-                                width="10"
-                                height="8"
-                                viewBox="0 0 10 8"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M10 0.805714L3.14286 7.66286L0 4.52L0.805714 3.71428L3.14286 6.04571L9.19429 0L10 0.805714Z"
-                                  fill="white"
-                                />
-                              </svg>
-                            </span>
-                            <span class="rating-filter__item-count">1</span>
-                          </span>
-                          <span class="rating-filter__item-progress">
-                            <span
-                              class="rating-filter__item-progress-inner"
-                              style="width: calc(0 / 16 * 100%)"
-                            ></span>
-                          </span>
-                          <span class="rating-filter__item-right">
-                            <span class="rating-filter__item-count">
-                              0 / 16
-                            </span>
-                          </span>
-                        </label>
+                    </a>
+                    <a href="#" class="best-products__item">
+                      <div class="best-products__item-box">
+                        <div class="best-products__item-title">
+                          Sombra Joven
+                        </div>
+                        <div class="best-products__item-rate">4.6/5</div>
+                        <div class="rate" data-rate="5">
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+</div>
+                        <div class="best-products__item-info">
+                          out of 559 Reviews
+                        </div>
                       </div>
-                    </div>
+                      <div class="best-products__item-image">
+                        <img src="data/best-products-img-2.png" alt="" />
+                      </div>
+                    </a>
+                    <a href="#" class="best-products__item">
+                      <div class="best-products__item-box">
+                        <div class="best-products__item-title">
+                          Fidencio Clásico Mezcal
+                        </div>
+                        <div class="best-products__item-rate">4.6/5</div>
+                        <div class="rate" data-rate="5">
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+</div>
+                        <div class="best-products__item-info">
+                          out of 559 Reviews
+                        </div>
+                      </div>
+                      <div class="best-products__item-image">
+                        <img src="data/best-products-img-3.png" alt="" />
+                      </div>
+                    </a>
                   </div>
-                  <div class="reviews-aside__label">
-                    Have something to say?
-                  </div>
-                  <a href="#write-review" class="go-to-review anchor">
-                    Write a Review
-                    <svg
-                      width="19"
-                      height="20"
-                      viewBox="0 0 19 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle
-                        opacity="0.5"
-                        cx="9.5"
-                        cy="10"
-                        r="9"
-                        transform="rotate(90 9.5 10)"
-                        stroke="#F9F9F9"
-                      />
-                      <path d="M12.5 8.5L9.5 11.5L6.5 8.5" stroke="white" />
-                    </svg>
-                  </a>
                 </div>
               </div>
             </div>
-            <div id="more" class="tab">
-              <div class="more-from-brand">
-                <a href="#" class="best-products__item">
-                  <div class="best-products__item-box">
-                    <div class="best-products__item-title">
-                      Del Maguey Vida
+          </div>
+          <div id="reviews">
+            <div class="reviews">
+              <div class="reviews-inner">
+                <div class="reviews-holder">
+                  <div class="h1 reviews__title">
+                    Reviews
+                  </div>
+                  <div class="reviews-empty">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18 10C18 7.87827 17.1571 5.84344 15.6569 4.34315C14.1566 2.84285 12.1217 2 10 2C7.87827 2 5.84344 2.84285 4.34315 4.34315C2.84285 5.84344 2 7.87827 2 10C2 12.1217 2.84285 14.1566 4.34315 15.6569C5.84344 17.1571 7.87827 18 10 18C12.1217 18 14.1566 17.1571 15.6569 15.6569C17.1571 14.1566 18 12.1217 18 10ZM20 10C20 12.6522 18.9464 15.1957 17.0711 17.0711C15.1957 18.9464 12.6522 20 10 20C8.68678 20 7.38642 19.7413 6.17317 19.2388C4.95991 18.7362 3.85752 17.9997 2.92893 17.0711C1.05357 15.1957 0 12.6522 0 10C0 7.34784 1.05357 4.8043 2.92893 2.92893C4.8043 1.05357 7.34784 0 10 0C11.3132 0 12.6136 0.258658 13.8268 0.761205C15.0401 1.26375 16.1425 2.00035 17.0711 2.92893C17.9997 3.85752 18.7362 4.95991 19.2388 6.17317C19.7413 7.38642 20 8.68678 20 10ZM13.5 6C14.3 6 15 6.7 15 7.5C15 8.3 14.3 9 13.5 9C12.7 9 12 8.3 12 7.5C12 6.7 12.7 6 13.5 6ZM8 7.5C8 8.3 7.3 9 6.5 9C5.7 9 5 8.3 5 7.5C5 6.7 5.7 6 6.5 6C7.3 6 8 6.7 8 7.5ZM10 12C11.75 12 13.29 12.72 14.19 13.81L12.77 15.23C12.32 14.5 11.25 14 10 14C8.75 14 7.68 14.5 7.23 15.23L5.81 13.81C6.71 12.72 8.25 12 10 12Z" fill="#5A5E62"/>
+                    </svg>
+                    There are currently no reviews for this product.
+                  </div>
+                </div>
+                <div id="write-review">
+                  <form class="review-form">
+                    <div class="review-form__title">
+                      Write your review
                     </div>
-                    <div class="best-products__item-rate">4.6/5</div>
+                    <div class="review-form__desc">
+                      Share your experience and tell others about it.
+                    </div>
+                    <div class="review-form-rate">
+                      <div class="review-form-rate__label">
+                        Your mark:
+                      </div>
+                      <fieldset class="review-form-rate-stars">
+                        <input
+                          value="5"
+                          type="radio"
+                          id="star5"
+                          name="rate"
+                        />
+                        <label for="star5">
+                          <svg
+                            width="29"
+                            height="26"
+                            viewBox="0 0 29 26"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13.8905 21.8316C14.2663 21.6269 14.7204 21.6269 15.0963 21.8316L22.0335 25.611C23.0016 26.1384 24.1324 25.2563 23.8566 24.1889L22.1122 17.4395C21.9867 16.954 22.161 16.4402 22.556 16.1313L28.2604 11.6708C29.1668 10.9621 28.7275 9.50925 27.5803 9.4214L19.8135 8.82661C19.3608 8.79195 18.9618 8.51656 18.7689 8.10566L15.6342 1.42953C15.1805 0.463359 13.8063 0.463362 13.3526 1.42953L10.2178 8.10566C10.0249 8.51656 9.62591 8.79195 9.1733 8.82661L1.40643 9.4214C0.259253 9.50925 -0.179995 10.9621 0.726346 11.6708L6.43071 16.1313C6.82575 16.4402 7.00006 16.954 6.87457 17.4395L5.13019 24.1889C4.85433 25.2563 5.98519 26.1384 6.9533 25.611L13.8905 21.8316Z"
+                              fill="#5A5E62"
+                            />
+                          </svg>
+                        </label>
+                        <input
+                          value="4"
+                          type="radio"
+                          id="star4"
+                          name="rate"
+                        />
+                        <label for="star4">
+                          <svg
+                            width="29"
+                            height="26"
+                            viewBox="0 0 29 26"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13.8905 21.8316C14.2663 21.6269 14.7204 21.6269 15.0963 21.8316L22.0335 25.611C23.0016 26.1384 24.1324 25.2563 23.8566 24.1889L22.1122 17.4395C21.9867 16.954 22.161 16.4402 22.556 16.1313L28.2604 11.6708C29.1668 10.9621 28.7275 9.50925 27.5803 9.4214L19.8135 8.82661C19.3608 8.79195 18.9618 8.51656 18.7689 8.10566L15.6342 1.42953C15.1805 0.463359 13.8063 0.463362 13.3526 1.42953L10.2178 8.10566C10.0249 8.51656 9.62591 8.79195 9.1733 8.82661L1.40643 9.4214C0.259253 9.50925 -0.179995 10.9621 0.726346 11.6708L6.43071 16.1313C6.82575 16.4402 7.00006 16.954 6.87457 17.4395L5.13019 24.1889C4.85433 25.2563 5.98519 26.1384 6.9533 25.611L13.8905 21.8316Z"
+                              fill="#5A5E62"
+                            />
+                          </svg>
+                        </label>
+                        <input
+                          value="3"
+                          type="radio"
+                          id="star3"
+                          name="rate"
+                        />
+                        <label for="star3">
+                          <svg
+                            width="29"
+                            height="26"
+                            viewBox="0 0 29 26"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13.8905 21.8316C14.2663 21.6269 14.7204 21.6269 15.0963 21.8316L22.0335 25.611C23.0016 26.1384 24.1324 25.2563 23.8566 24.1889L22.1122 17.4395C21.9867 16.954 22.161 16.4402 22.556 16.1313L28.2604 11.6708C29.1668 10.9621 28.7275 9.50925 27.5803 9.4214L19.8135 8.82661C19.3608 8.79195 18.9618 8.51656 18.7689 8.10566L15.6342 1.42953C15.1805 0.463359 13.8063 0.463362 13.3526 1.42953L10.2178 8.10566C10.0249 8.51656 9.62591 8.79195 9.1733 8.82661L1.40643 9.4214C0.259253 9.50925 -0.179995 10.9621 0.726346 11.6708L6.43071 16.1313C6.82575 16.4402 7.00006 16.954 6.87457 17.4395L5.13019 24.1889C4.85433 25.2563 5.98519 26.1384 6.9533 25.611L13.8905 21.8316Z"
+                              fill="#5A5E62"
+                            />
+                          </svg>
+                        </label>
+                        <input
+                          value="2"
+                          type="radio"
+                          id="star2"
+                          name="rate"
+                        />
+                        <label for="star2">
+                          <svg
+                            width="29"
+                            height="26"
+                            viewBox="0 0 29 26"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13.8905 21.8316C14.2663 21.6269 14.7204 21.6269 15.0963 21.8316L22.0335 25.611C23.0016 26.1384 24.1324 25.2563 23.8566 24.1889L22.1122 17.4395C21.9867 16.954 22.161 16.4402 22.556 16.1313L28.2604 11.6708C29.1668 10.9621 28.7275 9.50925 27.5803 9.4214L19.8135 8.82661C19.3608 8.79195 18.9618 8.51656 18.7689 8.10566L15.6342 1.42953C15.1805 0.463359 13.8063 0.463362 13.3526 1.42953L10.2178 8.10566C10.0249 8.51656 9.62591 8.79195 9.1733 8.82661L1.40643 9.4214C0.259253 9.50925 -0.179995 10.9621 0.726346 11.6708L6.43071 16.1313C6.82575 16.4402 7.00006 16.954 6.87457 17.4395L5.13019 24.1889C4.85433 25.2563 5.98519 26.1384 6.9533 25.611L13.8905 21.8316Z"
+                              fill="#5A5E62"
+                            />
+                          </svg>
+                        </label>
+                        <input
+                          value="1"
+                          type="radio"
+                          id="star1"
+                          name="rate"
+                        />
+                        <label for="star1">
+                          <svg
+                            width="29"
+                            height="26"
+                            viewBox="0 0 29 26"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13.8905 21.8316C14.2663 21.6269 14.7204 21.6269 15.0963 21.8316L22.0335 25.611C23.0016 26.1384 24.1324 25.2563 23.8566 24.1889L22.1122 17.4395C21.9867 16.954 22.161 16.4402 22.556 16.1313L28.2604 11.6708C29.1668 10.9621 28.7275 9.50925 27.5803 9.4214L19.8135 8.82661C19.3608 8.79195 18.9618 8.51656 18.7689 8.10566L15.6342 1.42953C15.1805 0.463359 13.8063 0.463362 13.3526 1.42953L10.2178 8.10566C10.0249 8.51656 9.62591 8.79195 9.1733 8.82661L1.40643 9.4214C0.259253 9.50925 -0.179995 10.9621 0.726346 11.6708L6.43071 16.1313C6.82575 16.4402 7.00006 16.954 6.87457 17.4395L5.13019 24.1889C4.85433 25.2563 5.98519 26.1384 6.9533 25.611L13.8905 21.8316Z"
+                              fill="#5A5E62"
+                            />
+                          </svg>
+                        </label>
+                      </fieldset>
+                    </div>
+                    <div class="form-block">
+                      <div class="form-label">Title</div>
+                      <input
+                        class="main-input"
+                        type="text"
+                        name="review__title"
+                        placeholder="Base title for review..."
+                      />
+                    </div>
+                    <div class="form-block">
+                      <div class="form-label">
+                        <span>*</span>Your Review<small
+                          ><span>0</span> / 800</small
+                        >
+                      </div>
+                      <textarea
+                        class="main-textarea"
+                        name="review_message"
+                        placeholder="Describe your experience to others..."
+                      ></textarea>
+                    </div>
+                    <div class="form-block">
+                      <div class="form-label">Add Photos (Optional)</div>
+                      <div class="load-image">
+                        <label>
+                          <input
+                            type="file"
+                            id="image"
+                            name="image[]"
+                            multiple
+                          />
+                          <span class="load-image__button">
+                            <svg
+                              width="27"
+                              height="21"
+                              viewBox="0 0 27 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M26.1017 3.24346C25.5627 2.69032 24.8184 2.36345 23.9715 2.36345H19.711V2.31317C19.711 1.68459 19.4544 1.08115 19.0181 0.678864C18.5817 0.251431 17.9914 0 17.3498 0H9.65019C8.98289 0 8.39259 0.251431 7.95627 0.678864C7.51996 1.1063 7.26331 1.68459 7.26331 2.31317V2.36345H3.02852C2.18156 2.36345 1.43726 2.69032 0.898289 3.24346C0.359316 3.77147 0 4.52576 0 5.33034V17.8516C0 18.6813 0.33365 19.4105 0.898289 19.9385C1.43726 20.4665 2.20722 20.8185 3.02852 20.8185H23.9715C24.8184 20.8185 25.5627 20.4917 26.1017 19.9385C26.6407 19.4105 27 18.6562 27 17.8516V5.33034C27 4.50062 26.6663 3.77147 26.1017 3.24346ZM25.6654 17.8516H25.6397C25.6397 18.3042 25.4601 18.7065 25.1521 19.0082C24.8441 19.3099 24.4335 19.4859 23.9715 19.4859H3.02852C2.56654 19.4859 2.15589 19.3099 1.84791 19.0082C1.53992 18.7065 1.36027 18.3042 1.36027 17.8516V5.33034C1.36027 4.87777 1.53992 4.47548 1.84791 4.17376C2.15589 3.87204 2.56654 3.69604 3.02852 3.69604H7.98194C8.36692 3.69604 8.6749 3.39432 8.6749 3.01718V2.28802C8.6749 2.01145 8.77757 1.76002 8.95722 1.58402C9.13688 1.40802 9.39354 1.30744 9.67586 1.30744H17.3498C17.6321 1.30744 17.8888 1.40802 18.0684 1.58402C18.2481 1.76002 18.3508 2.01145 18.3508 2.28802V3.01718C18.3508 3.39432 18.6587 3.69604 19.0437 3.69604H23.9971C24.4591 3.69604 24.8698 3.87204 25.1778 4.17376C25.4857 4.47548 25.6654 4.87777 25.6654 5.33034V17.8516Z"
+                                fill="#1BA098"
+                              />
+                              <path
+                                d="M13.4992 5.41016C11.754 5.41016 10.1627 6.11416 9.03346 7.22046C7.87851 8.3519 7.18555 9.88563 7.18555 11.5954C7.18555 13.3051 7.90418 14.864 9.03346 15.9703C10.1884 17.1017 11.754 17.7806 13.4992 17.7806C15.2445 17.7806 16.8357 17.0766 17.965 15.9703C19.12 14.8388 19.8129 13.3051 19.8129 11.5954C19.8129 9.88563 19.0943 8.32676 17.965 7.22046C16.8357 6.11416 15.2445 5.41016 13.4992 5.41016ZM16.9897 15.04C16.0914 15.8948 14.8595 16.448 13.4992 16.448C12.139 16.448 10.907 15.8948 10.0087 15.04C9.11045 14.16 8.57148 12.9531 8.57148 11.6205C8.57148 10.2879 9.13612 9.08105 10.0087 8.20104C10.907 7.32103 12.139 6.79303 13.4992 6.79303C14.8595 6.79303 16.0914 7.34618 16.9897 8.20104C17.888 9.08105 18.427 10.2879 18.427 11.6205C18.4527 12.9531 17.888 14.16 16.9897 15.04Z"
+                                fill="#1BA098"
+                              />
+                              <path
+                                d="M22.6345 7.84294C23.3291 7.84294 23.8921 7.29134 23.8921 6.61092C23.8921 5.9305 23.3291 5.37891 22.6345 5.37891C21.94 5.37891 21.377 5.9305 21.377 6.61092C21.377 7.29134 21.94 7.84294 22.6345 7.84294Z"
+                                fill="#1BA098"
+                              />
+                            </svg>
+                            <div class="load-image__button-title">
+                              Add photo to review
+                            </div>
+                          </span>
+                        </label>
+                        <div class="load-image__images" id="frames"></div>
+                      </div>
+                    </div>
+                    <button class="review-form__submit submit-button">
+                      Add Review
+                      <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 4V0H4.5V4H0.5V6H4.5V10H6.5V6H10.5V4H6.5Z" fill="white"/>
+                      </svg
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <div class="reviews-aside">
+                <div class="aside-rating">
+                  <div class="h5">
+                    Average Rating
+                  </div>
+                  <div class="review-rating">
+                    <div class="review-rating-count">
+                      4/5
+                    </div>
                     <div class="rate" data-rate="5">
   <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
    <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
@@ -1083,108 +929,336 @@
    <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
   </svg>
 </div>
-                    <div class="best-products__item-info">
-                      out of 559 Reviews
+                    <div class="review-rating-label">
+                      out of 353 Reviews
                     </div>
                   </div>
-                  <div class="best-products__item-image">
-                    <img src="./data/best-products-img-1.png" alt="" />
-                  </div>
-                </a>
-                <a href="#" class="best-products__item">
-                  <div class="best-products__item-box">
-                    <div class="best-products__item-title">
-                      Sombra Joven
+                  <div class="rating-filter">
+                    <div class="h5 rating-filter__title">
+                      Filter by Rating
+                      <svg width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 1L7.5 8L1 1" stroke="#0B1014"/>
+                      </svg>
                     </div>
-                    <div class="best-products__item-rate">4.6/5</div>
-                    <div class="rate" data-rate="5">
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-</div>
-                    <div class="best-products__item-info">
-                      out of 559 Reviews
+                    <div class="rating-filter__list">
+                      <label class="rating-filter__item">
+                        <span class="rating-filter__item-left">
+                          <span class="rating-box">
+                            <input type="radio" name="rating" />
+                            <span class="rating-box__overlay"></span>
+                            <svg
+                              width="10"
+                              height="8"
+                              viewBox="0 0 10 8"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10 0.805714L3.14286 7.66286L0 4.52L0.805714 3.71428L3.14286 6.04571L9.19429 0L10 0.805714Z"
+                                fill="white"
+                              />
+                            </svg>
+                          </span>
+                          <span class="rating-filter__item-count">5</span>
+                        </span>
+                        <span class="rating-filter__item-progress">
+                          <span
+                            class="rating-filter__item-progress-inner"
+                            style="width: calc(7 / 16 * 100%)"
+                          ></span>
+                        </span>
+                        <span class="rating-filter__item-right">
+                          <span class="rating-filter__item-count">
+                            7 / 16
+                          </span>
+                        </span>
+                      </label>
+                      <label class="rating-filter__item">
+                        <span class="rating-filter__item-left">
+                          <span class="rating-box">
+                            <input type="radio" name="rating" />
+                            <span class="rating-box__overlay"></span>
+                            <svg
+                              width="10"
+                              height="8"
+                              viewBox="0 0 10 8"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10 0.805714L3.14286 7.66286L0 4.52L0.805714 3.71428L3.14286 6.04571L9.19429 0L10 0.805714Z"
+                                fill="white"
+                              />
+                            </svg>
+                          </span>
+                          <span class="rating-filter__item-count">4</span>
+                        </span>
+                        <span class="rating-filter__item-progress">
+                          <span
+                            class="rating-filter__item-progress-inner"
+                            style="width: calc(5 / 16 * 100%)"
+                          ></span>
+                        </span>
+                        <span class="rating-filter__item-right">
+                          <span class="rating-filter__item-count">
+                            5 / 16
+                          </span>
+                        </span>
+                      </label>
+                      <label class="rating-filter__item">
+                        <span class="rating-filter__item-left">
+                          <span class="rating-box">
+                            <input type="radio" name="rating" />
+                            <span class="rating-box__overlay"></span>
+                            <svg
+                              width="10"
+                              height="8"
+                              viewBox="0 0 10 8"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10 0.805714L3.14286 7.66286L0 4.52L0.805714 3.71428L3.14286 6.04571L9.19429 0L10 0.805714Z"
+                                fill="white"
+                              />
+                            </svg>
+                          </span>
+                          <span class="rating-filter__item-count">3</span>
+                        </span>
+                        <span class="rating-filter__item-progress">
+                          <span
+                            class="rating-filter__item-progress-inner"
+                            style="width: calc(4 / 16 * 100%)"
+                          ></span>
+                        </span>
+                        <span class="rating-filter__item-right">
+                          <span class="rating-filter__item-count">
+                            4 / 16
+                          </span>
+                        </span>
+                      </label>
+                      <label class="rating-filter__item">
+                        <span class="rating-filter__item-left">
+                          <span class="rating-box">
+                            <input type="radio" name="rating" />
+                            <span class="rating-box__overlay"></span>
+                            <svg
+                              width="10"
+                              height="8"
+                              viewBox="0 0 10 8"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10 0.805714L3.14286 7.66286L0 4.52L0.805714 3.71428L3.14286 6.04571L9.19429 0L10 0.805714Z"
+                                fill="white"
+                              />
+                            </svg>
+                          </span>
+                          <span class="rating-filter__item-count">2</span>
+                        </span>
+                        <span class="rating-filter__item-progress">
+                          <span
+                            class="rating-filter__item-progress-inner"
+                            style="width: calc(2 / 16 * 100%)"
+                          ></span>
+                        </span>
+                        <span class="rating-filter__item-right">
+                          <span class="rating-filter__item-count">
+                            2 / 16
+                          </span>
+                        </span>
+                      </label>
+                      <label class="rating-filter__item">
+                        <span class="rating-filter__item-left">
+                          <span class="rating-box">
+                            <input type="radio" name="rating" />
+                            <span class="rating-box__overlay"></span>
+                            <svg
+                              width="10"
+                              height="8"
+                              viewBox="0 0 10 8"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10 0.805714L3.14286 7.66286L0 4.52L0.805714 3.71428L3.14286 6.04571L9.19429 0L10 0.805714Z"
+                                fill="white"
+                              />
+                            </svg>
+                          </span>
+                          <span class="rating-filter__item-count">1</span>
+                        </span>
+                        <span class="rating-filter__item-progress">
+                          <span
+                            class="rating-filter__item-progress-inner"
+                            style="width: calc(0 / 16 * 100%)"
+                          ></span>
+                        </span>
+                        <span class="rating-filter__item-right">
+                          <span class="rating-filter__item-count">
+                            0 / 16
+                          </span>
+                        </span>
+                      </label>
                     </div>
                   </div>
-                  <div class="best-products__item-image">
-                    <img src="data/best-products-img-2.png" alt="" />
-                  </div>
-                </a>
-                <a href="#" class="best-products__item">
-                  <div class="best-products__item-box">
-                    <div class="best-products__item-title">
-                      Fidencio Clásico Mezcal
-                    </div>
-                    <div class="best-products__item-rate">4.6/5</div>
-                    <div class="rate" data-rate="5">
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-</div>
-                    <div class="best-products__item-info">
-                      out of 559 Reviews
-                    </div>
-                  </div>
-                  <div class="best-products__item-image">
-                    <img src="data/best-products-img-3.png" alt="" />
-                  </div>
-                </a>
-                <a href="#" class="best-products__item">
-                  <div class="best-products__item-box">
-                    <div class="best-products__item-title">
-                      Sombra Joven
-                    </div>
-                    <div class="best-products__item-rate">4.6/5</div>
-                    <div class="rate" data-rate="5">
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
-  </svg>
-</div>
-                    <div class="best-products__item-info">
-                      out of 559 Reviews
-                    </div>
-                  </div>
-                  <div class="best-products__item-image">
-                    <img src="data/best-products-img-2.png" alt="" />
-                  </div>
+                </div>
+                <div class="reviews-aside__label">
+                  Have something to say?
+                </div>
+                <a href="#write-review" class="go-to-review anchor">
+                  Write a Review
+                  <svg
+                    width="19"
+                    height="20"
+                    viewBox="0 0 19 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      opacity="0.5"
+                      cx="9.5"
+                      cy="10"
+                      r="9"
+                      transform="rotate(90 9.5 10)"
+                      stroke="#F9F9F9"
+                    />
+                    <path d="M12.5 8.5L9.5 11.5L6.5 8.5" stroke="white" />
+                  </svg>
                 </a>
               </div>
+            </div>
+          </div>
+          <div id="more">
+            <div class="h1">
+              More from Brand
+            </div>
+            <div class="more-from-brand">
+              <a href="#" class="best-products__item">
+                <div class="best-products__item-box">
+                  <div class="best-products__item-title">
+                    Del Maguey Vida
+                  </div>
+                  <div class="best-products__item-rate">4.6/5</div>
+                  <div class="rate" data-rate="5">
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+</div>
+                  <div class="best-products__item-info">
+                    out of 559 Reviews
+                  </div>
+                </div>
+                <div class="best-products__item-image">
+                  <img src="./data/best-products-img-1.png" alt="" />
+                </div>
+              </a>
+              <a href="#" class="best-products__item">
+                <div class="best-products__item-box">
+                  <div class="best-products__item-title">
+                    Sombra Joven
+                  </div>
+                  <div class="best-products__item-rate">4.6/5</div>
+                  <div class="rate" data-rate="5">
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+</div>
+                  <div class="best-products__item-info">
+                    out of 559 Reviews
+                  </div>
+                </div>
+                <div class="best-products__item-image">
+                  <img src="data/best-products-img-2.png" alt="" />
+                </div>
+              </a>
+              <a href="#" class="best-products__item">
+                <div class="best-products__item-box">
+                  <div class="best-products__item-title">
+                    Fidencio Clásico Mezcal
+                  </div>
+                  <div class="best-products__item-rate">4.6/5</div>
+                  <div class="rate" data-rate="5">
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+</div>
+                  <div class="best-products__item-info">
+                    out of 559 Reviews
+                  </div>
+                </div>
+                <div class="best-products__item-image">
+                  <img src="data/best-products-img-3.png" alt="" />
+                </div>
+              </a>
+              <a href="#" class="best-products__item">
+                <div class="best-products__item-box">
+                  <div class="best-products__item-title">
+                    Sombra Joven
+                  </div>
+                  <div class="best-products__item-rate">4.6/5</div>
+                  <div class="rate" data-rate="5">
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+  <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z" />
+  </svg>
+</div>
+                  <div class="best-products__item-info">
+                    out of 559 Reviews
+                  </div>
+                </div>
+                <div class="best-products__item-image">
+                  <img src="data/best-products-img-2.png" alt="" />
+                </div>
+              </a>
             </div>
           </div>
         </div>

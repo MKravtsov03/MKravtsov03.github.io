@@ -74,8 +74,79 @@
           <li>
             <a href="#">Mezcal Bottles</a>
           </li>
-          <li>
+          <li class="with-child">
             <a href="#">Learning Center</a>
+            <div class="submenu">
+              <div class="submenu__inner">
+                <ul class="submenu__list">
+                  <li>
+                    <a class="submenu-item" href="">
+                      <div class="submenu-item__img">
+                        <img src="data/menu-item-1.png" width="114" height="114"  alt="">
+                      </div>
+                      <div class="submenu-item__title">
+                        What is
+                        Mezcal?
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="submenu-item" href="">
+                      <div class="submenu-item__img">
+                        <img src="data/menu-item-2.png" width="114" height="114"  alt="">
+                      </div>
+                      <div class="submenu-item__title">
+                        Mezcal vs
+                        Tequila
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="submenu-item" href="">
+                      <div class="submenu-item__img">
+                        <img src="data/menu-item-3.png" width="114" height="114"  alt="">
+                      </div>
+                      <div class="submenu-item__title">
+                        Affordable
+                        Mezcal?
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="submenu-item" href="">
+                      <div class="submenu-item__img">
+                        <img src="data/menu-item-4.png" width="114" height="114"  alt="">
+                      </div>
+                      <div class="submenu-item__title">
+                        How to Drink Mezcal?
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="submenu-item" href="">
+                      <div class="submenu-item__img">
+                        <img src="data/menu-item-5.png" width="114" height="114"  alt="">
+                      </div>
+                      <div class="submenu-item__title">
+                        Worm in
+                        Mezcal
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="submenu-item" href="">
+                      <div class="submenu-item__img">
+                        <img src="data/menu-item-6.png" width="114" height="114"  alt="">
+                      </div>
+                      <div class="submenu-item__title">
+                        Mezcal
+                        Cocktails
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </li>
           <li>
             <a href="#">Blog</a>
@@ -377,19 +448,21 @@
       ></div>
       <div class="bottle-tabs">
         <div class="bottle-tabs__container">
-          <ul class="bottle-tabs__list tabs-list">
-            <li>
-              <a href="#feedback">Our Feedback</a>
-            </li>
-            <li>
-              <a href="#reviews">Reviews</a>
-            </li>
-            <li>
-              <a href="#more">More from Brand</a>
-            </li>
-          </ul>
+          <div class="bottle-tabs__holder">
+            <ul class="bottle-tabs__list">
+              <li>
+                <a class="anchor" href="#feedback">Our Feedback</a>
+              </li>
+              <li>
+                <a class="anchor" href="#reviews">Reviews</a>
+              </li>
+              <li>
+                <a class="anchor" href="#more">More from Brand</a>
+              </li>
+            </ul>
+          </div>
           <div class="bottle-tabs-wrapp">
-            <div id="feedback" class="tab feedback">
+            <div id="feedback" class="feedback">
               <div class="feedback-inner">
                 <div class="feedback-title">
                   <div class="feedback-title__icon">
@@ -633,7 +706,7 @@
                 </div>
               </div>
             </div>
-            <div id="reviews" class="tab">
+            <div id="reviews">
               <div class="reviews">
                 <div class="reviews-inner">
                   <div class="reviews-holder">
@@ -1036,7 +1109,10 @@
                 </div>
               </div>
             </div>
-            <div id="more" class="tab">
+            <div id="more">
+              <div class="h1">
+                More from Brand
+              </div>
               <div class="more-from-brand">
                 <a href="#" class="best-products__item">
                   <div class="best-products__item-box">

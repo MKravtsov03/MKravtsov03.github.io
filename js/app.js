@@ -11188,7 +11188,7 @@ initMarkapMenu();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ["dev", "404.html", "account-change-password.html", "account-edit-profile.html", "account-main.html", "account-not-subscribed.html", "account-privacy.html", "account-public-profile.html", "account-subscribed.html", "account-welcome.html", "author.html", "bottle-review-empty.html", "bottle-review-form.html", "bottle.html", "bottles.html", "brand-page.html", "brands.html", "change-password.html", "choose-nickname.html", "contact-main.html", "contact-submit-mezcal-brand.html", "email-confirmation.html", "forgot-password.html", "index.html", "login.html", "password-changed.html", "post-individual.html", "post-recipe.html", "recover-email-sent-box.html", "register.html"];
+exports.default = ["dev", "404.html", "account-change-password.html", "account-edit-profile.html", "account-main.html", "account-not-subscribed.html", "account-privacy.html", "account-public-profile.html", "account-subscribed.html", "account-welcome.html", "author-4-row.html", "author.html", "blog.html", "bottle-review-empty.html", "bottle-review-form.html", "bottle.html", "bottles.html", "brand-page.html", "brands.html", "change-password.html", "choose-nickname.html", "contact-main.html", "contact-submit-mezcal-brand.html", "email-confirmation.html", "forgot-password.html", "index.html", "login.html", "mezcal-vs-tequila.html", "password-changed.html", "post-individual.html", "post-recipe.html", "recover-email-sent-box.html", "register.html", "what-is-mezcal.html"];
 
 /***/ }),
 /* 9 */
@@ -11253,6 +11253,9 @@ exports.default = function () {
         (0, _jquery2.default)(this).find('.variations-cell').append((0, _jquery2.default)(this).find('.brands-list-item__variations'));
         (0, _jquery2.default)(this).find('.rating-cell').append((0, _jquery2.default)(this).find('.brands-list-item__rating'));
       });
+    }
+    if (window.innerWidth < 992) {
+      (0, _jquery2.default)('.learning-author').after((0, _jquery2.default)('.learning-aside'));
     }
   });
 
@@ -11366,8 +11369,32 @@ exports.default = function () {
   (0, _jquery2.default)(document).on('click', '.anchor', function anchorScroll(event) {
     event.preventDefault();
     (0, _jquery2.default)('html, body').animate({
-      scrollTop: (0, _jquery2.default)(_jquery2.default.attr(this, 'href')).offset().top - 110
+      scrollTop: (0, _jquery2.default)(_jquery2.default.attr(this, 'href')).offset().top - 160
     }, 500);
+  });
+  if ((0, _jquery2.default)('.bottle-tabs__holder').length) {
+
+    var initialListPosition = (0, _jquery2.default)('.bottle-tabs__holder').offset().top;
+
+    (0, _jquery2.default)(window).on('scroll', function () {
+      if (!(0, _jquery2.default)('.bottle-tabs__holder').hasClass('fixed') && window.scrollY >= initialListPosition) {
+        (0, _jquery2.default)('.bottle-tabs__holder').addClass('fixed');
+        (0, _jquery2.default)('.bottle-tabs__container').addClass('fixed-list');
+      }
+      if ((0, _jquery2.default)('.bottle-tabs__holder').hasClass('fixed') && window.scrollY <= initialListPosition) {
+        (0, _jquery2.default)('.bottle-tabs__holder').removeClass('fixed');
+        (0, _jquery2.default)('.bottle-tabs__container').removeClass('fixed-list');
+      }
+    });
+  }
+
+  (0, _jquery2.default)(window).on('load resize', function () {
+    if (window.innerWidth > 991 && (0, _jquery2.default)('.blog-slider__bottom').length) {
+      var paddingNav = (0, _jquery2.default)('.blog-slider__bottom').get(0).getBoundingClientRect().left;
+      var paddingInner = (0, _jquery2.default)('.blog-slider__inner').get(0).getBoundingClientRect().left;
+
+      (0, _jquery2.default)('.blog-slider__slider').css('padding-left', paddingNav - paddingInner);
+    }
   });
 };
 
@@ -11496,6 +11523,35 @@ exports.default = function () {
       }
     }]
   });
+
+  (0, _jquery2.default)('.blog-slider__slider').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    accessibility: false,
+    infinite: true,
+    arrows: true,
+    dots: false,
+    rows: 0,
+    variableWidth: true,
+    prevArrow: (0, _jquery2.default)('.blog-slider__prev').html('<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 5H2M2 5L6 1M2 5L6 9" stroke="#5A5E62" stroke-width="1.5"/></svg>'),
+    nextArrow: (0, _jquery2.default)('.blog-slider__next').html('<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 5H12M12 5L8 1M12 5L8 9" stroke="#5A5E62" stroke-width="1.5"/></svg>')
+  });
+
+  (0, _jquery2.default)('.blog-slider__slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+    var calc = nextSlide / (slick.slideCount - 1) * 100;
+
+    (0, _jquery2.default)('.blog-slider__progress').css('background-size', calc + '% 100%').attr('aria-valuenow', calc);
+  });
+
+  if (window.innerWidth < 768) {
+    (0, _jquery2.default)('.learning-stories .stories__list').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      variableWidth: true,
+      arrows: false,
+      dots: false
+    });
+  }
 };
 
 /***/ }),
