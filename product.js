@@ -501,7 +501,7 @@ const getProductTemplate = () =>
         `;
 
         const productImageRenderer = (product) => `
-            <img alt="" src="${product?.productImage?.url}" />
+            <img alt="" src="${product?.productImage?.src}" />
         `;
 
         return `
