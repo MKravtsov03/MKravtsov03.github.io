@@ -479,19 +479,19 @@ const getProductTemplate = () =>
         `;
 
         const productPriceRenderer = (product) => `
-           ${product?.price && <div class="price">${product?.price} $</div>}
+           <div class="price">${product?.price && (product?.price '$')}</div>
         `;
 
         const productComparisonPriceRenderer = (product) => `
-            ${product?.comparisonPrice && <div class="price-old">${product?.comparisonPrice} $</div>}
+            <div class="price-old">${product?.comparisonPrice && (product?.comparisonPrice '$')} </div>
         `;
 
         const productDescriptionRenderer = (product) => `
-            ${product?.description && <div class="product-description">${product?.description}</div>}
+            ${<div class="product-description">${product?.description}</div>}
         `;
 
         const productTypeRenderer = (product) => `
-            ${product?.productType && <div class="product-type">${product?.productType}</div>}
+            <div class="product-type">${product?.productType}</div>
         `;
 
         const productButtonRenderer = (product, values) => `
