@@ -507,7 +507,8 @@ const getProductTemplate = () =>
         return `
         <div class="products-grid ${layout}">
             ${products.map(productId => {
-                const currentProduct = values.data.products.find((product) => product.id === productId);
+                console.log({products, productId})
+                const currentProduct = values.data.products.find((product) => product.id === +productId);
                 return `
                         <div class="product-card">
                             
