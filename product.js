@@ -42,8 +42,6 @@ const ProductStyles = () =>
         
         .product-card {
           position: relative;
-          display: flex;
-          flex-direction: column;
           gap: 15px;
           min-width: 0;
           word-wrap: break-word;
@@ -64,7 +62,7 @@ const ProductStyles = () =>
         }
 
         .product-card img {
-          width: 100%;
+          max-width: 100%;
           object-fit: contain;
           border-top-left-radius: 0.25rem;
           border-top-right-radius: 0.25rem;
@@ -481,19 +479,19 @@ const getProductTemplate = () =>
         `;
 
         const productPriceRenderer = (product) => `
-           <div class="price">${product?.price} $</div>
+           ${product?.price && <div class="price">${product?.price} $</div>}
         `;
 
         const productComparisonPriceRenderer = (product) => `
-            <div class="price-old">${product?.comparisonPrice} $</div>
+            ${product?.comparisonPrice && <div class="price-old">${product?.comparisonPrice} $</div>}
         `;
 
         const productDescriptionRenderer = (product) => `
-            <div class="product-description">${product?.description}</div>
+            ${product?.description && <div class="product-description">${product?.description}</div>}
         `;
 
         const productTypeRenderer = (product) => `
-            <div class="product-type">${product?.productType}</div>
+            ${product?.productType && <div class="product-type">${product?.productType}</div>}
         `;
 
         const productButtonRenderer = (product, values) => `
@@ -501,7 +499,7 @@ const getProductTemplate = () =>
         `;
 
         const productImageRenderer = (product) => `
-            <img alt="" src="${product?.productImage?.src}" />
+            <img alt="" src="${product?.productImage?.src || 'https://b-tm.com.ua/assets/galleries/105/noimage.png'}" />
         `;
 
         return `
