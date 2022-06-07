@@ -479,11 +479,11 @@ const getProductTemplate = () =>
         `;
 
         const productPriceRenderer = (product) => `
-           <div class="price">${product?.price && (product?.price '$')}</div>
+           <div class="price">${product?.price && (product?.price)} $</div>
         `;
 
         const productComparisonPriceRenderer = (product) => `
-            <div class="price-old">${product?.comparisonPrice && (product?.comparisonPrice '$')} </div>
+            <div class="price-old">${product?.comparisonPrice && (product?.comparisonPrice)} $</div>
         `;
 
         const productDescriptionRenderer = (product) => `
