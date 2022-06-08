@@ -316,6 +316,8 @@ const ProductStyles = () =>
              box-shadow: 0 12px 20px rgba(22, 42, 90, .08);
              transition: all 0.4s ease, transform 0.4s cubic-bezier(0.87, -0.41, 0.19, 1.44), filter 0.3s ease 0.2s;
              z-index: 3;
+             max-height: 200px;
+             overflow-y: scroll;
         }
          .selectMultiple > ul li {
              color: #1e2330;
