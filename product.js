@@ -484,9 +484,9 @@ const getProductTemplate = () =>
            <div class="price">${product?.price && (product?.price)} $</div>
         `;
 
-        const productComparisonPriceRenderer = (product) => `
-            <div class="price-old">${product?.comparisonPrice || ''} $</div>
-        `;
+        const productComparisonPriceRenderer = (product) => product?.comparisonPrice ? `
+            <div class="price-old">${product?.comparisonPrice} $</div>
+        ` : null;
 
         const productDescriptionRenderer = (product) => `
             <div class="product-description">${product?.description || ''}</div>
