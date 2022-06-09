@@ -920,7 +920,7 @@ unlayer.registerPropertyEditor({
                 const placeholderElement = document.createElement('span');
                 placeholderElement.innerText = placeholder;
                 placeholderElement.classList.add('placeholder');
-                active.appendChild(span);
+                active.appendChild(placeholderElement);
                 active.appendChild(search);
 
                 Array.from(selectOptions).forEach(
