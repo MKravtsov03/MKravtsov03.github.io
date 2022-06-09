@@ -917,9 +917,9 @@ unlayer.registerPropertyEditor({
                 const optionList = document.createElement('ul');
                 const placeholder = select.dataset.placeholder;
 
-                const placeholder = document.createElement('span');
-                placeholder.innerText = placeholder;
-                placeholder.classList.add('placeholder');
+                const placeholderElement = document.createElement('span');
+                placeholderElement.innerText = placeholder;
+                placeholderElement.classList.add('placeholder');
                 active.appendChild(span);
                 active.appendChild(search);
 
