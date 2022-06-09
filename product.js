@@ -932,7 +932,7 @@ unlayer.registerPropertyEditor({
                             tag.dataset.value = option.value;
                             tag.innerHTML = `<em>${text}</em><i></i>`;
                             active.appendChild(tag);
-                            span.classList.add('hide');
+                            placeholderElement.classList.add('hide');
                         } else {
                             const item = document.createElement('li');
                             item.dataset.value = option.value;
@@ -950,7 +950,7 @@ unlayer.registerPropertyEditor({
                 newSelect.appendChild(optionList);
 
                 select.parentElement.append(newSelect);
-                span.appendChild(select);
+                placeholderElement.appendChild(select);
 
                 document.querySelector('.selectMultiple ul').removeEventListener('click', handleClickListItem);
                 document.querySelector('.selectMultiple > div').removeEventListener('click', handleClickSelectedItem);
