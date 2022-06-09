@@ -911,6 +911,9 @@ unlayer.registerPropertyEditor({
                 const active = document.createElement('div');
                 active.classList.add('active');
 
+                const search = document.createElement('input');
+                search.classList.add('search-field');
+
                 const optionList = document.createElement('ul');
                 const placeholder = select.dataset.placeholder;
 
@@ -942,6 +945,7 @@ unlayer.registerPropertyEditor({
                 active.appendChild(arrow);
 
                 newSelect.appendChild(active);
+                newSelect.appendChild(search);
                 newSelect.appendChild(optionList);
 
                 select.parentElement.append(newSelect);
