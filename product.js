@@ -560,7 +560,7 @@ const productSelect = (value, data) => {
 <select multiple data-placeholder="Select products">
     ${data?.options.map(option => 
         `
-            <option ${value.products.includes(+option.value) ? 'selected': ''} class="prodOption" value="${option.value}">
+            <option ${value.products.includes(option.value.toString()) ? 'selected': ''} class="prodOption" value="${option.value}">
                 ${option.label}
             </option>
         `
