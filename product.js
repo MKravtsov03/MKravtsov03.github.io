@@ -917,9 +917,11 @@ unlayer.registerPropertyEditor({
                 const optionList = document.createElement('ul');
                 const placeholder = select.dataset.placeholder;
 
-                const span = document.createElement('span');
-                span.innerText = placeholder;
+                const placeholder = document.createElement('span');
+                placeholder.innerText = placeholder;
+                placeholder.classList.add('placeholder');
                 active.appendChild(span);
+                active.appendChild(search);
 
                 Array.from(selectOptions).forEach(
                     function(option) {
@@ -945,7 +947,6 @@ unlayer.registerPropertyEditor({
                 active.appendChild(arrow);
 
                 newSelect.appendChild(active);
-                newSelect.appendChild(search);
                 newSelect.appendChild(optionList);
 
                 select.parentElement.append(newSelect);
