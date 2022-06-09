@@ -507,7 +507,6 @@ const getProductTemplate = () =>
         return `
         <div class="products-grid ${layout}">
             ${products.map(productId => {
-                console.log({products, productId})
                 const currentProduct = values.data.products.find((product) => product.id === +productId);
                 return `
                         <div class="product-card">
@@ -560,7 +559,7 @@ const productSelect = (value, data) => {
 <select multiple data-placeholder="Select products">
     ${data?.options.map(option => 
         `
-            <option ${value.products.includes(option.value) ? 'selected': ''} class="prodOption" value="${option.value}">
+            <option ${value.products.includes(+option.value) ? 'selected': ''} class="prodOption" value="${option.value}">
                 ${option.label}
             </option>
         `
@@ -775,12 +774,10 @@ unlayer.registerPropertyEditor({
     Widget: unlayer.createWidget({
         render(value) {
             const options = Object.keys(value)
-            console.log(options)
             return renderDetails(options, value)
         },
         mount(node, value, updateValue, data) {
             optionsList = document.querySelectorAll('.product-details input');
-            console.log(value, optionsList.length)
             const details = {...value}
             optionsList.forEach(item => {
                 item.onchange = function(e) {
@@ -894,7 +891,6 @@ unlayer.registerPropertyEditor({
                         newVal.push(option.value)
                     }
                 })
-                console.log({newVal})
                 updateValue({...value, products: newVal})
                 const layoutItem = document.querySelector('.layout-list .three-columns')
                 if (newVal.length > 2) {
