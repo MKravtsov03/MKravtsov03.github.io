@@ -486,7 +486,7 @@ const getProductTemplate = () =>
 
         const productComparisonPriceRenderer = (product) => product?.comparisonPrice ? `
             <div class="price-old">${product?.comparisonPrice} $</div>
-        ` : null;
+        ` : '';
 
         const productDescriptionRenderer = (product) => `
             <div class="product-description">${product?.description || ''}</div>
