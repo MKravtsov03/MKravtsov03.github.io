@@ -552,7 +552,7 @@ const detailsLabelsMap = {
 }
 
 const productSelect = (value, data) => {
-    consolelog(value)
+    console.log(value)
     return `
 <div class="blockbuilder-widget-label">
     <p class="blockbuilder-label-primary">Product Data</p>
