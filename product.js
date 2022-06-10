@@ -328,6 +328,9 @@ const ProductStyles = () =>
              position: relative;
              transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease 0.3s, opacity 0.5s ease 0.3s, border-radius 0.3s ease;
         }
+        .selectMultiple > ul li.hide {
+            display: none;
+        }
          .selectMultiple > ul li:first-child {
             border-radius: 8px 8px 0 0;
         }
@@ -922,6 +925,27 @@ unlayer.registerPropertyEditor({
                 placeholderElement.classList.add('placeholder');
                 active.appendChild(placeholderElement);
                 active.appendChild(search);
+
+                search.addEventListener('focus', () => {
+                    placeholderElement.classList.add('hide');
+                })
+
+                search.addEventListener('keyup', (e) => {
+                    let newOptions = document.querySelectorAll('.selectMultiple ul li')
+                    if (e.target.value) {
+                        newOptions.forEach(function (item) {
+                            if (!item.innerText.includes(e.target.value)) {
+                                item.classList.add('hide')
+                            } else {
+                                item.classList.remove('hide')
+                            }
+                        })
+                        return
+                    }
+                    newOptions.forEach(function (item) {
+                        item.classList.remove('hide')
+                    })
+                })
 
                 Array.from(selectOptions).forEach(
                     function(option) {
