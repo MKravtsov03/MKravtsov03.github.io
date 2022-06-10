@@ -187,6 +187,15 @@ const ProductStyles = () =>
         }
         .selectMultiple .active {
            cursor: pointer;
+           display: flex;
+           align-items: center;
+           flex-wrap: wrap;
+           padding-top: 0;
+        }
+        .selectMultiple .active input {
+           height: 35px;
+           border: none;
+           width: 100%;
         }
          .selectMultiple > div {
              position: relative;
@@ -281,6 +290,7 @@ const ProductStyles = () =>
              height: 28px;
              display: block;
         }
+
          .selectMultiple > div a i:before, .selectMultiple > div a i:after {
              content: '';
              display: block;
