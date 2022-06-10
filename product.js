@@ -196,6 +196,7 @@ const ProductStyles = () =>
            height: 35px;
            border: none;
            width: 100%;
+           outline: none;
         }
          .selectMultiple > div {
              position: relative;
@@ -944,7 +945,7 @@ unlayer.registerPropertyEditor({
                     let newOptions = document.querySelectorAll('.selectMultiple ul li')
                     if (e.target.value) {
                         newOptions.forEach(function (item) {
-                            if (!item.innerText.includes(e.target.value)) {
+                            if (!item.innerText.toLowerCase().includes(e.target.value.toLowerCase())) {
                                 item.classList.add('hide')
                             } else {
                                 item.classList.remove('hide')
