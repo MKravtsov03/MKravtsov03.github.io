@@ -50,6 +50,8 @@ const ProductStyles = () =>
           border: 1px solid rgba(0,0,0,.125);
           border-radius: .25rem;
           text-align: center;
+          display: flex;
+          flex-direction: column;
         }
 
         .product-card-body {
