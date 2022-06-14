@@ -353,6 +353,7 @@ const ProductStyles = () =>
           height: 37px;
           padding: 0 10px 0 25px;
           font-size: 14px;
+          width: 100%;
         }
         .selectMultiple > ul .search-item svg {
           position: absolute;
@@ -375,7 +376,7 @@ const ProductStyles = () =>
          .selectMultiple > ul li:last-child:first-child {
             border-radius: 8px;
         }
-         .selectMultiple > ul li:hover {
+         .selectMultiple > ul .list-item:hover {
              background: #0b68ff;
              color: #fff;
         }
