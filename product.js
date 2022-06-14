@@ -194,12 +194,7 @@ const ProductStyles = () =>
            flex-wrap: wrap;
            padding-top: 0;
         }
-        .selectMultiple .active input {
-           height: 35px;
-           border: none;
-           width: 100%;
-           outline: none;
-        }
+      
          .selectMultiple > div {
              position: relative;
              z-index: 2;
@@ -332,15 +327,39 @@ const ProductStyles = () =>
              max-height: 200px;
              overflow-y: scroll;
         }
-         .selectMultiple > ul li {
-             color: #1e2330;
-             background: #fff;
-             padding: 12px 16px;
-             cursor: pointer;
-             overflow: hidden;
-             position: relative;
-             transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease 0.3s, opacity 0.5s ease 0.3s, border-radius 0.3s ease;
+        
+        .selectMultiple > ul .list-item {
+          color: #1e2330;
+          background: #fff;
+          padding: 12px 16px;
+          cursor: pointer;
+          overflow: hidden;
+          position: relative;
+          transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease 0.3s, opacity 0.5s ease 0.3s, border-radius 0.3s ease;
+          &.hide {
+            display: none;
+          }
         }
+        
+        .selectMultiple > ul .search-item {
+          padding: 0 16px;
+          background: #fff;
+          position: relative;
+          border-bottom: 1px solid #D0D5DD;
+        }
+        
+        .selectMultiple > ul .search-item input {
+          border: none;
+          height: 37px;
+          padding: 0 10px 0 25px;
+          font-size: 14px;
+        }
+        .selectMultiple > ul .search-item svg {
+          position: absolute;
+          left: 15px;
+          top: 9px;
+        }
+        
         .selectMultiple > ul li.hide {
             display: none;
         }
@@ -840,7 +859,7 @@ unlayer.registerPropertyEditor({
         mount(node, value, updateValue) {
 
             const handleClickListItem = (e) => {
-                const li = e.target.closest('li');
+                const li = e.target.closest('.list-item');
 
                 const select = li.closest('.selectMultiple');
                 select.classList.add('clicked');
@@ -889,15 +908,14 @@ unlayer.registerPropertyEditor({
 
                 const li = document.createElement('li');
                 li.dataset.value = a.dataset.value;
+                li.classList.add('list-item');
                 li.innerText = a.querySelector('em').innerText;
-                li.classList.add('show');
                 select.querySelector('ul').appendChild(li);
 
                 if (!selectEl.selectedOptions.length) {
                     select.querySelector('span').classList.remove('hide');
                 }
 
-                li.className = '';
                 a.remove();
             }
 
@@ -929,19 +947,23 @@ unlayer.registerPropertyEditor({
 
                 const search = document.createElement('input');
                 search.classList.add('search-field');
+                search.setAttribute('placeholder', 'Search Products')ж
 
                 const optionList = document.createElement('ul');
                 const placeholder = select.dataset.placeholder;
+
+                const searchItem =  document.createElement('li');
+                searchItem.classList.add('search-item');
+                searchItem.innerHTML = '<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
+                    '<path d="M16.5 16.5L12.875 12.875M14.8333 8.16667C14.8333 11.8486 11.8486 14.8333 8.16667 14.8333C4.48477 14.8333 1.5 11.8486 1.5 8.16667C1.5 4.48477 4.48477 1.5 8.16667 1.5C11.8486 1.5 14.8333 4.48477 14.8333 8.16667Z" stroke="#667085" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>\n' +
+                    '</svg>'
+                searchItem.appendChild(search)
 
                 const placeholderElement = document.createElement('span');
                 placeholderElement.innerText = placeholder;
                 placeholderElement.classList.add('placeholder');
                 active.appendChild(placeholderElement);
                 active.appendChild(search);
-
-                search.addEventListener('focus', () => {
-                    placeholderElement.classList.add('hide');
-                })
 
                 search.addEventListener('keyup', (e) => {
                     let newOptions = document.querySelectorAll('.selectMultiple ul li')
