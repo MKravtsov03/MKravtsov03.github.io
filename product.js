@@ -947,7 +947,7 @@ unlayer.registerPropertyEditor({
 
                 const search = document.createElement('input');
                 search.classList.add('search-field');
-                search.setAttribute('placeholder', 'Search Products')ж
+                search.setAttribute('placeholder', 'Search Products');
 
                 const optionList = document.createElement('ul');
                 const placeholder = select.dataset.placeholder;
