@@ -963,7 +963,8 @@ unlayer.registerPropertyEditor({
                 placeholderElement.innerText = placeholder;
                 placeholderElement.classList.add('placeholder');
                 active.appendChild(placeholderElement);
-                active.appendChild(search);
+                optionList.appendChild(searchItem);
+
 
                 search.addEventListener('keyup', (e) => {
                     let newOptions = document.querySelectorAll('.selectMultiple ul li')
@@ -994,6 +995,7 @@ unlayer.registerPropertyEditor({
                             placeholderElement.classList.add('hide');
                         } else {
                             const item = document.createElement('li');
+                            item.classList.add('list-item');
                             item.dataset.value = option.value;
                             item.innerHTML = text;
                             optionList.appendChild(item);
