@@ -764,7 +764,7 @@ unlayer.registerTool({
 unlayer.registerTool({
     name: 'coupon_tool',
     label: 'Coupon',
-    icon: 'fa-tag',
+    icon: 'https://mkravtsov03.github.io/coupon-icon.svg',
     supportedDisplayModes: ['web', 'email'],
     options: {
         coupon: {
