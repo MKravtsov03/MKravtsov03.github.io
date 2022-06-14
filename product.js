@@ -192,7 +192,6 @@ const ProductStyles = () =>
            display: flex;
            align-items: center;
            flex-wrap: wrap;
-           padding-top: 0;
         }
       
          .selectMultiple > div {
@@ -354,6 +353,7 @@ const ProductStyles = () =>
           padding: 0 10px 0 25px;
           font-size: 14px;
           width: 100%;
+          outline: none;
         }
         .selectMultiple > ul .search-item svg {
           position: absolute;
