@@ -968,7 +968,7 @@ unlayer.registerPropertyEditor({
 
 
                 search.addEventListener('keyup', (e) => {
-                    let newOptions = document.querySelectorAll('.selectMultiple ul li')
+                    let newOptions = document.querySelectorAll('.selectMultiple ul .list-item')
                     if (e.target.value) {
                         newOptions.forEach(function (item) {
                             if (!item.innerText.toLowerCase().includes(e.target.value.toLowerCase())) {
