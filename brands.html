@@ -25,16 +25,6 @@
     <header class="header">
   <div class="header__top">
     <div class="header__inner">
-      <nav class="header__top-nav">
-        <ul>
-          <li>
-            <a href="#">Contact Us</a>
-          </li>
-          <li>
-            <a href="#">Blog</a>
-          </li>
-        </ul>
-      </nav>
       <div class="header__top-controls">
         <div class="header__top-control login">
           <a href="#">
@@ -181,7 +171,7 @@
         <div class="brands-caption">
             Brand info originates with the Consejo Regulador del Tequila (CRT).
         </div>
-        <ddiv class="brands-inner">
+        <div class="brands-inner">
             <div class="brands-heading">
                 <form class="brands-search">
                     <input placeholder="Search Mezcal Brands..." type="text" class="brands-search__field">
@@ -199,16 +189,26 @@
                             <path d="M10 1.4285L8.57133 0L5 3.5715L1.4285 0L0 1.4285L3.57133 5L0 8.5715L1.4285 10L5 6.4285L8.57133 10L10 8.5715L6.42833 5L10 1.4285Z" fill="#5A5E62"/>
                         </svg>
                     </div>
-                    <select class="region-filter">
-                        <option disabled selected value="">Filter by region</option>
-                        <option value="">Oaxaca</option>
-                        <option value="">Chipas</option>
-                        <option value="">Nuevo León</option>
-                        <option value="">Guanajuato</option>
-                        <option value="">San Luis Potosí</option>
-                        <option value="">Michoacán</option>
-                        <option value="">Morelos</option>
-                    </select>
+                        <div class="region-filter-wrapp">
+                        <select multiple data-placeholder="Filter by region">
+                            <option class="prodOption" value="Oaxaca">Oaxaca</option>
+                            <option class="prodOption" value="Nuevo León">Nuevo León</option>
+                            <option class="prodOption" value="Guanajuato">Guanajuato</option>
+                            <option class="prodOption" value="San Luis Potosí">San Luis Potosí</option>
+                            <option class="prodOption" value="Michoacán">Michoacán</option>
+                            <option class="prodOption" value="Morelos">Morelos</option>
+                        </select>
+                        </div>
+<!--                    <select class="region-filter">-->
+<!--                        <option disabled selected value="">Filter by region</option>-->
+<!--                        <option value="">Oaxaca</option>-->
+<!--                        <option value="">Chipas</option>-->
+<!--                        <option value="">Nuevo León</option>-->
+<!--                        <option value="">Guanajuato</option>-->
+<!--                        <option value="">San Luis Potosí</option>-->
+<!--                        <option value="">Michoacán</option>-->
+<!--                        <option value="">Morelos</option>-->
+<!--                    </select>-->
                     <select class="sort">
                         <option disabled selected value="">Sort by</option>
                         <option value="">option 1</option>
@@ -303,11 +303,46 @@
                         </div>
                         <div class="brands-list-item__right"></div>
                     </a>
-                    <a href="" class="brands-list-item featured">
+                    <a href="" class="brands-list-item">
                         <div class="brands-list-item__left">
                             <div class="brands-list__cell brand-cell">
                                 <div class="brands-list-item__img">
                                     <img src="./data/brand-1.png" width="130" height="70" alt="">
+                                </div>
+                                <div class="brands-list-item__title">
+                                    Real Minero
+                                </div>
+                            </div>
+                            <div class="brands-list__cell region-cell">
+                                <div class="brands-list-item__region">
+                                    Chiapas
+                                </div>
+                            </div>
+                            <div class="brands-list__cell variations-cell">
+                                <div class="brands-list-item__variations">
+                                    <svg width="12" height="21" viewBox="0 0 12 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.96864 6.867L8.97591 6.531C8.55193 6.384 8.27273 5.985 8.27273 5.5335V1.05C8.27273 0.4725 7.80739 0 7.23864 0H4.13636C3.56761 0 3.10227 0.4725 3.10227 1.05V5.544C3.10227 5.9955 2.82307 6.3945 2.39909 6.5415L1.40636 6.8775C0.56875 7.1715 0 7.9695 0 8.8725V18.9C0 20.055 0.930682 21 2.06818 21H9.30682C10.4443 21 11.375 20.055 11.375 18.9V8.862C11.375 7.959 10.8063 7.161 9.96864 6.867ZM5.17045 2.1H6.20455V3.15H5.17045V2.1ZM9.30682 18.9H2.06818V16.8H9.30682V18.9ZM9.30682 14.7H2.06818V12.6H9.30682V14.7ZM9.30682 10.5H2.06818V8.862L3.05057 8.526C4.3225 8.106 5.17045 6.8985 5.17045 5.544V5.25H6.20455V5.544C6.20455 6.8985 7.0525 8.106 8.32443 8.5365L9.30682 8.862V10.5Z" fill="#DEB992"/>
+                                    </svg>
+                                    14 bottles
+                                </div>
+                            </div>
+                            <div class="brands-list__cell rating-cell">
+                                <div class="brands-list-item__rating empty">
+                                    <svg width="23" height="19" viewBox="0 0 23 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.5462 4.25C10.5462 5.04565 10.2301 5.80871 9.66749 6.37132C9.10488 6.93393 8.34181 7.25 7.54616 7.25C6.75052 7.25 5.98745 6.93393 5.42484 6.37132C4.86224 5.80871 4.54616 5.04565 4.54616 4.25C4.54616 3.45435 4.86224 2.69129 5.42484 2.12868C5.98745 1.56607 6.75052 1.25 7.54616 1.25C8.34181 1.25 9.10488 1.56607 9.66749 2.12868C10.2301 2.69129 10.5462 3.45435 10.5462 4.25ZM2.3341 14.75L1.58342 13.9993C1.60479 13.9108 1.63262 13.8075 1.66855 13.6927C1.79703 13.2821 2.02529 12.7357 2.42195 12.192C3.19105 11.1378 4.65793 10 7.54616 10C10.4344 10 11.9013 11.1378 12.6704 12.192C13.067 12.7357 13.2953 13.2821 13.4238 13.6927C13.4597 13.8075 13.4875 13.9108 13.5089 13.9993L12.7582 14.75H2.3341Z" stroke="#1BA098" stroke-width="1.5"/>
+                                        <path d="M17.6793 7.00697C17.9056 6.87161 18.1881 6.8716 18.4145 7.00697L20.0223 7.96836C20.5655 8.29317 21.2322 7.80547 21.0871 7.18942L20.6652 5.39758C20.6038 5.1371 20.6928 4.86415 20.8959 4.68986L22.2961 3.48813C22.7783 3.07426 22.5228 2.28404 21.8896 2.23081L20.0348 2.07492C19.7707 2.05272 19.5405 1.88653 19.4363 1.64288L18.7054 -0.0654447C18.4576 -0.644852 17.6362 -0.644852 17.3883 -0.065445L16.6575 1.64288C16.5533 1.88653 16.323 2.05272 16.0589 2.07492L14.2042 2.23081C13.5709 2.28404 13.3154 3.07426 13.7977 3.48813L15.1979 4.68986C15.4009 4.86415 15.4899 5.1371 15.4286 5.39758L15.0066 7.18942C14.8616 7.80547 15.5283 8.29317 16.0715 7.96836L17.6793 7.00697Z" fill="#1BA098"/>
+                                    </svg>
+                                    No Reviews
+                                </div>
+                            </div>
+                        </div>
+                        <div class="brands-list-item__right"></div>
+                    </a>
+                    <a href="" class="brands-list-item featured">
+                        <div class="brands-list-item__left">
+                            <div class="brands-list__cell brand-cell">
+                                <div class="brands-list-item__img">
+                                    <img src="./data/brand-2.png" width="130" height="70" alt="">
                                 </div>
                                 <div class="brands-list-item__title">
                                     Wahaka Mezcaal
@@ -347,7 +382,7 @@
                         <div class="brands-list-item__left">
                             <div class="brands-list__cell brand-cell">
                                 <div class="brands-list-item__img">
-                                    <img src="./data/brand-2.png" width="130" height="70" alt="">
+                                    <img src="./data/brand-1.png" width="130" height="70" alt="">
                                 </div>
                                 <div class="brands-list-item__title">
                                     Real Minero
@@ -380,30 +415,36 @@
                     </a>
                 </div>
             </div>
-            <ul class="pagination">
-                <li><a href="#">1</a></li>
-                <li><span>2</span></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li class="dots"></li>
-                <li><a href="#">14</a></li>
-                <li><a href="#">15</a></li>
-                <li class="first">
-                    <a href="#">
-                        <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14 5H2M2 5L6 1M2 5L6 9" stroke="#5A5E62" stroke-width="1.5"></path>
-                        </svg>
-                    </a>
-                </li>
-                <li class="last">
-                    <a href="#">
-                        <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0 5H12M12 5L8 1M12 5L8 9" stroke="#5A5E62" stroke-width="1.5"></path>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-        </ddiv>
+            <div class="brands-footer">
+                <ul class="pagination">
+                    <li><a href="#">1</a></li>
+                    <li><span>2</span></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li class="dots"></li>
+                    <li><a href="#">14</a></li>
+                    <li><a href="#">15</a></li>
+                    <li class="first">
+                        <a href="#">
+                            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 5H2M2 5L6 1M2 5L6 9" stroke="#5A5E62" stroke-width="1.5"></path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="last">
+                        <a href="#">
+                            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 5H12M12 5L8 1M12 5L8 9" stroke="#5A5E62" stroke-width="1.5"></path>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+                <div class="brands-pagination-count">
+                    Showing 1 – 30 of 800
+                </div>
+            </div>
+
+        </div>
     </div>
     <footer class="footer">
   <div class="footer__main">

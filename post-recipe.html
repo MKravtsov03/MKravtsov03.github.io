@@ -25,16 +25,6 @@
     <header class="header">
   <div class="header__top">
     <div class="header__inner">
-      <nav class="header__top-nav">
-        <ul>
-          <li>
-            <a href="#">Contact Us</a>
-          </li>
-          <li>
-            <a href="#">Blog</a>
-          </li>
-        </ul>
-      </nav>
       <div class="header__top-controls">
         <div class="header__top-control login">
           <a href="#">
@@ -680,6 +670,13 @@
                         </svg>
                       </div>
                     </div>
+                    <div class="reply-btn">
+                      Reply
+                      <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.44444 3.2V0L0 5.6L5.44444 11.2V7.92C9.33333 7.92 12.0556 9.2 14 12C13.2222 8 10.8889 4 5.44444 3.2Z" fill="#F9F9FA"/>
+                      </svg>
+
+                    </div>
                   </div>
                 </div>
                 <div class="review__inner">
@@ -703,9 +700,46 @@
                     </p>
                   </div>
                 </div>
-                <div class="public-profile__bottom">
-                  <div class="public-profile__product-help">Was this review helpful?</div>
-                  <div class="public-profile__product-mark"><small>Yes</small> <span>22</span></div>
+                <div class="review-reply">
+                    <div class="review-reply__label">
+                      <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.44444 3.2V0L0 5.6L5.44444 11.2V7.92C9.33333 7.92 12.0556 9.2 14 12C13.2222 8 10.8889 4 5.44444 3.2Z" fill="#9C9EA1"/>
+                      </svg>
+
+                      Replying to Michael Lobanov
+                    </div>
+                  <div class="review">
+                    <div class="review__heading">
+                      <div class="review__meta">
+                        <div class="review__avatar">
+                          <img src="./data/review-2.png" width="64" height="64" alt="">
+                        </div>
+                        <div class="review__meta-inner">
+                          <div class="review__name">
+                            Anne Williams
+                          </div>
+                          <div class="review__count">
+                            38 Reviews
+                          </div>
+                        </div>
+                      </div>
+                      <div class="review__info">
+                        <div class="review__date">
+                          19.03.22
+                        </div>
+                      </div>
+                    </div>
+                    <div class="review__inner">
+                      <div class="review__title h5">
+                        Unique, Intense and Memorable
+                      </div>
+                      <div class="review__content">
+                        <p>
+                          Production numbers are soaring to new heights and more and more people outside of Mexico are discovering this diverse and exciting liquor that has an incredible range of taste notes. From smokey to sweet, from citrus to clay and from cinnamon to pepper, there is a whole world for your taste buds to discover.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="review">
@@ -727,27 +761,12 @@
                     <div class="review__date">
                       19.03.22
                     </div>
-                    <div class="review-rating">
-                      <div class="review-rating-count">
-                        4/5
-                      </div>
-                      <div class="rate" data-rate="5">
-                        <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z"></path>
-                        </svg>
-                        <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z"></path>
-                        </svg>
-                        <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z"></path>
-                        </svg>
-                        <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z"></path>
-                        </svg>
-                        <svg class="rate__item" width="17" height="15" viewBox="0 0 17 15" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M8.90195 0.24707L11.0643 4.98258L16.6003 5.42262C16.9843 5.4533 17.1405 5.89657 16.849 6.12992L12.6499 9.49604L13.9082 14.5036C13.9955 14.8516 13.588 15.1254 13.2581 14.9405L8.50054 12.2857L3.74296 14.9405C3.41223 15.1245 3.00559 14.8508 3.09285 14.5036L4.35118 9.49604L0.151211 6.12911C-0.140248 5.89576 0.0150806 5.45249 0.399911 5.42181L5.93588 4.98177L8.09826 0.24707C8.24835 -0.0823566 8.75186 -0.0823566 8.90195 0.24707Z"></path>
-                        </svg>
-                      </div>
+                    <div class="reply-btn">
+                      Reply
+                      <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.44444 3.2V0L0 5.6L5.44444 11.2V7.92C9.33333 7.92 12.0556 9.2 14 12C13.2222 8 10.8889 4 5.44444 3.2Z" fill="#F9F9FA"/>
+                      </svg>
+
                     </div>
                   </div>
                 </div>
@@ -760,10 +779,6 @@
                       Production numbers are soaring to new heights and more and more people outside of Mexico are discovering this diverse and exciting liquor that has an incredible range of taste notes. From smokey to sweet, from citrus to clay and from cinnamon to pepper, there is a whole world for your taste buds to discover.
                     </p>
                   </div>
-                </div>
-                <div class="public-profile__bottom">
-                  <div class="public-profile__product-help">Was this review helpful?</div>
-                  <div class="public-profile__product-mark"><small>Yes</small> <span>22</span></div>
                 </div>
               </div>
               <div class="review">
@@ -807,6 +822,13 @@
                         </svg>
                       </div>
                     </div>
+                    <div class="reply-btn">
+                      Reply
+                      <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.44444 3.2V0L0 5.6L5.44444 11.2V7.92C9.33333 7.92 12.0556 9.2 14 12C13.2222 8 10.8889 4 5.44444 3.2Z" fill="#F9F9FA"/>
+                      </svg>
+
+                    </div>
                   </div>
                 </div>
                 <div class="review__inner">
@@ -816,16 +838,9 @@
                     </p>
                   </div>
                 </div>
-                <div class="public-profile__bottom">
-                  <div class="public-profile__product-help">Was this review helpful?</div>
-                  <div class="public-profile__product-mark"><small>Yes</small> <span>22</span></div>
-                </div>
               </div>
             </div>
             <div class="reviews__footer">
-              <button class="reviews__show-more">
-                Show more
-              </button>
               <ul class="pagination">
                 <li><a href="#">1</a></li>
                 <li><span>2</span></li>

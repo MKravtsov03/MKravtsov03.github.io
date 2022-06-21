@@ -11083,6 +11083,130 @@ document.addEventListener('DOMContentLoaded', function () {
   var tabs = new _tabs2.default();
   global.customPopups = new _popups2.default();
   global.customSelect = new _select2.default();
+
+  var handleClickListItem = function handleClickListItem(e) {
+    var li = e.target.closest('.list-item');
+    var select = li.closest('.selectMultiple');
+
+    if (!li.classList.contains('selected')) {
+      li.classList.add('selected');
+      if (select.querySelector('.active .selected-text')) {
+        select.querySelector('.active .selected-text').innerHTML = select.querySelector('.active .selected-text').innerHTML + ', ' + li.dataset.value;
+      } else {
+        var a = document.createElement('span');
+        a.classList.add('selected-text');
+        a.dataset.value = li.dataset.value;
+        a.innerHTML = '<em>' + li.innerText + '</em><i></i>';
+        a.classList.add('notShown');
+
+        select.querySelector('div').appendChild(a);
+      }
+
+      Array.from(document.getElementsByClassName('prodOption')).forEach(function (option) {
+        if (option.value === li.dataset.value) {
+          option.selected = true;
+          document.querySelector('select[multiple]').dispatchEvent(new Event('change'));
+        }
+      });
+      select.querySelector('.placeholder').classList.add('hide');
+    } else {
+      li.classList.remove('selected');
+      Array.from(document.getElementsByClassName('prodOption')).forEach(function (option) {
+        if ('' + option.value === '' + li.dataset.value) {
+          option.selected = false;
+          document.querySelector('select[multiple]').dispatchEvent(new Event('change'));
+          var selectedItem = document.querySelector('.selectMultiple .active .selected-text');
+          var values = selectedItem.textContent.split(',');
+          console.log(values);
+          selectedItem.innerHTML = values.filter(function (item) {
+            return item.trim() !== li.dataset.value;
+          }).join();
+        }
+      });
+    }
+    var selectEl = select.querySelector('select[multiple]');
+
+    if (!selectEl.selectedOptions.length) {
+      select.querySelector('span').classList.remove('hide');
+    }
+
+    // li.remove();
+    // select.classList.remove('clicked');
+  };
+
+  document.querySelector('select[multiple]').onchange = function () {
+    var newVal = [];
+    Array.from(document.querySelectorAll('option.prodOption')).forEach(function (option) {
+      if (option.selected) {
+        newVal.push(option.value);
+      }
+    });
+  };
+
+  if (!document.querySelector('.selectMultiple')) {
+    var select = document.querySelector('select[multiple]');
+    var selectOptions = document.querySelectorAll('option.prodOption');
+
+    var newSelect = document.createElement('div');
+    newSelect.classList.add('selectMultiple');
+
+    var active = document.createElement('div');
+    active.classList.add('active');
+
+    var optionList = document.createElement('ul');
+    var placeholder = select.dataset.placeholder;
+
+    var placeholderElement = document.createElement('span');
+    placeholderElement.innerText = placeholder;
+    placeholderElement.classList.add('placeholder');
+    active.appendChild(placeholderElement);
+    Array.from(selectOptions).forEach(function (option) {
+      var text = option.innerText;
+      var item = document.createElement('li');
+      item.classList.add('list-item');
+      item.dataset.value = option.value;
+      item.innerHTML = text;
+      optionList.appendChild(item);
+      if (option.selected) {
+        var tag = document.createElement('span');
+        tag.classList.add('selected-text');
+        tag.dataset.value = option.value;
+        tag.innerHTML = '<em>' + text + '</em><i></i>';
+        active.appendChild(tag);
+        placeholderElement.classList.add('hide');
+        item.classList.add('selected');
+      }
+    });
+
+    var arrow = document.createElement('div');
+    arrow.classList.add('arrow');
+    active.appendChild(arrow);
+
+    newSelect.appendChild(active);
+    newSelect.appendChild(optionList);
+
+    select.parentElement.append(newSelect);
+    placeholderElement.appendChild(select);
+
+    document.querySelector('.selectMultiple ul').removeEventListener('click', handleClickListItem);
+    // document.querySelector('.selectMultiple > div').removeEventListener('click', handleClickSelectedItem);
+
+    document.querySelector('.selectMultiple ul').addEventListener('click', handleClickListItem);
+    // document.querySelector('.selectMultiple > div').addEventListener('click', handleClickSelectedItem);
+
+    document.querySelectorAll('.selectMultiple > div, .selectMultiple > div span').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        el.closest('.selectMultiple').classList.toggle('open');
+      });
+    });
+
+    document.addEventListener('mouseup', function (e) {
+      var container = document.querySelector('.selectMultiple');
+      if (!container.contains(e.target)) {
+        container.classList.remove('open');
+      }
+    });
+  }
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
@@ -11188,7 +11312,7 @@ initMarkapMenu();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ["dev", "404.html", "account-change-password.html", "account-edit-profile.html", "account-main.html", "account-not-subscribed.html", "account-privacy.html", "account-public-profile.html", "account-subscribed.html", "account-welcome.html", "affordable-mezcal.html", "author-4-row.html", "author.html", "blog-page.html", "blog.html", "bottle-review-empty.html", "bottle-review-form.html", "bottle.html", "bottles.html", "brand-page.html", "brands.html", "change-password.html", "choose-nickname.html", "contact-main.html", "contact-submit-mezcal-brand.html", "email-confirmation.html", "forgot-password.html", "how-to-drink-mezcal.html", "index.html", "login.html", "mezcal-coctails.html", "mezcal-vs-tequila.html", "password-changed.html", "post-individual.html", "post-recipe.html", "recover-email-sent-box.html", "register.html", "what-is-mezcal.html", "worm-in-mezcal.html"];
+exports.default = ["dev", "404.html", "account-change-password.html", "account-edit-profile.html", "account-main.html", "account-not-subscribed.html", "account-privacy.html", "account-public-profile.html", "account-subscribed.html", "account-welcome.html", "affordable-mezcal.html", "author-4-row.html", "author.html", "blog-page.html", "blog.html", "bottle-review-form.html", "bottle.html", "bottles.html", "brand-page.html", "brands-empty.html", "brands.html", "change-password.html", "choose-nickname.html", "contact-main.html", "contact-submit-mezcal-brand.html", "email-confirmation.html", "forgot-password.html", "how-to-drink-mezcal.html", "index.html", "login.html", "mezcal-coctails.html", "mezcal-vs-tequila.html", "password-changed.html", "post-individual.html", "post-recipe.html", "recover-email-sent-box.html", "register.html", "search-results.html", "serch-results-empty.html", "what-is-mezcal.html", "worm-in-mezcal.html"];
 
 /***/ }),
 /* 9 */
@@ -11385,6 +11509,18 @@ exports.default = function () {
         (0, _jquery2.default)('.bottle-tabs__holder').removeClass('fixed');
         (0, _jquery2.default)('.bottle-tabs__container').removeClass('fixed-list');
       }
+
+      (0, _jquery2.default)('.bottle-tabs__list a').each(function () {
+        console.log(this);
+        var block = (0, _jquery2.default)(_jquery2.default.attr(this, 'href'));
+        var blockStart = block.offset().top - 200;
+        var blockEnd = block.offset().top + block.height();
+        if (window.scrollY >= blockStart && window.scrollY <= blockEnd - 150) {
+          (0, _jquery2.default)(this).addClass('active');
+        } else {
+          (0, _jquery2.default)(this).removeClass('active');
+        }
+      });
     });
   }
 
@@ -11395,6 +11531,18 @@ exports.default = function () {
 
       (0, _jquery2.default)('.blog-slider__slider').css('padding-left', paddingNav - paddingInner);
     }
+  });
+
+  (0, _jquery2.default)('.public-profile__product-mark small').on('click', function () {
+    if (!(0, _jquery2.default)(this).hasClass('no')) {
+      (0, _jquery2.default)(this).text('No');
+      (0, _jquery2.default)(this).addClass('no');
+      (0, _jquery2.default)(this).parent().find('span').text(+(0, _jquery2.default)(this).parent().find('span').text() + 1);
+      return null;
+    }
+    (0, _jquery2.default)(this).text('Yes');
+    (0, _jquery2.default)(this).removeClass('no');
+    (0, _jquery2.default)(this).parent().find('span').text(+(0, _jquery2.default)(this).parent().find('span').text() - 1);
   });
 };
 
@@ -11528,7 +11676,7 @@ exports.default = function () {
     slidesToShow: 4,
     slidesToScroll: 1,
     accessibility: false,
-    infinite: true,
+    infinite: false,
     arrows: true,
     dots: false,
     rows: 0,
@@ -11537,10 +11685,19 @@ exports.default = function () {
     nextArrow: (0, _jquery2.default)('.blog-slider__next').html('<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 5H12M12 5L8 1M12 5L8 9" stroke="#5A5E62" stroke-width="1.5"/></svg>')
   });
 
+  var slideCount = 3;
+
   (0, _jquery2.default)('.blog-slider__slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-    var calc = nextSlide / (slick.slideCount - 1) * 100;
+    console.log(nextSlide, slick.slideCount);
+    var calc = (nextSlide + 1) / slideCount * 100;
 
     (0, _jquery2.default)('.blog-slider__progress').css('background-size', calc + '% 100%').attr('aria-valuenow', calc);
+
+    if (nextSlide === 2) {
+      (0, _jquery2.default)('.blog-slider__next').addClass('disabled');
+    } else {
+      (0, _jquery2.default)('.blog-slider__next').removeClass('disabled');
+    }
   });
 
   if (window.innerWidth < 768) {
