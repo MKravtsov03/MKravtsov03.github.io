@@ -12198,12 +12198,15 @@ body.article .wrapper {
 @media only screen and (max-width: 580px) {
   .main-section__search-submit {
     right: 7px;
-    height: 46px;
+    height: 30px;
     max-width: 80px;
   }
   .main-section__search-submit svg {
     display: none;
   }
+}
+.main-section__tags {
+  overflow: hidden;
 }
 @media only screen and (max-width: 991px) {
   .main-section__tags {
@@ -12229,6 +12232,11 @@ body.article .wrapper {
   line-height: 12px;
   color: #5a5e62;
   margin-right: 26px;
+}
+@media only screen and (max-width: 767px) {
+  .main-section__tags-title {
+    display: none;
+  }
 }
 .main-section__tags-list {
   max-width: 590px;
@@ -12266,7 +12274,6 @@ body.article .wrapper {
 }
 @media only screen and (max-width: 767px) {
   .main-section__tags-list {
-    max-width: 300px;
     padding: 0 10px;
   }
 }
