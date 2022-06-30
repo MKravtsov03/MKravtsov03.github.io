@@ -11134,78 +11134,80 @@ document.addEventListener('DOMContentLoaded', function () {
     // select.classList.remove('clicked');
   };
 
-  document.querySelector('select[multiple]').onchange = function () {
-    var newVal = [];
-    Array.from(document.querySelectorAll('option.prodOption')).forEach(function (option) {
-      if (option.selected) {
-        newVal.push(option.value);
-      }
-    });
-  };
-
-  if (!document.querySelector('.selectMultiple')) {
-    var select = document.querySelector('select[multiple]');
-    var selectOptions = document.querySelectorAll('option.prodOption');
-
-    var newSelect = document.createElement('div');
-    newSelect.classList.add('selectMultiple');
-
-    var active = document.createElement('div');
-    active.classList.add('active');
-
-    var optionList = document.createElement('ul');
-    var placeholder = select.dataset.placeholder;
-
-    var placeholderElement = document.createElement('span');
-    placeholderElement.innerText = placeholder;
-    placeholderElement.classList.add('placeholder');
-    active.appendChild(placeholderElement);
-    Array.from(selectOptions).forEach(function (option) {
-      var text = option.innerText;
-      var item = document.createElement('li');
-      item.classList.add('list-item');
-      item.dataset.value = option.value;
-      item.innerHTML = text;
-      optionList.appendChild(item);
-      if (option.selected) {
-        var tag = document.createElement('span');
-        tag.classList.add('selected-text');
-        tag.dataset.value = option.value;
-        tag.innerHTML = '<em>' + text + '</em><i></i>';
-        active.appendChild(tag);
-        placeholderElement.classList.add('hide');
-        item.classList.add('selected');
-      }
-    });
-
-    var arrow = document.createElement('div');
-    arrow.classList.add('arrow');
-    active.appendChild(arrow);
-
-    newSelect.appendChild(active);
-    newSelect.appendChild(optionList);
-
-    select.parentElement.append(newSelect);
-    placeholderElement.appendChild(select);
-
-    document.querySelector('.selectMultiple ul').removeEventListener('click', handleClickListItem);
-    // document.querySelector('.selectMultiple > div').removeEventListener('click', handleClickSelectedItem);
-
-    document.querySelector('.selectMultiple ul').addEventListener('click', handleClickListItem);
-    // document.querySelector('.selectMultiple > div').addEventListener('click', handleClickSelectedItem);
-
-    document.querySelectorAll('.selectMultiple > div, .selectMultiple > div span').forEach(function (el) {
-      el.addEventListener('click', function (e) {
-        el.closest('.selectMultiple').classList.toggle('open');
+  if (document.querySelector('select[multiple]')) {
+    document.querySelector('select[multiple]').onchange = function () {
+      var newVal = [];
+      Array.from(document.querySelectorAll('option.prodOption')).forEach(function (option) {
+        if (option.selected) {
+          newVal.push(option.value);
+        }
       });
-    });
+    };
 
-    document.addEventListener('mouseup', function (e) {
-      var container = document.querySelector('.selectMultiple');
-      if (!container.contains(e.target)) {
-        container.classList.remove('open');
-      }
-    });
+    if (!document.querySelector('.selectMultiple')) {
+      var select = document.querySelector('select[multiple]');
+      var selectOptions = document.querySelectorAll('option.prodOption');
+
+      var newSelect = document.createElement('div');
+      newSelect.classList.add('selectMultiple');
+
+      var active = document.createElement('div');
+      active.classList.add('active');
+
+      var optionList = document.createElement('ul');
+      var placeholder = select.dataset.placeholder;
+
+      var placeholderElement = document.createElement('span');
+      placeholderElement.innerText = placeholder;
+      placeholderElement.classList.add('placeholder');
+      active.appendChild(placeholderElement);
+      Array.from(selectOptions).forEach(function (option) {
+        var text = option.innerText;
+        var item = document.createElement('li');
+        item.classList.add('list-item');
+        item.dataset.value = option.value;
+        item.innerHTML = text;
+        optionList.appendChild(item);
+        if (option.selected) {
+          var tag = document.createElement('span');
+          tag.classList.add('selected-text');
+          tag.dataset.value = option.value;
+          tag.innerHTML = '<em>' + text + '</em><i></i>';
+          active.appendChild(tag);
+          placeholderElement.classList.add('hide');
+          item.classList.add('selected');
+        }
+      });
+
+      var arrow = document.createElement('div');
+      arrow.classList.add('arrow');
+      active.appendChild(arrow);
+
+      newSelect.appendChild(active);
+      newSelect.appendChild(optionList);
+
+      select.parentElement.append(newSelect);
+      placeholderElement.appendChild(select);
+
+      document.querySelector('.selectMultiple ul').removeEventListener('click', handleClickListItem);
+      // document.querySelector('.selectMultiple > div').removeEventListener('click', handleClickSelectedItem);
+
+      document.querySelector('.selectMultiple ul').addEventListener('click', handleClickListItem);
+      // document.querySelector('.selectMultiple > div').addEventListener('click', handleClickSelectedItem);
+
+      document.querySelectorAll('.selectMultiple > div, .selectMultiple > div span').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          el.closest('.selectMultiple').classList.toggle('open');
+        });
+      });
+
+      document.addEventListener('mouseup', function (e) {
+        var container = document.querySelector('.selectMultiple');
+        if (!container.contains(e.target)) {
+          container.classList.remove('open');
+        }
+      });
+    }
   }
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
@@ -11533,17 +11535,33 @@ exports.default = function () {
     }
   });
 
+  if (window.innerWidth < 768) {
+    (0, _jquery2.default)('.contact-main__form').after((0, _jquery2.default)('.contact-main__subtitle'));
+    (0, _jquery2.default)('.contact-main__subtitle').after((0, _jquery2.default)('.contact-main__description'));
+    (0, _jquery2.default)('.contact-main__description').after((0, _jquery2.default)('.contact-main__button'));
+    (0, _jquery2.default)('.contact-main__button').after((0, _jquery2.default)('.contact-main__podcast'));
+  }
+
   (0, _jquery2.default)('.public-profile__product-mark small').on('click', function () {
     if (!(0, _jquery2.default)(this).hasClass('no')) {
       (0, _jquery2.default)(this).text('No');
       (0, _jquery2.default)(this).addClass('no');
       (0, _jquery2.default)(this).parent().find('span').text(+(0, _jquery2.default)(this).parent().find('span').text() + 1);
+      (0, _jquery2.default)(this).parent().addClass('clicked');
       return null;
     }
     (0, _jquery2.default)(this).text('Yes');
     (0, _jquery2.default)(this).removeClass('no');
     (0, _jquery2.default)(this).parent().find('span').text(+(0, _jquery2.default)(this).parent().find('span').text() - 1);
+    (0, _jquery2.default)(this).parent().removeClass('clicked');
   });
+
+  if (window.innerWidth < 768) {
+    (0, _jquery2.default)('.rating-filter-title').on('click', function () {
+      (0, _jquery2.default)(this).toggleClass('active');
+      (0, _jquery2.default)('.rating-filter__inner').slideToggle();
+    });
+  }
 };
 
 /***/ }),
@@ -11681,27 +11699,70 @@ exports.default = function () {
     dots: false,
     rows: 0,
     variableWidth: true,
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2
+      }
+    }],
     prevArrow: (0, _jquery2.default)('.blog-slider__prev').html('<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 5H2M2 5L6 1M2 5L6 9" stroke="#5A5E62" stroke-width="1.5"/></svg>'),
     nextArrow: (0, _jquery2.default)('.blog-slider__next').html('<svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 5H12M12 5L8 1M12 5L8 9" stroke="#5A5E62" stroke-width="1.5"/></svg>')
   });
 
-  var slideCount = 3;
-
   (0, _jquery2.default)('.blog-slider__slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+    var calc = 0;
     console.log(nextSlide, slick.slideCount);
-    var calc = (nextSlide + 1) / slideCount * 100;
-
-    (0, _jquery2.default)('.blog-slider__progress').css('background-size', calc + '% 100%').attr('aria-valuenow', calc);
-
-    if (nextSlide === 2) {
-      (0, _jquery2.default)('.blog-slider__next').addClass('disabled');
+    if (window.innerWidth < 768) {
+      calc = (nextSlide + 2) / slick.slideCount * 100;
     } else {
-      (0, _jquery2.default)('.blog-slider__next').removeClass('disabled');
+      calc = (nextSlide + 1) / 3 * 100;
+
+      if (nextSlide === 2) {
+        (0, _jquery2.default)('.blog-slider__next').addClass('disabled');
+      } else {
+        (0, _jquery2.default)('.blog-slider__next').removeClass('disabled');
+      }
     }
+    (0, _jquery2.default)('.blog-slider__progress').css('background-size', calc + '% 100%').attr('aria-valuenow', calc);
   });
 
   if (window.innerWidth < 768) {
     (0, _jquery2.default)('.learning-stories .stories__list').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      variableWidth: true,
+      arrows: false,
+      dots: false
+    });
+    (0, _jquery2.default)('.more-from-brand').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      variableWidth: true,
+      arrows: false,
+      dots: false
+    });
+    (0, _jquery2.default)('.similar-brand-list').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      variableWidth: true,
+      arrows: false,
+      dots: false
+    });
+    (0, _jquery2.default)('.best-products .best-products__list').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      variableWidth: true,
+      arrows: false,
+      dots: false
+    });
+    (0, _jquery2.default)('.brand-list').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      variableWidth: true,
+      arrows: false,
+      dots: false
+    });
+    (0, _jquery2.default)('.cocktails-block .best-products__list').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
       variableWidth: true,
