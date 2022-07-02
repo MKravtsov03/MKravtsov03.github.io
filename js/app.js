@@ -11045,27 +11045,29 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
+__webpack_require__(7);
+
 var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _main = __webpack_require__(7);
+var _main = __webpack_require__(9);
 
 var _main2 = _interopRequireDefault(_main);
 
-var _sliders = __webpack_require__(8);
+var _sliders = __webpack_require__(10);
 
 var _sliders2 = _interopRequireDefault(_sliders);
 
-var _popups = __webpack_require__(10);
+var _popups = __webpack_require__(12);
 
 var _popups2 = _interopRequireDefault(_popups);
 
-var _select = __webpack_require__(11);
+var _select = __webpack_require__(13);
 
 var _select2 = _interopRequireDefault(_select);
 
-var _tabs = __webpack_require__(12);
+var _tabs = __webpack_require__(14);
 
 var _tabs2 = _interopRequireDefault(_tabs);
 
@@ -11073,7 +11075,6 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
 
-// import  "./markup-menu";
 global.$ = _jquery2.default;
 global.jQuery = _jquery2.default;
 document.addEventListener('DOMContentLoaded', function () {
@@ -11240,6 +11241,83 @@ module.exports = g;
 
 /***/ }),
 /* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _files = __webpack_require__(8);
+
+var _files2 = _interopRequireDefault(_files);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function initMarkapMenu() {
+  var nav = document.createElement("div");
+  var style = document.createElement("style");
+  var button = document.createElement("button");
+  var wrapper = document.createElement("div");
+  wrapper.appendChild(button);
+  wrapper.appendChild(nav);
+  wrapper.className = "helper-nav-wrapper";
+  button.innerHTML = "Open pages list";
+  button.className = "helper-nav-button";
+  nav.className = "helper-nav";
+  style.innerHTML = ".helper-nav a:hover {\n      color:#fff;\n      background-color:#000;\n    } \n    .helper-nav a {\n      display:block;\n      color: #000;\n      padding: 3px;\n      margin:0\n    }\n    .helper-nav-button {\n      background: #000;\n      color: #fff;\n      padding: 5px;\n      font-weight: 300;\n      font-size: 12px;\n      border: none;\n      border-radius: 3px 0 0 0;\n      cursor: pointer;\n    }\n    .helper-nav-wrapper {\n      position: fixed;\n      bottom: 0;\n      right: 0;\n      font-family: monospace;\n      z-index: 9999;\n      text-align: right;\n      font-size: 14px;\n    }\n    .helper-nav {\n      text-align: left;\n      background-color: #fff;\n      border: 1px solid #000;\n      padding: 3px;\n      boxShadow: 0 0 40px 0 rgba(0,0,0,.2);\n      max-height: 300px;\n      overflow-y: auto;\n    }\n    @media all and (max-width:1024px) {\n      .helper-nav {\n        height: 160px;\n        overflow-y: scroll;\n      }\n    }";
+  document.head.appendChild(style);
+  if (_files2.default.length <= 2) {
+    return;
+  }
+
+  for (var i = 1; i < _files2.default.length; i += 1) {
+    nav.innerHTML += "<a href=\"/" + _files2.default[i] + "\">" + i + "-" + _files2.default[i] + "</a>";
+  }
+  document.body.appendChild(wrapper);
+  var flag = localStorage.getItem("flag") ? JSON.parse(localStorage.getItem("flag")) : false;
+  var display = flag ? "block" : "none";
+  var btnText = flag ? "Close pages list" : "Open pages list";
+  nav.style.display = display;
+  button.innerHTML = btnText;
+
+  function toggleNav() {
+    if (flag) {
+      nav.style.display = "none";
+      button.innerHTML = "Open pages list";
+    } else {
+      nav.style.display = "block";
+      button.innerHTML = "Close pages list";
+    }
+    flag = !flag;
+    localStorage.setItem("flag", flag);
+  }
+  document.addEventListener("keyup", function (e) {
+    if (e.type === "keyup" && e.ctrlKey && e.keyCode === 88) {
+      toggleNav();
+    }
+  });
+  button.addEventListener("click", toggleNav);
+};
+
+// if (window.location.hostname === "localhost") {
+initMarkapMenu();
+// }
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = ["dev", "404.html", "account-change-password.html", "account-edit-profile.html", "account-main.html", "account-not-subscribed.html", "account-privacy.html", "account-public-profile.html", "account-subscribed.html", "account-welcome.html", "affordable-mezcal.html", "author-4-row.html", "author.html", "blog-page.html", "blog.html", "bottle-review-form.html", "bottle.html", "bottles.html", "brand-page.html", "brands-empty.html", "brands.html", "change-password.html", "choose-nickname.html", "contact-main.html", "contact-submit-mezcal-brand.html", "email-confirmation.html", "forgot-password.html", "how-to-drink-mezcal.html", "index.html", "login.html", "mezcal-coctails.html", "mezcal-vs-tequila.html", "password-changed.html", "post-individual.html", "post-recipe.html", "recover-email-sent-box.html", "register.html", "search-results.html", "serch-results-empty.html", "what-is-mezcal.html", "worm-in-mezcal.html"];
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11499,7 +11577,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11513,7 +11591,7 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-__webpack_require__(9);
+__webpack_require__(11);
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -11707,7 +11785,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -14727,7 +14805,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14939,7 +15017,7 @@ var Popups = function () {
 exports.default = Popups;
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15263,7 +15341,7 @@ var Select = function () {
 exports.default = Select;
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
