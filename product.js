@@ -7,13 +7,11 @@ const ProductStyles = () =>
             box-sizing: border-box;
         }
         .products-grid {
-            display: flex;
-            flex-direction: column;
             gap: 20px;
             flex-wrap: wrap;
         }
         .products-grid.two-columns {
-            flex-direction: row;
+            display: flex;
             gap: 15px;
         }
         .products-grid.two-columns .product-card {
@@ -21,7 +19,7 @@ const ProductStyles = () =>
         }
         
         .products-grid.two-columns--reverse {
-            flex-direction: row;
+            display: flex;
             gap: 15px;
         }
         .products-grid.two-columns--reverse  .product-card {
@@ -33,7 +31,7 @@ const ProductStyles = () =>
         }
         
         .products-grid.three-columns {
-            flex-direction: row;
+            display: flex;
             gap: 10px;
         }
         .products-grid.three-columns  .product-card {
