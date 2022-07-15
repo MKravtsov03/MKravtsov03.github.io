@@ -644,6 +644,8 @@ const layoutsList = (layouts) => {
 
 getCouponTemplate = () => function (values) {
     console.log(values)
+    const { data: coupons, coupon } = values;
+    const activeCoupon = coupons.find(currentCoupon => currentCoupon.id === coupon)
     return (
     `
         <div class="coupon-wrapper">
@@ -651,12 +653,12 @@ getCouponTemplate = () => function (values) {
                 Use coupon for Discount
             </div>
             <div class="coupon-description">
-                Some description text here
+                This coupon will give you ${activeCoupon.value}% discount in period from ${activeCoupon.starts_at} to ${activeCoupon.ends_at}
             </div>
             <div class="coupon-value"> 
-                ${(values.coupon || 'XXXXXXXXXXXX').match(/.{1,4}/g).join('-')}
+                ${(activeCoupon.title || 'XXXXXXXXXXXX').match(/.{1,4}/g).join('-')}
             </div>
-             <a class="button no-underline" href="" target="_blank">${values.couponBtn}</a>
+<!--             <a class="button no-underline" href="" target="_blank"></a>-->
         </div>
     `
     )
