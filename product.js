@@ -646,16 +646,17 @@ getCouponTemplate = () => function (values) {
     console.log(values)
     const { data: { coupons }, coupon } = values;
     const activeCoupon = coupons.find(currentCoupon => currentCoupon.id == coupon)
-    console.log(activeCoupon)
+    const renderDescription = () => `
+            <div class="coupon-description">
+                This coupon will give you ${activeCoupon?.value}% discount in period from ${new Date(activeCoupon?.starts_at).toLocaleDateString()} to ${new Date(activeCoupon?.ends_at).toLocaleDateString()}
+            </div>`
     return (
     `
         <div class="coupon-wrapper">
             <div class="coupon-title">
                 Use coupon for Discount
             </div>
-            <div class="coupon-description">
-                This coupon will give you ${activeCoupon?.value}% discount in period from ${activeCoupon?.starts_at} to ${activeCoupon?.ends_at}
-            </div>
+            ${coupon ? renderDescription() : ''}
             <div class="coupon-value"> 
                 ${(activeCoupon?.title || 'XXXXXXXXXXXX').match(/.{1,4}/g).join('-')}
             </div>
