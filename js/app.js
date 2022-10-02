@@ -11071,29 +11071,34 @@ function _interopRequireDefault(obj) {
 
 global.$ = _jquery2.default;
 global.jQuery = _jquery2.default;
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   (0, _sliders2.default)();
   global.customPopups = new _popups2.default();
   global.customSelect = new _select2.default();
 
-  console.log((0, _jquery2.default)('.accordion').find('.accordion-item.open'));
+  console.log((0, _jquery2.default)(".accordion").find(".accordion-item.open"));
 
-  (0, _jquery2.default)('.accordion').find('.open').find('.accordion__slide').slideDown();
-  (0, _jquery2.default)('.accordion').find('.open').find('.accordion__handler').addClass('active');
+  (0, _jquery2.default)(".accordion").find(".open").find(".accordion__slide").slideDown();
+  (0, _jquery2.default)(".accordion").find(".open").find(".accordion__handler").addClass("active");
 
-  (0, _jquery2.default)('.accordion').on('click', '.accordion__handler', function accordionSlide() {
+  (0, _jquery2.default)(".accordion").on("click", ".accordion__handler", function accordionSlide() {
     var item = (0, _jquery2.default)(this).parent();
-    var accordion = (0, _jquery2.default)(this).parents('.accordion');
-    accordion.find('.accordion__slide').slideUp();
-    accordion.find('.accordion__handler').removeClass('active');
-    item.find('.accordion__slide').slideDown();
-    item.find('.accordion__handler').addClass('active');
+    var accordion = (0, _jquery2.default)(this).parents(".accordion");
+    if (item.find(".accordion__handler").hasClass("active")) {
+      item.find(".accordion__slide").slideUp();
+      item.find(".accordion__handler").removeClass("active");
+      return;
+    }
+    accordion.find(".accordion__slide").slideUp();
+    accordion.find(".accordion__handler").removeClass("active");
+    item.find(".accordion__slide").slideDown();
+    item.find(".accordion__handler").addClass("active");
   });
 
-  var PRICE_MIN = +(0, _jquery2.default)('#price-range').attr('data-min');
-  var PRICE_MAX = +(0, _jquery2.default)('#price-range').attr('data-max');
+  var PRICE_MIN = +(0, _jquery2.default)("#price-range").attr("data-min");
+  var PRICE_MAX = +(0, _jquery2.default)("#price-range").attr("data-max");
 
-  (0, _jquery2.default)('#price-range').slider({
+  (0, _jquery2.default)("#price-range").slider({
     range: true,
     min: PRICE_MIN,
     max: PRICE_MAX,
@@ -11111,11 +11116,30 @@ document.addEventListener('DOMContentLoaded', function () {
     (0, _jquery2.default)("#price-range").slider("values", 1, (0, _jquery2.default)(this).val());
   });
 
-  (0, _jquery2.default)('.price-range__reset').on('click', function () {
+  (0, _jquery2.default)(".price-range__reset").on("click", function () {
     (0, _jquery2.default)("#price-range").slider("values", 0, PRICE_MIN);
     (0, _jquery2.default)("#price-range").slider("values", 1, PRICE_MAX);
     (0, _jquery2.default)("#amount_min").val(PRICE_MIN);
     (0, _jquery2.default)("#amount_max").val(PRICE_MAX);
+  });
+
+  (0, _jquery2.default)(document).on("click", ".anchor", function anchorScroll(event) {
+    event.preventDefault();
+    (0, _jquery2.default)("html, body").animate({
+      scrollTop: (0, _jquery2.default)(_jquery2.default.attr(this, "href")).offset().top - 120
+    }, 500);
+  });
+
+  (0, _jquery2.default)(window).on("load resize", function () {
+    if (window.innerWidth < 768) {
+      (0, _jquery2.default)('.product-info__desc').before((0, _jquery2.default)('.product-options__select'));
+
+      (0, _jquery2.default)('.product-options').before((0, _jquery2.default)('.product-actions'));
+    } else {
+      (0, _jquery2.default)('.product-options').prepend((0, _jquery2.default)('.product-options__select'));
+
+      (0, _jquery2.default)('.product-adv').after((0, _jquery2.default)('.product-actions'));
+    }
   });
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
@@ -11224,7 +11248,7 @@ initMarkapMenu();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ["dev", "index.html", "product.html", "shop.html", "subcategory.html"];
+exports.default = ["dev", "index.html", "product-witth-sizes.html", "product.html", "shop.html", "subcategory.html"];
 
 /***/ }),
 /* 9 */
@@ -11612,72 +11636,76 @@ var Select = function () {
       }
 
       // build list
-      options.forEach(function (option, index) {
-        var optionImage = option.getAttribute('data-image');
-        var display = option.getAttribute('data-display');
-        var nativeOptionClasses = option.className.split(' ');
-        var item = document.createElement('li');
-        item.classList.add(_this2.options.selectItemClassName);
+      if (options.length > 1) {
+        options.forEach(function (option, index) {
+          var optionImage = option.getAttribute('data-image');
+          var display = option.getAttribute('data-display');
+          var nativeOptionClasses = option.className.split(' ');
+          var item = document.createElement('li');
+          item.classList.add(_this2.options.selectItemClassName);
 
-        if (option.className) {
-          var _item$classList;
+          if (option.className) {
+            var _item$classList;
 
-          (_item$classList = item.classList).add.apply(_item$classList, _toConsumableArray(nativeOptionClasses));
-        }
+            (_item$classList = item.classList).add.apply(_item$classList, _toConsumableArray(nativeOptionClasses));
+          }
 
-        if (option.selected) {
-          item.classList.add(_this2.options.activeItemClass);
-        }
+          if (option.selected) {
+            item.classList.add(_this2.options.activeItemClass);
+          }
 
-        if (option.disabled) {
-          item.classList.add(_this2.options.disableItemClass);
-        }
+          if (option.disabled) {
+            item.classList.add(_this2.options.disableItemClass);
+          }
 
-        if (option.selected && option.disabled) {
-          currentElement.classList.add(_this2.options.placeholderClass);
-        }
+          if (option.selected && option.disabled) {
+            currentElement.classList.add(_this2.options.placeholderClass);
+          }
 
-        item.setAttribute('data-value', option.value);
-        item.innerText = display || option.innerText;
+          item.setAttribute('data-value', option.value);
+          item.innerHTML = display || option.innerHTML;
 
-        if (optionImage) {
-          var _optionImageElement = '<div class="option-image"><img src="' + optionImage + '" alt=""></div>';
-          item.insertAdjacentHTML('afterBegin', _optionImageElement);
-        }
+          if (optionImage) {
+            var _optionImageElement = '<div class="option-image"><img src="' + optionImage + '" alt=""></div>';
+            item.insertAdjacentHTML('afterBegin', _optionImageElement);
+          }
 
-        if (select.dataset.search && index === 0) {
-          var sh = document.createElement('div');
-          sh.classList.add('search-holder');
-          var search = document.createElement('input');
-          search.type = 'search';
-          search.placeholder = select.dataset.search;
-          sh.appendChild(search);
-          search.addEventListener('click', function (e) {
-            e.stopImmediatePropagation();
-          });
-          var Search = function Search() {
-            var _this3 = this;
-
-            var list = customSelectList.querySelectorAll('li');
-            list.forEach(function (element) {
-              if (!element.classList.contains('search') && !element.textContent.toLowerCase().includes(_this3.value.toLowerCase())) {
-                element.classList.add('hidden');
-              } else {
-                element.classList.remove('hidden');
-              }
-              if (!_this3.value) {
-                element.classList.remove('hidden');
-              }
+          if (select.dataset.search && index === 0) {
+            var sh = document.createElement('div');
+            sh.classList.add('search-holder');
+            var search = document.createElement('input');
+            search.type = 'search';
+            search.placeholder = select.dataset.search;
+            sh.appendChild(search);
+            search.addEventListener('click', function (e) {
+              e.stopImmediatePropagation();
             });
-          };
-          search.addEventListener('keyup', Search);
-          search.addEventListener('change', Search);
-          customSelectList.insertAdjacentElement('beforeBegin', sh);
-          return;
-        }
+            var Search = function Search() {
+              var _this3 = this;
 
-        customSelectList.appendChild(item);
-      });
+              var list = customSelectList.querySelectorAll('li');
+              list.forEach(function (element) {
+                if (!element.classList.contains('search') && !element.textContent.toLowerCase().includes(_this3.value.toLowerCase())) {
+                  element.classList.add('hidden');
+                } else {
+                  element.classList.remove('hidden');
+                }
+                if (!_this3.value) {
+                  element.classList.remove('hidden');
+                }
+              });
+            };
+            search.addEventListener('keyup', Search);
+            search.addEventListener('change', Search);
+            customSelectList.insertAdjacentElement('beforeBegin', sh);
+            return;
+          }
+
+          customSelectList.appendChild(item);
+        });
+      } else {
+        customSelect.classList.add('singleOption');
+      }
 
       this.addListeners(select, customSelect);
 
@@ -11798,6 +11826,24 @@ function _interopRequireDefault(obj) {
 }
 
 exports.default = function () {
+
+    (0, _jquery2.default)('.product-thumb__slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: false,
+        asNavFor: (0, _jquery2.default)('.product-thumb__nav')
+    });
+
+    (0, _jquery2.default)('.product-thumb__nav').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        arrows: true,
+        dots: false,
+        focusOnSelect: true,
+        asNavFor: (0, _jquery2.default)('.product-thumb__slider')
+    });
+
     if ((0, _jquery2.default)(window).width() < 768) {
 
         (0, _jquery2.default)('.blog-section .blog-list').slick({
