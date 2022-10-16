@@ -11087,12 +11087,15 @@ document.addEventListener("DOMContentLoaded", function () {
     if (item.find(".accordion__handler").hasClass("active")) {
       item.find(".accordion__slide").slideUp();
       item.find(".accordion__handler").removeClass("active");
+      item.removeClass('active');
       return;
     }
     accordion.find(".accordion__slide").slideUp();
     accordion.find(".accordion__handler").removeClass("active");
+    accordion.find(".accordion__item").removeClass("active");
     item.find(".accordion__slide").slideDown();
     item.find(".accordion__handler").addClass("active");
+    item.addClass('active');
   });
 
   var PRICE_MIN = +(0, _jquery2.default)("#price-range").attr("data-min");
@@ -11135,10 +11138,24 @@ document.addEventListener("DOMContentLoaded", function () {
       (0, _jquery2.default)('.product-info__desc').before((0, _jquery2.default)('.product-options__select'));
 
       (0, _jquery2.default)('.product-options').before((0, _jquery2.default)('.product-actions'));
+
+      (0, _jquery2.default)('.about-item__title').each(function () {
+        (0, _jquery2.default)(this).parents('.about-item').prepend((0, _jquery2.default)(this));
+      });
     } else {
       (0, _jquery2.default)('.product-options').prepend((0, _jquery2.default)('.product-options__select'));
 
       (0, _jquery2.default)('.product-adv').after((0, _jquery2.default)('.product-actions'));
+
+      (0, _jquery2.default)('.about-item__title').each(function () {
+        (0, _jquery2.default)(this).parent().find('.about-item__inner').prepend((0, _jquery2.default)(this));
+      });
+    }
+
+    if (window.innerWidth < 993) {
+      (0, _jquery2.default)('.info-inner__heading').after((0, _jquery2.default)('.info-aside'));
+    } else {
+      (0, _jquery2.default)('.info-wrapp').prepend((0, _jquery2.default)('.info-aside'));
     }
   });
 });
@@ -11248,7 +11265,7 @@ initMarkapMenu();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ["dev", "index.html", "product-witth-sizes.html", "product.html", "shop.html", "subcategory.html"];
+exports.default = ["dev", "404.html", "about.html", "account-address.html", "account-created.html", "account-dashboard.html", "account-order-details.html", "account-orders.html", "account-profile.html", "article.html", "blog-2.html", "blog.html", "cart-empty.html", "cart.html", "checkout-confirm.html", "checkout-details.html", "checkout-failed.html", "contacts.html", "delivery.html", "faq.html", "forgot-password-change.html", "forgot-password-changed.html", "forgot-password-link-send.html", "forgot-password.html", "index.html", "info-page.html", "login.html", "product-witth-sizes.html", "product.html", "register.html", "shop.html", "subcategory.html"];
 
 /***/ }),
 /* 9 */
@@ -11847,6 +11864,14 @@ exports.default = function () {
     if ((0, _jquery2.default)(window).width() < 768) {
 
         (0, _jquery2.default)('.blog-section .blog-list').slick({
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            variableWidth: true,
+            arrows: false,
+            dots: false
+        });
+
+        (0, _jquery2.default)('.about-products-list').slick({
             slidesToShow: 2,
             slidesToScroll: 1,
             variableWidth: true,
