@@ -11087,7 +11087,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (item.find(".accordion__handler").hasClass("active")) {
       item.find(".accordion__slide").slideUp();
       item.find(".accordion__handler").removeClass("active");
-      item.removeClass('active');
+      item.removeClass("active");
       return;
     }
     accordion.find(".accordion__slide").slideUp();
@@ -11095,7 +11095,7 @@ document.addEventListener("DOMContentLoaded", function () {
     accordion.find(".accordion__item").removeClass("active");
     item.find(".accordion__slide").slideDown();
     item.find(".accordion__handler").addClass("active");
-    item.addClass('active');
+    item.addClass("active");
   });
 
   var PRICE_MIN = +(0, _jquery2.default)("#price-range").attr("data-min");
@@ -11133,44 +11133,55 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 500);
   });
 
-  (0, _jquery2.default)('.burger').on('click', function menuToggle() {
-    (0, _jquery2.default)(this).toggleClass('open');
-    (0, _jquery2.default)('.menu-block').toggleClass('open');
+  (0, _jquery2.default)(document).on("click", ".scrollTop", function () {
+    (0, _jquery2.default)("html, body").animate({
+      scrollTop: 0
+    }, 800);
   });
 
-  (0, _jquery2.default)('.search__handler').on('click', function searchToggle() {
-    (0, _jquery2.default)(this).toggleClass('open');
-    (0, _jquery2.default)('.search-form').toggleClass('open');
+  (0, _jquery2.default)(".burger").on("click", function menuToggle() {
+    (0, _jquery2.default)(this).toggleClass("open");
+    (0, _jquery2.default)(".menu-block").toggleClass("open");
+  });
+
+  (0, _jquery2.default)(".search__handler").on("click", function searchToggle() {
+    if ((0, _jquery2.default)(".search-form").hasClass("open")) {
+      (0, _jquery2.default)(this).removeClass("open");
+      (0, _jquery2.default)(".search-form").removeClass("open");
+    } else {
+      (0, _jquery2.default)(this).addClass("open");
+      (0, _jquery2.default)(".search-form").addClass("open");
+    }
   });
 
   (0, _jquery2.default)(window).on("load resize", function () {
     if (window.innerWidth < 768) {
-      (0, _jquery2.default)('.product-info__desc').before((0, _jquery2.default)('.product-options__select'));
+      (0, _jquery2.default)(".product-info__desc").before((0, _jquery2.default)(".product-options__select"));
 
-      (0, _jquery2.default)('.product-options').before((0, _jquery2.default)('.product-actions'));
+      (0, _jquery2.default)(".product-options").before((0, _jquery2.default)(".product-actions"));
 
-      (0, _jquery2.default)('.about-item__title').each(function () {
-        (0, _jquery2.default)(this).parents('.about-item').prepend((0, _jquery2.default)(this));
+      (0, _jquery2.default)(".about-item__title").each(function () {
+        (0, _jquery2.default)(this).parents(".about-item").prepend((0, _jquery2.default)(this));
       });
     } else {
-      (0, _jquery2.default)('.product-options').prepend((0, _jquery2.default)('.product-options__select'));
+      (0, _jquery2.default)(".product-options").prepend((0, _jquery2.default)(".product-options__select"));
 
-      (0, _jquery2.default)('.product-adv').after((0, _jquery2.default)('.product-actions'));
+      (0, _jquery2.default)(".product-adv").after((0, _jquery2.default)(".product-actions"));
 
-      (0, _jquery2.default)('.about-item__title').each(function () {
-        (0, _jquery2.default)(this).parent().find('.about-item__inner').prepend((0, _jquery2.default)(this));
+      (0, _jquery2.default)(".about-item__title").each(function () {
+        (0, _jquery2.default)(this).parent().find(".about-item__inner").prepend((0, _jquery2.default)(this));
       });
     }
 
     if (window.innerWidth < 993) {
-      (0, _jquery2.default)('.info-inner__heading').after((0, _jquery2.default)('.info-aside'));
+      (0, _jquery2.default)(".info-inner__heading").after((0, _jquery2.default)(".info-aside"));
     } else {
-      (0, _jquery2.default)('.info-wrapp').prepend((0, _jquery2.default)('.info-aside'));
+      (0, _jquery2.default)(".info-wrapp").prepend((0, _jquery2.default)(".info-aside"));
     }
   });
 
   if (window.innerWidth < 993) {
-    (0, _jquery2.default)('.navigation__link.with-child').on('click', function (e) {
+    (0, _jquery2.default)(".navigation__link.with-child").on("click", function (e) {
       e.preventDefault();
     });
   }
