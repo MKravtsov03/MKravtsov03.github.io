@@ -11133,6 +11133,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 500);
   });
 
+  (0, _jquery2.default)('.burger').on('click', function menuToggle() {
+    (0, _jquery2.default)(this).toggleClass('open');
+    (0, _jquery2.default)('.menu-block').toggleClass('open');
+  });
+
+  (0, _jquery2.default)('.search__handler').on('click', function searchToggle() {
+    (0, _jquery2.default)(this).toggleClass('open');
+    (0, _jquery2.default)('.search-form').toggleClass('open');
+  });
+
   (0, _jquery2.default)(window).on("load resize", function () {
     if (window.innerWidth < 768) {
       (0, _jquery2.default)('.product-info__desc').before((0, _jquery2.default)('.product-options__select'));
@@ -11158,6 +11168,12 @@ document.addEventListener("DOMContentLoaded", function () {
       (0, _jquery2.default)('.info-wrapp').prepend((0, _jquery2.default)('.info-aside'));
     }
   });
+
+  if (window.innerWidth < 993) {
+    (0, _jquery2.default)('.navigation__link.with-child').on('click', function (e) {
+      e.preventDefault();
+    });
+  }
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
