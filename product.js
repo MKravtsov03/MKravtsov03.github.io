@@ -749,26 +749,18 @@ unlayer.registerTool({
         return newValues
     },
     propertyStates: (values) => {
+        let newLayouts = [...values.layout];
+        let titleProps = {};
         if ( values.productContent.products.length > 2) {
             const newLayouts = [...values.layout]
             newLayouts[3].disabled = false
-            return {
-                layout: {
-                    value: newLayouts
-                }
-            }
         } else if ( values.productContent.products.length <= 2) {
             const newLayouts = [...values.layout]
             newLayouts[3].disabled = true
-            return {
-                layout: {
-                    value: newLayouts
-                }
-            }
         }
         if (!values.details.title) {
             console.log({values})
-            return {
+            titleProps = {
                 titleFont: {
                     enabled: false
                 },
@@ -781,6 +773,12 @@ unlayer.registerTool({
                 titleAligment: {
                     enabled: false
                 }
+            }
+        }
+        return {
+            layout: {
+                value: newLayouts,
+                ...titleProps
             }
         }
     },
