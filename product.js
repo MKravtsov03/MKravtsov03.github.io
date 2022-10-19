@@ -766,6 +766,22 @@ unlayer.registerTool({
                 }
             }
         }
+        if (!values.details.title) {
+            return {
+                titleFont: {
+                    enabled: false
+                },
+                titleFontSize: {
+                    enabled: false
+                },
+                titleColor: {
+                    enabled: false
+                },
+                titleAligment: {
+                    enabled: false
+                }
+            }
+        }
     },
     renderer: {
         Viewer: unlayer.createViewer({
