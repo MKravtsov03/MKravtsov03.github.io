@@ -767,6 +767,7 @@ unlayer.registerTool({
             }
         }
         if (!values.details.title) {
+            console.log({values})
             return {
                 titleFont: {
                     enabled: false
