@@ -511,7 +511,7 @@ const getProductTemplate = () =>
         const { layout } = values?.productContent
         console.log(values)
         const productTitleRenderer = (product) => `
-            <div class="product-title">${product?.productTitle || 'Product Title'}</div> 
+            <div style="font-family: ${values.titleFont.value}; text-align: ${values.titleAligment};" class="product-title">${product?.productTitle || 'Product Title'}</div> 
         `;
 
         const productPriceRenderer = (product) => `
@@ -531,7 +531,7 @@ const getProductTemplate = () =>
         `;
 
         const productButtonRenderer = (product, values) => `
-            <a style="border-left: ${values.borderLeftWidth} ${values.borderLeftStyle} ${values.borderLeftColor}; border-top: ${values.borderTopWidth} ${values.borderTopStyle} ${values.borderTopColor}; border-right: ${values.borderRightWidth} ${values.borderRightStyle} ${values.borderRightColor}; border-bottom: ${values.borderBottomWidth} ${values.borderBottomStyle} ${values.borderBottomColor};" class="button no-underline" href="${product?.link}" target="_blank">${values.productCTA}</a>
+            <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor};" class="button no-underline" href="${product?.link}" target="_blank">${values.productCTA}</a>
         `;
 
         const productImageRenderer = (product) => `
@@ -700,17 +700,21 @@ unlayer.registerTool({
                 },
                 titleFont: {
                     label: 'Product title font',
-                    defaultValue: '',
+                    defaultValue: {
+                        label: "Inter"
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
                     widget: 'font_family',
                 },
                 titleColor: {
                     label: 'Product title color',
-                    defaultValue: '',
+                    defaultValue: '#000',
                     widget: 'color_picker',
                 },
-                titleColor: {
+                titleAligment: {
                     label: 'Product title aligment',
-                    defaultValue: '',
+                    defaultValue: 'center',
                     widget: 'alignment',
                 },
                 productCTA: {
