@@ -531,7 +531,7 @@ const getProductTemplate = () =>
         `;
 
         const productButtonRenderer = (product, values) => `
-            <a class="button no-underline" href="${product?.link}" target="_blank">${values.productCTA}</a>
+            <a style="border-left: ${values.borderLeftWidth} ${values.borderLeftStyle} ${values.borderLeftColor}; border-top: ${values.borderTopWidth} ${values.borderTopStyle} ${values.borderTopColor}; border-right: ${values.borderRightWidth} ${values.borderRightStyle} ${values.borderRightColor}; border-bottom: ${values.borderBottomWidth} ${values.borderBottomStyle} ${values.borderBottomColor};" class="button no-underline" href="${product?.link}" target="_blank">${values.productCTA}</a>
         `;
 
         const productImageRenderer = (product) => `
@@ -698,6 +698,21 @@ unlayer.registerTool({
                    defaultValue: {title: false, comparisonPrice: false, image: true, price: false, description: false, productType: false, button: true},
                    widget: 'product_details',
                 },
+                titleFont: {
+                    label: 'Product title font',
+                    defaultValue: '',
+                    widget: 'font_family',
+                },
+                titleColor: {
+                    label: 'Product title color',
+                    defaultValue: '',
+                    widget: 'color_picker',
+                },
+                titleColor: {
+                    label: 'Product title aligment',
+                    defaultValue: '',
+                    widget: 'alignment',
+                },
                 productCTA: {
                   label: 'Button Content',
                   defaultValue: 'Buy it Now',
@@ -708,6 +723,7 @@ unlayer.registerTool({
                   defaultValue: '',
                   widget: 'border',
                 },
+
             },
         },
     },
