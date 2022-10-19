@@ -701,8 +701,8 @@ unlayer.registerTool({
                 titleFont: {
                     label: 'Product title font',
                     defaultValue: {
-                        label: "Inter"
-                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
                         value: "'Inter', Arial, Helvetica, sans-serif"
                     },
                     widget: 'font_family',
