@@ -710,7 +710,7 @@ unlayer.registerTool({
                 titleFontSize: {
                     label: 'Product title font size',
                     defaultValue: '24',
-                    widget: 'cunter',
+                    widget: 'counter',
                 },
                 titleColor: {
                     label: 'Product title color',
