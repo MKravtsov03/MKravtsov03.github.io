@@ -725,6 +725,33 @@ unlayer.registerTool({
                     defaultValue: 'center',
                     widget: 'alignment',
                 },
+                descriptionFont: {
+                    label: 'Product description font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                descriptionFontSize: {
+                    enabled: true,
+                    label: 'Product description font size',
+                    defaultValue: '16',
+                    widget: 'counter',
+                },
+                descriptionColor: {
+                    enabled: true,
+                    label: 'Product title color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                descriptionAligment: {
+                    enabled: true,
+                    label: 'Product description aligment',
+                    defaultValue: 'left',
+                    widget: 'alignment',
+                },
                 productCTA: {
                     enabled: true,
                   label: 'Button Content',
@@ -755,6 +782,7 @@ unlayer.registerTool({
     propertyStates: (values) => {
         let newLayouts = [...values.layout];
         let titleProps = {};
+        let descriptionProps = {};
         if ( values.productContent.products.length > 2) {
             const newLayouts = [...values.layout]
             newLayouts[3].disabled = false
@@ -789,6 +817,37 @@ unlayer.registerTool({
                     enabled: true
                 },
                 titleAligment: {
+                    enabled: true
+                }
+            }
+            if (!values.details.description) {
+                descriptionProps = {
+                    descriptionFont: {
+                        enabled: false
+                    },
+                    descriptionFontSize: {
+                        enabled: false
+                    },
+                    descriptionColor: {
+                        enabled: false
+                    },
+                    descriptionAligment: {
+                        enabled: false
+                    }
+                }
+            }
+        } else {
+            descriptionProps = {
+                descriptionFont: {
+                    enabled: true
+                },
+                descriptionFontSize: {
+                    enabled: true
+                },
+                descriptionColor: {
+                    enabled: true
+                },
+                descriptionAligment: {
                     enabled: true
                 }
             }
