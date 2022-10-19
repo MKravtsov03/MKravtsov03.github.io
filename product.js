@@ -777,9 +777,9 @@ unlayer.registerTool({
         }
         return {
             layout: {
-                value: newLayouts,
-                ...titleProps
+                value: newLayouts
             }
+            ...titleProps
         }
     },
     renderer: {
