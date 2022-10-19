@@ -511,7 +511,7 @@ const getProductTemplate = () =>
         const { layout } = values?.productContent
         console.log(values)
         const productTitleRenderer = (product) => `
-            <div style="font-family: ${values.titleFont.value}; text-align: ${values.titleAligment};" class="product-title">${product?.productTitle || 'Product Title'}</div> 
+            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor};" class="product-title">${product?.productTitle || 'Product Title'}</div> 
         `;
 
         const productPriceRenderer = (product) => `
@@ -706,6 +706,11 @@ unlayer.registerTool({
                         value: "'Inter', Arial, Helvetica, sans-serif"
                     },
                     widget: 'font_family',
+                },
+                titleFontSize: {
+                    label: 'Product title font size',
+                    defaultValue: '24',
+                    widget: 'cunter',
                 },
                 titleColor: {
                     label: 'Product title color',
