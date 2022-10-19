@@ -708,21 +708,25 @@ unlayer.registerTool({
                     widget: 'font_family',
                 },
                 titleFontSize: {
+                    enabled: true,
                     label: 'Product title font size',
                     defaultValue: '24',
                     widget: 'counter',
                 },
                 titleColor: {
+                    enabled: true,
                     label: 'Product title color',
                     defaultValue: '#000',
                     widget: 'color_picker',
                 },
                 titleAligment: {
+                    enabled: true,
                     label: 'Product title aligment',
                     defaultValue: 'center',
                     widget: 'alignment',
                 },
                 productCTA: {
+                    enabled: true,
                   label: 'Button Content',
                   defaultValue: 'Buy it Now',
                   widget: 'text',
@@ -759,7 +763,6 @@ unlayer.registerTool({
             newLayouts[3].disabled = true
         }
         if (!values.details.title) {
-            console.log({values})
             titleProps = {
                 titleFont: {
                     enabled: false
@@ -774,7 +777,23 @@ unlayer.registerTool({
                     enabled: false
                 }
             }
+        } else {
+            titleProps = {
+                titleFont: {
+                    enabled: true
+                },
+                titleFontSize: {
+                    enabled: true
+                },
+                titleColor: {
+                    enabled: true
+                },
+                titleAligment: {
+                    enabled: true
+                }
+            }
         }
+        console.log({titleProps})
         return {
             layout: {
                 value: newLayouts
