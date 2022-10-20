@@ -622,9 +622,9 @@ const renderDetails = (options, values) => `
 </div>
 `
 
-const renderFontStyle = (styles, values) => `
+const renderFontStyle = (options, values) => `
 <div>
-${console.log({styles, values})}
+${console.log({options, values})}
     <div class="blockbuilder-widget-label">
         <p class="blockbuilder-label-primary">Font Style</p>
     </div>
@@ -632,10 +632,10 @@ ${console.log({styles, values})}
         <div class="font-styles__box">
             <div class="font-styles__row">
                 ${
-                        values.map(item =>`
+                        options.map(option =>`
                         <label class="font-styles__item">
-                            <img src="https://mkravtsov03.github.io/${item.value}.svg" alt="">
-                            <input type="checkbox" value="${item.value}" ${item.active ? 'checked' : ''} name="${item.title}">
+                            <img src="https://mkravtsov03.github.io/${option}.svg" alt="">
+                            <input type="checkbox" value="${option}" ${values[option].active ? 'checked' : ''} name="${option}">
                             <span></span>
                         </label>
                     `)
@@ -740,9 +740,20 @@ unlayer.registerTool({
                 titleFontStyle: {
                     enabled: true,
                     label: 'Product title font style',
-                    defaultValue: [{value: 'bold', active: false, title: "Bold"},
-                                    {value: 'italic', active: false, title: "Italic"},
-                        {value: 'underline', active: false, title: "Underline"}],
+                    defaultValue: {
+                        bold: {
+                            active: true,
+                            value: 'bold'
+                        },
+                        italic: {
+                            active: false,
+                            value: 'italic'
+                        }
+                        underline: {
+                            active: false,
+                            value: 'underline'
+                        }
+                    }
                     widget: 'font_styles',
                 },
                 titleColor: {
@@ -991,15 +1002,11 @@ unlayer.registerPropertyEditor({
         },
         mount(node, value, updateValue, data) {
             optionsList = document.querySelectorAll('.font-styles input');
-            const styles = [...value];
-            const newStyles = []
-            optionsList.forEach((item, i) => {
-                newStyles.push({...styles[i], active: false})
+            const details = {...value}
+            optionsList.forEach(item => {
                 item.onchange = function(e) {
-                    const styleIndex = newStyles.findIndex(item => item.value === e.target.value)
-                    newStyles[styleIndex].active = e.target.checked
-                    console.log({styles, styleIndex})
-                    return updateValue(newStyles)
+                    details[e.target.name] = e.target.checked
+                    return updateValue({...details})
                 }
             })
         }
