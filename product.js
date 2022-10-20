@@ -511,7 +511,7 @@ const getProductTemplate = () =>
         const { layout } = values?.productContent
         console.log(values)
         const productTitleRenderer = (product) => `
-            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor};" class="product-title">${product?.productTitle || 'Product Title'}</div> 
+            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle[0].active ? '700' : '400'};  font-style: ${values.titleFontStyle[1].active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle[2].active ? 'underline' : 'none'}" class="product-title">${product?.productTitle || 'Product Title'}</div> 
         `;
 
         const productPriceRenderer = (product) => `
@@ -632,7 +632,7 @@ ${console.log({styles, values})}
         <div class="font-styles__box">
             <div class="font-styles__row">
                 ${
-                    styles.map(item =>`
+                        values.map(item =>`
                         <label class="font-styles__item">
                             <img src="https://mkravtsov03.github.io/${item.value}.svg" alt="">
                             <input type="checkbox" value="${item.value}" ${item.active ? 'checked' : ''} name="${item.title}">
