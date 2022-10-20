@@ -721,7 +721,7 @@ getCouponTemplate = () => function (values) {
             </div>
             ${coupon ? renderDescription() : ''}
             <div class="coupon-value"> 
-                ${(activeCoupon?.title || 'XXXXXXXXXXXX').match(/.{1,4}/g).join('-')}
+                ${(activeCoupon?.title || 'XXXXXXXXXXXX')}
             </div>
 <!--             <a class="button no-underline" href="" target="_blank"></a>-->
         </div>
