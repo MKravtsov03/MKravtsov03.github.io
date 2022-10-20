@@ -820,6 +820,7 @@ unlayer.registerTool({
                     enabled: true
                 }
             }
+        }
             if (!values.details.description) {
                 descriptionProps = {
                     descriptionFont: {
@@ -836,7 +837,7 @@ unlayer.registerTool({
                     }
                 }
             }
-        } else {
+            else {
             descriptionProps = {
                 descriptionFont: {
                     enabled: true
