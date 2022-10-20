@@ -1045,6 +1045,7 @@ unlayer.registerPropertyEditor({
             const details = {...value}
             optionsList.forEach(item => {
                 item.onchange = function(e) {
+                    console.log({details, event: e})
                     details[e.target.name].active = e.target.checked
                     return updateValue({...details})
                 }
