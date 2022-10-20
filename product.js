@@ -551,7 +551,7 @@ const getProductTemplate = () =>
         const { layout } = values?.productContent
         console.log(values)
         const productTitleRenderer = (product) => `
-            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.bold ? '700' : '400'};  font-style: ${values.titleFontStyle.italic ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.underline ? 'underline' : 'none'}" class="product-title">${product?.productTitle || 'Product Title'}</div> 
+            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.underline.active ? 'underline' : 'none'}" class="product-title">${product?.productTitle || 'Product Title'}</div> 
         `;
 
         const productPriceRenderer = (product) => `
@@ -1045,7 +1045,7 @@ unlayer.registerPropertyEditor({
             const details = {...value}
             optionsList.forEach(item => {
                 item.onchange = function(e) {
-                    details[e.target.name] = e.target.checked
+                    details[e.target.name].active = e.target.checked
                     return updateValue({...details})
                 }
             })
