@@ -622,6 +622,29 @@ const renderDetails = (options, values) => `
 </div>
 `
 
+const renderFontStyle = (styles, values) => `
+<div>
+    <div class="blockbuilder-widget-label">
+        <p class="blockbuilder-label-primary">Font Style</p>
+    </div>
+    <div class="font-styles">
+        <div class="font-styles__box">
+            <div class="font-styles__row">
+                ${
+                    styles.map(item =>`
+                        <label class="font-styles__item">
+                            <img src="https://mkravtsov03.github.io/${item.value}.svg" alt="">
+                            <input type="checkbox" value="${item.value}" ${item.active ? 'checked' : ''} name="${item.title}">
+                            <span></span>
+                        </label>
+                    `)
+                }
+            </div>
+        </div>
+    </div>
+</div>
+`
+
 const layoutsList = (layouts) => {
     return `
     <div class="blockbuilder-widget-label">
@@ -712,6 +735,14 @@ unlayer.registerTool({
                     label: 'Product title font size',
                     defaultValue: '24',
                     widget: 'counter',
+                },
+                titleFontStyle: {
+                    enabled: true,
+                    label: 'Product title font style',
+                    defaultValue: [{value: 'bold', active: false, title: "Bold"},
+                                    {value: 'italic', active: false, title: "Italic"},
+                        {value: 'underline', active: false, title: "Underline"}],
+                    widget: 'font_styles',
                 },
                 titleColor: {
                     enabled: true,
@@ -942,6 +973,32 @@ unlayer.registerPropertyEditor({
                 item.onchange = function(e) {
                      details[e.target.name] = e.target.checked
                      return updateValue({...details})
+                }
+            })
+        }
+    })
+});
+
+
+unlayer.registerPropertyEditor({
+    name: 'font_styles',
+    layout: 'bottom',
+    Widget: unlayer.createWidget({
+        render(value) {
+            const options = Object.keys(value)
+            return renderFontStyle(options, value)
+        },
+        mount(node, value, updateValue, data) {
+            optionsList = document.querySelectorAll('.font-styles input');
+            const styles = [...value];
+            const newStyles = []
+            optionsList.forEach((item, i) => {
+                newStyles.push({...styles[i], active: false})
+                item.onchange = function(e) {
+                    const styleIndex = newStyles.findIndex(item => item.value === e.target.value)
+                    newStyles[styleIndex].active = e.target.checked
+                    console.log({styles, styleIndex})
+                    return updateValue(newStyles)
                 }
             })
         }
