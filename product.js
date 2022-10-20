@@ -450,6 +450,44 @@ const ProductStyles = () =>
         .layout-list input:checked + span {
             background: #F4FAFF;
         }
+        .font-styles__row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .font-styles__item {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            border: 1px solid #D0D5DD;
+            border-radius: 6px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .font-styles__item input {
+            width: 0;
+            height: 0;
+            opacity: 0;
+        }
+        .font-styles__item img {
+            max-width: 70%;
+        }
+        .font-styles__item span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            transition: all 0.3s ease-in-out;
+        }
+        .font-styles__item input:checked + span {
+            background: #F4FAFF;
+        }
 `;
     };
 
