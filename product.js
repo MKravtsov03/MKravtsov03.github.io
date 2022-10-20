@@ -753,7 +753,7 @@ unlayer.registerTool({
                             active: false,
                             value: 'underline'
                         }
-                    }
+                    },
                     widget: 'font_styles',
                 },
                 titleColor: {
