@@ -523,7 +523,7 @@ const getProductTemplate = () =>
         ` : '';
 
         const productDescriptionRenderer = (product) => `
-            <div class="product-description">${product?.description || ''}</div>
+            <div style="font-family: ${values.descriptionFont.value}; font-size: ${values.descriptionFontSize}px; text-align: ${values.descriptionAligment}; color: ${values.descriptionColor};" class="product-description">${product?.description || ''}</div>
         `;
 
         const productTypeRenderer = (product) => `
@@ -742,7 +742,7 @@ unlayer.registerTool({
                 },
                 descriptionColor: {
                     enabled: false,
-                    label: 'Product title color',
+                    label: 'Product decription color',
                     defaultValue: '#000',
                     widget: 'color_picker',
                 },
