@@ -748,7 +748,7 @@ unlayer.registerTool({
                         italic: {
                             active: false,
                             value: 'italic'
-                        }
+                        },
                         underline: {
                             active: false,
                             value: 'underline'
