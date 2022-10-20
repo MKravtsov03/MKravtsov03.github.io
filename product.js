@@ -488,7 +488,7 @@ const ProductStyles = () =>
             transition: all 0.3s ease-in-out;
         }
         .font-styles__item input:checked + span {
-            background: #F4FAFF;
+            background: #dcefff;
         }
 `;
     };
@@ -551,7 +551,7 @@ const getProductTemplate = () =>
         const { layout } = values?.productContent
         console.log(values)
         const productTitleRenderer = (product) => `
-            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.bold ? '700' : '400'};  font-style: ${values.titleFontStyle.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.underline.active ? 'underline' : 'none'}" class="product-title">${product?.productTitle || 'Product Title'}</div> 
+            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.bold ? '700' : '400'};  font-style: ${values.titleFontStyle.italic ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.underline ? 'underline' : 'none'}" class="product-title">${product?.productTitle || 'Product Title'}</div> 
         `;
 
         const productPriceRenderer = (product) => `
@@ -664,9 +664,8 @@ const renderDetails = (options, values) => `
 
 const renderFontStyle = (options, values) => `
 <div>
-${console.log({options, values})}
     <div class="blockbuilder-widget-label">
-        <p class="blockbuilder-label-primary">Font Style</p>
+        <p class="blockbuilder-label-primary">Product title font style</p>
     </div>
     <div class="font-styles">
         <div class="font-styles__box">
@@ -1036,7 +1035,8 @@ unlayer.registerPropertyEditor({
     name: 'font_styles',
     layout: 'bottom',
     Widget: unlayer.createWidget({
-        render(value) {
+        render(value, updateValue, data) {
+            console.log(data)
             const options = Object.keys(value)
             return renderFontStyle(options, value)
         },
