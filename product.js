@@ -735,19 +735,19 @@ unlayer.registerTool({
                     widget: 'font_family',
                 },
                 descriptionFontSize: {
-                    enabled: true,
+                    enabled: false,
                     label: 'Product description font size',
                     defaultValue: '16',
                     widget: 'counter',
                 },
                 descriptionColor: {
-                    enabled: true,
+                    enabled: false,
                     label: 'Product title color',
                     defaultValue: '#000',
                     widget: 'color_picker',
                 },
                 descriptionAligment: {
-                    enabled: true,
+                    enabled: false,
                     label: 'Product description aligment',
                     defaultValue: 'left',
                     widget: 'alignment',
