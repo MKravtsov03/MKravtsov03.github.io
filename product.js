@@ -858,7 +858,8 @@ unlayer.registerTool({
             layout: {
                 value: newLayouts
             },
-            ...titleProps
+            ...titleProps,
+            ...descriptionProps
         }
     },
     renderer: {
