@@ -1035,8 +1035,7 @@ unlayer.registerPropertyEditor({
     name: 'font_styles',
     layout: 'bottom',
     Widget: unlayer.createWidget({
-        render(value, updateValue, data) {
-            console.log(data)
+        render(value) {
             const options = Object.keys(value)
             return renderFontStyle(options, value)
         },
