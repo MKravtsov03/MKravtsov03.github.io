@@ -624,6 +624,7 @@ const renderDetails = (options, values) => `
 
 const renderFontStyle = (styles, values) => `
 <div>
+${console.log({styles, values})}
     <div class="blockbuilder-widget-label">
         <p class="blockbuilder-label-primary">Font Style</p>
     </div>
