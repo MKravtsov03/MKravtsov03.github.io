@@ -459,7 +459,7 @@ const ProductStyles = () =>
             width: 30px;
             height: 30px;
             position: relative;
-            display: flex;
+            display: flex !important;
             align-items: center;
             justify-content: center;
             padding: 5px;
@@ -475,6 +475,8 @@ const ProductStyles = () =>
         }
         .font-styles__item img {
             max-width: 70%;
+            positin: relative;
+            z-index: 2;
         }
         .font-styles__item span {
             position: absolute;
@@ -676,7 +678,7 @@ ${console.log({options, values})}
                             <input type="checkbox" value="${option}" ${values[option].active ? 'checked' : ''} name="${option}">
                             <span></span>
                         </label>
-                    `)
+                    `).join('')
                 }
             </div>
         </div>
