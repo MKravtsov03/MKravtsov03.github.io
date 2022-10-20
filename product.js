@@ -511,7 +511,7 @@ const getProductTemplate = () =>
         const { layout } = values?.productContent
         console.log(values)
         const productTitleRenderer = (product) => `
-            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle[0].active ? '700' : '400'};  font-style: ${values.titleFontStyle[1].active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle[2].active ? 'underline' : 'none'}" class="product-title">${product?.productTitle || 'Product Title'}</div> 
+            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.bold ? '700' : '400'};  font-style: ${values.titleFontStyle.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.underline.active ? 'underline' : 'none'}" class="product-title">${product?.productTitle || 'Product Title'}</div> 
         `;
 
         const productPriceRenderer = (product) => `
