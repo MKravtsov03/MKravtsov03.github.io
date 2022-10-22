@@ -11139,6 +11139,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 800);
   });
 
+  (0, _jquery2.default)('.category-heading__read-more').on('click', function () {
+    (0, _jquery2.default)(this).parent().find('.category-heading__desc').toggleClass('active');
+  });
+
   (0, _jquery2.default)(".burger").on("click", function menuToggle() {
     (0, _jquery2.default)(this).toggleClass("open");
     (0, _jquery2.default)(".menu-block").toggleClass("open");

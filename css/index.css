@@ -2429,6 +2429,10 @@ yx-axis
 .page-account .breadcrumbs-list {
   max-width: 1210px; }
 
+@media only screen and (max-width: 992px) {
+  .page-orders .account-aside {
+    display: none; } }
+
 .account {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2444,6 +2448,30 @@ yx-axis
   .account-created .btn {
     width: 380px;
     max-width: 100%; }
+  .account-back-btn {
+    max-width: 380px;
+    width: 100%;
+    margin: 0 auto 10px;
+    display: none;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 10px;
+    height: 36px;
+    background: #F9F9F9;
+    border: 1px solid #E9E9E9;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #1A0A1B; }
+    @media only screen and (max-width: 992px) {
+      .account-back-btn {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; } }
   .account-heading {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -4256,7 +4284,11 @@ yx-axis
 
 @media only screen and (max-width: 992px) {
   body {
-    padding-top: 81px; } }
+    padding-top: 116px; } }
+
+@media only screen and (max-width: 767px) {
+  body {
+    padding-top: 96px; } }
 
 .header {
   padding: 16px 15px;
@@ -4694,7 +4726,8 @@ yx-axis
         margin-bottom: 15px; } }
     @media only screen and (max-width: 767px) {
       .main-heading__title {
-        margin-bottom: 30px; } }
+        margin: 0 auto 30px;
+        max-width: 330px; } }
   .main-heading__desc {
     font-size: 16px;
     line-height: 160%;
@@ -7104,6 +7137,17 @@ select {
         font-size: 28px; } }
   .category-heading__desc {
     line-height: 180%; }
+    @media only screen and (max-width: 767px) {
+      .category-heading__desc {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+        .category-heading__desc.active {
+          display: block; } }
+  .category-heading__read-more {
+    color: #FF5981; }
 
 .shop-heading {
   display: -webkit-box;
@@ -7227,7 +7271,7 @@ select {
   margin-bottom: 40px; }
 
 .page-category .shop-wrapp {
-  margin-bottom: 100px; }
+  margin-bottom: 80px; }
   @media only screen and (max-width: 767px) {
     .page-category .shop-wrapp {
       margin-bottom: 40px; } }
