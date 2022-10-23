@@ -559,11 +559,11 @@ const getProductTemplate = () =>
         `;
 
         const productComparisonPriceRenderer = (product) => product?.comparisonPrice ? `
-            <div class="price-old">${product?.comparisonPrice} $</div>
+            <div style="font-size: ${values.comparisonPriceFontSize}px;  color: ${values.comparisonPriceColor};" class="price-old">${product?.comparisonPrice} $</div>
         ` : '';
 
         const productDescriptionRenderer = (product) => `
-            <div style="font-family: ${values.descriptionFont.value}; font-size: ${values.descriptionFontSize}px; text-align: ${values.descriptionAligment}; color: ${values.descriptionColor};" class="product-description">${product?.description || ''}</div>
+            <div style="font-family: ${values.descriptionFont.value}; font-size: ${values.descriptionFontSize}px; text-align: ${values.descriptionAligment}; color: ${values.descriptionColor}; font-style: ${values.descriptionFontStyle.value};" class="product-description">${product?.description || ''}</div>
         `;
 
         const productTypeRenderer = (product) => `
@@ -590,7 +590,7 @@ const getProductTemplate = () =>
                             <div class="product-card__inner">
                                 ${values?.details?.title ? productTitleRenderer(currentProduct) : ''}
                                 ${values?.details?.productType ? productTypeRenderer(currentProduct) : ''}
-                                <div class="product-price">
+                                <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor};" class="product-price">
                                     ${
                                         values?.details?.price ? productPriceRenderer(currentProduct) : ''
                                     }
@@ -665,7 +665,7 @@ const renderDetails = (options, values) => `
 const renderFontStyle = (options, values) => `
 <div>
     <div class="blockbuilder-widget-label">
-        <p class="blockbuilder-label-primary">Product title font style</p>
+        <p class="blockbuilder-label-primary">Font style</p>
     </div>
     <div class="font-styles">
         <div class="font-styles__box">
@@ -706,7 +706,6 @@ const layoutsList = (layouts) => {
 
 
 getCouponTemplate = () => function (values) {
-    console.log(values)
     const { data: { coupons }, coupon } = values;
     const activeCoupon = coupons.find(currentCoupon => currentCoupon.id == coupon)
     const renderDescription = () => `
@@ -822,6 +821,25 @@ unlayer.registerTool({
                     defaultValue: '16',
                     widget: 'counter',
                 },
+                descriptionFontStyle: {
+                    enabled: true,
+                    label: 'Product Description font style',
+                    defaultValue: {
+                        bold: {
+                            active: true,
+                            value: 'bold'
+                        },
+                        italic: {
+                            active: false,
+                            value: 'italic'
+                        },
+                        underline: {
+                            active: false,
+                            value: 'underline'
+                        }
+                    },
+                    widget: 'font_styles',
+                },
                 descriptionColor: {
                     enabled: false,
                     label: 'Product decription color',
@@ -833,6 +851,39 @@ unlayer.registerTool({
                     label: 'Product description aligment',
                     defaultValue: 'left',
                     widget: 'alignment',
+                },
+                priceFont: {
+                    label: 'Price font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                priceFontSize: {
+                    enabled: true,
+                    label: 'Price font size',
+                    defaultValue: '16',
+                    widget: 'counter',
+                },
+                priceColor: {
+                    enabled: false,
+                    label: 'Price color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                comparisonPriceFontSize: {
+                    enabled: true,
+                    label: 'Comparison price font size',
+                    defaultValue: '16',
+                    widget: 'counter',
+                },
+                comparisonPriceColor: {
+                    enabled: false,
+                    label: 'Comparison price color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
                 },
                 productCTA: {
                     enabled: true,
@@ -865,6 +916,8 @@ unlayer.registerTool({
         let newLayouts = [...values.layout];
         let titleProps = {};
         let descriptionProps = {};
+        let priceProps = {};
+        let comparisonPriceProps = {};
         if ( values.productContent.products.length > 2) {
             const newLayouts = [...values.layout]
             newLayouts[3].disabled = false
@@ -935,13 +988,61 @@ unlayer.registerTool({
                 }
             }
         }
+            if (!values.details.price) {
+                priceProps = {
+                    priceFont: {
+                        enabled: false
+                    },
+                    priceFontSize: {
+                        enabled: false
+                    },
+                    priceColor: {
+                        enabled: false
+                    },
+                }
+            }
+            else {
+                priceProps = {
+                    priceFont: {
+                        enabled: true
+                    },
+                    priceFontSize: {
+                        enabled: true
+                    },
+                    priceColor: {
+                        enabled: true
+                    },
+                }
+        }
+            if (!values.details.compparisonPrice) {
+                comparisonPriceProps = {
+                    comparisonPriceFontSize: {
+                        enabled: false
+                    },
+                    comparisonPriceColor: {
+                        enabled: false
+                    },
+                }
+            }
+            else {
+                comparisonPriceProps = {
+                    comparisonPriceFontSize: {
+                        enabled: true
+                    },
+                    comparisonPriceColor: {
+                        enabled: true
+                    },
+                }
+        }
         console.log({titleProps})
         return {
             layout: {
                 value: newLayouts
             },
             ...titleProps,
-            ...descriptionProps
+            ...descriptionProps,
+            ...priceProps,
+            ...comparisonPriceProps
         }
     },
     renderer: {
