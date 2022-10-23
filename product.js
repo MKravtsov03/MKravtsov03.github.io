@@ -822,7 +822,7 @@ unlayer.registerTool({
                     widget: 'counter',
                 },
                 descriptionFontStyle: {
-                    enabled: true,
+                    enabled: false,
                     label: 'Product Description font style',
                     defaultValue: {
                         bold: {
@@ -874,7 +874,7 @@ unlayer.registerTool({
                     widget: 'color_picker',
                 },
                 comparisonPriceFontSize: {
-                    enabled: true,
+                    enabled: false,
                     label: 'Comparison price font size',
                     defaultValue: '16',
                     widget: 'counter',
@@ -938,6 +938,9 @@ unlayer.registerTool({
                 },
                 titleAligment: {
                     enabled: false
+                },
+                titleFontStyle: {
+                    enabled: false
                 }
             }
         } else {
@@ -952,6 +955,9 @@ unlayer.registerTool({
                     enabled: true
                 },
                 titleAligment: {
+                    enabled: true
+                },
+                titleFontStyle: {
                     enabled: true
                 }
             }
@@ -969,6 +975,9 @@ unlayer.registerTool({
                     },
                     descriptionAligment: {
                         enabled: false
+                    },
+                    descriptionFontStyle: {
+                        enabled: false
                     }
                 }
             }
@@ -984,6 +993,9 @@ unlayer.registerTool({
                     enabled: true
                 },
                 descriptionAligment: {
+                    enabled: true
+                },
+                descriptionFontStyle: {
                     enabled: true
                 }
             }
@@ -1014,7 +1026,7 @@ unlayer.registerTool({
                     },
                 }
         }
-            if (!values.details.compparisonPrice) {
+            if (!values.details.comparisonPrice) {
                 comparisonPriceProps = {
                     comparisonPriceFontSize: {
                         enabled: false
