@@ -731,21 +731,13 @@ const layoutsList = (layouts) => {
 getCouponTemplate = () => function (values) {
     const { data: { coupons }, coupon } = values;
     const activeCoupon = coupons.find(currentCoupon => currentCoupon.id == coupon)
-    const renderDescription = () => `
-            <div class="coupon-description">
-                This coupon will give you ${activeCoupon?.value}% discount in period from ${new Date(activeCoupon?.starts_at).toLocaleDateString()} to ${new Date(activeCoupon?.ends_at).toLocaleDateString()}
-            </div>`
     return (
     `
         <div class="coupon-wrapper">
-            <div class="coupon-title">
-                Use coupon for Discount
-            </div>
-            ${coupon ? renderDescription() : ''}
-            <div class="coupon-value"> 
+            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.underline.active ? 'underline' : 'none'}" class="coupon-value"> 
                 ${(activeCoupon?.title || 'XXXXXXXXXXXX')}
             </div>
-<!--             <a class="button no-underline" href="" target="_blank"></a>-->
+            <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline" href="${product?.link}" target="_blank">${values.couponBtn}</a>
         </div>
     `
     )
@@ -1170,10 +1162,79 @@ unlayer.registerTool({
                     defaultValue: '',
                     widget: 'dropdown',
                 },
+                titleFont: {
+                    label: 'Coupon font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                titleFontSize: {
+                    enabled: true,
+                    label: 'Coupon font size',
+                    defaultValue: '24',
+                    widget: 'counter',
+                },
+                titleFontStyle: {
+                    enabled: true,
+                    label: 'Coupon font style',
+                    defaultValue: {
+                        bold: {
+                            active: true,
+                            value: 'bold'
+                        },
+                        italic: {
+                            active: false,
+                            value: 'italic'
+                        },
+                        underline: {
+                            active: false,
+                            value: 'underline'
+                        }
+                    },
+                    widget: 'title_font_styles',
+                },
+                titleColor: {
+                    enabled: true,
+                    label: 'Coupon color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                titleAligment: {
+                    enabled: true,
+                    label: 'Coupon aligment',
+                    defaultValue: 'center',
+                    widget: 'alignment',
+                },
                 couponBtn: {
                     label: 'Button Content',
                     defaultValue: 'Buy it Now',
                     widget: 'text',
+                },
+                btnFontSize: {
+                    enabled: true,
+                    label: 'Button font size',
+                    defaultValue: '16',
+                    widget: 'counter',
+                },
+                btnColor: {
+                    enabled: true,
+                    label: 'Button color',
+                    defaultValue: '#fff',
+                    widget: 'color_picker',
+                },
+                btnBg: {
+                    enabled: true,
+                    label: 'Button  background color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                btnBorder: {
+                    label: 'Button border',
+                    defaultValue: '',
+                    widget: 'border',
                 },
             },
         },
