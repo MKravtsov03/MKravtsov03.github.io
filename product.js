@@ -571,7 +571,7 @@ const getProductTemplate = () =>
         `;
 
         const productButtonRenderer = (product, values) => `
-            <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor};" class="button no-underline" href="${product?.link}" target="_blank">${values.productCTA}</a>
+            <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline" href="${product?.link}" target="_blank">${values.productCTA}</a>
         `;
 
         const productImageRenderer = (product) => `
@@ -891,6 +891,24 @@ unlayer.registerTool({
                   defaultValue: 'Buy it Now',
                   widget: 'text',
                 },
+                btnFontSize: {
+                    enabled: true,
+                    label: 'Button font size',
+                    defaultValue: '16',
+                    widget: 'counter',
+                },
+                btnColor: {
+                    enabled: true,
+                    label: 'Button color',
+                    defaultValue: '#fff',
+                    widget: 'color_picker',
+                },
+                btnBg: {
+                    enabled: true,
+                    label: 'Button  background color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
                 btnBorder: {
                   label: 'Button border',
                   defaultValue: '',
@@ -918,6 +936,7 @@ unlayer.registerTool({
         let descriptionProps = {};
         let priceProps = {};
         let comparisonPriceProps = {};
+        let btnProps = {};
         if ( values.productContent.products.length > 2) {
             const newLayouts = [...values.layout]
             newLayouts[3].disabled = false
@@ -1046,6 +1065,44 @@ unlayer.registerTool({
                     },
                 }
         }
+            if (!values.details.button) {
+                btnProps = {
+                    btnColor: {
+                        enabled: false
+                    },
+                    btnBorder: {
+                        enabled: false,
+                    },
+                    productCTA: {
+                        enabled: false
+                    },
+                    btnFontSize: {
+                        enabled: false
+                    },
+                    btnBg: {
+                        enabled: false
+                    },
+                }
+            }
+            else {
+                btnProps = {
+                    btnColor: {
+                        enabled: true,
+                    },
+                    btnBorder: {
+                        enabled: true,
+                    },
+                    productCTA: {
+                        enabled: true,
+                    },
+                    btnFontSize: {
+                        enabled: true,
+                    },
+                    btnBg: {
+                        enabled: true
+                    },
+                }
+        }
         console.log({titleProps})
         return {
             layout: {
@@ -1054,7 +1111,8 @@ unlayer.registerTool({
             ...titleProps,
             ...descriptionProps,
             ...priceProps,
-            ...comparisonPriceProps
+            ...comparisonPriceProps,
+            ...btnProps
         }
     },
     renderer: {
