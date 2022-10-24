@@ -140,7 +140,7 @@ const ProductStyles = () =>
         }
 
         .no-underline {
-          text-decoration: none;
+          text-decoration: none !important;
         }
 
         .no-border-radius {
