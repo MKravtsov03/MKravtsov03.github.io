@@ -847,7 +847,7 @@ unlayer.registerTool({
                     label: 'Product Description font style',
                     defaultValue: {
                         bold: {
-                            active: true,
+                            active: false,
                             value: 'bold'
                         },
                         italic: {
