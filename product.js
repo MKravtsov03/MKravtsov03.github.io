@@ -563,7 +563,7 @@ const getProductTemplate = () =>
         ` : '';
 
         const productDescriptionRenderer = (product) => `
-            <div style="font-family: ${values.descriptionFont.value}; font-size: ${values.descriptionFontSize}px; text-align: ${values.descriptionAligment}; color: ${values.descriptionColor}; font-style: ${values.descriptionFontStyle.value};" class="product-description">${product?.description || ''}</div>
+            <div style="font-family: ${values.descriptionFont.value}; font-size: ${values.descriptionFontSize}px; text-align: ${values.descriptionAligment}; color: ${values.descriptionColor}; font-weight: ${values.descriptionFontStyle.bold.active ? '700' : '400'};  font-style: ${values.descriptionFontStyle.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.descriptionFontStyle.underline.active ? 'underline' : 'none'}" class="product-description">${product?.description || ''}</div>
         `;
 
         const productTypeRenderer = (product) => `
