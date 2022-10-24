@@ -910,7 +910,7 @@ unlayer.registerTool({
                       url: '',
                       target: '_blank'
                   },
-                  widget: 'text',
+                  widget: 'link',
                 },
                 btnFontSize: {
                     enabled: true,
