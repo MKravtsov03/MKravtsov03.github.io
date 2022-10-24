@@ -571,7 +571,7 @@ const getProductTemplate = () =>
         `;
 
         const productButtonRenderer = (product, values) => `
-            <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline" href="${product?.link}" target="_blank">${values.productCTA}</a>
+            <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline" href="${values.btnLink.url}" target="${values.btnLink.target}">${values.productCTA}</a>
         `;
 
         const productImageRenderer = (product) => `
@@ -902,6 +902,16 @@ unlayer.registerTool({
                   defaultValue: 'Buy it Now',
                   widget: 'text',
                 },
+
+                btnLink: {
+                    enabled: true,
+                  label: 'Button link',
+                  defaultValue: {
+                      url: '',
+                      target: '_blank'
+                  },
+                  widget: 'text',
+                },
                 btnFontSize: {
                     enabled: true,
                     label: 'Button font size',
@@ -1093,6 +1103,9 @@ unlayer.registerTool({
                     btnBg: {
                         enabled: false
                     },
+                    btnLink: {
+                        enabled: false
+                    },
                 }
             }
             else {
@@ -1110,6 +1123,9 @@ unlayer.registerTool({
                         enabled: true,
                     },
                     btnBg: {
+                        enabled: true
+                    },
+                    btnLink: {
                         enabled: true
                     },
                 }
