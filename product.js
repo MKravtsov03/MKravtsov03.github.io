@@ -536,7 +536,7 @@ const CouponStyles = () =>
             }
             
             .no-underline {
-              text-decoration: none;
+              text-decoration: none !important;
             }
         `
     }
@@ -662,8 +662,31 @@ const renderDetails = (options, values) => `
 </div>
 `
 
-const renderFontStyle = (options, values) => `
-<div>
+const renderTitleFontStyle = (options, values) => `
+<div class="title-font-style">
+    <div class="blockbuilder-widget-label">
+        <p class="blockbuilder-label-primary">Font style</p>
+    </div>
+    <div class="font-styles">
+        <div class="font-styles__box">
+            <div class="font-styles__row">
+                ${
+                        options.map(option =>`
+                        <label class="font-styles__item">
+                            <img src="https://mkravtsov03.github.io/${option}.svg" alt="">
+                            <input type="checkbox" value="${option}" ${values[option].active ? 'checked' : ''} name="${option}">
+                            <span></span>
+                        </label>
+                    `).join('')
+                }
+            </div>
+        </div>
+    </div>
+</div>
+`
+
+const renderDescrFontStyle = (options, values) => `
+<div class="descr-font-style">
     <div class="blockbuilder-widget-label">
         <p class="blockbuilder-label-primary">Font style</p>
     </div>
@@ -792,7 +815,7 @@ unlayer.registerTool({
                             value: 'underline'
                         }
                     },
-                    widget: 'font_styles',
+                    widget: 'title_font_styles',
                 },
                 titleColor: {
                     enabled: true,
@@ -816,13 +839,11 @@ unlayer.registerTool({
                     widget: 'font_family',
                 },
                 descriptionFontSize: {
-                    enabled: false,
                     label: 'Product description font size',
                     defaultValue: '16',
                     widget: 'counter',
                 },
                 descriptionFontStyle: {
-                    enabled: false,
                     label: 'Product Description font style',
                     defaultValue: {
                         bold: {
@@ -838,16 +859,14 @@ unlayer.registerTool({
                             value: 'underline'
                         }
                     },
-                    widget: 'font_styles',
+                    widget: 'descr_font_styles',
                 },
                 descriptionColor: {
-                    enabled: false,
                     label: 'Product decription color',
                     defaultValue: '#000',
                     widget: 'color_picker',
                 },
                 descriptionAligment: {
-                    enabled: false,
                     label: 'Product description aligment',
                     defaultValue: 'left',
                     widget: 'alignment',
@@ -1203,15 +1222,37 @@ unlayer.registerPropertyEditor({
 
 
 unlayer.registerPropertyEditor({
-    name: 'font_styles',
+    name: 'title_font_styles',
     layout: 'bottom',
     Widget: unlayer.createWidget({
         render(value) {
             const options = Object.keys(value)
-            return renderFontStyle(options, value)
+            return renderTitleFontStyle(options, value)
         },
         mount(node, value, updateValue, data) {
-            optionsList = document.querySelectorAll('.font-styles input');
+            optionsList = document.querySelectorAll('.title-font-style input');
+            const details = {...value}
+            optionsList.forEach(item => {
+                item.onchange = function(e) {
+                    console.log({details, event: e})
+                    const option = {[e.target.name]: {...details[e.target.name], active: e.target.checked}}
+                    return updateValue({...details, ...option})
+                }
+            })
+        }
+    })
+});
+
+unlayer.registerPropertyEditor({
+    name: 'descr_font_styles',
+    layout: 'bottom',
+    Widget: unlayer.createWidget({
+        render(value) {
+            const options = Object.keys(value)
+            return renderDescrFontStyle(options, value)
+        },
+        mount(node, value, updateValue, data) {
+            optionsList = document.querySelectorAll('.descr-font-style input');
             const details = {...value}
             optionsList.forEach(item => {
                 item.onchange = function(e) {
