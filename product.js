@@ -538,6 +538,46 @@ const CouponStyles = () =>
             .no-underline {
               text-decoration: none !important;
             }
+            .font-styles__row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .font-styles__item {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            border: 1px solid #D0D5DD;
+            border-radius: 6px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .font-styles__item input {
+            width: 0;
+            height: 0;
+            opacity: 0;
+        }
+        .font-styles__item img {
+            max-width: 70%;
+            positin: relative;
+            z-index: 2;
+        }
+        .font-styles__item span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            transition: all 0.3s ease-in-out;
+        }
+        .font-styles__item input:checked + span {
+            background: #dcefff;
+        }
         `
     }
 
@@ -737,7 +777,7 @@ getCouponTemplate = () => function (values) {
             <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.underline.active ? 'underline' : 'none'}" class="coupon-value"> 
                 ${(activeCoupon?.title || 'XXXXXXXXXXXX')}
             </div>
-            <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline" href="${product?.link}" target="_blank">${values.couponBtn}</a>
+            <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline" href="" target="_blank">${values.couponBtn}</a>
         </div>
     `
     )
