@@ -770,6 +770,7 @@ const layoutsList = (layouts) => {
 
 getCouponTemplate = () => function (values) {
     const { data: { coupons }, coupon } = values;
+    console.log({couponsValues: values})
     const activeCoupon = coupons.find(currentCoupon => currentCoupon.id == coupon)
     return (
     `
