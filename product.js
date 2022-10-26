@@ -606,6 +606,12 @@ const CouponStyles = () =>
             font-size: 16px;
             flex-wrap: wrap;
         }
+        .coupon-item.link {
+            justify-content: center;
+        }
+        .coupon-item__value {
+            font-weight: 500;
+        }
         `
     }
 
@@ -839,7 +845,7 @@ getCouponTemplate = () => function (values) {
             Valid from:
         </div>
         <div style="" class="coupon-item__value"> 
-            ${(activeCoupon?.starts_at ? activeCoupon?.starts_at?.toLocaleString() : '')}
+            ${(activeCoupon?.starts_at ? new Date(activeCoupon?.starts_at).toDateString() : '')}
         </div>
     </div>
     `;
@@ -849,7 +855,7 @@ getCouponTemplate = () => function (values) {
             Expiry Date:
         </div>
         <div style="" class="coupon-item__value"> 
-            ${(activeCoupon?.ends_at ? activeCoupon?.ends_at?.toLocaleString() : '')}
+            ${(activeCoupon?.ends_at ? new Date(activeCoupon?.ends_at).toDateString() : '')}
         </div>
     </div>
     `;
