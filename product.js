@@ -597,6 +597,15 @@ const CouponStyles = () =>
           font-size: 14px;
           color: #344054;
         }
+        .coupon-item {
+            max-width: 320px;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: space-between;
+            align-item: center;
+            font-size: 16px;
+            flex-wrap: wrap;
+        }
         `
     }
 
@@ -830,24 +839,24 @@ getCouponTemplate = () => function (values) {
             Valid from:
         </div>
         <div style="" class="coupon-item__value"> 
-            ${(activeCoupon?.starts_at ? activeCoupon?.starts_at : '')}
+            ${(activeCoupon?.starts_at ? activeCoupon?.starts_at?.toLocaleString() : '')}
         </div>
     </div>
     `;
     const renderExpireDate = () => `
     <div style="" class="coupon-item">
         <div class="coupon-item__title"> 
-            Expiry Date
+            Expiry Date:
         </div>
         <div style="" class="coupon-item__value"> 
-            ${(activeCoupon?.ends_at ? activeCoupon?.ends_at : '')}
+            ${(activeCoupon?.ends_at ? activeCoupon?.ends_at?.toLocaleString() : '')}
         </div>
     </div>
     `;
     const renderCouponValue = () => `
     <div style="" class="coupon-item">
         <div class="coupon-item__title"> 
-            Discount value
+            Discount value:
         </div>
         <div style="" class="coupon-item__value"> 
             ${(activeCoupon?.value ? activeCoupon?.value : '')}
@@ -857,7 +866,7 @@ getCouponTemplate = () => function (values) {
     const renderCouponType = () => `
     <div style="" class="coupon-item">
         <div class="coupon-item__title"> 
-            Discount type
+            Discount type:
         </div>
         <div style="" class="coupon-item__value"> 
             ${(activeCoupon?.value_type ? activeCoupon?.value_type : '')}
