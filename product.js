@@ -1320,7 +1320,7 @@ unlayer.registerTool({
                 },
                 details: {
                     label: 'Details',
-                    defaultValue: {coupon: true, startsAt: false, expireDate: true, couponValue: false, couponType: false, link: false,},
+                    defaultValue: {coupon: true, startsAt: false, expireDate: false, couponValue: false, couponType: false, link: false,},
                     widget: 'coupon_details',
                 },
                 titleFont: {
