@@ -11139,10 +11139,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 800);
   });
 
-  (0, _jquery2.default)('.category-heading__read-more').on('click', function () {
-    (0, _jquery2.default)(this).parent().find('.category-heading__desc').toggleClass('active');
-  });
-
   (0, _jquery2.default)(".burger").on("click", function menuToggle() {
     (0, _jquery2.default)(this).toggleClass("open");
     (0, _jquery2.default)(".menu-block").toggleClass("open");
@@ -11158,6 +11154,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  var readMoreText = (0, _jquery2.default)('.category-heading__desc').text();
+
   (0, _jquery2.default)(window).on("load resize", function () {
     if (window.innerWidth < 768) {
       (0, _jquery2.default)(".product-info__desc").before((0, _jquery2.default)(".product-options__select"));
@@ -11167,7 +11165,20 @@ document.addEventListener("DOMContentLoaded", function () {
       (0, _jquery2.default)(".about-item__title").each(function () {
         (0, _jquery2.default)(this).parents(".about-item").prepend((0, _jquery2.default)(this));
       });
+
+      var showedText = readMoreText.slice(0, 125) + "...";
+      var restText = readMoreText.slice(125);
+      (0, _jquery2.default)('.category-heading__desc').html(showedText + "\n                                        <div class=\"category-heading__desc-hide\">" + restText + "</div>\n                                        <div class=\"category-heading__read-more\">\n                                            mai mult\n                                        </div>\n                                       \n");
+      (0, _jquery2.default)(document).on('click', '.category-heading__read-more', function () {
+        if (!(0, _jquery2.default)(this).hasClass('active')) {
+          (0, _jquery2.default)(this).addClass('active');
+          (0, _jquery2.default)(this).parent().html(readMoreText + "\n                                        <div class=\"category-heading__read-more active\">\n                                            mai mult\n                                        </div>");
+        } else {
+          (0, _jquery2.default)(this).parent().html(showedText + "\n                                        <div class=\"category-heading__desc-hide\">" + restText + "</div>\n                                        <div class=\"category-heading__read-more\">\n                                            mai mult\n                                        </div>");
+        }
+      });
     } else {
+      (0, _jquery2.default)('.category-heading__desc').html("" + readMoreText);
       (0, _jquery2.default)(".product-options").prepend((0, _jquery2.default)(".product-options__select"));
 
       (0, _jquery2.default)(".product-adv").after((0, _jquery2.default)(".product-actions"));
