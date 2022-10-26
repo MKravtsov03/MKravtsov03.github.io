@@ -610,7 +610,7 @@ const CouponStyles = () =>
             justify-content: center;
         }
         .coupon-item__value {
-            font-weight: 500;
+            font-weight: 700;
         }
         `
     }
@@ -844,13 +844,13 @@ getCouponTemplate = () => function (values) {
         <div class="coupon-item__title"> 
             Valid from:
         </div>
-        <div style="" class="coupon-item__value"> 
+        <div style="font-family: ${values.validFromFont.value}; font-size: ${values.validFromFontSize}px; color: ${values.validFromColor};" class="coupon-item__value"> 
             ${(activeCoupon?.starts_at ? new Date(activeCoupon?.starts_at).toDateString() : '')}
         </div>
     </div>
     `;
     const renderExpireDate = () => `
-    <div style="" class="coupon-item">
+    <div style="font-family: ${values.expireDateFont.value}; font-size: ${values.expireDateFontSize}px; color: ${values.expireDateColor};" class="coupon-item">
         <div class="coupon-item__title"> 
             Expiry Date:
         </div>
@@ -860,7 +860,7 @@ getCouponTemplate = () => function (values) {
     </div>
     `;
     const renderCouponValue = () => `
-    <div style="" class="coupon-item">
+    <div style="font-family: ${values.discountValueFont.value}; font-size: ${values.discountValueFontSize}px; color: ${values.discountValueColor};" class="coupon-item">
         <div class="coupon-item__title"> 
             Discount value:
         </div>
@@ -1384,6 +1384,90 @@ unlayer.registerTool({
                     defaultValue: 'center',
                     widget: 'alignment',
                 },
+                validFromFont: {
+                    label: 'Coupon font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                validFromFontSize: {
+                    enabled: true,
+                    label: 'Coupon font size',
+                    defaultValue: '24',
+                    widget: 'counter',
+                },
+                validFromColor: {
+                    enabled: true,
+                    label: 'Coupon color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                expireDateFont: {
+                    label: 'Coupon font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                expireDateFontSize: {
+                    enabled: true,
+                    label: 'Coupon font size',
+                    defaultValue: '24',
+                    widget: 'counter',
+                },
+                expireDateColor: {
+                    enabled: true,
+                    label: 'Coupon color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                discountValueFont: {
+                    label: 'Coupon font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                discountValueFontSize: {
+                    enabled: true,
+                    label: 'Coupon font size',
+                    defaultValue: '24',
+                    widget: 'counter',
+                },
+                discountValueColor: {
+                    enabled: true,
+                    label: 'Coupon color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                discountTypeFont: {
+                    label: 'Coupon font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                discountTypeFontSize: {
+                    enabled: true,
+                    label: 'Coupon font size',
+                    defaultValue: '24',
+                    widget: 'counter',
+                },
+                discountTypeColor: {
+                    enabled: true,
+                    label: 'Coupon color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
                 couponBtn: {
                     label: 'Button Content',
                     defaultValue: 'Buy it Now',
@@ -1414,6 +1498,162 @@ unlayer.registerTool({
                 },
             },
         },
+    },
+    propertyStates: (values) => {
+        let couponProps = {};
+        let validFromProps = {};
+        let expireDateProps = {};
+        let dicountValueProps = {};
+        let dicountTypeProps = {};
+        let btnProps = {};
+        if (!values.details.coupon) {
+            couponProps = {
+                couponFont: {
+                    enabled: false
+                },
+                couponFontSize: {
+                    enabled: false
+                },
+                couponColor: {
+                    enabled: false
+                },
+                couponAligment: {
+                    enabled: false
+                },
+                couponFontStyle: {
+                    enabled: false
+                }
+            }
+        } else {
+            couponProps = {
+                titleFont: {
+                    enabled: true
+                },
+                titleFontSize: {
+                    enabled: true
+                },
+                titleColor: {
+                    enabled: true
+                },
+                titleAligment: {
+                    enabled: true
+                },
+                titleFontStyle: {
+                    enabled: true
+                }
+            }
+        }
+        if (!values.details.startsAt) {
+            validFromProps = {
+                validFromFont: {
+                    enabled: false
+                },
+                validFromFontSize: {
+                    enabled: false
+                },
+                validFromColor: {
+                    enabled: false
+                },
+            }
+        }
+        else {
+            validFromProps = {
+                validFromFont: {
+                    enabled: true
+                },
+                validFromFontSize: {
+                    enabled: true
+                },
+                validFromColor: {
+                    enabled: true
+                },
+            }
+        }
+        if (!values.details.expireDate) {
+            expireDateProps = {
+                expireDateFont: {
+                    enabled: false
+                },
+                expireDateFontSize: {
+                    enabled: false
+                },
+                expireDateColor: {
+                    enabled: false
+                },
+            }
+        }
+        else {
+            expireDateProps = {
+                expireDateFont: {
+                    enabled: true
+                },
+                expireDateFontSize: {
+                    enabled: true
+                },
+                expireDateColor: {
+                    enabled: true
+                },
+            }
+        }
+        if (!values.details.couponValue) {
+            couponValueProps = {
+                discountValueFont: {
+                    enabled: false
+                },
+                discountValueFontSize: {
+                    enabled: false
+                },
+                discountValueColor: {
+                    enabled: false
+                },
+            }
+        }
+        else {
+            couponValueProps = {
+                discountValueFont: {
+                    enabled: true
+                },
+                discountValueFontSize: {
+                    enabled: true
+                },
+                discountValueColor: {
+                    enabled: true
+                },
+            }
+        }
+        if (!values.details.couponType) {
+            couponTypeProps = {
+                discountTypeFont: {
+                    enabled: false
+                },
+                discountTypeFontSize: {
+                    enabled: false
+                },
+                discountTypeColor: {
+                    enabled: false
+                },
+            }
+        }
+        else {
+            couponTypeProps = {
+                discountTypeFont: {
+                    enabled: true
+                },
+                discountTypeFontSize: {
+                    enabled: true
+                },
+                discountTypeColor: {
+                    enabled: true
+                },
+            }
+        }
+        return {
+            ...couponProps,
+            ...validFromProp,
+            ...expireDateProps,
+            ...dicountValueProps,
+            ...dicountTypeProps,
+        }
     },
     renderer: {
         Viewer: unlayer.createViewer({
