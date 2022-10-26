@@ -1448,7 +1448,7 @@ unlayer.registerPropertyEditor({
     Widget: unlayer.createWidget({
         render(value) {
             const options = Object.keys(value)
-            return renderDetails(options, value)
+            return renderCouponDetails(options, value)
         },
         mount(node, value, updateValue, data) {
             optionsList = document.querySelectorAll('.coupon-details input');
