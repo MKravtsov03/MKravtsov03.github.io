@@ -686,7 +686,7 @@ const detailsLabelsMap = {
 
 const couponDetailsLabelsMap = {
     coupon: 'Coupon title',
-    startsDate: 'Valid from',
+    startsAt: 'Valid from',
     expireDate: 'Expire Date',
     couponValue: 'Discount value',
     couponType: 'Discount type',
@@ -731,6 +731,7 @@ const renderDetails = (options, values) => `
 
 const renderCouponDetails = (options, values) => `
 <div class="coupon-details">
+${console.log({options, values})}
     <div class="blockbuilder-widget-label">
         <p class="blockbuilder-label-primary">Details</p>
     </div>
