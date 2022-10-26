@@ -578,6 +578,25 @@ const CouponStyles = () =>
         .font-styles__item input:checked + span {
             background: #dcefff;
         }
+        .coupon-details-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .details-item {
+          width: 50%;
+        }
+        
+        .details-item label {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-weight: 500;
+          font-size: 14px;
+          color: #344054;
+        }
         `
     }
 
@@ -665,8 +684,16 @@ const detailsLabelsMap = {
     title: 'Title',
 }
 
+const couponDetailsLabelsMap = {
+    coupon: 'Coupon title',
+    startsDate: 'Valid from',
+    expireDate: 'Expire Date',
+    couponValue: 'Discount value',
+    couponType: 'Discount type',
+    link: 'Link',
+}
+
 const productSelect = (value, data) => {
-    console.log(value)
     return `
 <div class="blockbuilder-widget-label">
     <p class="blockbuilder-label-primary">Product Data</p>
@@ -695,6 +722,25 @@ const renderDetails = (options, values) => `
             <label>
                 <input ${values[option] ? 'checked' : ''} name="${option}" type="checkbox">
                 <span>${detailsLabelsMap[option]}</span>
+            </label>
+            </div>`)).join('')
+        }
+    </div>
+</div>
+`
+
+const renderCouponDetails = (options, values) => `
+<div class="coupon-details">
+    <div class="blockbuilder-widget-label">
+        <p class="blockbuilder-label-primary">Details</p>
+    </div>
+    <div class="coupon-details-inner">
+        ${
+            options.map(option => (`
+            <div class="details-item">
+            <label>
+                <input ${values[option] ? 'checked' : ''} name="${option}" type="checkbox">
+                <span>${couponDetailsLabelsMap[option]}</span>
             </label>
             </div>`)).join('')
         }
@@ -772,13 +818,65 @@ getCouponTemplate = () => function (values) {
     const { data: { coupons }, coupon } = values;
     console.log({couponsValues: values})
     const activeCoupon = coupons.find(currentCoupon => currentCoupon.id == coupon)
+    const renderCoupon = () => `
+    <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.underline.active ? 'underline' : 'none'}" class="coupon-value"> 
+                ${(activeCoupon?.title || 'XXXXXXXXXXXX')}
+    </div>
+    `;
+    const renderValidFrom = () => `
+    <div style="" class="coupon-item">
+        <div class="coupon-item__title"> 
+            Valid from:
+        </div>
+        <div style="" class="coupon-item__value"> 
+            ${(activeCoupon?.starts_at ? activeCoupon?.starts_at : '')}
+        </div>
+    </div>
+    `;
+    const renderExpireDate = () => `
+    <div style="" class="coupon-item">
+        <div class="coupon-item__title"> 
+            Expiry Date
+        </div>
+        <div style="" class="coupon-item__value"> 
+            ${(activeCoupon?.ends_at ? activeCoupon?.ends_at : '')}
+        </div>
+    </div>
+    `;
+    const renderCouponValue = () => `
+    <div style="" class="coupon-item">
+        <div class="coupon-item__title"> 
+            Discount value
+        </div>
+        <div style="" class="coupon-item__value"> 
+            ${(activeCoupon?.value ? activeCoupon?.value : '')}
+        </div>
+    </div>
+    `;
+    const renderCouponType = () => `
+    <div style="" class="coupon-item">
+        <div class="coupon-item__title"> 
+            Discount type
+        </div>
+        <div style="" class="coupon-item__value"> 
+            ${(activeCoupon?.value_type ? activeCoupon?.value_type : '')}
+        </div>
+    </div>
+    `;
+    const renderLink = () => `
+    <div style="" class="coupon-item link">
+        <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline" href="${(activeCoupon?.shareable_link ? activeCoupon?.shareable_link : '')}" target="_blank">${values.couponBtn}</a>
+    </div>
+    `;
     return (
     `
         <div class="coupon-wrapper">
-            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.underline.active ? 'underline' : 'none'}" class="coupon-value"> 
-                ${(activeCoupon?.title || 'XXXXXXXXXXXX')}
-            </div>
-            <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline" href="" target="_blank">${values.couponBtn}</a>
+            ${values.details.coupon ? renderCoupon() : ''}
+            ${values.details.startsAt ? renderValidFrom() : ''}
+            ${values.details.expireDate ? renderExpireDate() : ''}
+            ${values.details.couponValue ? renderCouponValue() : ''}
+            ${values.details.couponType ? renderCouponType() : ''}
+            ${values.details.link ? renderLink() : ''}
         </div>
     `
     )
@@ -1219,6 +1317,11 @@ unlayer.registerTool({
                     defaultValue: '',
                     widget: 'dropdown',
                 },
+                details: {
+                    label: 'Details',
+                    defaultValue: {coupon: true, startsAt: false, expireDate: true, couponValue: false, couponType: false, link: false,},
+                    widget: 'coupon_details',
+                },
                 titleFont: {
                     label: 'Coupon font',
                     defaultValue: {
@@ -1327,6 +1430,27 @@ unlayer.registerPropertyEditor({
         },
         mount(node, value, updateValue, data) {
             optionsList = document.querySelectorAll('.product-details input');
+            const details = {...value}
+            optionsList.forEach(item => {
+                item.onchange = function(e) {
+                     details[e.target.name] = e.target.checked
+                     return updateValue({...details})
+                }
+            })
+        }
+    })
+});
+
+unlayer.registerPropertyEditor({
+    name: 'coupon_details',
+    layout: 'bottom',
+    Widget: unlayer.createWidget({
+        render(value) {
+            const options = Object.keys(value)
+            return renderDetails(options, value)
+        },
+        mount(node, value, updateValue, data) {
+            optionsList = document.querySelectorAll('.coupon-details input');
             const details = {...value}
             optionsList.forEach(item => {
                 item.onchange = function(e) {
