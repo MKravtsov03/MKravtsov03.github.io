@@ -1384,27 +1384,6 @@ unlayer.registerTool({
                     defaultValue: 'center',
                     widget: 'alignment',
                 },
-                validFromFont: {
-                    label: 'Valid from font',
-                    defaultValue: {
-                        label: "Inter",
-                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
-                        value: "'Inter', Arial, Helvetica, sans-serif"
-                    },
-                    widget: 'font_family',
-                },
-                validFromFontSize: {
-                    enabled: true,
-                    label: 'Valid from font size',
-                    defaultValue: '24',
-                    widget: 'counter',
-                },
-                validFromColor: {
-                    enabled: true,
-                    label: 'Valid from color',
-                    defaultValue: '#000',
-                    widget: 'color_picker',
-                },
                 expireDateFont: {
                     label: 'Expire date font',
                     defaultValue: {
@@ -1498,6 +1477,33 @@ unlayer.registerTool({
                 },
             },
         },
+        validFrom: {
+            title: 'Valid from date options',
+            position: 2,
+            options: {
+                validFromFont: {
+                    label: 'Valid from font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                validFromFontSize: {
+                    enabled: true,
+                    label: 'Valid from font size',
+                    defaultValue: '24',
+                    widget: 'counter',
+                },
+                validFromColor: {
+                    enabled: true,
+                    label: 'Valid from color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+            }
+        }
     },
     propertyStates: (values) => {
         let couponProps = {};
