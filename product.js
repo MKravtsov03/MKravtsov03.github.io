@@ -1338,6 +1338,40 @@ unlayer.registerTool({
                     defaultValue: {coupon: true, startsAt: false, expireDate: false, couponValue: false, couponType: false, link: false,},
                     widget: 'coupon_details',
                 },
+                couponBtn: {
+                    label: 'Button Content',
+                    defaultValue: 'Buy it Now',
+                    widget: 'text',
+                },
+                btnFontSize: {
+                    enabled: true,
+                    label: 'Button font size',
+                    defaultValue: '16',
+                    widget: 'counter',
+                },
+                btnColor: {
+                    enabled: true,
+                    label: 'Button color',
+                    defaultValue: '#fff',
+                    widget: 'color_picker',
+                },
+                btnBg: {
+                    enabled: true,
+                    label: 'Button  background color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                btnBorder: {
+                    label: 'Button border',
+                    defaultValue: '',
+                    widget: 'border',
+                },
+            },
+        },
+        couponFontProperties: {
+            title: 'Coupon view options',
+            position: 2,
+            options: {
                 titleFont: {
                     label: 'Coupon font',
                     defaultValue: {
@@ -1384,102 +1418,11 @@ unlayer.registerTool({
                     defaultValue: 'center',
                     widget: 'alignment',
                 },
-                expireDateFont: {
-                    label: 'Expire date font',
-                    defaultValue: {
-                        label: "Inter",
-                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
-                        value: "'Inter', Arial, Helvetica, sans-serif"
-                    },
-                    widget: 'font_family',
-                },
-                expireDateFontSize: {
-                    enabled: true,
-                    label: 'Expire date font size',
-                    defaultValue: '24',
-                    widget: 'counter',
-                },
-                expireDateColor: {
-                    enabled: true,
-                    label: 'Expire date color',
-                    defaultValue: '#000',
-                    widget: 'color_picker',
-                },
-                discountValueFont: {
-                    label: 'Dicount value font',
-                    defaultValue: {
-                        label: "Inter",
-                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
-                        value: "'Inter', Arial, Helvetica, sans-serif"
-                    },
-                    widget: 'font_family',
-                },
-                discountValueFontSize: {
-                    enabled: true,
-                    label: 'Dicount value font size',
-                    defaultValue: '24',
-                    widget: 'counter',
-                },
-                discountValueColor: {
-                    enabled: true,
-                    label: 'Dicount value color',
-                    defaultValue: '#000',
-                    widget: 'color_picker',
-                },
-                discountTypeFont: {
-                    label: 'Dicount type font',
-                    defaultValue: {
-                        label: "Inter",
-                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
-                        value: "'Inter', Arial, Helvetica, sans-serif"
-                    },
-                    widget: 'font_family',
-                },
-                discountTypeFontSize: {
-                    enabled: true,
-                    label: 'Dicount type font size',
-                    defaultValue: '24',
-                    widget: 'counter',
-                },
-                discountTypeColor: {
-                    enabled: true,
-                    label: 'Dicount type color',
-                    defaultValue: '#000',
-                    widget: 'color_picker',
-                },
-                couponBtn: {
-                    label: 'Button Content',
-                    defaultValue: 'Buy it Now',
-                    widget: 'text',
-                },
-                btnFontSize: {
-                    enabled: true,
-                    label: 'Button font size',
-                    defaultValue: '16',
-                    widget: 'counter',
-                },
-                btnColor: {
-                    enabled: true,
-                    label: 'Button color',
-                    defaultValue: '#fff',
-                    widget: 'color_picker',
-                },
-                btnBg: {
-                    enabled: true,
-                    label: 'Button  background color',
-                    defaultValue: '#000',
-                    widget: 'color_picker',
-                },
-                btnBorder: {
-                    label: 'Button border',
-                    defaultValue: '',
-                    widget: 'border',
-                },
-            },
+            }
         },
         validFrom: {
-            title: 'Valid from date options',
-            position: 2,
+            title: 'Valid from date view options',
+            position: 3,
             options: {
                 validFromFont: {
                     label: 'Valid from font',
@@ -1493,7 +1436,7 @@ unlayer.registerTool({
                 validFromFontSize: {
                     enabled: true,
                     label: 'Valid from font size',
-                    defaultValue: '24',
+                    defaultValue: '16',
                     widget: 'counter',
                 },
                 validFromColor: {
@@ -1503,7 +1446,88 @@ unlayer.registerTool({
                     widget: 'color_picker',
                 },
             }
+        },
+        expireDate: {
+            title: 'Expire date view options',
+            position: 4,
+            options: {
+                expireDateFont: {
+                    label: 'Expire date font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                expireDateFontSize: {
+                    enabled: true,
+                    label: 'Expire date font size',
+                    defaultValue: '16',
+                    widget: 'counter',
+                },
+                expireDateColor: {
+                    enabled: true,
+                    label: 'Expire date color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+            }
         }
+        discountValue: {
+            title: 'Discount value view options',
+            position: 5,
+            options: {
+                discountValueFont: {
+                    label: 'Dicount value font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                discountValueFontSize: {
+                    enabled: true,
+                    label: 'Dicount value font size',
+                    defaultValue: '16',
+                    widget: 'counter',
+                },
+                discountValueColor: {
+                    enabled: true,
+                    label: 'Dicount value color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+            }
+        },
+        discountType: {
+            title: 'Discount type view options',
+            position: 6,
+            options: {
+                discountTypeFont: {
+                    label: 'Dicount type font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                discountTypeFontSize: {
+                    enabled: true,
+                    label: 'Dicount type font size',
+                    defaultValue: '16',
+                    widget: 'counter',
+                },
+                discountTypeColor: {
+                    enabled: true,
+                    label: 'Dicount type color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+            }
+        },
     },
     propertyStates: (values) => {
         let couponProps = {};
