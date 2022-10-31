@@ -1385,7 +1385,7 @@ unlayer.registerTool({
                     widget: 'alignment',
                 },
                 validFromFont: {
-                    label: 'Coupon font',
+                    label: 'Vallid from font',
                     defaultValue: {
                         label: "Inter",
                         url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
@@ -1395,18 +1395,18 @@ unlayer.registerTool({
                 },
                 validFromFontSize: {
                     enabled: true,
-                    label: 'Coupon font size',
+                    label: 'Valid from font size',
                     defaultValue: '24',
                     widget: 'counter',
                 },
                 validFromColor: {
                     enabled: true,
-                    label: 'Coupon color',
+                    label: 'Valid from color',
                     defaultValue: '#000',
                     widget: 'color_picker',
                 },
                 expireDateFont: {
-                    label: 'Coupon font',
+                    label: 'Expire date font',
                     defaultValue: {
                         label: "Inter",
                         url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
@@ -1416,18 +1416,18 @@ unlayer.registerTool({
                 },
                 expireDateFontSize: {
                     enabled: true,
-                    label: 'Coupon font size',
+                    label: 'Expire date font size',
                     defaultValue: '24',
                     widget: 'counter',
                 },
                 expireDateColor: {
                     enabled: true,
-                    label: 'Coupon color',
+                    label: 'Expire date color',
                     defaultValue: '#000',
                     widget: 'color_picker',
                 },
                 discountValueFont: {
-                    label: 'Coupon font',
+                    label: 'Dicount value font',
                     defaultValue: {
                         label: "Inter",
                         url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
@@ -1437,18 +1437,18 @@ unlayer.registerTool({
                 },
                 discountValueFontSize: {
                     enabled: true,
-                    label: 'Coupon font size',
+                    label: 'Dicount value font size',
                     defaultValue: '24',
                     widget: 'counter',
                 },
                 discountValueColor: {
                     enabled: true,
-                    label: 'Coupon color',
+                    label: 'Dicount value color',
                     defaultValue: '#000',
                     widget: 'color_picker',
                 },
                 discountTypeFont: {
-                    label: 'Coupon font',
+                    label: 'Dicount type font',
                     defaultValue: {
                         label: "Inter",
                         url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
@@ -1458,13 +1458,13 @@ unlayer.registerTool({
                 },
                 discountTypeFontSize: {
                     enabled: true,
-                    label: 'Coupon font size',
+                    label: 'Dicount type font size',
                     defaultValue: '24',
                     widget: 'counter',
                 },
                 discountTypeColor: {
                     enabled: true,
-                    label: 'Coupon color',
+                    label: 'Dicount type color',
                     defaultValue: '#000',
                     widget: 'color_picker',
                 },
