@@ -1649,7 +1649,7 @@ unlayer.registerTool({
         }
         return {
             ...couponProps,
-            ...validFromProp,
+            ...validFromProps,
             ...expireDateProps,
             ...dicountValueProps,
             ...dicountTypeProps,
