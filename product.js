@@ -1481,7 +1481,7 @@ unlayer.registerTool({
                     widget: 'color_picker',
                 },
             }
-        }
+        },
         discountValue: {
             title: 'Discount value view options',
             position: 5,
