@@ -1,0 +1,17 @@
+@mixin font($fontname, $filename, $fontweight, $fontstyle) {
+  @font-face {
+    font-family: $fontname;
+    src: url(#{'../fonts/'+$filename+'.eot'});
+    src:
+      local('😥'),
+      url(#{'../fonts/'+$filename+'.woff'}) format("woff"),
+      url(#{'../fonts/'+$filename+'.ttf'}) format("truetype");
+    font-weight: $fontweight;
+    font-style: $fontstyle;
+  }
+}
+
+@include font('Gotham-pro', 'GothamPro', 400, normal);
+@include font('Gotham-pro', 'GothamPro-Light', 300, normal);
+@include font('Gotham-pro', 'GothamPro-Medium', 500, normal);
+@include font('Gotham-pro', 'GothamPro-Bold', 700, normal);

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include 'head.html' %}
+  <body>
+    <div class="page-info">
+      {% include 'header.html' %}
+      <div class="breadcrumbs">
+        <ul class="breadcrumbs-list">
+          <li>
+            <a href="" class="breadcrumbs__item">
+              Informații utile
+            </a>
+          </li>
+          <li>
+            <span class="breadcrumbs__item">
+              Livrare si Retururi
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="faq-heading"></div>
+
+      <div class="info-wrapp page-container">
+        <div class="info-aside">
+          <ul class="info-nav">
+            <li>
+              <a class="info-nav__link active anchor" href="#modaliti">
+                <svg
+                  width="16"
+                  height="10"
+                  viewBox="0 0 16 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.4133 3.71939L12.8333 1.11273C12.7714 1.05024 12.6976 1.00064 12.6164 0.966798C12.5351 0.932953 12.448 0.915527 12.36 0.915527C12.272 0.915527 12.1849 0.932953 12.1036 0.966798C12.0224 1.00064 11.9486 1.05024 11.8867 1.11273V1.11273C11.7625 1.23763 11.6928 1.4066 11.6928 1.58273C11.6928 1.75885 11.7625 1.92782 11.8867 2.05273L14.26 4.44606H0.666667C0.489856 4.44606 0.320286 4.5163 0.195262 4.64132C0.0702379 4.76635 0 4.93591 0 5.11273H0C0 5.28954 0.0702379 5.45911 0.195262 5.58413C0.320286 5.70915 0.489856 5.77939 0.666667 5.77939H14.3L11.8867 8.18606C11.8242 8.24803 11.7746 8.32177 11.7407 8.40301C11.7069 8.48425 11.6895 8.57138 11.6895 8.65939C11.6895 8.7474 11.7069 8.83454 11.7407 8.91578C11.7746 8.99702 11.8242 9.07075 11.8867 9.13273C11.9486 9.19521 12.0224 9.24481 12.1036 9.27865C12.1849 9.3125 12.272 9.32992 12.36 9.32992C12.448 9.32992 12.5351 9.3125 12.6164 9.27865C12.6976 9.24481 12.7714 9.19521 12.8333 9.13273L15.4133 6.54606C15.7879 6.17106 15.9982 5.66273 15.9982 5.13273C15.9982 4.60272 15.7879 4.09439 15.4133 3.71939V3.71939Z"
+                    fill="#FF5981"
+                  />
+                </svg>
+                <span class="info-nav__count">1.</span>
+                <span class="info-nav__text">Modalitati Livrare</span>
+              </a>
+            </li>
+            <li>
+              <a class="info-nav__link anchor" href="#costuri">
+                <svg
+                  width="16"
+                  height="10"
+                  viewBox="0 0 16 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.4133 3.71939L12.8333 1.11273C12.7714 1.05024 12.6976 1.00064 12.6164 0.966798C12.5351 0.932953 12.448 0.915527 12.36 0.915527C12.272 0.915527 12.1849 0.932953 12.1036 0.966798C12.0224 1.00064 11.9486 1.05024 11.8867 1.11273V1.11273C11.7625 1.23763 11.6928 1.4066 11.6928 1.58273C11.6928 1.75885 11.7625 1.92782 11.8867 2.05273L14.26 4.44606H0.666667C0.489856 4.44606 0.320286 4.5163 0.195262 4.64132C0.0702379 4.76635 0 4.93591 0 5.11273H0C0 5.28954 0.0702379 5.45911 0.195262 5.58413C0.320286 5.70915 0.489856 5.77939 0.666667 5.77939H14.3L11.8867 8.18606C11.8242 8.24803 11.7746 8.32177 11.7407 8.40301C11.7069 8.48425 11.6895 8.57138 11.6895 8.65939C11.6895 8.7474 11.7069 8.83454 11.7407 8.91578C11.7746 8.99702 11.8242 9.07075 11.8867 9.13273C11.9486 9.19521 12.0224 9.24481 12.1036 9.27865C12.1849 9.3125 12.272 9.32992 12.36 9.32992C12.448 9.32992 12.5351 9.3125 12.6164 9.27865C12.6976 9.24481 12.7714 9.19521 12.8333 9.13273L15.4133 6.54606C15.7879 6.17106 15.9982 5.66273 15.9982 5.13273C15.9982 4.60272 15.7879 4.09439 15.4133 3.71939V3.71939Z"
+                    fill="#FF5981"
+                  />
+                </svg>
+                <span class="info-nav__count">2.</span>
+                <span class="info-nav__text">Costuri si durata livrare</span>
+              </a>
+            </li>
+            <li>
+              <a class="info-nav__link anchor" href="#retur">
+                <svg
+                  width="16"
+                  height="10"
+                  viewBox="0 0 16 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.4133 3.71939L12.8333 1.11273C12.7714 1.05024 12.6976 1.00064 12.6164 0.966798C12.5351 0.932953 12.448 0.915527 12.36 0.915527C12.272 0.915527 12.1849 0.932953 12.1036 0.966798C12.0224 1.00064 11.9486 1.05024 11.8867 1.11273V1.11273C11.7625 1.23763 11.6928 1.4066 11.6928 1.58273C11.6928 1.75885 11.7625 1.92782 11.8867 2.05273L14.26 4.44606H0.666667C0.489856 4.44606 0.320286 4.5163 0.195262 4.64132C0.0702379 4.76635 0 4.93591 0 5.11273H0C0 5.28954 0.0702379 5.45911 0.195262 5.58413C0.320286 5.70915 0.489856 5.77939 0.666667 5.77939H14.3L11.8867 8.18606C11.8242 8.24803 11.7746 8.32177 11.7407 8.40301C11.7069 8.48425 11.6895 8.57138 11.6895 8.65939C11.6895 8.7474 11.7069 8.83454 11.7407 8.91578C11.7746 8.99702 11.8242 9.07075 11.8867 9.13273C11.9486 9.19521 12.0224 9.24481 12.1036 9.27865C12.1849 9.3125 12.272 9.32992 12.36 9.32992C12.448 9.32992 12.5351 9.3125 12.6164 9.27865C12.6976 9.24481 12.7714 9.19521 12.8333 9.13273L15.4133 6.54606C15.7879 6.17106 15.9982 5.66273 15.9982 5.13273C15.9982 4.60272 15.7879 4.09439 15.4133 3.71939V3.71939Z"
+                    fill="#FF5981"
+                  />
+                </svg>
+                <span class="info-nav__count">3.</span>
+                <span class="info-nav__text">Modalitati de retur</span>
+              </a>
+            </li>
+            <li>
+              <a class="info-nav__link anchor" href="#conditi">
+                <svg
+                  width="16"
+                  height="10"
+                  viewBox="0 0 16 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.4133 3.71939L12.8333 1.11273C12.7714 1.05024 12.6976 1.00064 12.6164 0.966798C12.5351 0.932953 12.448 0.915527 12.36 0.915527C12.272 0.915527 12.1849 0.932953 12.1036 0.966798C12.0224 1.00064 11.9486 1.05024 11.8867 1.11273V1.11273C11.7625 1.23763 11.6928 1.4066 11.6928 1.58273C11.6928 1.75885 11.7625 1.92782 11.8867 2.05273L14.26 4.44606H0.666667C0.489856 4.44606 0.320286 4.5163 0.195262 4.64132C0.0702379 4.76635 0 4.93591 0 5.11273H0C0 5.28954 0.0702379 5.45911 0.195262 5.58413C0.320286 5.70915 0.489856 5.77939 0.666667 5.77939H14.3L11.8867 8.18606C11.8242 8.24803 11.7746 8.32177 11.7407 8.40301C11.7069 8.48425 11.6895 8.57138 11.6895 8.65939C11.6895 8.7474 11.7069 8.83454 11.7407 8.91578C11.7746 8.99702 11.8242 9.07075 11.8867 9.13273C11.9486 9.19521 12.0224 9.24481 12.1036 9.27865C12.1849 9.3125 12.272 9.32992 12.36 9.32992C12.448 9.32992 12.5351 9.3125 12.6164 9.27865C12.6976 9.24481 12.7714 9.19521 12.8333 9.13273L15.4133 6.54606C15.7879 6.17106 15.9982 5.66273 15.9982 5.13273C15.9982 4.60272 15.7879 4.09439 15.4133 3.71939V3.71939Z"
+                    fill="#FF5981"
+                  />
+                </svg>
+                <span class="info-nav__count">4.</span>
+                <span class="info-nav__text">Conditii returnare produse</span>
+              </a>
+            </li>
+            <li>
+              <a class="info-nav__link anchor" href="#durata">
+                <svg
+                  width="16"
+                  height="10"
+                  viewBox="0 0 16 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.4133 3.71939L12.8333 1.11273C12.7714 1.05024 12.6976 1.00064 12.6164 0.966798C12.5351 0.932953 12.448 0.915527 12.36 0.915527C12.272 0.915527 12.1849 0.932953 12.1036 0.966798C12.0224 1.00064 11.9486 1.05024 11.8867 1.11273V1.11273C11.7625 1.23763 11.6928 1.4066 11.6928 1.58273C11.6928 1.75885 11.7625 1.92782 11.8867 2.05273L14.26 4.44606H0.666667C0.489856 4.44606 0.320286 4.5163 0.195262 4.64132C0.0702379 4.76635 0 4.93591 0 5.11273H0C0 5.28954 0.0702379 5.45911 0.195262 5.58413C0.320286 5.70915 0.489856 5.77939 0.666667 5.77939H14.3L11.8867 8.18606C11.8242 8.24803 11.7746 8.32177 11.7407 8.40301C11.7069 8.48425 11.6895 8.57138 11.6895 8.65939C11.6895 8.7474 11.7069 8.83454 11.7407 8.91578C11.7746 8.99702 11.8242 9.07075 11.8867 9.13273C11.9486 9.19521 12.0224 9.24481 12.1036 9.27865C12.1849 9.3125 12.272 9.32992 12.36 9.32992C12.448 9.32992 12.5351 9.3125 12.6164 9.27865C12.6976 9.24481 12.7714 9.19521 12.8333 9.13273L15.4133 6.54606C15.7879 6.17106 15.9982 5.66273 15.9982 5.13273C15.9982 4.60272 15.7879 4.09439 15.4133 3.71939V3.71939Z"
+                    fill="#FF5981"
+                  />
+                </svg>
+                <span class="info-nav__count">5.</span>
+                <span class="info-nav__text">Durata proces returnare produs</span>
+              </a>
+            </li>
+            <li>
+              <a class="info-nav__link" href="#intrebare">
+                <svg
+                  width="16"
+                  height="10"
+                  viewBox="0 0 16 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.4133 3.71939L12.8333 1.11273C12.7714 1.05024 12.6976 1.00064 12.6164 0.966798C12.5351 0.932953 12.448 0.915527 12.36 0.915527C12.272 0.915527 12.1849 0.932953 12.1036 0.966798C12.0224 1.00064 11.9486 1.05024 11.8867 1.11273V1.11273C11.7625 1.23763 11.6928 1.4066 11.6928 1.58273C11.6928 1.75885 11.7625 1.92782 11.8867 2.05273L14.26 4.44606H0.666667C0.489856 4.44606 0.320286 4.5163 0.195262 4.64132C0.0702379 4.76635 0 4.93591 0 5.11273H0C0 5.28954 0.0702379 5.45911 0.195262 5.58413C0.320286 5.70915 0.489856 5.77939 0.666667 5.77939H14.3L11.8867 8.18606C11.8242 8.24803 11.7746 8.32177 11.7407 8.40301C11.7069 8.48425 11.6895 8.57138 11.6895 8.65939C11.6895 8.7474 11.7069 8.83454 11.7407 8.91578C11.7746 8.99702 11.8242 9.07075 11.8867 9.13273C11.9486 9.19521 12.0224 9.24481 12.1036 9.27865C12.1849 9.3125 12.272 9.32992 12.36 9.32992C12.448 9.32992 12.5351 9.3125 12.6164 9.27865C12.6976 9.24481 12.7714 9.19521 12.8333 9.13273L15.4133 6.54606C15.7879 6.17106 15.9982 5.66273 15.9982 5.13273C15.9982 4.60272 15.7879 4.09439 15.4133 3.71939V3.71939Z"
+                    fill="#FF5981"
+                  />
+                </svg>
+                <span class="info-nav__count">6.</span>
+                <span class="info-nav__text">Ai o intrebare?</span>
+              </a>
+            </li>
+          </ul>
+          <div class="account-links">
+            <a href="" class="account-links__item">
+              Intrebari Frecvente
+              <svg
+                width="16"
+                height="17"
+                viewBox="0 0 16 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.6667 0.5C10.2461 0.5 9.90476 0.841333 9.90476 1.2619C9.90476 1.68248 10.2461 2.02381 10.6667 2.02381H13.3988L7.08036 8.34226C6.78283 8.63979 6.78283 9.12212 7.08036 9.41964C7.22931 9.5686 7.424 9.64286 7.61905 9.64286C7.8141 9.64286 8.00879 9.56859 8.15774 9.41964L14.4762 3.10119V5.83333C14.4762 6.2539 14.8175 6.59524 15.2381 6.59524C15.6587 6.59524 16 6.2539 16 5.83333V1.2619C16 0.841333 15.6587 0.5 15.2381 0.5H10.6667ZM2.28571 1.2619C1.02514 1.2619 0 2.28705 0 3.54762V14.2143C0 15.4749 1.02514 16.5 2.28571 16.5H12.9524C14.213 16.5 15.2381 15.4749 15.2381 14.2143V9.64286C15.2381 9.22229 14.8968 8.88095 14.4762 8.88095C14.0556 8.88095 13.7143 9.22229 13.7143 9.64286V14.2143C13.7143 14.6345 13.3726 14.9762 12.9524 14.9762H2.28571C1.86552 14.9762 1.52381 14.6345 1.52381 14.2143V3.54762C1.52381 3.12743 1.86552 2.78571 2.28571 2.78571H6.85714C7.27771 2.78571 7.61905 2.44438 7.61905 2.02381C7.61905 1.60324 7.27771 1.2619 6.85714 1.2619H2.28571Z"
+                  fill="#5C6061"
+                ></path>
+              </svg>
+            </a>
+            <a href="" class="account-links__item">
+              Contacteaza-ne
+              <svg
+                width="16"
+                height="17"
+                viewBox="0 0 16 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.6667 0.5C10.2461 0.5 9.90476 0.841333 9.90476 1.2619C9.90476 1.68248 10.2461 2.02381 10.6667 2.02381H13.3988L7.08036 8.34226C6.78283 8.63979 6.78283 9.12212 7.08036 9.41964C7.22931 9.5686 7.424 9.64286 7.61905 9.64286C7.8141 9.64286 8.00879 9.56859 8.15774 9.41964L14.4762 3.10119V5.83333C14.4762 6.2539 14.8175 6.59524 15.2381 6.59524C15.6587 6.59524 16 6.2539 16 5.83333V1.2619C16 0.841333 15.6587 0.5 15.2381 0.5H10.6667ZM2.28571 1.2619C1.02514 1.2619 0 2.28705 0 3.54762V14.2143C0 15.4749 1.02514 16.5 2.28571 16.5H12.9524C14.213 16.5 15.2381 15.4749 15.2381 14.2143V9.64286C15.2381 9.22229 14.8968 8.88095 14.4762 8.88095C14.0556 8.88095 13.7143 9.22229 13.7143 9.64286V14.2143C13.7143 14.6345 13.3726 14.9762 12.9524 14.9762H2.28571C1.86552 14.9762 1.52381 14.6345 1.52381 14.2143V3.54762C1.52381 3.12743 1.86552 2.78571 2.28571 2.78571H6.85714C7.27771 2.78571 7.61905 2.44438 7.61905 2.02381C7.61905 1.60324 7.27771 1.2619 6.85714 1.2619H2.28571Z"
+                  fill="#5C6061"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="info-inner">
+          <div class="info-inner__heading">
+            <div class="h1 info-inner__title">
+              Termeni și Condiții
+            </div>
+            <div class="blog-item__date tag-item">
+              Updatat pe: <span>22 Mar. 2022</span>
+            </div>
+          </div>
+          <div class="content-area">
+            <h2>
+              General Data Protection Regulation (GDPR)
+            </h2>
+            <p>
+              Conditii Generale pentru utilizarea site-ului Naked.ro
+            </p>
+          </div>
+          <div class="content-area" id="modaliti">
+            <h3>
+              1. Acceptarea Conditiilor
+            </h3>
+            <p>
+              Prin accesarea acestui site web si/sau a oricarei pagini a acestuia sunteti de acord cu aceste conditii de utilizare. Daca nu sunteti de acord cu acesti termeni si conditii de utilizare, nu accesati acest site.
+            </p>
+
+          </div>
+          <div class="content-area" id="costuri">
+            <h3>
+              2. Descrierea Serviciilor
+            </h3>
+            <p>
+              Siteul nostru va pune la dispozitie informatiile din acest site web in scop informativ general si nu garanteaza de exactitatea lor la un moment dat, desi se va incerca pe cat posibil ca la publicarea lor pe site toate informatiile sa fie exacte.
+            </p>
+          </div>
+          <div class="content-area" id="retur">
+            <h3>
+              3. Introducere
+            </h3>
+            <p>
+              Prezentele Conditii Generale definesc conditiile de utilizare a site-ului Naked.ro de catre potentialii vizitatori sau clienti. Accesând si navigând pe acest site, acceptati termenii de utilizare descrisi în continuare.
+            </p>
+          </div>
+          <div class="content-area" id="conditi">
+            <h3>
+              4. Drepturile asupra continutului site-ului
+            </h3>
+            <p>
+              S.C. Naked Pleasure Shop (denumita în continuare Naked Pleasure Shop), nu va transfera titlul de proprietate asupra aplicatiilor software .
+            </p>
+            <p>
+              Naked Pleasure Shop detine drepturi complete si depline asupra titlului de proprietate si prin aceasta toate drepturile de autor si cele brevetate. Nu aveti dreptul sa redistribuiti, vindeti, decompilati, dezasamblati aplicatia software într-o forma perceptibila de catre oameni.
+            </p>
+            <p>
+              Toate informatiile, produsele sau aplicatiile continute în acest site sunt proprietatea Naked Pleasure Shop, care îsi rezerva dreptul de a modifica continutul si/sau structura site-ului în orice moment si fara nici o informare prealabila.
+            </p>
+            <p>
+              Întregul continut al site-ului Naked.ro este protejat prin legea drepturilor de autor, toate drepturile fiind rezervate. Toate drepturile referitoare la pagini, continutul si prezentarea site-ului sunt detinute de Naked Pleasure Shop. Este interzisa copierea, modificarea, afisarea, distribuirea, transmiterea, publicarea, comercializarea, licentierea, crearea unor materiale derivate sau utilizarea continutului site-ului în orice scop fara confirmarea scrisa din partea Naked Pleasure Shop.
+            </p>
+            <p>
+              Accesul si utilizarea paginii Naked.ro sunt gratuite si au scopul de a veni in ajutorul utilizatorilor pentru a gasi informatiile necesare în cel mai usor si rapid mod posibil, conform cerintelor fiecaruia.
+            </p>
+            <p>
+              Informatiile prezente pe Naked.ro sunt de interes general si sunt puse la dispozitia utilizatorilor în mod gratuit. Prin termenul „utilizator” al acestei pagini se întelege orice persoana fizica sau juridica care va accesa pagina. Puteti copia si tipari continutul paginii Naked.ro pentru folosinta dumneavoastra personala, fara intentii
+            </p>
+          </div>
+          <div class="content-area" id="durata">
+            <h3>
+              5. Durata proces returnare produs
+            </h3>
+            <p>
+              Din momentul in care predati coletul curierului acesta ar trebui sa ajunga la noi in maxim 2 zile lucratoare iar termenul de verificare al produsului returnat este de maxim 24 ore de la primirea acestuia de catre echipa noastra.
+            </p>
+            <p>
+              In cazul intarzierilor neastepate fie din cauza firmei de curierat sau a perioadei de returnare, un membru al echipei noastre va v-a suna sa va informeze in legatura cu intarzierea. Incercam sa procesam toate produsele returnate in cel mai scurt timp posibil si sa va returnam banii cat mai repede.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {% include 'footer.html' %} {% include 'popups.html' %} {% include
+      'js.html' %}
+    </div>
+  </body>
+</html>

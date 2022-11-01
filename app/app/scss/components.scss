@@ -1,0 +1,10 @@
+$slick-font-family: false;
+@import '../../node_modules/slick-carousel/slick/slick.scss';
+@import '../../node_modules/slick-carousel/slick/slick-theme.scss';
+@import '../../node_modules/jquery-ui/themes/base/core';
+@import '../../node_modules/jquery-ui/themes/base/slider';
+.slick-list {
+  .slick-loading & {
+    background: #fff;
+  }
+}

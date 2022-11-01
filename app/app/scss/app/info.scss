@@ -1,0 +1,133 @@
+.page-info {
+  .breadcrumbs {
+    margin-bottom: 0;
+    &-list {
+      max-width: 1210px;
+    }
+  }
+}
+
+.info {
+  &-wrapp {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 80px;
+    gap: 30px;
+    @include response(992px) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    @include response(767px) {
+      margin-bottom: 40px;
+    }
+  }
+  &-aside {
+    max-width: 400px;
+    width: 100%;
+    background: #F9F9F9;
+    border: 1px solid #E9E9E9;
+    border-radius: 5px;
+    padding: 20px;
+    @include response(992px) {
+      margin-bottom: 40px;
+    }
+  }
+  &-nav {
+    padding: 0;
+    margin: 0 0 20px;
+    list-style: none;
+    li {
+      margin-bottom: 10px;
+    }
+    &__count {
+      @include transition();
+    }
+    &__link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 160%;
+      color: #5C6061;
+      gap: 7px;
+      @include transition();
+      svg {
+        margin-left: -10px;
+        opacity: 0;
+        pointer-events: none;
+        @include transition();
+      }
+      &.active,
+      &:hover {
+        color: #1A0A1B;
+        font-weight: 500;
+        svg {
+          margin-left: 0;
+          transform: translateX(10px);
+          opacity: 1;
+        }
+        .info-nav__count {
+          opacity: 0;
+        }
+      }
+    }
+  }
+  &-inner {
+    width: 100%;
+    max-width: 680px;
+    &__heading {
+      margin-bottom: 40px;
+    }
+    &__title {
+      margin-bottom: 10px;
+    }
+    .tag-item {
+      font-weight: 400;
+      background: #F9F9F9;
+      display: inline-flex;
+      span {
+        font-weight: 500;
+      }
+    }
+    .content-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 40px;
+      & > * {
+        max-width: calc(50% - 10px);
+      }
+    }
+    .delivery-option {
+      pointer-events: none;
+      svg path {
+        fill: #1A0A1B;
+      }
+      &__title,
+      &__subtitle {
+        color: #1A0A1B;
+      }
+      &__inner {
+        background: #F9F9F9;
+      }
+      &__heading {
+        margin-bottom: 10px;
+      }
+      &__box {
+        height: auto;
+      }
+    }
+    .info-list-item {
+      width: 100%;
+      max-width: 100%;
+      padding: 30px;
+      &__title {
+        font-weight: 400;
+      }
+    }
+    .faq-notification {
+      margin-bottom: 0;
+    }
+  }
+}

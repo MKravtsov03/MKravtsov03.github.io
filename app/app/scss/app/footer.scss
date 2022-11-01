@@ -1,0 +1,229 @@
+.footer {
+  background: #fff;
+  padding-top: 75px;
+  overflow: hidden;
+  box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.05);
+  &__inner {
+    max-width: 1210px;
+    padding: 0 15px;
+    margin: 0 auto 103px;
+    display: flex;
+    justify-content: space-between;
+    & > * {
+      max-width: 200px;
+      width: 100%;
+    }
+    .footer__right {
+      max-width: 280px;
+      @include response(767px) {
+        max-width: 100%;
+      }
+    }
+    @include response(960px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    @include response(767px) {
+      gap: 40px;
+      margin-bottom: 70px;
+      & > * {
+        max-width: 100%;
+      }
+    }
+  }
+  &__left {
+    .logo {
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+  }
+  &__text {
+    margin-bottom: 30px;
+    font-size: 12px;
+    line-height: 160%;
+    color: #5C6061;
+    @include response(767px) {
+      font-size: 14px;
+    }
+  }
+  &__contacts {
+    margin-bottom: 30px;
+  }
+  &__column {
+    &-title {
+      font-size: 15px;
+      line-height: 160%;
+      margin-bottom: 30px;
+      color: #5C6061;
+    }
+  }
+  &-nav {
+    &__list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li {
+        margin-bottom: 20px;
+      }
+      a {
+        text-decoration: none;
+        color: #1A0A1B;
+        font-size: 15px;
+        font-weight: 500;
+        @include transition();
+        &:hover {
+          color: #FF5981;
+        }
+        &.accent {
+          color: #FF5981;
+          &:hover {
+            color: #1A0A1B;
+          }
+        }
+      }
+    }
+  }
+  &-subscribe {
+    margin-bottom: 20px;
+    &__title {
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 160%;
+      margin-bottom: 30px;
+    }
+    &__caption {
+      font-size: 15px;
+      line-height: 160%;
+      margin-bottom: 10px;
+    }
+    &__box {
+      position: relative;
+    }
+    &__field {
+      width: 100%;
+      background: #F9F9F9;
+      border: 1px solid #E9E9E9;
+      border-radius: 5px;
+      height: 54px;
+      padding: 0 60px 0 20px;
+      font-size: 15px;
+    }
+    &__btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      @include transition();
+      &:hover {
+        transform: translate(3px, -3px) scale(1.1);
+      }
+    }
+  }
+  &-ad {
+    background: linear-gradient(135deg, #FFF9F5 0%, #FCF6FF 100%);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 30px;
+    &__title {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 16px;
+      line-height: 160%;
+      margin-bottom: 10px;
+      svg {
+        margin-top: -3px;
+      }
+    }
+    &__caption {
+      line-height: 160%;
+      color: #5C6061;
+    }
+  }
+  &__bot {
+    height: 12px;
+    background: #1A0A1B;
+    position: relative;
+    @include response(767px) {
+      font-size: 14px;
+    }
+  }
+  @include response(767px) {
+    padding-top: 40px;
+  }
+}
+
+.contact-item {
+  font-size: 13px;
+  line-height: 150%;
+  display: flex;
+  gap: 15px;
+  color: #1A0A1B;
+  text-decoration: none;
+  margin-bottom: 15px;
+  span {
+    font-weight: 500;
+  }
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+  &-item {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #F0D5FF;
+    border-radius: 50%;
+    @include transition();
+    svg path {
+      fill: #0c1f2b;
+      @include transition();
+    }
+    &:hover {
+      background: #FF5981;
+      border-color: #FF5981;
+      svg path {
+        fill: #fff;
+      }
+    }
+  }
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+
+.scrollTop {
+  position: absolute;
+  left: calc(50% - 65px);
+  top: -25px;
+  height: 33px;
+  width: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../data/scroll-top-bg.svg");
+  background-size: cover;
+  cursor: pointer;
+  @include transition();
+  &:hover {
+    top: -30px;
+    transform: scale(1.1);
+  }
+}

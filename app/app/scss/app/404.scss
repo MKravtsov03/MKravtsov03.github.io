@@ -1,0 +1,44 @@
+.error-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 15px;
+  background: linear-gradient(135deg, #fff9f5 0%, #fcf6ff 100%);
+  &__title {
+    margin-bottom: 25px;
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+    @include response(767px) {
+      padding: 0 25px;
+    }
+  }
+  &__subtitle {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 140%;
+    color: #000;
+    margin-bottom: 10px;
+    @include response(767px) {
+      font-size: 40px;
+    }
+  }
+  &__desc {
+    line-height: 160%;
+    color: #000;
+    margin-bottom: 50px;
+    max-width: 380px;
+    text-align: center;
+    @include response(767px) {
+     margin-bottom: 20px;
+    }
+  }
+  .btn {
+    max-width: 325px;
+  }
+  @include response(767px) {
+    padding: 40px 20px;
+  }
+}
