@@ -578,7 +578,7 @@ const CouponStyles = () =>
         .font-styles__item input:checked + span {
             background: #dcefff;
         }
-        .coupon-details-inner {
+        .product-details-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -614,80 +614,6 @@ const CouponStyles = () =>
         }
         `
     }
-
-const getProductTemplate = () =>
-    function (values) {
-        const products = values?.productContent?.products.length
-            ?
-            values?.productContent?.products
-            :
-            [values?.data?.products[0]?.id];
-        const { layout } = values?.productContent
-        console.log(values)
-        const productTitleRenderer = (product) => `
-            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.underline.active ? 'underline' : 'none'}" class="product-title">${product?.productTitle || 'Product Title'}</div> 
-        `;
-
-        const productPriceRenderer = (product) => `
-           <div class="price">${product?.price && (product?.price)} $</div>
-        `;
-
-        const productComparisonPriceRenderer = (product) => product?.comparisonPrice ? `
-            <div style="font-size: ${values.comparisonPriceFontSize}px;  color: ${values.comparisonPriceColor};" class="price-old">${product?.comparisonPrice} $</div>
-        ` : '';
-
-        const productDescriptionRenderer = (product) => `
-            <div style="font-family: ${values.descriptionFont.value}; font-size: ${values.descriptionFontSize}px; text-align: ${values.descriptionAligment}; color: ${values.descriptionColor}; font-weight: ${values.descriptionFontStyle.bold.active ? '700' : '400'};  font-style: ${values.descriptionFontStyle.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.descriptionFontStyle.underline.active ? 'underline' : 'none'}" class="product-description">${product?.description || ''}</div>
-        `;
-
-        const productTypeRenderer = (product) => `
-            <div class="product-type">${product?.productType}</div>
-        `;
-
-        const productButtonRenderer = (product, values) => `
-            <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline" href="${values.btnLink.url}" target="${values.btnLink.target}">${values.productCTA}</a>
-        `;
-
-        const productImageRenderer = (product) => `
-            <img alt="" src="${product?.productImage?.src || 'https://b-tm.com.ua/assets/galleries/105/noimage.png'}" />
-        `;
-
-        return `
-        <div class="products-grid ${layout}">
-            ${products.map(productId => {
-                const currentProduct = values.data.products.find((product) => product.id === +productId);
-                return `
-                        <div class="product-card">
-                            
-                            ${values?.details?.details.image ? productImageRenderer(currentProduct) : ''}
-                           
-                            <div class="product-card__inner">
-                                ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
-                                ${values?.details?.details.productType ? productTypeRenderer(currentProduct) : ''}
-                                <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor};" class="product-price">
-                                    ${
-                                        values?.details?.details.price ? productPriceRenderer(currentProduct) : ''
-                                    }
-                                                    ${
-                                        values?.details?.details.comparisonPrice
-                                            ? productComparisonPriceRenderer(currentProduct)
-                                            : ''
-                                    }
-                                </div>
-                                ${values?.details?.details.description ? productDescriptionRenderer(currentProduct) : ''}
-                                <div class="product-footer">
-                                     ${values?.details?.details.button ? productButtonRenderer(currentProduct, values) : ''}
-                                </div> 
-                            </div>
-                        </div>
-                        `
-                }).join('')
-            }
-        </div>
-        `
-    }
-
-const productToolTemplate = getProductTemplate()
 
 const productSelect = (value, data) => {
     return `
@@ -811,7 +737,7 @@ const layoutsList = (layouts) => {
 }
 
 
-getCouponTemplate = () => function (values) {
+const getCouponTemplate = () => function (values) {
     const { data: { coupons }, coupon } = values;
     console.log({couponsValues: values})
     const activeCoupon = coupons.find(currentCoupon => currentCoupon.id == coupon)
@@ -884,6 +810,79 @@ const getEventsTemplate = () => function (values) {
         <div class="events">Abandoned Cart</div>
     `
 }
+
+const getProductTemplate = () => function (values) {
+        const products = values?.productContent?.products.length
+            ?
+            values?.productContent?.products
+            :
+            [values?.data?.products[0]?.id];
+        const { layout } = values?.productContent
+        console.log(values)
+        const productTitleRenderer = (product) => `
+            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.underline.active ? 'underline' : 'none'}" class="product-title">${product?.productTitle || 'Product Title'}</div> 
+        `;
+
+        const productPriceRenderer = (product) => `
+           <div class="price">${product?.price && (product?.price)} $</div>
+        `;
+
+        const productComparisonPriceRenderer = (product) => product?.comparisonPrice ? `
+            <div style="font-size: ${values.comparisonPriceFontSize}px;  color: ${values.comparisonPriceColor};" class="price-old">${product?.comparisonPrice} $</div>
+        ` : '';
+
+        const productDescriptionRenderer = (product) => `
+            <div style="font-family: ${values.descriptionFont.value}; font-size: ${values.descriptionFontSize}px; text-align: ${values.descriptionAligment}; color: ${values.descriptionColor}; font-weight: ${values.descriptionFontStyle.bold.active ? '700' : '400'};  font-style: ${values.descriptionFontStyle.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.descriptionFontStyle.underline.active ? 'underline' : 'none'}" class="product-description">${product?.description || ''}</div>
+        `;
+
+        const productTypeRenderer = (product) => `
+            <div class="product-type">${product?.productType}</div>
+        `;
+
+        const productButtonRenderer = (product, values) => `
+            <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline" href="${values.btnLink.url}" target="${values.btnLink.target}">${values.productCTA}</a>
+        `;
+
+        const productImageRenderer = (product) => `
+            <img alt="" src="${product?.productImage?.src || 'https://b-tm.com.ua/assets/galleries/105/noimage.png'}" />
+        `;
+
+        return `
+        <div class="products-grid ${layout}">
+            ${products.map(productId => {
+            const currentProduct = values.data.products.find((product) => product.id === +productId);
+            return `
+                        <div class="product-card">
+                            
+                            ${values?.details?.details.image ? productImageRenderer(currentProduct) : ''}
+                           
+                            <div class="product-card__inner">
+                                ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
+                                ${values?.details?.details.productType ? productTypeRenderer(currentProduct) : ''}
+                                <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor};" class="product-price">
+                                    ${
+                values?.details?.details.price ? productPriceRenderer(currentProduct) : ''
+            }
+                                                    ${
+                values?.details?.details.comparisonPrice
+                    ? productComparisonPriceRenderer(currentProduct)
+                    : ''
+            }
+                                </div>
+                                ${values?.details?.details.description ? productDescriptionRenderer(currentProduct) : ''}
+                                <div class="product-footer">
+                                     ${values?.details?.details.button ? productButtonRenderer(currentProduct, values) : ''}
+                                </div> 
+                            </div>
+                        </div>
+                        `
+        }).join('')
+        }
+        </div>
+        `
+    };
+
+const productToolTemplate = getProductTemplate();
 
 const couponToolTemplate = getCouponTemplate();
 
@@ -1911,7 +1910,7 @@ const labelsMap = {
         link: 'Link',
     },
     cart: {
-        name: 'Item ame',
+        name: 'Item name',
         price: 'Item price',
         quantity: 'Item quantity',
         button: 'Item button',
@@ -1941,27 +1940,6 @@ unlayer.registerPropertyEditor({
     })
 });
 
-unlayer.registerPropertyEditor({
-    name: 'coupon_details',
-    layout: 'bottom',
-    Widget: unlayer.createWidget({
-        render(value) {
-            const options = Object.keys(value)
-            return renderCouponDetails(couponDetailsLabelsMap, options, value)
-        },
-        mount(node, value, updateValue, data) {
-            console.log({node, value, data})
-            optionsList = node.querySelectorAll('input');
-            const details = {...value}
-            optionsList.forEach(item => {
-                item.onchange = function(e) {
-                     details[e.target.name] = e.target.checked
-                     return updateValue({...details})
-                }
-            })
-        }
-    })
-});
 
 unlayer.registerPropertyEditor({
     name: 'title_font_styles',
