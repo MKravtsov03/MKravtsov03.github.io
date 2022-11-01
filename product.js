@@ -659,24 +659,24 @@ const getProductTemplate = () =>
                 return `
                         <div class="product-card">
                             
-                            ${values?.details?.image ? productImageRenderer(currentProduct) : ''}
+                            ${values?.details?.details.image ? productImageRenderer(currentProduct) : ''}
                            
                             <div class="product-card__inner">
-                                ${values?.details?.title ? productTitleRenderer(currentProduct) : ''}
-                                ${values?.details?.productType ? productTypeRenderer(currentProduct) : ''}
+                                ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
+                                ${values?.details?.details.productType ? productTypeRenderer(currentProduct) : ''}
                                 <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor};" class="product-price">
                                     ${
-                                        values?.details?.price ? productPriceRenderer(currentProduct) : ''
+                                        values?.details?.details.price ? productPriceRenderer(currentProduct) : ''
                                     }
                                                     ${
-                                        values?.details?.comparisonPrice
+                                        values?.details?.details.comparisonPrice
                                             ? productComparisonPriceRenderer(currentProduct)
                                             : ''
                                     }
                                 </div>
-                                ${values?.details?.description ? productDescriptionRenderer(currentProduct) : ''}
+                                ${values?.details?.details.description ? productDescriptionRenderer(currentProduct) : ''}
                                 <div class="product-footer">
-                                     ${values?.details?.button ? productButtonRenderer(currentProduct, values) : ''}
+                                     ${values?.details?.details.button ? productButtonRenderer(currentProduct, values) : ''}
                                 </div> 
                             </div>
                         </div>
@@ -688,25 +688,6 @@ const getProductTemplate = () =>
     }
 
 const productToolTemplate = getProductTemplate()
-
-const detailsLabelsMap = {
-    button: 'Button',
-    comparisonPrice: 'Comparison Price',
-    description: 'Description',
-    image: 'Image',
-    price: 'Price',
-    productType: 'Product type',
-    title: 'Title',
-}
-
-const couponDetailsLabelsMap = {
-    coupon: 'Coupon title',
-    startsAt: 'Valid from',
-    expireDate: 'Expire Date',
-    couponValue: 'Discount value',
-    couponType: 'Discount type',
-    link: 'Link',
-}
 
 const productSelect = (value, data) => {
     return `
@@ -725,7 +706,7 @@ const productSelect = (value, data) => {
 `
 }
 
-const renderDetails = (options, values) => `
+const renderDetails = (detailsLabelsMap, options, values) => `
 <div class="product-details">
     <div class="blockbuilder-widget-label">
         <p class="blockbuilder-label-primary">Details</p>
@@ -744,25 +725,25 @@ const renderDetails = (options, values) => `
 </div>
 `
 
-const renderCouponDetails = (options, values) => `
-<div class="coupon-details">
-${console.log({options, values})}
-    <div class="blockbuilder-widget-label">
-        <p class="blockbuilder-label-primary">Details</p>
-    </div>
-    <div class="coupon-details-inner">
-        ${
-            options.map(option => (`
-            <div class="details-item">
-            <label>
-                <input ${values[option] ? 'checked' : ''} name="${option}" type="checkbox">
-                <span>${couponDetailsLabelsMap[option]}</span>
-            </label>
-            </div>`)).join('')
-        }
-    </div>
-</div>
-`
+// const renderCouponDetails = (options, values) => `
+// <div class="coupon-details">
+// ${console.log({options, values})}
+//     <div class="blockbuilder-widget-label">
+//         <p class="blockbuilder-label-primary">Details</p>
+//     </div>
+//     <div class="coupon-details-inner">
+//         ${
+//             options.map(option => (`
+//             <div class="details-item">
+//             <label>
+//                 <input ${values[option] ? 'checked' : ''} name="${option}" type="checkbox">
+//                 <span>${detailsLabelsMap[option]}</span>
+//             </label>
+//             </div>`)).join('')
+//         }
+//     </div>
+// </div>
+// `
 
 const renderTitleFontStyle = (options, values) => `
 <div class="title-font-style">
@@ -887,12 +868,12 @@ getCouponTemplate = () => function (values) {
     return (
     `
         <div class="coupon-wrapper">
-            ${values.details.coupon ? renderCoupon() : ''}
-            ${values.details.startsAt ? renderValidFrom() : ''}
-            ${values.details.expireDate ? renderExpireDate() : ''}
-            ${values.details.couponValue ? renderCouponValue() : ''}
-            ${values.details.couponType ? renderCouponType() : ''}
-            ${values.details.link ? renderLink() : ''}
+            ${values.details.details.coupon ? renderCoupon() : ''}
+            ${values.details.details.startsAt ? renderValidFrom() : ''}
+            ${values.details.details.expireDate ? renderExpireDate() : ''}
+            ${values.details.details.couponValue ? renderCouponValue() : ''}
+            ${values.details.details.couponType ? renderCouponType() : ''}
+            ${values.details.details.link ? renderLink() : ''}
         </div>
     `
     )
@@ -935,7 +916,7 @@ unlayer.registerTool({
                 },
                 details: {
                    label: 'Details',
-                   defaultValue: {title: false, comparisonPrice: false, image: true, price: false, description: false, productType: false, button: true},
+                   defaultValue: {title: 'product', details: {title: false, comparisonPrice: false, image: true, price: false, description: false, productType: false, button: true}},
                    widget: 'product_details',
                 },
                 titleFont: {
@@ -1343,8 +1324,8 @@ unlayer.registerTool({
                 },
                 details: {
                     label: 'Details',
-                    defaultValue: {coupon: true, startsAt: false, expireDate: false, couponValue: false, couponType: false, link: false,},
-                    widget: 'coupon_details',
+                    defaultValue: {title: 'coupon', details: {coupon: true, startsAt: false, expireDate: false, couponValue: false, couponType: false, link: false,}},
+                    widget: 'product_details',
                 },
                 couponBtn: {
                     label: 'Button Content',
@@ -1726,8 +1707,8 @@ unlayer.registerTool({
             options: {
                 details: {
                     label: 'Details',
-                    defaultValue: {name: true, price: false, quantity: false, button: false, recovery: false, image: false},
-                    widget: 'coupon_details',
+                    defaultValue: {title: 'cart', details: {name: true, price: false, quantity: false, button: false, recovery: false, image: false}},
+                    widget: 'product_details',
                 }
             },
         },
@@ -1908,23 +1889,52 @@ unlayer.registerTool({
             js: function (values) {},
         },
     },
-})
+});
+
+
+const labelsMap = {
+    product: {
+        button: 'Button',
+        comparisonPrice: 'Comparison Price',
+        description: 'Description',
+        image: 'Image',
+        price: 'Price',
+        productType: 'Product type',
+        title: 'Title',
+    },
+    coupon: {
+        coupon: 'Coupon title',
+        startsAt: 'Valid from',
+        expireDate: 'Expire Date',
+        couponValue: 'Discount value',
+        couponType: 'Discount type',
+        link: 'Link',
+    },
+    cart: {
+        name: 'Item ame',
+        price: 'Item price',
+        quantity: 'Item quantity',
+        button: 'Item button',
+        recovery: 'Recovery cart button',
+        image: 'Item image'
+    }
+}
 
 unlayer.registerPropertyEditor({
     name: 'product_details',
     layout: 'bottom',
     Widget: unlayer.createWidget({
         render(value) {
-            const options = Object.keys(value)
-            return renderDetails(options, value)
+            const options = Object.keys(value.details)
+            return renderDetails(labelsMap[value.title], options, value)
         },
         mount(node, value, updateValue, data) {
-            optionsList = document.querySelectorAll('.product-details input');
-            const details = {...value}
+            optionsList = node.querySelectorAll('input');
+            const details = {...value.details}
             optionsList.forEach(item => {
                 item.onchange = function(e) {
                      details[e.target.name] = e.target.checked
-                     return updateValue({...details})
+                     return updateValue({...value, details: {...details}})
                 }
             })
         }
@@ -1937,11 +1947,11 @@ unlayer.registerPropertyEditor({
     Widget: unlayer.createWidget({
         render(value) {
             const options = Object.keys(value)
-            return renderCouponDetails(options, value)
+            return renderCouponDetails(couponDetailsLabelsMap, options, value)
         },
         mount(node, value, updateValue, data) {
             console.log({node, value, data})
-            optionsList = document.querySelectorAll('.coupon-details input');
+            optionsList = node.querySelectorAll('input');
             const details = {...value}
             optionsList.forEach(item => {
                 item.onchange = function(e) {
