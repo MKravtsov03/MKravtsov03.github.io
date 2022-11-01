@@ -1940,7 +1940,7 @@ unlayer.registerPropertyEditor({
             return renderCouponDetails(options, value)
         },
         mount(node, value, updateValue, data) {
-            console.log({node, vaue, data})
+            console.log({node, value, data})
             optionsList = document.querySelectorAll('.coupon-details input');
             const details = {...value}
             optionsList.forEach(item => {
