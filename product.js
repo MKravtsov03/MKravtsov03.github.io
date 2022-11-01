@@ -896,9 +896,17 @@ getCouponTemplate = () => function (values) {
         </div>
     `
     )
+};
+
+const getEventsTemplate = () => function (values) {
+    return `
+        <div class="events">Abandoned Cart</div>
+    `
 }
 
 const couponToolTemplate = getCouponTemplate();
+
+const eventsTemplate = getEventsTemplate();
 
 unlayer.registerTool({
     name: 'product_tool',
@@ -1316,7 +1324,7 @@ unlayer.registerTool({
             js: function (values) {},
         },
     },
-})
+});
 
 unlayer.registerTool({
     name: 'coupon_tool',
@@ -1704,6 +1712,202 @@ unlayer.registerTool({
             js: function (values) {},
         },
     },
+});
+
+unlayer.registerTool({
+    name: 'events_tool',
+    label: 'Events',
+    icon: 'https://mkravtsov03.github.io/coupon-icon.svg',
+    supportedDisplayModes: ['web', 'email'],
+    options: {
+        abandoned_cart: {
+            title: 'Abandoned cart',
+            position: 1,
+            options: {
+                details: {
+                    label: 'Details',
+                    defaultValue: {name: true, price: false, quantity: false, button: false, recovery: false, image: false},
+                    widget: 'coupon_details',
+                }
+            },
+        },
+    },
+    propertyStates: (values) => {
+        // let couponProps = {};
+        // let validFromProps = {};
+        // let expireDateProps = {};
+        // let dicountValueProps = {};
+        // let dicountTypeProps = {};
+        // let btnProps = {};
+        // if (!values.details.coupon) {
+        //     couponProps = {
+        //         couponFont: {
+        //             enabled: false
+        //         },
+        //         couponFontSize: {
+        //             enabled: false
+        //         },
+        //         couponColor: {
+        //             enabled: false
+        //         },
+        //         couponAligment: {
+        //             enabled: false
+        //         },
+        //         couponFontStyle: {
+        //             enabled: false
+        //         }
+        //     }
+        // }
+        // else {
+        //     couponProps = {
+        //         titleFont: {
+        //             enabled: true
+        //         },
+        //         titleFontSize: {
+        //             enabled: true
+        //         },
+        //         titleColor: {
+        //             enabled: true
+        //         },
+        //         titleAligment: {
+        //             enabled: true
+        //         },
+        //         titleFontStyle: {
+        //             enabled: true
+        //         }
+        //     }
+        // }
+        // if (!values.details.startsAt) {
+        //     validFromProps = {
+        //         validFromFont: {
+        //             enabled: false
+        //         },
+        //         validFromFontSize: {
+        //             enabled: false
+        //         },
+        //         validFromColor: {
+        //             enabled: false
+        //         },
+        //     }
+        // }
+        // else {
+        //     validFromProps = {
+        //         validFromFont: {
+        //             enabled: true
+        //         },
+        //         validFromFontSize: {
+        //             enabled: true
+        //         },
+        //         validFromColor: {
+        //             enabled: true
+        //         },
+        //     }
+        // }
+        // if (!values.details.expireDate) {
+        //     expireDateProps = {
+        //         expireDateFont: {
+        //             enabled: false
+        //         },
+        //         expireDateFontSize: {
+        //             enabled: false
+        //         },
+        //         expireDateColor: {
+        //             enabled: false
+        //         },
+        //     }
+        // }
+        // else {
+        //     expireDateProps = {
+        //         expireDateFont: {
+        //             enabled: true
+        //         },
+        //         expireDateFontSize: {
+        //             enabled: true
+        //         },
+        //         expireDateColor: {
+        //             enabled: true
+        //         },
+        //     }
+        // }
+        // if (!values.details.couponValue) {
+        //     couponValueProps = {
+        //         discountValueFont: {
+        //             enabled: false
+        //         },
+        //         discountValueFontSize: {
+        //             enabled: false
+        //         },
+        //         discountValueColor: {
+        //             enabled: false
+        //         },
+        //     }
+        // }
+        // else {
+        //     couponValueProps = {
+        //         discountValueFont: {
+        //             enabled: true
+        //         },
+        //         discountValueFontSize: {
+        //             enabled: true
+        //         },
+        //         discountValueColor: {
+        //             enabled: true
+        //         },
+        //     }
+        // }
+        // if (!values.details.couponType) {
+        //     couponTypeProps = {
+        //         discountTypeFont: {
+        //             enabled: false
+        //         },
+        //         discountTypeFontSize: {
+        //             enabled: false
+        //         },
+        //         discountTypeColor: {
+        //             enabled: false
+        //         },
+        //     }
+        // }
+        // else {
+        //     couponTypeProps = {
+        //         discountTypeFont: {
+        //             enabled: true
+        //         },
+        //         discountTypeFontSize: {
+        //             enabled: true
+        //         },
+        //         discountTypeColor: {
+        //             enabled: true
+        //         },
+        //     }
+        // }
+        // return {
+        //     ...couponProps,
+        //     ...validFromProps,
+        //     ...expireDateProps,
+        //     ...dicountValueProps,
+        //     ...dicountTypeProps,
+        // }
+    },
+    renderer: {
+        Viewer: unlayer.createViewer({
+            render(values) {
+                return eventsTemplate(values);
+            },
+        }),
+        exporters: {
+            web: function (values) {
+                return eventsTemplate(values);
+            },
+            email: function (values) {
+                return eventsTemplate(values);
+            },
+        },
+        head: {
+            css: CouponStyles(),
+            js: function (values) {},
+        },
+    },
 })
 
 unlayer.registerPropertyEditor({
@@ -1736,6 +1940,7 @@ unlayer.registerPropertyEditor({
             return renderCouponDetails(options, value)
         },
         mount(node, value, updateValue, data) {
+            consoe.log({node, vaue, data})
             optionsList = document.querySelectorAll('.coupon-details input');
             const details = {...value}
             optionsList.forEach(item => {
@@ -1747,7 +1952,6 @@ unlayer.registerPropertyEditor({
         }
     })
 });
-
 
 unlayer.registerPropertyEditor({
     name: 'title_font_styles',
