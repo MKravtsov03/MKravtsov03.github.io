@@ -742,7 +742,7 @@ const getCouponTemplate = () => function (values) {
     console.log({couponsValues: values})
     const activeCoupon = coupons.find(currentCoupon => currentCoupon.id == coupon)
     const renderCoupon = () => `
-    <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.underline.active ? 'underline' : 'none'}" class="coupon-value"> 
+    <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}" class="coupon-value"> 
                 ${(activeCoupon?.title || 'XXXXXXXXXXXX')}
     </div>
     `;
@@ -820,7 +820,7 @@ const getProductTemplate = () => function (values) {
         const { layout } = values?.productContent
         console.log(values)
         const productTitleRenderer = (product) => `
-            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.underline.active ? 'underline' : 'none'}" class="product-title">${product?.productTitle || 'Product Title'}</div> 
+            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}" class="product-title">${product?.productTitle || 'Product Title'}</div> 
         `;
 
         const productPriceRenderer = (product) => `
@@ -832,7 +832,7 @@ const getProductTemplate = () => function (values) {
         ` : '';
 
         const productDescriptionRenderer = (product) => `
-            <div style="font-family: ${values.descriptionFont.value}; font-size: ${values.descriptionFontSize}px; text-align: ${values.descriptionAligment}; color: ${values.descriptionColor}; font-weight: ${values.descriptionFontStyle.bold.active ? '700' : '400'};  font-style: ${values.descriptionFontStyle.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.descriptionFontStyle.underline.active ? 'underline' : 'none'}" class="product-description">${product?.description || ''}</div>
+            <div style="font-family: ${values.descriptionFont.value}; font-size: ${values.descriptionFontSize}px; text-align: ${values.descriptionAligment}; color: ${values.descriptionColor}; font-weight: ${values.descriptionFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.descriptionFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.descriptionFontStyle.styles.underline.active ? 'underline' : 'none'}" class="product-description">${product?.description || ''}</div>
         `;
 
         const productTypeRenderer = (product) => `
@@ -1385,17 +1385,20 @@ unlayer.registerTool({
                     enabled: true,
                     label: 'Coupon font style',
                     defaultValue: {
-                        bold: {
-                            active: true,
-                            value: 'bold'
-                        },
-                        italic: {
-                            active: false,
-                            value: 'italic'
-                        },
-                        underline: {
-                            active: false,
-                            value: 'underline'
+                        label: 'Coupon Font style',
+                        styles: {
+                            bold: {
+                                active: true,
+                                value: 'bold'
+                            },
+                            italic: {
+                                active: false,
+                                value: 'italic'
+                            },
+                            underline: {
+                                active: false,
+                                value: 'underline'
+                            }
                         }
                     },
                     widget: 'title_font_styles',
