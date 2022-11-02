@@ -1114,7 +1114,7 @@ unlayer.registerTool({
             const newLayouts = [...values.layout]
             newLayouts[3].disabled = true
         }
-        if (!values.details.title) {
+        if (!values.details.details.title) {
             titleProps = {
                 titleFont: {
                     enabled: false
@@ -1151,7 +1151,7 @@ unlayer.registerTool({
                 }
             }
         }
-            if (!values.details.description) {
+            if (!values.details.details.description) {
                 descriptionProps = {
                     descriptionFont: {
                         enabled: false
@@ -1189,7 +1189,7 @@ unlayer.registerTool({
                 }
             }
         }
-            if (!values.details.price) {
+            if (!values.details.details.price) {
                 priceProps = {
                     priceFont: {
                         enabled: false
@@ -1215,7 +1215,7 @@ unlayer.registerTool({
                     },
                 }
         }
-            if (!values.details.comparisonPrice) {
+            if (!values.details.details.comparisonPrice) {
                 comparisonPriceProps = {
                     comparisonPriceFontSize: {
                         enabled: false
@@ -1235,7 +1235,7 @@ unlayer.registerTool({
                     },
                 }
         }
-            if (!values.details.button) {
+            if (!values.details.details.button) {
                 btnProps = {
                     btnColor: {
                         enabled: false
@@ -1533,7 +1533,7 @@ unlayer.registerTool({
         let dicountValueProps = {};
         let dicountTypeProps = {};
         let btnProps = {};
-        if (!values.details.coupon) {
+        if (!values.details.details.coupon) {
             couponProps = {
                 couponFont: {
                     enabled: false
@@ -1570,7 +1570,7 @@ unlayer.registerTool({
                 }
             }
         }
-        if (!values.details.startsAt) {
+        if (!values.details.details.startsAt) {
             validFromProps = {
                 validFromFont: {
                     enabled: false
@@ -1596,7 +1596,7 @@ unlayer.registerTool({
                 },
             }
         }
-        if (!values.details.expireDate) {
+        if (!values.details.details.expireDate) {
             expireDateProps = {
                 expireDateFont: {
                     enabled: false
@@ -1622,7 +1622,7 @@ unlayer.registerTool({
                 },
             }
         }
-        if (!values.details.couponValue) {
+        if (!values.details.details.couponValue) {
             couponValueProps = {
                 discountValueFont: {
                     enabled: false
@@ -1648,7 +1648,7 @@ unlayer.registerTool({
                 },
             }
         }
-        if (!values.details.couponType) {
+        if (!values.details.details.couponType) {
             couponTypeProps = {
                 discountTypeFont: {
                     enabled: false
