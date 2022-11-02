@@ -806,8 +806,16 @@ const getCouponTemplate = () => function (values) {
 };
 
 const getEventsTemplate = () => function (values) {
+    console.log(values)
+    const productImageRenderer = () => `
+            <img alt="" src="https://b-tm.com.ua/assets/galleries/105/noimage.png" />
+        `;
     return `
-        <div class="events">Abandoned Cart</div>
+        <div class="products-grid">
+            <div class="product-card">
+                ${values?.details?.details.image ? productImageRenderer() : ''}
+            </div>
+        </div>
     `
 }
 
@@ -1717,6 +1725,7 @@ unlayer.registerTool({
                     label: 'Layout',
                     defaultValue: [
                         {active: true, value: 'one-column', disabled: false},
+                        {active: false, value: 'two-columns', disabled: false},
                     ],
                     widget: 'layout',
                 },
@@ -2009,7 +2018,7 @@ unlayer.registerPropertyEditor({
             return layoutsList(value)
         },
         mount(node, value, updateValue) {
-            layoutsOptions = node.querySelectorAll('.layout-list input');
+            layoutsOptions = node.querySelectorAll('input');
             const layouts = [...value];
             const newLayouts = []
             layoutsOptions.forEach((item, i) => {
