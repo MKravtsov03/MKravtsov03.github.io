@@ -671,10 +671,10 @@ const renderDetails = (detailsLabelsMap, options, values) => `
 // </div>
 // `
 
-const renderTitleFontStyle = (options, values) => `
+const renderTitleFontStyle = (options, value) => `
 <div class="title-font-style">
     <div class="blockbuilder-widget-label">
-        <p class="blockbuilder-label-primary">Font style</p>
+        <p class="blockbuilder-label-primary">${value.label}</p>
     </div>
     <div class="font-styles">
         <div class="font-styles__box">
@@ -683,7 +683,7 @@ const renderTitleFontStyle = (options, values) => `
                         options.map(option =>`
                         <label class="font-styles__item">
                             <img src="https://mkravtsov03.github.io/${option}.svg" alt="">
-                            <input type="checkbox" value="${option}" ${values[option].active ? 'checked' : ''} name="${option}">
+                            <input type="checkbox" value="${option}" ${value.styles[option].active ? 'checked' : ''} name="${option}">
                             <span></span>
                         </label>
                     `).join('')
@@ -937,17 +937,20 @@ unlayer.registerTool({
                     enabled: true,
                     label: 'Product title font style',
                     defaultValue: {
-                        bold: {
-                            active: true,
-                            value: 'bold'
-                        },
-                        italic: {
-                            active: false,
-                            value: 'italic'
-                        },
-                        underline: {
-                            active: false,
-                            value: 'underline'
+                        label: 'Title Font style',
+                        styles: {
+                            bold: {
+                                active: true,
+                                value: 'bold'
+                            },
+                            italic: {
+                                active: false,
+                                value: 'italic'
+                            },
+                            underline: {
+                                active: false,
+                                value: 'underline'
+                            }
                         }
                     },
                     widget: 'title_font_styles',
@@ -981,20 +984,23 @@ unlayer.registerTool({
                 descriptionFontStyle: {
                     label: 'Product Description font style',
                     defaultValue: {
-                        bold: {
-                            active: false,
-                            value: 'bold'
-                        },
-                        italic: {
-                            active: false,
-                            value: 'italic'
-                        },
-                        underline: {
-                            active: false,
-                            value: 'underline'
+                        label: 'Description Font style',
+                        styles: {
+                            bold: {
+                                active: true,
+                                value: 'bold'
+                            },
+                            italic: {
+                                active: false,
+                                value: 'italic'
+                            },
+                            underline: {
+                                active: false,
+                                value: 'underline'
+                            }
                         }
                     },
-                    widget: 'descr_font_styles',
+                    widget: 'title_font_styles',
                 },
                 descriptionColor: {
                     label: 'Product decription color',
@@ -1953,17 +1959,17 @@ unlayer.registerPropertyEditor({
     layout: 'bottom',
     Widget: unlayer.createWidget({
         render(value) {
-            const options = Object.keys(value)
+            const options = Object.keys(value.styles)
             return renderTitleFontStyle(options, value)
         },
         mount(node, value, updateValue, data) {
-            optionsList = document.querySelectorAll('.title-font-style input');
-            const details = {...value}
+            optionsList = node.querySelectorAll('input');
+            const details = {...value.styles}
             optionsList.forEach(item => {
                 item.onchange = function(e) {
                     console.log({details, event: e})
                     const option = {[e.target.name]: {...details[e.target.name], active: e.target.checked}}
-                    return updateValue({...details, ...option})
+                    return updateValue({...value, styles: {...details, ...option}})
                 }
             })
         }
