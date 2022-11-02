@@ -1704,11 +1704,18 @@ unlayer.registerTool({
             title: 'Abandoned cart',
             position: 1,
             options: {
+                layout: {
+                    label: 'Layout',
+                    defaultValue: [
+                        {active: true, value: 'one-column', disabled: false},
+                    ],
+                    widget: 'layout',
+                },
                 details: {
                     label: 'Details',
                     defaultValue: {title: 'cart', details: {name: true, price: false, quantity: false, button: false, recovery: false, image: false}},
                     widget: 'product_details',
-                }
+                },
             },
         },
     },
@@ -1993,7 +2000,7 @@ unlayer.registerPropertyEditor({
             return layoutsList(value)
         },
         mount(node, value, updateValue) {
-            layoutsOptions = document.querySelectorAll('.layout-list input');
+            layoutsOptions = node.querySelectorAll('.layout-list input');
             const layouts = [...value];
             const newLayouts = []
             layoutsOptions.forEach((item, i) => {
