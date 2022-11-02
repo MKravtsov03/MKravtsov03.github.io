@@ -820,7 +820,7 @@ const getEventsTemplate = () => function (values) {
         `;
     const productTitleRenderer = () => `
             <div 
-            style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}"
+            style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;"
              class="product-title">{{ checkout.abandoned_checkout.item_names }}</div> 
         `;
     return `
@@ -1762,7 +1762,7 @@ unlayer.registerTool({
                 titleFontSize: {
                     enabled: true,
                     label: 'Product title font size',
-                    defaultValue: '24',
+                    defaultValue: '18',
                     widget: 'counter',
                 },
                 titleFontStyle: {
