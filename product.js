@@ -490,6 +490,10 @@ const ProductStyles = () =>
         .font-styles__item input:checked + span {
             background: #dcefff;
         }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
 `;
     };
 
@@ -611,6 +615,10 @@ const CouponStyles = () =>
         }
         .coupon-item__value {
             font-weight: 700;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
         }
         `
     }
@@ -810,10 +818,18 @@ const getEventsTemplate = () => function (values) {
     const productImageRenderer = () => `
             <img alt="" src="https://b-tm.com.ua/assets/galleries/105/noimage.png" />
         `;
+    const productTitleRenderer = () => `
+            <div 
+            style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}"
+             class="product-title">{{ checkout.abandoned_checkout.item_names }}</div> 
+        `;
     return `
         <div class="products-grid">
             <div class="product-card">
                 ${values?.details?.details.image ? productImageRenderer() : ''}
+                <div class="product-card__inner">
+                    ${values?.details?.details.name ? productTitleRenderer() : ''}
+                </div>
             </div>
         </div>
     `
@@ -1731,8 +1747,57 @@ unlayer.registerTool({
                 },
                 details: {
                     label: 'Details',
-                    defaultValue: {title: 'cart', details: {name: true, price: false, quantity: false, button: false, recovery: false, image: false}},
+                    defaultValue: {title: 'cart', details: {name: true, price: false, quantity: false, button: false, recovery: false, image: true}},
                     widget: 'product_details',
+                },
+                titleFont: {
+                    label: 'Product title font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                titleFontSize: {
+                    enabled: true,
+                    label: 'Product title font size',
+                    defaultValue: '24',
+                    widget: 'counter',
+                },
+                titleFontStyle: {
+                    enabled: true,
+                    label: 'Product title font style',
+                    defaultValue: {
+                        label: 'Title Font style',
+                        styles: {
+                            bold: {
+                                active: true,
+                                value: 'bold'
+                            },
+                            italic: {
+                                active: false,
+                                value: 'italic'
+                            },
+                            underline: {
+                                active: false,
+                                value: 'underline'
+                            }
+                        }
+                    },
+                    widget: 'title_font_styles',
+                },
+                titleColor: {
+                    enabled: true,
+                    label: 'Product title color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                titleAligment: {
+                    enabled: true,
+                    label: 'Product title aligment',
+                    defaultValue: 'center',
+                    widget: 'alignment',
                 },
             },
         },
