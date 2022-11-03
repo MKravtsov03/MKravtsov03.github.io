@@ -641,6 +641,7 @@ const productSelect = (value, data) => {
 }
 
 const renderDetails = (detailsLabelsMap, options, values) => `
+${console.log(values), options}
 <div class="product-details">
     <div class="blockbuilder-widget-label">
         <p class="blockbuilder-label-primary">Details</p>
