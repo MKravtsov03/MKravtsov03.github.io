@@ -495,7 +495,7 @@ const ProductStyles = () =>
             height: auto;
         }
         .hidden {
-            dispay: none !important;
+            display: none !important;
         }
 `;
     };
@@ -1799,7 +1799,7 @@ unlayer.registerTool({
                     enabled: true,
                     label: 'Price font style',
                     defaultValue: {
-                        label: 'Title Font style',
+                        label: 'Price Font style',
                         styles: {
                             bold: {
                                 active: true,
