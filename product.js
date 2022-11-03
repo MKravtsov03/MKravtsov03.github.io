@@ -662,26 +662,6 @@ const renderDetails = (detailsLabelsMap, options, values) => `
 </div>
 `
 
-// const renderCouponDetails = (options, values) => `
-// <div class="coupon-details">
-// ${console.log({options, values})}
-//     <div class="blockbuilder-widget-label">
-//         <p class="blockbuilder-label-primary">Details</p>
-//     </div>
-//     <div class="coupon-details-inner">
-//         ${
-//             options.map(option => (`
-//             <div class="details-item">
-//             <label>
-//                 <input ${values[option] ? 'checked' : ''} name="${option}" type="checkbox">
-//                 <span>${detailsLabelsMap[option]}</span>
-//             </label>
-//             </div>`)).join('')
-//         }
-//     </div>
-// </div>
-// `
-
 const renderTitleFontStyle = (options, value) => `
 <div class="title-font-style">
     <div class="blockbuilder-widget-label">
@@ -819,24 +799,25 @@ const getCouponTemplate = () => function (values) {
 const getEventsTemplate = () => function (values) {
     console.log(values)
     const acctiveLayout = values.layout.find(layout => layout.active)
-    const productTitleRenderer = () => `
-            
-        `;
-    return `
-        <div class="products-grid ${acctiveLayout.value}">
+    const productCardRenderer = () => `
             <div class="product-card">
                 <img alt="" class="${values?.details?.details.image ? '' : 'hidden'}" src="https://via.placeholder.com/480x320.jpg?text=Image+placeholder" />
                 <div class="product-card__inner">
                     <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="product-title ${values?.details?.details.name ? '' : 'hidden'}">
                         {{ checkout.abandoned_checkout.item_names }}
                     </div>
-                    <div class="price ${values?.details?.details.price ? '' : 'hidden'}">{{ checkout.abandoned_checkout.item_prices }}</div>
+                    <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="price ${values?.details?.details.price ? '' : 'hidden'}">{{ checkout.abandoned_checkout.item_prices }}</div>
                     <div class="quantity price ${values?.details?.details.quantity ? '' : 'hidden'}"> Quantity: {{ checkout.abandoned_checkout.item_quantities }}</div>
                 </div>
                 <div class="product-footer">
-                <a class="button no-underline ${values?.details?.details.button ? '' : 'hidden'}" href="{{ checkout.abandoned_checkout.item_links }}" target="_blank">Button link</a>
+                <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline ${values?.details?.details.button ? '' : 'hidden'}" href="{{ checkout.abandoned_checkout.item_links }}" target="_blank">${values.btn}</a>
                 </div> 
             </div>
+        `;
+    return `
+        <div class="products-grid ${acctiveLayout.value}">
+            ${productCardRenderer()}
+            ${acctiveLayout.value == 'two-columns' ? productCardRenderer() : '' }
         </div>
     `
 }
@@ -1804,6 +1785,83 @@ unlayer.registerTool({
                     label: 'Product title aligment',
                     defaultValue: 'center',
                     widget: 'alignment',
+                },
+                priceFont: {
+                    label: 'Price font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                priceFontStyle: {
+                    enabled: true,
+                    label: 'Product title font style',
+                    defaultValue: {
+                        label: 'Title Font style',
+                        styles: {
+                            bold: {
+                                active: true,
+                                value: 'bold'
+                            },
+                            italic: {
+                                active: false,
+                                value: 'italic'
+                            },
+                            underline: {
+                                active: false,
+                                value: 'underline'
+                            }
+                        }
+                    },
+                    widget: 'title_font_styles',
+                },
+                priceFontSize: {
+                    enabled: true,
+                    label: 'Price font size',
+                    defaultValue: '16',
+                    widget: 'counter',
+                },
+                priceColor: {
+                    enabled: false,
+                    label: 'Price color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                priceAligment: {
+                    enabled: true,
+                    label: 'Product title aligment',
+                    defaultValue: 'center',
+                    widget: 'alignment',
+                },
+                btn: {
+                    label: 'Button Content',
+                    defaultValue: 'Buy it Now',
+                    widget: 'text',
+                },
+                btnFontSize: {
+                    enabled: true,
+                    label: 'Button font size',
+                    defaultValue: '16',
+                    widget: 'counter',
+                },
+                btnColor: {
+                    enabled: true,
+                    label: 'Button color',
+                    defaultValue: '#fff',
+                    widget: 'color_picker',
+                },
+                btnBg: {
+                    enabled: true,
+                    label: 'Button  background color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                btnBorder: {
+                    label: 'Button border',
+                    defaultValue: '',
+                    widget: 'border',
                 },
             },
         },
