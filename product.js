@@ -641,7 +641,6 @@ const productSelect = (value, data) => {
 }
 
 const renderDetails = (detailsLabelsMap, options, values) => `
-${console.log(values), options}
 <div class="product-details">
     <div class="blockbuilder-widget-label">
         <p class="blockbuilder-label-primary">Details</p>
@@ -651,7 +650,7 @@ ${console.log(values), options}
             options.map(option => (`
             <div class="details-item">
             <label>
-                <input ${values[option] ? 'checked' : ''} name="${option}" type="checkbox">
+                <input ${values.details[option] ? 'checked' : ''} name="${option}" type="checkbox">
                 <span>${detailsLabelsMap[option]}</span>
             </label>
             </div>`)).join('')
@@ -1975,7 +1974,7 @@ unlayer.registerTool({
             },
         },
         head: {
-            css: CouponStyles(),
+            css: ProductStyles(),
             js: function (values) {},
         },
     },
