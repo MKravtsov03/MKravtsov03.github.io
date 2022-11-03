@@ -1797,7 +1797,7 @@ unlayer.registerTool({
                 },
                 priceFontStyle: {
                     enabled: true,
-                    label: 'Product title font style',
+                    label: 'Price font style',
                     defaultValue: {
                         label: 'Title Font style',
                         styles: {
@@ -1831,7 +1831,7 @@ unlayer.registerTool({
                 },
                 priceAligment: {
                     enabled: true,
-                    label: 'Product title aligment',
+                    label: 'Price aligment',
                     defaultValue: 'center',
                     widget: 'alignment',
                 },
