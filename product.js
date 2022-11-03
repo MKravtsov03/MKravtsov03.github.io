@@ -494,6 +494,9 @@ const ProductStyles = () =>
             max-width: 100%;
             height: auto;
         }
+        .hidden {
+            dispay: none !important;
+        }
 `;
     };
 
@@ -815,21 +818,24 @@ const getCouponTemplate = () => function (values) {
 
 const getEventsTemplate = () => function (values) {
     console.log(values)
-    const productImageRenderer = () => `
-            <img alt="" src="https://via.placeholder.com/480x320.jpg?text=Image+placeholder" />
-        `;
+    const acctiveLayout = vaues.layout.find(layout => layout.active)
     const productTitleRenderer = () => `
-            <div 
-            style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;"
-             class="product-title">{{ checkout.abandoned_checkout.item_names }}</div> 
+            
         `;
     return `
-        <div class="products-grid">
+        <div class="products-grid ${acctiveLayout.value}">
             <div class="product-card">
-                ${values?.details?.details.image ? productImageRenderer() : ''}
+                <img alt="" class="${values?.details?.details.image ? '' : 'hidden'}" src="https://via.placeholder.com/480x320.jpg?text=Image+placeholder" />
                 <div class="product-card__inner">
-                    ${values?.details?.details.name ? productTitleRenderer() : ''}
+                    <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="product-title ${values?.details?.details.name ? '' : 'hidden'}">
+                        {{ checkout.abandoned_checkout.item_names }}
+                    </div>
+                    <div class="price ${values?.details?.details.price ? '' : 'hidden'}">{{ checkout.abandoned_checkout.item_prices }}</div>
+                    <div class="quantity price ${values?.details?.details.quantity ? '' : 'hidden'}"> Quantity: {{ checkout.abandoned_checkout.item_quantities }}</div>
                 </div>
+                <div class="product-footer">
+                <a class="button no-underline ${values?.details?.details.button ? '' : 'hidden'}" href="{{ checkout.abandoned_checkout.item_links }}" target="_blank">Button link</a>
+                </div> 
             </div>
         </div>
     `
