@@ -818,7 +818,7 @@ const getCouponTemplate = () => function (values) {
 
 const getEventsTemplate = () => function (values) {
     console.log(values)
-    const acctiveLayout = vaues.layout.find(layout => layout.active)
+    const acctiveLayout = values.layout.find(layout => layout.active)
     const productTitleRenderer = () => `
             
         `;
