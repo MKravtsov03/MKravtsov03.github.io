@@ -816,7 +816,7 @@ const getCouponTemplate = () => function (values) {
 const getEventsTemplate = () => function (values) {
     console.log(values)
     const productImageRenderer = () => `
-            <img alt="" src="https://b-tm.com.ua/assets/galleries/105/noimage.png" />
+            <img alt="" src="https://via.placeholder.com/480x320.jpg?text=Image+placeholder" />
         `;
     const productTitleRenderer = () => `
             <div 
