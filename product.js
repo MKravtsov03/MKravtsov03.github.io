@@ -1846,7 +1846,7 @@ unlayer.registerTool({
                     defaultValue: 'center',
                     widget: 'alignment',
                 },
-                priceFont: {
+                quantityFont: {
                     label: 'Quantity font',
                     defaultValue: {
                         label: "Inter",
