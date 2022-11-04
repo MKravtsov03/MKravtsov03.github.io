@@ -506,6 +506,7 @@ const ProductStyles = () =>
             align-items: center;
             justify-content: center;
             margin: 30px auto 0;
+            max-width: 300px;
         }
 `;
     };
@@ -829,7 +830,7 @@ const getEventsTemplate = () => function (values) {
             ${productCardRenderer()}
             ${acctiveLayout.value == 'two-columns' ? productCardRenderer() : '' }
         </div>
-        <a style="border-left: ${values.recoveryBorder.borderLeftWidth} ${values.recoveryBorder.borderLeftStyle} ${values.recoveryBorder.borderLeftColor}; border-top: ${values.recoveryBorder.borderTopWidth} ${values.recoveryBorder.borderTopStyle} ${values.recoveryBorder.borderTopColor}; border-right: ${values.recoveryBorder.borderRightWidth} ${values.recoveryBorder.borderRightStyle} ${values.recoveryBorder.borderRightColor}; border-bottom: ${values.recoveryBorder.borderBottomWidth} ${values.recoveryBorder.borderBottomStyle} ${values.recoveryBorder.borderBottomColor}; color: ${values.recoveryColor}; font-size: ${values.recoveryFontSize}px; background-color: ${values.recoveryBg};" class="button recovery-cart no-underline ${values?.details?.details.recovery ? '' : 'hidden'}" href="{{ checkout.abandoned_checkout_url }}" target="_blank">${values.btn}</a>
+        <a style="border-left: ${values.recoveryBorder.borderLeftWidth} ${values.recoveryBorder.borderLeftStyle} ${values.recoveryBorder.borderLeftColor}; border-top: ${values.recoveryBorder.borderTopWidth} ${values.recoveryBorder.borderTopStyle} ${values.recoveryBorder.borderTopColor}; border-right: ${values.recoveryBorder.borderRightWidth} ${values.recoveryBorder.borderRightStyle} ${values.recoveryBorder.borderRightColor}; border-bottom: ${values.recoveryBorder.borderBottomWidth} ${values.recoveryBorder.borderBottomStyle} ${values.recoveryBorder.borderBottomColor}; color: ${values.recoveryColor}; font-size: ${values.recoveryFontSize}px; background-color: ${values.recoveryBg};" class="button recovery-cart no-underline ${values?.details?.details.recovery ? '' : 'hidden'}" href="{{ checkout.abandoned_checkout_url }}" target="_blank">${values.recovery}</a>
     `
 }
 
@@ -1955,161 +1956,208 @@ unlayer.registerTool({
         },
     },
     propertyStates: (values) => {
-        // let couponProps = {};
-        // let validFromProps = {};
-        // let expireDateProps = {};
-        // let dicountValueProps = {};
-        // let dicountTypeProps = {};
-        // let btnProps = {};
-        // if (!values.details.coupon) {
-        //     couponProps = {
-        //         couponFont: {
-        //             enabled: false
-        //         },
-        //         couponFontSize: {
-        //             enabled: false
-        //         },
-        //         couponColor: {
-        //             enabled: false
-        //         },
-        //         couponAligment: {
-        //             enabled: false
-        //         },
-        //         couponFontStyle: {
-        //             enabled: false
-        //         }
-        //     }
-        // }
-        // else {
-        //     couponProps = {
-        //         titleFont: {
-        //             enabled: true
-        //         },
-        //         titleFontSize: {
-        //             enabled: true
-        //         },
-        //         titleColor: {
-        //             enabled: true
-        //         },
-        //         titleAligment: {
-        //             enabled: true
-        //         },
-        //         titleFontStyle: {
-        //             enabled: true
-        //         }
-        //     }
-        // }
-        // if (!values.details.startsAt) {
-        //     validFromProps = {
-        //         validFromFont: {
-        //             enabled: false
-        //         },
-        //         validFromFontSize: {
-        //             enabled: false
-        //         },
-        //         validFromColor: {
-        //             enabled: false
-        //         },
-        //     }
-        // }
-        // else {
-        //     validFromProps = {
-        //         validFromFont: {
-        //             enabled: true
-        //         },
-        //         validFromFontSize: {
-        //             enabled: true
-        //         },
-        //         validFromColor: {
-        //             enabled: true
-        //         },
-        //     }
-        // }
-        // if (!values.details.expireDate) {
-        //     expireDateProps = {
-        //         expireDateFont: {
-        //             enabled: false
-        //         },
-        //         expireDateFontSize: {
-        //             enabled: false
-        //         },
-        //         expireDateColor: {
-        //             enabled: false
-        //         },
-        //     }
-        // }
-        // else {
-        //     expireDateProps = {
-        //         expireDateFont: {
-        //             enabled: true
-        //         },
-        //         expireDateFontSize: {
-        //             enabled: true
-        //         },
-        //         expireDateColor: {
-        //             enabled: true
-        //         },
-        //     }
-        // }
-        // if (!values.details.couponValue) {
-        //     couponValueProps = {
-        //         discountValueFont: {
-        //             enabled: false
-        //         },
-        //         discountValueFontSize: {
-        //             enabled: false
-        //         },
-        //         discountValueColor: {
-        //             enabled: false
-        //         },
-        //     }
-        // }
-        // else {
-        //     couponValueProps = {
-        //         discountValueFont: {
-        //             enabled: true
-        //         },
-        //         discountValueFontSize: {
-        //             enabled: true
-        //         },
-        //         discountValueColor: {
-        //             enabled: true
-        //         },
-        //     }
-        // }
-        // if (!values.details.couponType) {
-        //     couponTypeProps = {
-        //         discountTypeFont: {
-        //             enabled: false
-        //         },
-        //         discountTypeFontSize: {
-        //             enabled: false
-        //         },
-        //         discountTypeColor: {
-        //             enabled: false
-        //         },
-        //     }
-        // }
-        // else {
-        //     couponTypeProps = {
-        //         discountTypeFont: {
-        //             enabled: true
-        //         },
-        //         discountTypeFontSize: {
-        //             enabled: true
-        //         },
-        //         discountTypeColor: {
-        //             enabled: true
-        //         },
-        //     }
-        // }
-        // return {
-        //     ...couponProps,
-        //     ...validFromProps,
-        //     ...expireDateProps,
-        //     ...dicountValueProps,
-        //     ...dicountTypeProps,
-        // }
+        let titleProps = {};
+        let priceProps = {};
+        let quantityProps = {};
+        let btnProps = {};
+        let recoveryProps = {};
+        if (!values.details.details.name) {
+            titleProps = {
+                titleFont: {
+                    enabled: false
+                },
+                titleFontSize: {
+                    enabled: false
+                },
+                titleColor: {
+                    enabled: false
+                },
+                titleAligment: {
+                    enabled: false
+                },
+                titleFontStyle: {
+                    enabled: false
+                }
+            }
+        }
+        else {
+            titleProps = {
+                titleFont: {
+                    enabled: true
+                },
+                titleFontSize: {
+                    enabled: true
+                },
+                titleColor: {
+                    enabled: true
+                },
+                titleAligment: {
+                    enabled: true
+                },
+                titleFontStyle: {
+                    enabled: true
+                }
+            }
+        }
+        if (!values.details.details.price) {
+            priceProps = {
+                titleFont: {
+                    enabled: false
+                },
+                priceFontSize: {
+                    enabled: false
+                },
+                priceColor: {
+                    enabled: false
+                },
+                priceAligment: {
+                    enabled: false
+                },
+                priceFontStyle: {
+                    enabled: false
+                }
+            }
+        }
+        else {
+            priceProps = {
+                titleFont: {
+                    enabled: true
+                },
+                priceFontSize: {
+                    enabled: true
+                },
+                priceColor: {
+                    enabled: true
+                },
+                priceAligment: {
+                    enabled: true
+                },
+                priceFontStyle: {
+                    enabled: true
+                }
+            }
+        }
+        if (!values.details.details.quantity) {
+            quantityProps = {
+                quantityFont: {
+                    enabled: false
+                },
+                quantityFontSize: {
+                    enabled: false
+                },
+                quantityColor: {
+                    enabled: false
+                },
+                quantityAligment: {
+                    enabled: false
+                },
+                quantityFontStyle: {
+                    enabled: false
+                }
+            }
+        }
+        else {
+            quantityProps = {
+                quantityFont: {
+                    enabled: true
+                },
+                quantityFontSize: {
+                    enabled: true
+                },
+                quantityColor: {
+                    enabled: true
+                },
+                quantityAligment: {
+                    enabled: true
+                },
+                quantityFontStyle: {
+                    enabled: true
+                }
+            }
+        }
+        if (!values.details.details.button) {
+            btnProps = {
+                btn: {
+                    enabled: false
+                },
+                btnFontSize: {
+                    enabled: false
+                },
+                btnColor: {
+                    enabled: false
+                },
+                btnBg: {
+                    enabled: false
+                },
+                btnBorder: {
+                    enabled: false
+                }
+            }
+        }
+        else {
+            btnProps = {
+                btn: {
+                    enabled: true
+                },
+                btnFontSize: {
+                    enabled: true
+                },
+                btnColor: {
+                    enabled: true
+                },
+                btnBg: {
+                    enabled: true
+                },
+                btnBorder: {
+                    enabled: true
+                }
+            }
+        }
+        if (!values.details.details.recovery) {
+            recoveryProps = {
+                recovery: {
+                    enabled: false
+                },
+                recoveryFontSize: {
+                    enabled: false
+                },
+                recoveryColor: {
+                    enabled: false
+                },
+                recoveryBg: {
+                    enabled: false
+                },
+                recoveryBorder: {
+                    enabled: false
+                }
+            }
+        }
+        else {
+            btnProps = {
+                recovery: {
+                    enabled: true
+                },
+                recoveryFontSize: {
+                    enabled: true
+                },
+                recoveryColor: {
+                    enabled: true
+                },
+                recoveryBg: {
+                    enabled: true
+                },
+                recoveryBorder: {
+                    enabled: true
+                }
+            }
+        }
+        return {
+            ...titleProps,
+            ...priceProps,
+            ...quantityProps,
+            ...btnProps,
+            ...recoveryProps,
+        }
     },
     renderer: {
         Viewer: unlayer.createViewer({
