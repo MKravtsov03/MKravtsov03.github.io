@@ -501,6 +501,12 @@ const ProductStyles = () =>
         .hidden {
             display: none !important;
         }
+        .recovery-cart {
+            display:  flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto 0;
+        }
 `;
     };
 
@@ -811,7 +817,7 @@ const getEventsTemplate = () => function (values) {
                         {{ checkout.abandoned_checkout.item_names }}
                     </div>
                     <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="price ${values?.details?.details.price ? '' : 'hidden'}">{{ checkout.abandoned_checkout.item_prices }}</div>
-                    <div class="quantity price ${values?.details?.details.quantity ? '' : 'hidden'}"> Quantity: {{ checkout.abandoned_checkout.item_quantities }}</div>
+                    <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="quantity price ${values?.details?.details.quantity ? '' : 'hidden'}"> Quantity: {{ checkout.abandoned_checkout.item_quantities }}</div>
                 </div>
                 <div class="product-footer">
                 <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline ${values?.details?.details.button ? '' : 'hidden'}" href="{{ checkout.abandoned_checkout.item_links }}" target="_blank">${values.btn}</a>
@@ -823,6 +829,7 @@ const getEventsTemplate = () => function (values) {
             ${productCardRenderer()}
             ${acctiveLayout.value == 'two-columns' ? productCardRenderer() : '' }
         </div>
+        <a style="border-left: ${values.recoveryBorder.borderLeftWidth} ${values.recoveryBorder.borderLeftStyle} ${values.recoveryBorder.borderLeftColor}; border-top: ${values.recoveryBorder.borderTopWidth} ${values.recoveryBorder.borderTopStyle} ${values.recoveryBorder.borderTopColor}; border-right: ${values.recoveryBorder.borderRightWidth} ${values.recoveryBorder.borderRightStyle} ${values.recoveryBorder.borderRightColor}; border-bottom: ${values.recoveryBorder.borderBottomWidth} ${values.recoveryBorder.borderBottomStyle} ${values.recoveryBorder.borderBottomColor}; color: ${values.recoveryColor}; font-size: ${values.recoveryFontSize}px; background-color: ${values.recoveryBg};" class="button recovery-cart no-underline ${values?.details?.details.recovery ? '' : 'hidden'}" href="{{ checkout.abandoned_checkout_url }}" target="_blank">${values.btn}</a>
     `
 }
 
@@ -1806,7 +1813,7 @@ unlayer.registerTool({
                         label: 'Price Font style',
                         styles: {
                             bold: {
-                                active: true,
+                                active: false,
                                 value: 'bold'
                             },
                             italic: {
@@ -1839,6 +1846,55 @@ unlayer.registerTool({
                     defaultValue: 'center',
                     widget: 'alignment',
                 },
+                priceFont: {
+                    label: 'Quantity font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                quantityFontStyle: {
+                    enabled: true,
+                    label: 'Quantity font style',
+                    defaultValue: {
+                        label: 'Price Font style',
+                        styles: {
+                            bold: {
+                                active: false,
+                                value: 'bold'
+                            },
+                            italic: {
+                                active: false,
+                                value: 'italic'
+                            },
+                            underline: {
+                                active: false,
+                                value: 'underline'
+                            }
+                        }
+                    },
+                    widget: 'title_font_styles',
+                },
+                quantityFontSize: {
+                    enabled: true,
+                    label: 'Quantity font size',
+                    defaultValue: '16',
+                    widget: 'counter',
+                },
+                quantityColor: {
+                    enabled: false,
+                    label: 'Quantity color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                quantityAligment: {
+                    enabled: true,
+                    label: 'Quantity aligment',
+                    defaultValue: 'left',
+                    widget: 'alignment',
+                },
                 btn: {
                     label: 'Button Content',
                     defaultValue: 'Buy it Now',
@@ -1864,6 +1920,34 @@ unlayer.registerTool({
                 },
                 btnBorder: {
                     label: 'Button border',
+                    defaultValue: '',
+                    widget: 'border',
+                },
+                recovery: {
+                    label: 'Recover cart Content',
+                    defaultValue: 'Recover cart',
+                    widget: 'text',
+                },
+                recoveryFontSize: {
+                    enabled: true,
+                    label: 'Recover cart font size',
+                    defaultValue: '16',
+                    widget: 'counter',
+                },
+                recoveryColor: {
+                    enabled: true,
+                    label: 'Recover cart color',
+                    defaultValue: '#fff',
+                    widget: 'color_picker',
+                },
+                recoveryBg: {
+                    enabled: true,
+                    label: 'Recover cart background color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                recoveryBorder: {
+                    label: 'Recover cart border',
                     defaultValue: '',
                     widget: 'border',
                 },
