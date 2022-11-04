@@ -51,6 +51,9 @@ const ProductStyles = () =>
           display: flex;
           flex-direction: column;
         }
+        .product-card__inner {
+            padding: 0 10px;
+        }
 
         .product-card-body {
           padding: 0 1rem 1rem;
@@ -72,7 +75,7 @@ const ProductStyles = () =>
             text-align: center;
             font-size: 24px;
             font-weight: 700;
-            padding: 0 10px;
+            margin-bottom: 15px;
         }
          .products-grid.two-columns .product-title,
          .products-grid.two-columns--reverse .product-title {
@@ -87,18 +90,19 @@ const ProductStyles = () =>
             align-items: center;
             justify-content: center;
             gap: 15px;
-            padding: 0 10px;
             font-size: 18px;
             font-weight: 500;
+            margin-bottom: 15px;
         }
         .price-old {
             color: #98A2B3;
             text-decoration: line-through;
         }
-        
-        .product-description {
-            padding: 0 10px;
+        .price {
+            margin-bottom: 15px;
         }
+         
+       
         .products-grid.three-columns .product-description {
             font-size: 12px;
          }
