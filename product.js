@@ -790,7 +790,7 @@ const getCouponTemplate = () => function (values) {
     `;
     const renderLink = () => `
     <div style="" class="coupon-item link">
-        <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline" href="${(activeCoupon?.shareable_link ? activeCoupon?.shareable_link : '')}" target="_blank">${values.couponBtn}</a>
+        <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline" href="${(value.btnLink.url ? value.btnLink.url  : activeCoupon?.shareable_link)}" target="_blank">${values.couponBtn}</a>
     </div>
     `;
     return (
@@ -1360,6 +1360,15 @@ unlayer.registerTool({
                     defaultValue: 'Buy it Now',
                     widget: 'text',
                 },
+                btnLink: {
+                    enabled: true,
+                    label: 'Button link',
+                    defaultValue: {
+                        url: '',
+                        target: '_blank'
+                    },
+                    widget: 'link',
+                },
                 btnFontSize: {
                     enabled: true,
                     label: 'Button font size',
@@ -1644,6 +1653,49 @@ unlayer.registerTool({
                     enabled: true
                 },
             }
+            if (!values.details.details.link) {
+            btnProps = {
+                couponBtn: {
+                    enabled: false
+                },
+                btnLink: {
+                    enabled: false
+                },
+                btnFontSize: {
+                    enabled: false
+                },
+                btnColor: {
+                    enabled: false
+                },
+                btnBg: {
+                    enabled: false
+                },
+                btnBorder: {
+                    enabled: false
+                },
+            }
+        }
+        else {
+                btnProps = {
+                    couponBtn: {
+                        enabled: true
+                    },
+                    btnLink: {
+                        enabled: true
+                    },
+                    btnFontSize: {
+                        enabled: true
+                    },
+                    btnColor: {
+                        enabled: true
+                    },
+                    btnBg: {
+                        enabled: true
+                    },
+                    btnBorder: {
+                        enabled: true
+                    },
+                }
         }
         if (!values.details.details.couponValue) {
             couponValueProps = {
@@ -1703,6 +1755,7 @@ unlayer.registerTool({
             ...expireDateProps,
             ...dicountValueProps,
             ...dicountTypeProps,
+            ...btnProps,
         }
     },
     renderer: {
