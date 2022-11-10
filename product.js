@@ -1653,6 +1653,7 @@ unlayer.registerTool({
                     enabled: true
                 },
             }
+        }
             if (!values.details.details.link) {
             btnProps = {
                 couponBtn: {
