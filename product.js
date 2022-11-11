@@ -1327,6 +1327,9 @@ unlayer.registerTool({
             email: function (values) {
                 return productToolTemplate(values);
             },
+            popup: function (values) {
+                return productToolTemplate(values);
+            },
         },
         head: {
             css: ProductStyles(),
@@ -1770,6 +1773,9 @@ unlayer.registerTool({
                 return couponToolTemplate(values);
             },
             email: function (values) {
+                return couponToolTemplate(values);
+            },
+            popup: function (values) {
                 return couponToolTemplate(values);
             },
         },
