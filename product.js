@@ -813,6 +813,34 @@ const getEventsTemplate = () => function (values) {
     const productCardRenderer = () => `
             <span style="display: none;">**</span>
                 <div class="product-card">
+                    <img alt="" class="${values?.details?.details.image ? '' : 'hidden'}" src="{{ checkout.abandoned_checkout.item_logo }}" />
+                    <div class="product-card__inner">
+                        <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="product-title ${values?.details?.details.name ? '' : 'hidden'}">
+                            {{ checkout.abandoned_checkout.item_names }}
+                        </div>
+                        <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="price ${values?.details?.details.price ? '' : 'hidden'}">{{ checkout.abandoned_checkout.item_prices }}</div>
+                        <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="quantity price ${values?.details?.details.quantity ? '' : 'hidden'}"> Quantity: {{ checkout.abandoned_checkout.item_quantities }}</div>
+                    </div>
+                    <div class="product-footer">
+                    <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline ${values?.details?.details.button ? '' : 'hidden'}" href="{{ checkout.abandoned_checkout.item_links }}" target="_blank">${values.btn}</a>
+                    </div> 
+                </div>
+            <span style="display: none;">**</span>
+        `;
+    return `
+        <div class="products-grid ${acctiveLayout.value}">
+            ${productCardRenderer()}
+        </div>
+        <a style="border-left: ${values.recoveryBorder.borderLeftWidth} ${values.recoveryBorder.borderLeftStyle} ${values.recoveryBorder.borderLeftColor}; border-top: ${values.recoveryBorder.borderTopWidth} ${values.recoveryBorder.borderTopStyle} ${values.recoveryBorder.borderTopColor}; border-right: ${values.recoveryBorder.borderRightWidth} ${values.recoveryBorder.borderRightStyle} ${values.recoveryBorder.borderRightColor}; border-bottom: ${values.recoveryBorder.borderBottomWidth} ${values.recoveryBorder.borderBottomStyle} ${values.recoveryBorder.borderBottomColor}; color: ${values.recoveryColor}; font-size: ${values.recoveryFontSize}px; background-color: ${values.recoveryBg};" class="button recovery-cart no-underline ${values?.details?.details.recovery ? '' : 'hidden'}" href="{{ checkout.abandoned_checkout_url }}" target="_blank">${values.recovery}</a>
+    `
+}
+
+const getEventsTemplateViewer = () => function (values) {
+    console.log(values)
+    const acctiveLayout = values.layout.find(layout => layout.active)
+    const productCardRenderer = () => `
+            <span style="display: none;">**</span>
+                <div class="product-card">
                     <img alt="" class="${values?.details?.details.image ? '' : 'hidden'}" src="https://via.placeholder.com/480x320.jpg?text=Image+placeholder" />
                     <div class="product-card__inner">
                         <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="product-title ${values?.details?.details.name ? '' : 'hidden'}">
@@ -911,6 +939,8 @@ const productToolTemplate = getProductTemplate();
 const couponToolTemplate = getCouponTemplate();
 
 const eventsTemplate = getEventsTemplate();
+
+const eventsTemplateViewer = getEventsTemplateViewer();
 
 unlayer.registerTool({
     name: 'product_tool',
@@ -2223,7 +2253,7 @@ unlayer.registerTool({
     renderer: {
         Viewer: unlayer.createViewer({
             render(values) {
-                return eventsTemplate(values);
+                return eventsTemplateViewer(values);
             },
         }),
         exporters: {
