@@ -946,7 +946,7 @@ unlayer.registerTool({
     name: 'product_tool',
     label: 'Product',
     icon: 'https://mkravtsov03.github.io/product-icon.svg',
-    supportedDisplayModes: ['web', 'email'],
+    supportedDisplayModes: ['web', 'email', 'popup'],
     options: {
         productContent: {
             title: 'Product Content',
@@ -1373,7 +1373,7 @@ unlayer.registerTool({
     name: 'coupon_tool',
     label: 'Coupon',
     icon: 'https://mkravtsov03.github.io/coupon-icon.svg',
-    supportedDisplayModes: ['web', 'email'],
+    supportedDisplayModes: ['web', 'email', 'popup'],
     options: {
         coupon: {
             title: 'Coupon',
@@ -1821,7 +1821,7 @@ unlayer.registerTool({
     name: 'events_tool',
     label: 'Events',
     icon: 'https://mkravtsov03.github.io/coupon-icon.svg',
-    supportedDisplayModes: ['web', 'email'],
+    supportedDisplayModes: ['web', 'email', 'popup'],
     options: {
         abandoned_cart: {
             title: 'Abandoned cart',
