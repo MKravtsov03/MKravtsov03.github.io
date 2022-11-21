@@ -8,18 +8,22 @@
       <change afterPath="$PROJECT_DIR$/../iDerma/app/404.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/_includes/footer.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/_includes/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iDerma/app/about.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/appointment-confirmation.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/appointment.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/article.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/blog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iDerma/app/faq.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/prices.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scripts/components/sliders.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scripts/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/about.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/appointment.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/article.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/blog.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/breadcrumbs.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/error.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/faq.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/footer.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/header.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/home.scss" afterDir="false" />
@@ -132,7 +136,7 @@
       <workItem from="1661072447259" duration="4000" />
       <workItem from="1666172007265" duration="35697000" />
       <workItem from="1667834470109" duration="19000" />
-      <workItem from="1667894147633" duration="4737000" />
+      <workItem from="1667894147633" duration="7614000" />
     </task>
     <servers />
   </component>

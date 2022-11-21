@@ -812,6 +812,91 @@ const getEventsTemplate = () => function (values) {
     const acctiveLayout = values.layout.find(layout => layout.active)
     const productCardRenderer = () => `
             <span style="display: none;">**</span>
+                <div style="position: relative;
+                            gap: 15px;
+                            min-width: 0;
+                            word-wrap: break-word;
+                            background-color: #fff;
+                            background-clip: border-box;
+                            border: 1px solid rgba(0,0,0,.125);
+                            border-radius: 0.25rem;
+                            text-align: center;
+                            display: flex;
+                            flex-direction: column;
+                            width: ${acctiveLayout.value === 'two-columns' ? 'calc(50% - 8px);' : '100%'}">
+                    <img alt="" class="${values?.details?.details.image ? '' : 'hidden'}" src="https://via.placeholder.com/480x320.jpg?text=Image+placeholder" />
+                    <div style="padding: 0 10px;">
+                        <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="product-title ${values?.details?.details.name ? '' : 'hidden'}">
+                            {{ line_item_title }}
+                        </div>
+                        <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="price ${values?.details?.details.price ? '' : 'hidden'}">{{ line_item_price }}</div>
+                        <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="quantity price ${values?.details?.details.quantity ? '' : 'hidden'}"> Quantity: {{ line_item_quantity }}</div>
+                    </div>
+                    <div style="display: flex;
+                                justify-content: center;
+                                padding: 15px;
+                                align-items: center;
+                                font-weight: bold;">
+                                
+                    <a style="font-weight: 400;
+                              text-align: center;
+                              vertical-align: middle;
+                              background-color: #000;
+                              border-radius: 8px;
+                              padding: 0.75rem;
+                              font-size: 1rem;
+                              line-height: 1.5;
+                              transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                              cursor: pointer;
+                              border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                              border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                              border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                              border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                              color: ${values.btnColor};
+                              font-size: ${values.btnFontSize}px; 
+                              background-color: ${values.btnBg};
+                              display: ${values?.details?.details.button ? 'block' : 'none'};"
+                              href="{{ line_item_links }}" target="_blank">
+                        ${values.btn}
+                    </a>
+                        
+                    </div> 
+                </div>
+            <span style="display: none;">**</span>
+        `;
+    return `
+        <div style="${acctiveLayout.value === 'two-columns' ? 'display: flex; gap: 15px; flex-wrap: wrap;' : ''}">
+            ${productCardRenderer()}
+        </div>
+        <a style="font-weight: 400;
+                   text-align: center;
+                   vertical-align: middle;
+                   background-color: #000;
+                   border-radius: 8px;
+                   padding: 0.75rem;
+                   font-size: 1rem;
+                   line-height: 1.5;
+                   transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                   cursor: pointer;
+                   border-left: ${values.recoveryBorder.borderLeftWidth} ${values.recoveryBorder.borderLeftStyle} ${values.recoveryBorder.borderLeftColor};
+                   border-top: ${values.recoveryBorder.borderTopWidth} ${values.recoveryBorder.borderTopStyle} ${values.recoveryBorder.borderTopColor};
+                   border-right: ${values.recoveryBorder.borderRightWidth} ${values.recoveryBorder.borderRightStyle} ${values.recoveryBorder.borderRightColor}; 
+                   border-bottom: ${values.recoveryBorder.borderBottomWidth} ${values.recoveryBorder.borderBottomStyle} ${values.recoveryBorder.borderBottomColor};
+                   color: ${values.recoveryColor};
+                   font-size: ${values.recoveryFontSize}px;
+                   background-color: ${values.recoveryBg};
+                   display: ${values?.details?.details.recovery ? 'block' : 'none'};"
+                   href="{{ checkout.abandoned_checkout_url }}" target="_blank">
+            ${values.recovery}
+        </a>
+    `
+}
+
+const getEventsTemplateViewer = () => function (values) {
+    console.log(values)
+    const acctiveLayout = values.layout.find(layout => layout.active)
+    const productCardRenderer = () => `
+           <span style="display: none;">**</span>
                 <div class="product-card">
                     <img alt="" class="${values?.details?.details.image ? '' : 'hidden'}" src="{{ line_item_logo }}" />
                     <div class="product-card__inner">
@@ -828,38 +913,10 @@ const getEventsTemplate = () => function (values) {
             <span style="display: none;">**</span>
         `;
     return `
-        <div class="products-grid ${acctiveLayout.value}">
+        <div style="${acctiveLayout.value === 'two-columns' ? 'display: flex; gap: 15px; flex-wrap: wrap;' : ''}">
             ${productCardRenderer()}
         </div>
         <a style="border-left: ${values.recoveryBorder.borderLeftWidth} ${values.recoveryBorder.borderLeftStyle} ${values.recoveryBorder.borderLeftColor}; border-top: ${values.recoveryBorder.borderTopWidth} ${values.recoveryBorder.borderTopStyle} ${values.recoveryBorder.borderTopColor}; border-right: ${values.recoveryBorder.borderRightWidth} ${values.recoveryBorder.borderRightStyle} ${values.recoveryBorder.borderRightColor}; border-bottom: ${values.recoveryBorder.borderBottomWidth} ${values.recoveryBorder.borderBottomStyle} ${values.recoveryBorder.borderBottomColor}; color: ${values.recoveryColor}; font-size: ${values.recoveryFontSize}px; background-color: ${values.recoveryBg};" class="button recovery-cart no-underline ${values?.details?.details.recovery ? '' : 'hidden'}" href="{{ abandoned_checkout_url }}" target="_blank">${values.recovery}</a>
-    `
-}
-
-const getEventsTemplateViewer = () => function (values) {
-    console.log(values)
-    const acctiveLayout = values.layout.find(layout => layout.active)
-    const productCardRenderer = () => `
-            <span style="display: none;">**</span>
-                <div class="product-card">
-                    <img alt="" class="${values?.details?.details.image ? '' : 'hidden'}" src="https://via.placeholder.com/480x320.jpg?text=Image+placeholder" />
-                    <div class="product-card__inner">
-                        <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="product-title ${values?.details?.details.name ? '' : 'hidden'}">
-                            {{ line_item_title }}
-                        </div>
-                        <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="price ${values?.details?.details.price ? '' : 'hidden'}">{{ line_item_price }}</div>
-                        <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="quantity price ${values?.details?.details.quantity ? '' : 'hidden'}"> Quantity: {{ line_item_quantity }}</div>
-                    </div>
-                    <div class="product-footer">
-                    <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline ${values?.details?.details.button ? '' : 'hidden'}" href="{{ line_item_links }}" target="_blank">${values.btn}</a>
-                    </div> 
-                </div>
-            <span style="display: none;">**</span>
-        `;
-    return `
-        <div class="products-grid ${acctiveLayout.value}">
-            ${productCardRenderer()}
-        </div>
-        <a style="border-left: ${values.recoveryBorder.borderLeftWidth} ${values.recoveryBorder.borderLeftStyle} ${values.recoveryBorder.borderLeftColor}; border-top: ${values.recoveryBorder.borderTopWidth} ${values.recoveryBorder.borderTopStyle} ${values.recoveryBorder.borderTopColor}; border-right: ${values.recoveryBorder.borderRightWidth} ${values.recoveryBorder.borderRightStyle} ${values.recoveryBorder.borderRightColor}; border-bottom: ${values.recoveryBorder.borderBottomWidth} ${values.recoveryBorder.borderBottomStyle} ${values.recoveryBorder.borderBottomColor}; color: ${values.recoveryColor}; font-size: ${values.recoveryFontSize}px; background-color: ${values.recoveryBg};" class="button recovery-cart no-underline ${values?.details?.details.recovery ? '' : 'hidden'}" href="{{ checkout.abandoned_checkout_url }}" target="_blank">${values.recovery}</a>
     `
 }
 
