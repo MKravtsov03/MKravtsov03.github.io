@@ -945,7 +945,7 @@ const getEventsTemplateViewer = () => function (values) {
             <span style="display: none;">**</span>
         `;
     return `
-        <div style="${acctiveLayout.value === 'two-columns' ? 'display: flex; gap: 15px; flex-wrap: wrap;' : ''}">
+        <div class="product-grid ${acctiveLayout.value}">
             ${productCardRenderer()}
         </div>
         <a style="border-left: ${values.recoveryBorder.borderLeftWidth} ${values.recoveryBorder.borderLeftStyle} ${values.recoveryBorder.borderLeftColor}; border-top: ${values.recoveryBorder.borderTopWidth} ${values.recoveryBorder.borderTopStyle} ${values.recoveryBorder.borderTopColor}; border-right: ${values.recoveryBorder.borderRightWidth} ${values.recoveryBorder.borderRightStyle} ${values.recoveryBorder.borderRightColor}; border-bottom: ${values.recoveryBorder.borderBottomWidth} ${values.recoveryBorder.borderBottomStyle} ${values.recoveryBorder.borderBottomColor}; color: ${values.recoveryColor}; font-size: ${values.recoveryFontSize}px; background-color: ${values.recoveryBg};" class="button recovery-cart no-underline ${values?.details?.details.recovery ? '' : 'hidden'}" href="{{ abandoned_checkout_url }}" target="_blank">${values.recovery}</a>
