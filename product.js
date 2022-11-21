@@ -832,13 +832,13 @@ const getEventsTemplate = () => function (values) {
                         <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
                             {{ line_item_price }}
                         </div>
-                        <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.quantity ? 'block' : 'none'}" class="quantity price"> 
+                        <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 0; display: ${values?.details?.details.quantity ? 'block' : 'none'}" class="quantity price"> 
                             Quantity: {{ line_item_quantity }}
                         </div>
                     </div>
                     <div style="display: flex;
                                 justify-content: center;
-                                padding: 15px;
+                                padding: 0 15px 15px;
                                 align-items: center;
                                 font-weight: bold;">
                                 
@@ -913,10 +913,10 @@ const getEventsTemplateViewer = () => function (values) {
                         <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="product-title ${values?.details?.details.name ? '' : 'hidden'}">
                             {{ line_item_title }}
                         </div>
-                        <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="price ${values?.details?.details.price ? '' : 'hidden'}">{{ line_item_price }}</div>
-                        <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="quantity price ${values?.details?.details.quantity ? '' : 'hidden'}"> Quantity: {{ line_item_quantity }}</div>
+                        <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px;" class="price ${values?.details?.details.price ? '' : 'hidden'}">{{ line_item_price }}</div>
+                        <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 0" class="quantity price ${values?.details?.details.quantity ? '' : 'hidden'}"> Quantity: {{ line_item_quantity }}</div>
                     </div>
-                    <div class="product-footer">
+                    <div style="padding: 0 15px 15px" class="product-footer">
                     <a style="font-weight: 400;
                                text-align: center;
                                vertical-align: middle;
@@ -1037,7 +1037,7 @@ const getProductTemplate = () => function (values) {
                                     ${values?.details?.details.comparisonPrice ? productComparisonPriceRenderer(currentProduct) : '' }
                                 </div>
                                 ${values?.details?.details.description ? productDescriptionRenderer(currentProduct) : ''}
-                                <div class="product-footer">
+                                <div style="padding: 20px 10px">
                                      ${values?.details?.details.button ? productButtonRenderer(currentProduct, values) : ''}
                                 </div> 
                             </div>
