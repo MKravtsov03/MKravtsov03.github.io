@@ -1003,8 +1003,9 @@ const getProductTemplate = () => function (values) {
         `;
 
         const productImageRenderer = (product) => `
-                <div style="max-height: 220px; overflow: hidden">
+                <div style="overflow: hidden">
                     <img style="max-width: 100%;
+                            width: 100%;
                             object-fit: contain;
                             border-top-left-radius: 0.25rem;
                             border-top-right-radius: 0.25rem;" 
@@ -1034,7 +1035,16 @@ const getProductTemplate = () => function (values) {
                                     display: flex;
                                     flex-direction: column;">
                             
-                            ${values?.details?.details.image ? productImageRenderer(currentProduct) : ''}
+                            ${values?.details?.details.image ? `
+                                <div style="max-height: 220px; overflow: hidden">
+                                    <img style="max-width: 100%;
+                                    width: 100%;
+                                    object-fit: contain;
+                                    border-top-left-radius: 0.25rem;
+                                    border-top-right-radius: 0.25rem;"
+                                         alt="" src="${currentProduct?.productImage?.src || 'https://b-tm.com.ua/assets/galleries/105/noimage.png'}" />
+                                </div>`
+                                : ''}
                            
                             <div style="padding: 0 10px;">
                                 ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
@@ -1074,7 +1084,16 @@ const getProductTemplate = () => function (values) {
                                     display: flex;
                                     flex-direction: column;">
                             
-                            ${values?.details?.details.image ? productImageRenderer(currentProduct) : ''}
+                            ${values?.details?.details.image ? `
+                                <div style="max-height: 220px; overflow: hidden">
+                                    <img style="max-width: 100%;
+                                    width: 100%;
+                                    object-fit: contain;
+                                    border-top-left-radius: 0.25rem;
+                                    border-top-right-radius: 0.25rem;"
+                                         alt="" src="${currentProduct?.productImage?.src || 'https://b-tm.com.ua/assets/galleries/105/noimage.png'}" />
+                                </div>`
+                            : ''}
                            
                             <div style="padding: 0 10px; order: ${index % 2 == 0 ? '-1' : '0'}">
                                 ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
@@ -1114,7 +1133,16 @@ const getProductTemplate = () => function (values) {
                                     display: flex;
                                     flex-direction: column;">
                             
-                            ${values?.details?.details.image ? productImageRenderer(currentProduct) : ''}
+                            ${values?.details?.details.image ? `
+                                <div style="max-height: 150px; overflow: hidden">
+                                    <img style="max-width: 100%;
+                                    width: 100%;
+                                    object-fit: contain;
+                                    border-top-left-radius: 0.25rem;
+                                    border-top-right-radius: 0.25rem;"
+                                         alt="" src="${currentProduct?.productImage?.src || 'https://b-tm.com.ua/assets/galleries/105/noimage.png'}" />
+                                </div>`
+                            : ''}
                            
                             <div style="padding: 0 10px;">
                                 ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
