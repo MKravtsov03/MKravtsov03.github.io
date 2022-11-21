@@ -917,7 +917,29 @@ const getEventsTemplateViewer = () => function (values) {
                         <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="quantity price ${values?.details?.details.quantity ? '' : 'hidden'}"> Quantity: {{ line_item_quantity }}</div>
                     </div>
                     <div class="product-footer">
-                    <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline ${values?.details?.details.button ? '' : 'hidden'}" href="{{ line_item_links }}" target="_blank">${values.btn}</a>
+                    <a style="font-weight: 400;
+                               text-align: center;
+                               vertical-align: middle;
+                               background-color: #000;
+                               border-radius: 8px;
+                               padding: 0.75rem;
+                               font-size: 1rem;
+                               line-height: 1.5;
+                               transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                               cursor: pointer;
+                               margin: 30px auto 0;
+                               max-width: 300px;
+                               text-decoration: none;
+                               border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                               border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                               border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                               border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                               color: ${values.btnColor};
+                               font-size: ${values.btnFontSize}px;
+                               display: ${values?.details?.details.button ? 'block' : 'none'};
+                               background-color: ${values.btnBg};" href="{{ line_item_links }}" target="_blank">
+                        ${values.btn}
+                    </a>
                     </div> 
                 </div>
             <span style="display: none;">**</span>
@@ -939,7 +961,9 @@ const getProductTemplate = () => function (values) {
         const { layout } = values?.productContent
         console.log(values)
         const productTitleRenderer = (product) => `
-            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}" class="product-title">${product?.productTitle || 'Product Title'}</div> 
+            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px;">
+                ${product?.productTitle || 'Product Title'}
+            </div> 
         `;
 
         const productPriceRenderer = (product) => `
@@ -951,7 +975,9 @@ const getProductTemplate = () => function (values) {
         ` : '';
 
         const productDescriptionRenderer = (product) => `
-            <div style="font-family: ${values.descriptionFont.value}; font-size: ${values.descriptionFontSize}px; text-align: ${values.descriptionAligment}; color: ${values.descriptionColor}; font-weight: ${values.descriptionFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.descriptionFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.descriptionFontStyle.styles.underline.active ? 'underline' : 'none'}" class="product-description">${product?.description || ''}</div>
+            <div style="font-family: ${values.descriptionFont.value}; font-size: ${values.descriptionFontSize}px; text-align: ${values.descriptionAligment}; color: ${values.descriptionColor}; font-weight: ${values.descriptionFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.descriptionFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.descriptionFontStyle.styles.underline.active ? 'underline' : 'none'}; line-height: 175%;">
+                ${product?.description || ''}
+            </div>
         `;
 
         const productTypeRenderer = (product) => `
@@ -959,11 +985,29 @@ const getProductTemplate = () => function (values) {
         `;
 
         const productButtonRenderer = (product, values) => `
-            <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline" href="${values.btnLink.url}" target="${values.btnLink.target}">${values.productCTA}</a>
+            <a style="font-weight: 400;
+                       text-align: center;
+                       vertical-align: middle;
+                       background-color: #000;
+                       border-radius: 8px;
+                       padding: 0.75rem;
+                       font-size: 1rem;
+                       line-height: 1.5;
+                       transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                       cursor: pointer;
+                       margin: 30px auto 0;
+                       max-width: 300px;
+                       text-decoration: none;border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" href="${values.btnLink.url}" target="${values.btnLink.target}">
+                    ${values.productCTA}
+            </a>
         `;
 
         const productImageRenderer = (product) => `
-            <img alt="" src="${product?.productImage?.src || 'https://b-tm.com.ua/assets/galleries/105/noimage.png'}" />
+            <img style="max-width: 100%;
+                        object-fit: contain;
+                        border-top-left-radius: 0.25rem;
+                        border-top-right-radius: 0.25rem;" 
+                 alt="" src="${product?.productImage?.src || 'https://b-tm.com.ua/assets/galleries/105/noimage.png'}" />
         `;
 
         return `
@@ -971,22 +1015,26 @@ const getProductTemplate = () => function (values) {
             ${products.map(productId => {
             const currentProduct = values.data.products.find((product) => product.id === +productId);
             return `
-                        <div class="product-card">
+                        <div style="position: relative;
+                                    gap: 15px;
+                                    min-width: 0;
+                                    word-wrap: break-word;
+                                    background-color: #fff;
+                                    background-clip: border-box;
+                                    border: 1px solid rgba(0,0,0,.125);
+                                    border-radius: 0.25rem;
+                                    text-align: center;
+                                    display: flex;
+                                    flex-direction: column;">
                             
                             ${values?.details?.details.image ? productImageRenderer(currentProduct) : ''}
                            
-                            <div class="product-card__inner">
+                            <div style="padding: 0 10px;">
                                 ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
                                 ${values?.details?.details.productType ? productTypeRenderer(currentProduct) : ''}
-                                <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor};" class="product-price">
-                                    ${
-                values?.details?.details.price ? productPriceRenderer(currentProduct) : ''
-            }
-                                                    ${
-                values?.details?.details.comparisonPrice
-                    ? productComparisonPriceRenderer(currentProduct)
-                    : ''
-            }
+                                <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 18px; font-weight: 500; margin-bottom: 15px;">
+                                    ${values?.details?.details.price ? productPriceRenderer(currentProduct) : ''}
+                                    ${values?.details?.details.comparisonPrice ? productComparisonPriceRenderer(currentProduct) : '' }
                                 </div>
                                 ${values?.details?.details.description ? productDescriptionRenderer(currentProduct) : ''}
                                 <div class="product-footer">
