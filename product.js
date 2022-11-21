@@ -1010,14 +1010,19 @@ const getProductTemplate = () => function (values) {
                  alt="" src="${product?.productImage?.src || 'https://b-tm.com.ua/assets/galleries/105/noimage.png'}" />
         `;
 
-        return `
-        <div class="products-grid ${layout}">
+        const renderProducts = () => {
+            switch (layout) {
+                case('two-columsn'):
+                    return `
+                        <div style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap">
             ${products.map(productId => {
-            const currentProduct = values.data.products.find((product) => product.id === +productId);
-            return `
+                        const currentProduct = values.data.products.find((product) => product.id === +productId);
+                        return `
                         <div style="position: relative;
                                     gap: 15px;
                                     min-width: 0;
+                                    max-width: calc(50% - 15px);
+                                    width: 100%;
                                     word-wrap: break-word;
                                     background-color: #fff;
                                     background-clip: border-box;
@@ -1034,7 +1039,7 @@ const getProductTemplate = () => function (values) {
                                 ${values?.details?.details.productType ? productTypeRenderer(currentProduct) : ''}
                                 <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 18px; font-weight: 500; margin-bottom: 15px;">
                                     ${values?.details?.details.price ? productPriceRenderer(currentProduct) : ''}
-                                    ${values?.details?.details.comparisonPrice ? productComparisonPriceRenderer(currentProduct) : '' }
+                                    ${values?.details?.details.comparisonPrice ? productComparisonPriceRenderer(currentProduct) : ''}
                                 </div>
                                 ${values?.details?.details.description ? productDescriptionRenderer(currentProduct) : ''}
                                 <div style="padding: 20px 10px">
@@ -1043,9 +1048,55 @@ const getProductTemplate = () => function (values) {
                             </div>
                         </div>
                         `
-        }).join('')
-        }
+                    }).join('')
+                    }
         </div>
+                    `
+                default:
+                    return `
+                <div>
+            ${products.map(productId => {
+                        const currentProduct = values.data.products.find((product) => product.id === +productId);
+                        return `
+                        <div style="position: relative;
+                                    gap: 15px;
+                                    min-width: 0;
+                                    width: 100%;
+                                    margin-bottom: 20px;
+                                    word-wrap: break-word;
+                                    background-color: #fff;
+                                    background-clip: border-box;
+                                    border: 1px solid rgba(0,0,0,.125);
+                                    border-radius: 0.25rem;
+                                    text-align: center;
+                                    display: flex;
+                                    flex-direction: column;">
+                            
+                            ${values?.details?.details.image ? productImageRenderer(currentProduct) : ''}
+                           
+                            <div style="padding: 0 10px;">
+                                ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
+                                ${values?.details?.details.productType ? productTypeRenderer(currentProduct) : ''}
+                                <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 18px; font-weight: 500; margin-bottom: 15px;">
+                                    ${values?.details?.details.price ? productPriceRenderer(currentProduct) : ''}
+                                    ${values?.details?.details.comparisonPrice ? productComparisonPriceRenderer(currentProduct) : ''}
+                                </div>
+                                ${values?.details?.details.description ? productDescriptionRenderer(currentProduct) : ''}
+                                <div style="padding: 20px 10px">
+                                     ${values?.details?.details.button ? productButtonRenderer(currentProduct, values) : ''}
+                                </div> 
+                            </div>
+                        </div>
+                        `
+                    }).join('')
+                    }
+        </div>
+                `
+            }
+        }
+
+        return `
+            ${renderProducts()}
         `
     };
 
