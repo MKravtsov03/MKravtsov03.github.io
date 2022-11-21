@@ -824,7 +824,7 @@ const getEventsTemplate = () => function (values) {
                             display: flex;
                             flex-direction: column;
                             width: ${acctiveLayout.value === 'two-columns' ? 'calc(50% - 8px);' : '100%'}">
-                    <img alt="" style="display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ line_item_logo }}" />
+                    <img alt="" style="max-width: 100%; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ line_item_logo }}" />
                     <div style="padding: 0 10px;">
                         <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
                             {{ line_item_title }}
