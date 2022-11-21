@@ -81,7 +81,6 @@
       <change afterPath="$PROJECT_DIR$/../naked/app/scss/app/shop.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../naked/app/shop.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../naked/app/subcategory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/product.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +135,7 @@
       <workItem from="1661072447259" duration="4000" />
       <workItem from="1666172007265" duration="35697000" />
       <workItem from="1667834470109" duration="19000" />
-      <workItem from="1667894147633" duration="10350000" />
+      <workItem from="1667894147633" duration="10487000" />
     </task>
     <servers />
   </component>
