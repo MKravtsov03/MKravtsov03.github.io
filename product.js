@@ -1012,7 +1012,7 @@ const getProductTemplate = () => function (values) {
 
         const renderProducts = () => {
             switch (layout) {
-                case('two-columsn'):
+                case('two-columns'):
                     return `
                         <div style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap">
             ${products.map(productId => {
