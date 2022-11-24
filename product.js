@@ -2096,12 +2096,12 @@ unlayer.registerTool({
 
 unlayer.registerTool({
     name: 'events_tool',
-    label: 'Events',
+    label: 'Abandonment',
     icon: 'https://mkravtsov03.github.io/coupon-icon.svg',
     supportedDisplayModes: ['web', 'email', 'popup'],
     options: {
         abandoned_cart: {
-            title: 'Abandoned cart',
+            title: 'Abandoned Checkout”',
             position: 1,
             options: {
                 layout: {
@@ -2293,30 +2293,30 @@ unlayer.registerTool({
                     widget: 'border',
                 },
                 recovery: {
-                    label: 'Recover cart Content',
+                    label: 'Checkout Content',
                     defaultValue: 'Recover cart',
                     widget: 'text',
                 },
                 recoveryFontSize: {
                     enabled: true,
-                    label: 'Recover cart font size',
+                    label: 'Checkout font size',
                     defaultValue: '16',
                     widget: 'counter',
                 },
                 recoveryColor: {
                     enabled: true,
-                    label: 'Recover cart color',
+                    label: 'Checkout color',
                     defaultValue: '#fff',
                     widget: 'color_picker',
                 },
                 recoveryBg: {
                     enabled: true,
-                    label: 'Recover cart background color',
+                    label: 'Checkout background color',
                     defaultValue: '#000',
                     widget: 'color_picker',
                 },
                 recoveryBorder: {
-                    label: 'Recover cart border',
+                    label: 'Checkout border',
                     defaultValue: '',
                     widget: 'border',
                 },
@@ -2572,7 +2572,7 @@ const labelsMap = {
         price: 'Item price',
         quantity: 'Item quantity',
         button: 'Item button',
-        recovery: 'Recovery cart button',
+        recovery: 'Checkout',
         image: 'Item image'
     }
 }
