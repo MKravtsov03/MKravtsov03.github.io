@@ -13,6 +13,8 @@
       <change afterPath="$PROJECT_DIR$/../iDerma/app/appointment.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/article.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/blog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iDerma/app/contact-confirm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iDerma/app/contact.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/faq.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/prices.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scripts/components/sliders.js" afterDir="false" />
@@ -22,6 +24,7 @@
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/article.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/blog.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/breadcrumbs.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/contact.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/error.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/faq.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/footer.scss" afterDir="false" />
@@ -91,6 +94,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -136,7 +140,7 @@
       <workItem from="1661072447259" duration="4000" />
       <workItem from="1666172007265" duration="35697000" />
       <workItem from="1667834470109" duration="19000" />
-      <workItem from="1667894147633" duration="12169000" />
+      <workItem from="1667894147633" duration="12816000" />
     </task>
     <servers />
   </component>

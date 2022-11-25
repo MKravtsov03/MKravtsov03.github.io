@@ -813,7 +813,6 @@ const getEventsTemplate = () => function (values) {
     const productCardRenderer = () => `
             <span style="display: none;">**</span>
                 <div style="position: relative;
-                            gap: 15px;
                             min-width: 0;
                             word-wrap: break-word;
                             background-color: #fff;
@@ -821,11 +820,9 @@ const getEventsTemplate = () => function (values) {
                             border: 1px solid rgba(0,0,0,.125);
                             border-radius: 0.25rem;
                             text-align: center;
-                            display: flex;
-                            flex-direction: column;
                             width: ${acctiveLayout.value === 'two-columns' ? 'calc(50% - 8px);' : '100%'}">
-                    <img alt="" style="max-width: 100%; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ line_item_logo }}" />
-                    <div style="padding: 0 10px;">
+                    <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ line_item_logo }}" />
+                    <div style="padding: 0 10px 15px;">
                         <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
                             {{ line_item_title }}
                         </div>
