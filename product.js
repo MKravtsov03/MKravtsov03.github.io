@@ -820,29 +820,30 @@ const getEventsTemplate = () => function (values) {
                             border: 1px solid rgba(0,0,0,.125);
                             border-radius: 0.25rem;
                             text-align: center;
+                            border-bottom: 1px solid #E4E7EC;
+                            margin-bottom: 24px;
+                            border-radius: 12px 12px 0px 0px;
+                            overflow: hidden;
                             width: ${acctiveLayout.value === 'two-columns' ? 'calc(50% - 8px);' : '100%'}">
                     <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ line_item_logo }}" />
-                    <div style="padding: 0 10px 15px;">
-                        <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
-                            {{ line_item_title }}
+                    <div style="padding: 0 10px 15px;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: flex-start;">
+                        <div>
+                            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
+                                {{ line_item_title }}
+                            </div>
+                            <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
+                                {{ line_item_price }}
+                            </div>
+                            <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 0; display: ${values?.details?.details.quantity ? 'block' : 'none'}" class="quantity price"> 
+                                Quantity: {{ line_item_quantity }}
+                            </div>
                         </div>
-                        <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
-                            {{ line_item_price }}
-                        </div>
-                        <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 0; display: ${values?.details?.details.quantity ? 'block' : 'none'}" class="quantity price"> 
-                            Quantity: {{ line_item_quantity }}
-                        </div>
-                    </div>
-                    <div style="display: flex;
-                                justify-content: center;
-                                padding: 0 15px 15px;
-                                align-items: center;
-                                font-weight: bold;">
-                                
-                    <a style="font-weight: 400;
+                        <a style="font-weight: 400;
                               text-align: center;
                               vertical-align: middle;
-                              background-color: #000;
                               border-radius: 8px;
                               padding: 0.75rem;
                               font-size: 1rem;
@@ -850,7 +851,7 @@ const getEventsTemplate = () => function (values) {
                               transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
                               cursor: pointer;
                               text-decoration: none;
-                              width: 200px;
+                              min-width: 105px;
                               max-width: 100%;
                               border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
                               border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
@@ -863,8 +864,8 @@ const getEventsTemplate = () => function (values) {
                               href="{{ line_item_links }}" target="_blank">
                         ${values.btn}
                     </a>
-                        
-                    </div> 
+                    </div>
+                   
                 </div>
             <span style="display: none;">**</span>
         `;
@@ -904,40 +905,59 @@ const getEventsTemplateViewer = () => function (values) {
     const acctiveLayout = values.layout.find(layout => layout.active)
     const productCardRenderer = () => `
            <span style="display: none;">**</span>
-                <div class="product-card">
-                    <img alt="" class="${values?.details?.details.image ? '' : 'hidden'}" src="https://via.placeholder.com/480x320.jpg?text=Image+placeholder" />
-                    <div class="product-card__inner">
-                        <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all;" class="product-title ${values?.details?.details.name ? '' : 'hidden'}">
-                            {{ line_item_title }}
+                <div style="position: relative;
+                            min-width: 0;
+                            word-wrap: break-word;
+                            background-color: #fff;
+                            background-clip: border-box;
+                            border: 1px solid rgba(0,0,0,.125);
+                            border-radius: 0.25rem;
+                            text-align: center;
+                            border-bottom: 1px solid #E4E7EC;
+                            margin-bottom: 24px;
+                            border-radius: 12px 12px 0px 0px;
+                            overflow: hidden;
+                            width: ${acctiveLayout.value === 'two-columns' ? 'calc(50% - 8px);' : '100%'}">
+                    <img alt="" class="${values?.details?.details.image ? '' : 'hidden'}" src="https://via.placeholder.com/480x320/D9EEFF/238AFE?text=Image" />
+                    <div style="padding: 0 10px 15px;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: flex-start;">
+                        <div>
+                            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
+                                {{ line_item_title }}
+                            </div>
+                            <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
+                                {{ line_item_price }}
+                            </div>
+                            <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 0; display: ${values?.details?.details.quantity ? 'block' : 'none'}" class="quantity price"> 
+                                Quantity: {{ line_item_quantity }}
+                            </div>
                         </div>
-                        <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px;" class="price ${values?.details?.details.price ? '' : 'hidden'}">{{ line_item_price }}</div>
-                        <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 0" class="quantity price ${values?.details?.details.quantity ? '' : 'hidden'}"> Quantity: {{ line_item_quantity }}</div>
+                        <a style="font-weight: 400;
+                              text-align: center;
+                              vertical-align: middle;
+                              border-radius: 8px;
+                              padding: 0.75rem;
+                              font-size: 1rem;
+                              line-height: 1.5;
+                              transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                              cursor: pointer;
+                              text-decoration: none;
+                              min-width: 105px;
+                              max-width: 100%;
+                              border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                              border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                              border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                              border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                              color: ${values.btnColor};
+                              font-size: ${values.btnFontSize}px; 
+                              background-color: ${values.btnBg};
+                              display: ${values?.details?.details.button ? 'block' : 'none'};"
+                              href="{{ line_item_links }}" target="_blank">
+                            ${values.btn}
+                        </a>
                     </div>
-                    <div style="padding: 0 15px 15px" class="product-footer">
-                    <a style="font-weight: 400;
-                               text-align: center;
-                               vertical-align: middle;
-                               background-color: #000;
-                               border-radius: 8px;
-                               padding: 0.75rem;
-                               font-size: 1rem;
-                               line-height: 1.5;
-                               transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                               cursor: pointer;
-                               margin: 30px auto 0;
-                               max-width: 300px;
-                               text-decoration: none;
-                               border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
-                               border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
-                               border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
-                               border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
-                               color: ${values.btnColor};
-                               font-size: ${values.btnFontSize}px;
-                               display: ${values?.details?.details.button ? 'block' : 'none'};
-                               background-color: ${values.btnBg};" href="{{ line_item_links }}" target="_blank">
-                        ${values.btn}
-                    </a>
-                    </div> 
                 </div>
             <span style="display: none;">**</span>
         `;
@@ -2197,7 +2217,7 @@ unlayer.registerTool({
                 priceFontSize: {
                     enabled: true,
                     label: 'Price font size',
-                    defaultValue: '16',
+                    defaultValue: '14',
                     widget: 'counter',
                 },
                 priceColor: {
@@ -2246,13 +2266,13 @@ unlayer.registerTool({
                 quantityFontSize: {
                     enabled: true,
                     label: 'Quantity font size',
-                    defaultValue: '16',
+                    defaultValue: '14',
                     widget: 'counter',
                 },
                 quantityColor: {
                     enabled: false,
                     label: 'Quantity color',
-                    defaultValue: '#000',
+                    defaultValue: '#667085',
                     widget: 'color_picker',
                 },
                 quantityAligment: {
@@ -2269,19 +2289,19 @@ unlayer.registerTool({
                 btnFontSize: {
                     enabled: true,
                     label: 'Button font size',
-                    defaultValue: '16',
+                    defaultValue: '14',
                     widget: 'counter',
                 },
                 btnColor: {
                     enabled: true,
                     label: 'Button color',
-                    defaultValue: '#fff',
+                    defaultValue: '#0044D9',
                     widget: 'color_picker',
                 },
                 btnBg: {
                     enabled: true,
                     label: 'Button  background color',
-                    defaultValue: '#000',
+                    defaultValue: '#F4FAFF',
                     widget: 'color_picker',
                 },
                 btnBorder: {
