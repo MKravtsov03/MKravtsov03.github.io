@@ -876,19 +876,18 @@ const getEventsTemplate = () => function (values) {
                             background-clip: border-box;
                             text-align: center;
                             border-bottom: 1px solid #E4E7EC;
-                            margin-bottom: 24px;
-                            padding-bottom: 24px;
+                            padding: 24px 10px;
                             overflow: hidden;
                             display: flex;
                             gap: 12px;
                             align-items: flex-start;
                             width: 100%">
                      <div style="max-width: 130px; border-radius: 7px; overflow:hidden;">
-                        <img alt="" class="${values?.details?.details.image ? '' : 'hidden'}" src="{{ line_item_logo }}" />
+                        <img alt="" style="display: ${values?.details?.details.image ? 'block' : 'none'}; height: auto; max-width: 100%" src="{{ line_item_logo }}" />
                     </div>
                     <div>
-                        <div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 8px">
+                        <div style="width: 100%">
+                            <div style="display: flex; gap: 10px; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 8px">
                                 <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
                                     {{ line_item_title }}
                                 </div>
@@ -1031,19 +1030,18 @@ const getEventsTemplateViewer = () => function (values) {
                             background-clip: border-box;
                             text-align: center;
                             border-bottom: 1px solid #E4E7EC;
-                            margin-bottom: 24px;
-                            padding-bottom: 24px;
+                            padding: 24px 10px;
                             overflow: hidden;
                             display: flex;
                             gap: 12px;
                             align-items: flex-start;
                             width: 100%">
                      <div style="max-width: 130px; border-radius: 7px; overflow:hidden;">
-                        <img alt="" class="${values?.details?.details.image ? '' : 'hidden'}" src="https://via.placeholder.com/480x320/D9EEFF/238AFE?text=Image" />
+                        <img alt="" style="display: ${values?.details?.details.image ? 'block' : 'none'}" src="https://via.placeholder.com/480x320/D9EEFF/238AFE?text=Image" />
                     </div>
-                    <div>
+                    <div style="width: 100%">
                         <div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 8px">
+                            <div style="display: flex; gap: 10px; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 8px">
                                 <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
                                     {{ line_item_title }}
                                 </div>
