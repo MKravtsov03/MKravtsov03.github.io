@@ -930,7 +930,7 @@ const getEventsTemplate = () => function (values) {
         `;
     return `
         <div style="background: #FFFFFF;
-                    border-radius: 0px 0px 12px 12px;
+                    border-radius: 12px;
                     overflow: hidden;
                     padding-bottom: 24px;">
             <div>
@@ -1084,7 +1084,7 @@ const getEventsTemplateViewer = () => function (values) {
         `;
     return `
         <div style="background: #FFFFFF;
-                    border-radius: 0px 0px 12px 12px;
+                    border-radius: 12px;
                     overflow: hidden;
                     padding-bottom: 24px;">
             <div>
