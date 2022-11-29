@@ -870,33 +870,36 @@ const getEventsTemplate = () => function (values) {
             <span style="display: none;">**</span>
         `;
     return `
-        <div style="${acctiveLayout.value === 'two-columns' ? 'display: flex; gap: 15px; flex-wrap: wrap;' : ''}">
-            ${productCardRenderer()}
+        <div style="background: #FFFFFF;
+                    border-radius: 0px 0px 12px 12px;
+                    overflow: hidden;
+                    padding-bottom: 24px;">
+            <div style="${acctiveLayout.value === 'two-columns' ? 'display: flex; gap: 15px; flex-wrap: wrap;' : ''}">
+                ${productCardRenderer()}
+            </div>
+            <a style="font-weight: 400;
+                       text-align: center;
+                       vertical-align: middle;
+                       border-radius: 8px;
+                       padding: 16px;
+                       line-height: 1.5;
+                       transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                       cursor: pointer;
+                       margin: 30px auto 0;
+                       max-width: 170px;
+                       text-decoration: none;
+                       border-left: ${values.recoveryBorder.borderLeftWidth} ${values.recoveryBorder.borderLeftStyle} ${values.recoveryBorder.borderLeftColor};
+                       border-top: ${values.recoveryBorder.borderTopWidth} ${values.recoveryBorder.borderTopStyle} ${values.recoveryBorder.borderTopColor};
+                       border-right: ${values.recoveryBorder.borderRightWidth} ${values.recoveryBorder.borderRightStyle} ${values.recoveryBorder.borderRightColor}; 
+                       border-bottom: ${values.recoveryBorder.borderBottomWidth} ${values.recoveryBorder.borderBottomStyle} ${values.recoveryBorder.borderBottomColor};
+                       color: ${values.recoveryColor};
+                       font-size: ${values.recoveryFontSize}px;
+                       background-color: ${values.recoveryBg};
+                       display: ${values?.details?.details.recovery ? 'block' : 'none'};"
+                       href="{{ checkout.abandoned_checkout_url }}" target="_blank">
+                ${values.recovery}
+            </a>
         </div>
-        <a style="font-weight: 400;
-                   text-align: center;
-                   vertical-align: middle;
-                   background-color: #000;
-                   border-radius: 8px;
-                   padding: 0.75rem;
-                   font-size: 1rem;
-                   line-height: 1.5;
-                   transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                   cursor: pointer;
-                   margin: 30px auto 0;
-                   max-width: 300px;
-                   text-decoration: none;
-                   border-left: ${values.recoveryBorder.borderLeftWidth} ${values.recoveryBorder.borderLeftStyle} ${values.recoveryBorder.borderLeftColor};
-                   border-top: ${values.recoveryBorder.borderTopWidth} ${values.recoveryBorder.borderTopStyle} ${values.recoveryBorder.borderTopColor};
-                   border-right: ${values.recoveryBorder.borderRightWidth} ${values.recoveryBorder.borderRightStyle} ${values.recoveryBorder.borderRightColor}; 
-                   border-bottom: ${values.recoveryBorder.borderBottomWidth} ${values.recoveryBorder.borderBottomStyle} ${values.recoveryBorder.borderBottomColor};
-                   color: ${values.recoveryColor};
-                   font-size: ${values.recoveryFontSize}px;
-                   background-color: ${values.recoveryBg};
-                   display: ${values?.details?.details.recovery ? 'block' : 'none'};"
-                   href="{{ checkout.abandoned_checkout_url }}" target="_blank">
-            ${values.recovery}
-        </a>
     `
 }
 
@@ -2329,7 +2332,7 @@ unlayer.registerTool({
                 recoveryBg: {
                     enabled: true,
                     label: 'Checkout background color',
-                    defaultValue: '#000',
+                    defaultValue: '#0B68FF',
                     widget: 'color_picker',
                 },
                 recoveryBorder: {
