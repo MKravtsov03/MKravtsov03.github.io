@@ -826,7 +826,7 @@ const getEventsTemplate = () => function (values) {
                             overflow: hidden;
                             width: ${acctiveLayout.value === 'two-columns' ? 'calc(50% - 8px);' : '100%'}">
                     <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ line_item_logo }}" />
-                    <div style="padding: 0 10px 15px;
+                    <div style="padding: 15px 10px;
                                 display: flex;
                                 justify-content: space-between;
                                 align-items: flex-start;">
@@ -922,7 +922,7 @@ const getEventsTemplateViewer = () => function (values) {
                             overflow: hidden;
                             width: ${acctiveLayout.value === 'two-columns' ? 'calc(50% - 8px);' : '100%'}">
                     <img alt="" class="${values?.details?.details.image ? '' : 'hidden'}" src="https://via.placeholder.com/480x320/D9EEFF/238AFE?text=Image" />
-                    <div style="padding: 0 10px 15px;
+                    <div style="padding: 15px 10px;
                                 display: flex;
                                 justify-content: space-between;
                                 align-items: flex-start;">
@@ -965,10 +965,36 @@ const getEventsTemplateViewer = () => function (values) {
             <span style="display: none;">**</span>
         `;
     return `
-        <div class="products-grid ${acctiveLayout.value}">
-            ${productCardRenderer()}
+        <div style="background: #FFFFFF;
+                    border-radius: 0px 0px 12px 12px;
+                    overflow: hidden;
+                    padding-bottom: 24px;">
+            <div class="products-grid ${acctiveLayout.value}">
+                ${productCardRenderer()}
+            </div>
+             <a style="font-weight: 400;
+                       text-align: center;
+                       vertical-align: middle;
+                       border-radius: 8px;
+                       padding: 16px;
+                       line-height: 1.5;
+                       transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                       cursor: pointer;
+                       margin: 30px auto 0;
+                       max-width: 170px;
+                       text-decoration: none;
+                       border-left: ${values.recoveryBorder.borderLeftWidth} ${values.recoveryBorder.borderLeftStyle} ${values.recoveryBorder.borderLeftColor};
+                       border-top: ${values.recoveryBorder.borderTopWidth} ${values.recoveryBorder.borderTopStyle} ${values.recoveryBorder.borderTopColor};
+                       border-right: ${values.recoveryBorder.borderRightWidth} ${values.recoveryBorder.borderRightStyle} ${values.recoveryBorder.borderRightColor}; 
+                       border-bottom: ${values.recoveryBorder.borderBottomWidth} ${values.recoveryBorder.borderBottomStyle} ${values.recoveryBorder.borderBottomColor};
+                       color: ${values.recoveryColor};
+                       font-size: ${values.recoveryFontSize}px;
+                       background-color: ${values.recoveryBg};
+                       display: ${values?.details?.details.recovery ? 'block' : 'none'};"
+                       href="{{ checkout.abandoned_checkout_url }}" target="_blank">
+                ${values.recovery}
+            </a>
         </div>
-        <a style="border-left: ${values.recoveryBorder.borderLeftWidth} ${values.recoveryBorder.borderLeftStyle} ${values.recoveryBorder.borderLeftColor}; border-top: ${values.recoveryBorder.borderTopWidth} ${values.recoveryBorder.borderTopStyle} ${values.recoveryBorder.borderTopColor}; border-right: ${values.recoveryBorder.borderRightWidth} ${values.recoveryBorder.borderRightStyle} ${values.recoveryBorder.borderRightColor}; border-bottom: ${values.recoveryBorder.borderBottomWidth} ${values.recoveryBorder.borderBottomStyle} ${values.recoveryBorder.borderBottomColor}; color: ${values.recoveryColor}; font-size: ${values.recoveryFontSize}px; background-color: ${values.recoveryBg};" class="button recovery-cart no-underline ${values?.details?.details.recovery ? '' : 'hidden'}" href="{{ abandoned_checkout_url }}" target="_blank">${values.recovery}</a>
     `
 }
 
