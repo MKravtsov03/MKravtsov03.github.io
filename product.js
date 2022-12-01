@@ -1131,11 +1131,11 @@ const getProductTemplate = () => function (values) {
         `;
 
         const productPriceRenderer = (product) => `
-           <div class="price">${product?.price && (product?.price)} $</div>
+           <span style="margin: 0 10px" class="price">${product?.price && (product?.price)} $</span>
         `;
 
         const productComparisonPriceRenderer = (product) => product?.comparisonPrice ? `
-            <div style="font-size: ${values.comparisonPriceFontSize}px;  color: ${values.comparisonPriceColor};" class="price-old">${product?.comparisonPrice} $</div>
+            <span style="font-size: ${values.comparisonPriceFontSize}px;  color: ${values.comparisonPriceColor};" class="price-old">${product?.comparisonPrice} $</span>
         ` : '';
 
         const productDescriptionRenderer = (product) => `
@@ -1145,7 +1145,7 @@ const getProductTemplate = () => function (values) {
         `;
 
         const productTypeRenderer = (product) => `
-            <div class="product-type">${product?.productType}</div>
+            <div style="margin-bottom: 15px;">${product?.productType}</div>
         `;
 
         const productButtonRenderer = (product, values) => `
@@ -1161,6 +1161,7 @@ const getProductTemplate = () => function (values) {
                        cursor: pointer;
                        margin: 30px auto 0;
                        max-width: 300px;
+                       cursor: pointer;
                        text-decoration: none;border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" href="${values.btnLink.url}" target="${values.btnLink.target}">
                     ${values.productCTA}
             </a>
@@ -1211,7 +1212,7 @@ const getProductTemplate = () => function (values) {
                             <div style="padding: 0 10px;">
                                 ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
                                 ${values?.details?.details.productType ? productTypeRenderer(currentProduct) : ''}
-                                <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 18px; font-weight: 500; margin-bottom: 15px;">
+                                <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; font-weight: 500; margin-bottom: 15px;">
                                     ${values?.details?.details.price ? productPriceRenderer(currentProduct) : ''}
                                     ${values?.details?.details.comparisonPrice ? productComparisonPriceRenderer(currentProduct) : ''}
                                 </div>
@@ -1258,7 +1259,7 @@ const getProductTemplate = () => function (values) {
                             <div style="padding: 0 10px; order: ${index % 2 == 0 ? '-1' : '0'}">
                                 ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
                                 ${values?.details?.details.productType ? productTypeRenderer(currentProduct) : ''}
-                                <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 18px; font-weight: 500; margin-bottom: 15px;">
+                                <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; font-weight: 500; margin-bottom: 15px;">
                                     ${values?.details?.details.price ? productPriceRenderer(currentProduct) : ''}
                                     ${values?.details?.details.comparisonPrice ? productComparisonPriceRenderer(currentProduct) : ''}
                                 </div>
@@ -1305,7 +1306,7 @@ const getProductTemplate = () => function (values) {
                             <div style="padding: 0 10px;">
                                 ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
                                 ${values?.details?.details.productType ? productTypeRenderer(currentProduct) : ''}
-                                <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 18px; font-weight: 500; margin-bottom: 15px;">
+                                <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; font-weight: 500; margin-bottom: 15px;">
                                     ${values?.details?.details.price ? productPriceRenderer(currentProduct) : ''}
                                     ${values?.details?.details.comparisonPrice ? productComparisonPriceRenderer(currentProduct) : ''}
                                 </div>
@@ -1343,7 +1344,7 @@ const getProductTemplate = () => function (values) {
                             <div style="padding: 0 10px;">
                                 ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
                                 ${values?.details?.details.productType ? productTypeRenderer(currentProduct) : ''}
-                                <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 18px; font-weight: 500; margin-bottom: 15px;">
+                                <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; font-weight: 500; margin-bottom: 15px;">
                                     ${values?.details?.details.price ? productPriceRenderer(currentProduct) : ''}
                                     ${values?.details?.details.comparisonPrice ? productComparisonPriceRenderer(currentProduct) : ''}
                                 </div>
