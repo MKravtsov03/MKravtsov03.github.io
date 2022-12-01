@@ -1195,9 +1195,7 @@ const getProductTemplate = () => function (values) {
                                     background-clip: border-box;
                                     border: 1px solid rgba(0,0,0,.125);
                                     border-radius: 0.25rem;
-                                    text-align: center;
-                                    display: flex;
-                                    flex-direction: column;">
+                                    text-align: center;">
                             
                             ${values?.details?.details.image ? `
                                 <div style="max-height: 220px; overflow: hidden">
@@ -1244,9 +1242,7 @@ const getProductTemplate = () => function (values) {
                                     background-clip: border-box;
                                     border: 1px solid rgba(0,0,0,.125);
                                     border-radius: 0.25rem;
-                                    text-align: center;
-                                    display: flex;
-                                    flex-direction: column;">
+                                    text-align: center;">
                             
                             ${values?.details?.details.image ? `
                                 <div style="max-height: 220px; overflow: hidden">
@@ -1293,9 +1289,7 @@ const getProductTemplate = () => function (values) {
                                     background-clip: border-box;
                                     border: 1px solid rgba(0,0,0,.125);
                                     border-radius: 0.25rem;
-                                    text-align: center;
-                                    display: flex;
-                                    flex-direction: column;">
+                                    text-align: center;">
                             
                             ${values?.details?.details.image ? `
                                 <div style="max-height: 150px; overflow: hidden">
@@ -1334,7 +1328,6 @@ const getProductTemplate = () => function (values) {
                         const currentProduct = values.data.products.find((product) => product.id === +productId);
                         return `
                         <div style="position: relative;
-                                    gap: 15px;
                                     min-width: 0;
                                     width: 100%;
                                     margin-bottom: 20px;
@@ -1343,9 +1336,7 @@ const getProductTemplate = () => function (values) {
                                     background-clip: border-box;
                                     border: 1px solid rgba(0,0,0,.125);
                                     border-radius: 0.25rem;
-                                    text-align: center;
-                                    display: flex;
-                                    flex-direction: column;">
+                                    text-align: center;">
                             
                             ${values?.details?.details.image ? productImageRenderer(currentProduct) : ''}
                            
