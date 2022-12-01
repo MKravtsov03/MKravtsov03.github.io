@@ -1186,10 +1186,11 @@ const getProductTemplate = () => function (values) {
             ${products.map(productId => {
                         const currentProduct = values.data.products.find((product) => product.id === +productId);
                         return `
-                        <div data-at="${productId}" style="position: relative;
-                                    gap: 15px;
+                        <div data-at="${productId}" style="
+                                    position: relative;
                                     min-width: 0;
-                                    max-width: calc(50% - 10px);
+                                    max-width: 50%;
+                                    margin: 0 5px 10px;
                                     width: 100%;
                                     word-wrap: break-word;
                                     background-color: #fff;
@@ -1233,10 +1234,11 @@ const getProductTemplate = () => function (values) {
             ${products.map((productId, index) => {
                         const currentProduct = values.data.products.find((product) => product.id === +productId);
                         return `
-                        <div data-at="${productId}" style="position: relative;
-                                    gap: 15px;
+                        <div data-at="${productId}" style="
+                                    position: relative;
                                     min-width: 0;
-                                    max-width: calc(50% - 10px);
+                                    max-width: 50%;
+                                    margin: 0 5px 10px;
                                     width: 100%;
                                     word-wrap: break-word;
                                     background-color: #fff;
@@ -1280,10 +1282,11 @@ const getProductTemplate = () => function (values) {
             ${products.map((productId, index) => {
                         const currentProduct = values.data.products.find((product) => product.id === +productId);
                         return `
-                        <div data-at="${productId}" style="position: relative;
-                                    gap: 15px;
+                        <div data-at="${productId}" style="
+                                    position: relative;
                                     min-width: 0;
-                                    max-width: calc(33.33333% - 7px);
+                                    max-width: 50%;
+                                    margin: 0 5px 10px;
                                     width: 100%;
                                     word-wrap: break-word;
                                     background-color: #fff;
