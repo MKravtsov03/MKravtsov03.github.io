@@ -1186,7 +1186,7 @@ const getProductTemplate = () => function (values) {
             ${products.map(productId => {
                         const currentProduct = values.data.products.find((product) => product.id === +productId);
                         return `
-                        <div style="position: relative;
+                        <div data-at="${productId}" style="position: relative;
                                     gap: 15px;
                                     min-width: 0;
                                     max-width: calc(50% - 10px);
@@ -1233,7 +1233,7 @@ const getProductTemplate = () => function (values) {
             ${products.map((productId, index) => {
                         const currentProduct = values.data.products.find((product) => product.id === +productId);
                         return `
-                        <div style="position: relative;
+                        <div data-at="${productId}" style="position: relative;
                                     gap: 15px;
                                     min-width: 0;
                                     max-width: calc(50% - 10px);
@@ -1280,7 +1280,7 @@ const getProductTemplate = () => function (values) {
             ${products.map((productId, index) => {
                         const currentProduct = values.data.products.find((product) => product.id === +productId);
                         return `
-                        <div style="position: relative;
+                        <div data-at="${productId}" style="position: relative;
                                     gap: 15px;
                                     min-width: 0;
                                     max-width: calc(33.33333% - 7px);
@@ -1328,7 +1328,7 @@ const getProductTemplate = () => function (values) {
             ${products.map(productId => {
                         const currentProduct = values.data.products.find((product) => product.id === +productId);
                         return `
-                        <div style="position: relative;
+                        <div data-at="${productId}" style="position: relative;
                                     min-width: 0;
                                     width: 100%;
                                     margin-bottom: 20px;
