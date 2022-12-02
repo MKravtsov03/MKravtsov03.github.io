@@ -812,7 +812,7 @@ const getEventsTemplate = () => function (values) {
     const acctiveLayout = values.layout.find(layout => layout.active)
     const productCardRenderer = () => `
             <span style="display: none;">**</span>
-                <div style="position: relative;
+                <table style="position: relative;
                             min-width: 0;
                             word-wrap: break-word;
                             background-color: #fff;
@@ -822,49 +822,66 @@ const getEventsTemplate = () => function (values) {
                             margin-bottom: 24px;
                             border-radius: 12px 12px 0px 0px;
                             overflow: hidden;
-                            width: ${acctiveLayout.value === 'two-columns' ? 'calc(50% - 8px);' : '100%'}">
-                    <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ line_item_logo }}" />
-                    <div style="padding: 15px 10px;
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: flex-start;">
-                        <div>
-                            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
-                                {{ line_item_title }}
-                            </div>
-                            <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
-                                {{ line_item_price }}
-                            </div>
-                            <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 0; display: ${values?.details?.details.quantity ? 'block' : 'none'}" class="quantity price"> 
-                                Quantity: {{ line_item_quantity }}
-                            </div>
-                        </div>
-                        <a style="font-weight: 400;
-                              text-align: center;
-                              vertical-align: middle;
-                              border-radius: 8px;
-                              padding: 0.75rem;
-                              font-size: 1rem;
-                              line-height: 1.5;
-                              transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                              cursor: pointer;
-                              text-decoration: none;
-                              min-width: 105px;
-                              max-width: 100%;
-                              border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
-                              border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
-                              border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
-                              border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
-                              color: ${values.btnColor};
-                              font-size: ${values.btnFontSize}px; 
-                              background-color: ${values.btnBg};
-                              display: ${values?.details?.details.button ? 'block' : 'none'};"
-                              href="{{ line_item_links }}" target="_blank">
-                        ${values.btn}
-                    </a>
-                    </div>
-                   
-                </div>
+                            width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ line_item_logo }}" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="padding:15px 10px;display:flex;width: 100%;">
+                                            <tbody style="width: 100%">
+                                                <tr style="width: 100%">
+                                                    <td style="width: 70%; min-width: 400px">
+                                                        <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
+                                                            {{ line_item_title }}
+                                                        </div>
+                                                        <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
+                                                            {{ line_item_price }}
+                                                        </div>
+                                                        <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 0; display: ${values?.details?.details.quantity ? 'block' : 'none'}" class="quantity price"> 
+                                                            Quantity: {{ line_item_quantity }}
+                                                        </div>
+                                                    </td>
+                                                    <td style="width: 100%; padding: 0 10px;"></td>
+                                                    <td>
+                                                        <a style="font-weight: 400;
+                                                                  text-align: center;
+                                                                  vertical-align: middle;
+                                                                  border-radius: 8px;
+                                                                  padding: 0.75rem;
+                                                                  font-size: 1rem;
+                                                                  line-height: 1.5;
+                                                                  transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                                                  cursor: pointer;
+                                                                  text-decoration: none;
+                                                                  min-width: 105px;
+                                                                  max-width: 100%;
+                                                                  border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                                                                  border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                                                                  border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                                                                  border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                                                                  color: ${values.btnColor};
+                                                                  font-size: ${values.btnFontSize}px; 
+                                                                  background-color: ${values.btnBg};
+                                                                  display: ${values?.details?.details.button ? 'block' : 'none'};"
+                                                                  href="{{ line_item_links }}" target="_blank">
+                                                            ${values.btn}
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                </table>
             <span style="display: none;">**</span>
         `;
     const productTwoColumnsCardRenderer = () => `
@@ -967,7 +984,7 @@ const getEventsTemplateViewer = () => function (values) {
     const acctiveLayout = values.layout.find(layout => layout.active)
     const productCardRenderer = () => `
            <span style="display: none;">**</span>
-                <div style="position: relative;
+                <table style="position: relative;
                             min-width: 0;
                             word-wrap: break-word;
                             background-color: #fff;
@@ -977,48 +994,66 @@ const getEventsTemplateViewer = () => function (values) {
                             margin-bottom: 24px;
                             border-radius: 12px 12px 0px 0px;
                             overflow: hidden;
-                            width: ${acctiveLayout.value === 'two-columns' ? 'calc(50% - 8px);' : '100%'}">
-                    <img alt="" class="${values?.details?.details.image ? '' : 'hidden'}" src="https://via.placeholder.com/480x320/D9EEFF/238AFE?text=Image" />
-                    <div style="padding: 15px 10px;
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: flex-start;">
-                        <div>
-                            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
-                                {{ line_item_title }}
-                            </div>
-                            <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
-                                {{ line_item_price }}
-                            </div>
-                            <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 0; display: ${values?.details?.details.quantity ? 'block' : 'none'}" class="quantity price"> 
-                                Quantity: {{ line_item_quantity }}
-                            </div>
-                        </div>
-                        <a style="font-weight: 400;
-                              text-align: center;
-                              vertical-align: middle;
-                              border-radius: 8px;
-                              padding: 0.75rem;
-                              font-size: 1rem;
-                              line-height: 1.5;
-                              transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                              cursor: pointer;
-                              text-decoration: none;
-                              min-width: 105px;
-                              max-width: 100%;
-                              border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
-                              border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
-                              border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
-                              border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
-                              color: ${values.btnColor};
-                              font-size: ${values.btnFontSize}px; 
-                              background-color: ${values.btnBg};
-                              display: ${values?.details?.details.button ? 'block' : 'none'};"
-                              href="{{ line_item_links }}" target="_blank">
-                            ${values.btn}
-                        </a>
-                    </div>
-                </div>
+                            width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="https://via.placeholder.com/480x320/D9EEFF/238AFE?text=Image" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table style="padding:15px 10px;display:flex;width: 100%;">
+                                    <tbody style="width: 100%">
+                                        <tr style="width: 100%">
+                                            <td style="width: 70%; min-width: 400px">
+                                                <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
+                                                    {{ line_item_title }}
+                                                </div>
+                                                <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
+                                                    {{ line_item_price }}
+                                                </div>
+                                                <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 0; display: ${values?.details?.details.quantity ? 'block' : 'none'}" class="quantity price"> 
+                                                    Quantity: {{ line_item_quantity }}
+                                                </div>
+                                            </td>
+                                            <td style="width: 100%; padding: 0 10px;"></td>
+                                            <td>
+                                                <a style="font-weight: 400;
+                                                          text-align: center;
+                                                          vertical-align: middle;
+                                                          border-radius: 8px;
+                                                          padding: 0.75rem;
+                                                          font-size: 1rem;
+                                                          line-height: 1.5;
+                                                          transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                                          cursor: pointer;
+                                                          text-decoration: none;
+                                                          min-width: 105px;
+                                                          max-width: 100%;
+                                                          border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                                                          border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                                                          border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                                                          border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                                                          color: ${values.btnColor};
+                                                          font-size: ${values.btnFontSize}px; 
+                                                          background-color: ${values.btnBg};
+                                                          display: ${values?.details?.details.button ? 'block' : 'none'};"
+                                                          href="{{ line_item_links }}" target="_blank">
+                                                    ${values.btn}
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             <span style="display: none;">**</span>
         `;
     const productTwoColumnsCardRenderer = () => `
