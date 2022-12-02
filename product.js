@@ -830,7 +830,6 @@ const getEventsTemplate = () => function (values) {
                             border-bottom: 1px solid #E4E7EC;
                             margin-bottom: 24px;
                             border-radius: 12px 12px 0px 0px;
-                            overflow: hidden;
                             width: 100%;">
                             <tbody>
                                 <tr>
@@ -1002,7 +1001,6 @@ const getEventsTemplateViewer = () => function (values) {
                             border-bottom: 1px solid #E4E7EC;
                             margin-bottom: 24px;
                             border-radius: 12px 12px 0px 0px;
-                            overflow: hidden;
                             width: 100%;">
                     <tbody>
                         <tr>
