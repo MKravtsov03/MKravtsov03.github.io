@@ -980,7 +980,7 @@ const getEventsTemplate = () => function (values) {
                        font-size: ${values.recoveryFontSize}px;
                        background-color: ${values.recoveryBg};
                        display: ${values?.details?.details.recovery ? 'block' : 'none'};"
-                       href="{{ checkout.abandoned_checkout_url }}" target="_blank">
+                       href="{{ abandoned_checkout_url }}" target="_blank">
                 ${values.recovery}
             </a>
         </div>
@@ -1151,7 +1151,7 @@ const getEventsTemplateViewer = () => function (values) {
                        font-size: ${values.recoveryFontSize}px;
                        background-color: ${values.recoveryBg};
                        display: ${values?.details?.details.recovery ? 'block' : 'none'};"
-                       href="{{ checkout.abandoned_checkout_url }}" target="_blank">
+                       href="{{ abandoned_checkout_url }}" target="_blank">
                 ${values.recovery}
             </a>
         </div>
