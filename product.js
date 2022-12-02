@@ -846,7 +846,7 @@ const getEventsTemplate = () => function (values) {
                                         <table style="padding:15px 10px;display:flex;width: 100%;">
                                             <tbody style="width: 100%">
                                                 <tr style="width: 100%">
-                                                    <td style="width: 70%; min-width: 400px">
+                                                    <td id="product-inner-td" style="width: 85%;">
                                                         <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
                                                             {{ line_item_title }}
                                                         </div>
@@ -1017,7 +1017,7 @@ const getEventsTemplateViewer = () => function (values) {
                                 <table style="padding:15px 10px;display:flex;width: 100%;">
                                     <tbody style="width: 100%">
                                         <tr style="width: 100%">
-                                            <td style="width: 70%;">
+                                            <td id="product-inner-td" style="width: 85%;">
                                                 <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
                                                     {{ line_item_title }}
                                                 </div>
@@ -1167,7 +1167,7 @@ const getProductTemplate = () => function (values) {
         const { layout } = values?.productContent
         console.log(values)
         const productTitleRenderer = (product) => `
-            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px;">
+            <div id="product-price" style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px;">
                 ${product?.productTitle || 'Product Title'}
             </div> 
         `;
