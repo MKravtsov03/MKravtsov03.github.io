@@ -2364,7 +2364,7 @@ unlayer.registerTool({
                 titleAligment: {
                     enabled: true,
                     label: 'Product title aligment',
-                    defaultValue: 'center',
+                    defaultValue: 'left',
                     widget: 'alignment',
                 },
                 priceFont: {
@@ -2413,7 +2413,7 @@ unlayer.registerTool({
                 priceAligment: {
                     enabled: true,
                     label: 'Price aligment',
-                    defaultValue: 'center',
+                    defaultValue: 'left',
                     widget: 'alignment',
                 },
                 quantityFont: {
