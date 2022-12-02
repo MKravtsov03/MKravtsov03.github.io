@@ -6,6 +6,15 @@ const ProductStyles = () =>
         * {
             box-sizing: border-box;
         }
+        table {
+            box-sizing: border-box;
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: none;
+        }
+        td {
+            padding: 0;
+        }
         .products-grid {
             gap: 20px;
             flex-wrap: wrap;
@@ -1002,7 +1011,7 @@ const getEventsTemplateViewer = () => function (values) {
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="https://via.placeholder.com/480x320/D9EEFF/238AFE?text=Image" />
+                                                <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="https://storage.cloud.google.com/moda-platform-dev-us-central1-ui-connectors-icons/connector_icons/image/live/image_placeholder.svg?authuser=2" />
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1010,7 +1019,7 @@ const getEventsTemplateViewer = () => function (values) {
                                 <table style="padding:15px 10px;display:flex;width: 100%;">
                                     <tbody style="width: 100%">
                                         <tr style="width: 100%">
-                                            <td style="width: 70%; min-width: 400px">
+                                            <td style="width: 70%;">
                                                 <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
                                                     {{ line_item_title }}
                                                 </div>
