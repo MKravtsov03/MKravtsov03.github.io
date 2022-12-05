@@ -894,7 +894,8 @@ const getEventsTemplate = () => function (values) {
         `;
     const productTwoColumnsCardRenderer = () => `
            <span style="display: none;">**</span>
-                <table style="border-bottom:1px solid #e4e7ec;width:100%; padding: 20px 0;">
+                <div style="border-bottom:1px solid #e4e7ec; padding: 20px 10px;">
+                    <table style="width:100%;">
                     <tbody>
                       <tr>
                         <td style="vertical-align: text-top; padding-right: 10px">
@@ -965,6 +966,7 @@ const getEventsTemplate = () => function (values) {
                       </tr>
                     </tbody>
                 </table>
+                </div>
             <span style="display: none;">**</span>
         `;
     return `
@@ -1079,10 +1081,11 @@ const getEventsTemplateViewer = () => function (values) {
         `;
     const productTwoColumnsCardRenderer = () => `
            <span style="display: none;">**</span>
-                <table style="border-bottom:1px solid #e4e7ec;width:100%; padding: 20px 0;">
+                <div style="border-bottom:1px solid #e4e7ec; padding: 20px 10px;">
+                    <table style="width:100%;">
                     <tbody>
                       <tr>
-                        <td style="vertical-align: text-top; padding-right: 10px">
+                        <td style="vertical-align: text-top; padding-right: 10px;">
                             <div style="max-width:130px;border-radius:7px;overflow:hidden; display: inline-block">
                                 <img alt="" style="display: ${values?.details?.details.image ? 'block' : 'none'}" src="https://via.placeholder.com/480x320/D9EEFF/238AFE?text=Image" />
                             </div>
@@ -1150,6 +1153,7 @@ const getEventsTemplateViewer = () => function (values) {
                       </tr>
                     </tbody>
                 </table>
+                </div>
             <span style="display: none;">**</span>
         `;
     return `
