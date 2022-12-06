@@ -798,8 +798,8 @@ const getCouponTemplate = () => function (values) {
     </div>
     `;
     const renderLink = () => `
-    <div style="" class="coupon-item link">
-        <a style="border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline" href="${(values.btnLink.url ? values.btnLink.url  : activeCoupon?.shareable_link)}" target="_blank">${values.couponBtn}</a>
+    <div style="text-align: ${values.btnAligment}" class="coupon-item link">
+        <a style=" display: inline-block; border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; color: ${values.btnColor}; font-size: ${values.btnFontSize}px; background-color: ${values.btnBg};" class="button no-underline" href="${(values.btnLink.url ? values.btnLink.url  : activeCoupon?.shareable_link)}" target="_blank">${values.couponBtn}</a>
     </div>
     `;
     return (
@@ -1919,6 +1919,12 @@ unlayer.registerTool({
                     defaultValue: '16',
                     widget: 'counter',
                 },
+                btnAligment: {
+                    enabled: true,
+                    label: 'Button aligment',
+                    defaultValue: 'center',
+                    widget: 'alignment',
+                },
                 btnColor: {
                     enabled: true,
                     label: 'Button color',
@@ -2052,7 +2058,7 @@ unlayer.registerTool({
             position: 5,
             options: {
                 discountValueFont: {
-                    label: 'Dicount value font',
+                    label: 'Discount value font',
                     defaultValue: {
                         label: "Inter",
                         url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
@@ -2079,7 +2085,7 @@ unlayer.registerTool({
             position: 6,
             options: {
                 discountTypeFont: {
-                    label: 'Dicount type font',
+                    label: 'Discount type font',
                     defaultValue: {
                         label: "Inter",
                         url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
@@ -2189,6 +2195,9 @@ unlayer.registerTool({
                 btnBorder: {
                     enabled: false
                 },
+                btnAligment: {
+                    enabled: false
+                },
             }
         }
         else {
@@ -2209,6 +2218,9 @@ unlayer.registerTool({
                         enabled: true
                     },
                     btnBorder: {
+                        enabled: true
+                    },
+                    btnAligment: {
                         enabled: true
                     },
                 }
