@@ -928,7 +928,7 @@ const getEventsTemplate = () => function (values) {
                                             </table>
                                         </td>
                                         <td style="vertical-align: text-top;">
-                                          <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; padding-left: 20px; padding-top: 7px; margin-bottom: 15px; display: ${values?.details?.details.name ? 'inline-block' : 'none'};">
+                                          <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; padding-left: 20px; padding-top: 7px; margin-bottom: 15px; display: ${values?.details?.details.price ? 'inline-block' : 'none'};">
                                                 {{ line_item_price }}
                                           </div>
                                         </td>
@@ -1115,7 +1115,7 @@ const getEventsTemplateViewer = () => function (values) {
                                             </table>
                                         </td>
                                         <td style="vertical-align: text-top;">
-                                          <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; padding-left: 20px; padding-top: 7px; margin-bottom: 15px; display: ${values?.details?.details.name ? 'inline-block' : 'none'};">
+                                          <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; padding-left: 20px; padding-top: 7px; margin-bottom: 15px; display: ${values?.details?.details.price ? 'inline-block' : 'none'};">
                                                 {{ line_item_price }}
                                           </div>
                                         </td>
