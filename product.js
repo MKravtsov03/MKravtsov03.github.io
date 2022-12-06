@@ -754,7 +754,7 @@ const getCouponTemplate = () => function (values) {
     const activeCoupon = coupons.find(currentCoupon => currentCoupon.id == coupon)
     const renderCoupon = () => `
     <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}" class="coupon-value"> 
-                ${(activeCoupon?.title || 'XXXXXXXXXXXX')}
+                ${(activeCoupon?.title || 'Pick your Coupon')}
     </div>
     `;
     const renderValidFrom = () => `
@@ -806,10 +806,10 @@ const getCouponTemplate = () => function (values) {
     `
         <div class="coupon-wrapper">
             ${values.details.details.coupon ? renderCoupon() : ''}
-            ${values.details.details.startsAt ? renderValidFrom() : ''}
+            ${renderValidFrom()}
             ${values.details.details.expireDate ? renderExpireDate() : ''}
-            ${values.details.details.couponValue ? renderCouponValue() : ''}
-            ${values.details.details.couponType ? renderCouponType() : ''}
+            ${renderCouponValue()}
+            ${renderCouponType()}
             ${values.details.details.link ? renderLink() : ''}
         </div>
     `
@@ -1896,7 +1896,7 @@ unlayer.registerTool({
                 },
                 details: {
                     label: 'Details',
-                    defaultValue: {title: 'coupon', details: {coupon: true, startsAt: false, expireDate: false, couponValue: false, couponType: false, link: false,}},
+                    defaultValue: {title: 'coupon', details: {coupon: true, expireDate: false, link: false,}},
                     widget: 'product_details',
                 },
                 couponBtn: {
@@ -2062,13 +2062,13 @@ unlayer.registerTool({
                 },
                 discountValueFontSize: {
                     enabled: true,
-                    label: 'Dicount value font size',
+                    label: 'Discount value font size',
                     defaultValue: '16',
                     widget: 'counter',
                 },
                 discountValueColor: {
                     enabled: true,
-                    label: 'Dicount value color',
+                    label: 'Discount value color',
                     defaultValue: '#000',
                     widget: 'color_picker',
                 },
@@ -2089,13 +2089,13 @@ unlayer.registerTool({
                 },
                 discountTypeFontSize: {
                     enabled: true,
-                    label: 'Dicount type font size',
+                    label: 'Discount type font size',
                     defaultValue: '16',
                     widget: 'counter',
                 },
                 discountTypeColor: {
                     enabled: true,
-                    label: 'Dicount type color',
+                    label: 'Discount type color',
                     defaultValue: '#000',
                     widget: 'color_picker',
                 },
@@ -2104,10 +2104,7 @@ unlayer.registerTool({
     },
     propertyStates: (values) => {
         let couponProps = {};
-        let validFromProps = {};
         let expireDateProps = {};
-        let dicountValueProps = {};
-        let dicountTypeProps = {};
         let btnProps = {};
         if (!values.details.details.coupon) {
             couponProps = {
@@ -2144,32 +2141,6 @@ unlayer.registerTool({
                 titleFontStyle: {
                     enabled: true
                 }
-            }
-        }
-        if (!values.details.details.startsAt) {
-            validFromProps = {
-                validFromFont: {
-                    enabled: false
-                },
-                validFromFontSize: {
-                    enabled: false
-                },
-                validFromColor: {
-                    enabled: false
-                },
-            }
-        }
-        else {
-            validFromProps = {
-                validFromFont: {
-                    enabled: true
-                },
-                validFromFontSize: {
-                    enabled: true
-                },
-                validFromColor: {
-                    enabled: true
-                },
             }
         }
         if (!values.details.details.expireDate) {
@@ -2242,64 +2213,9 @@ unlayer.registerTool({
                     },
                 }
         }
-        if (!values.details.details.couponValue) {
-            couponValueProps = {
-                discountValueFont: {
-                    enabled: false
-                },
-                discountValueFontSize: {
-                    enabled: false
-                },
-                discountValueColor: {
-                    enabled: false
-                },
-            }
-        }
-        else {
-            couponValueProps = {
-                discountValueFont: {
-                    enabled: true
-                },
-                discountValueFontSize: {
-                    enabled: true
-                },
-                discountValueColor: {
-                    enabled: true
-                },
-            }
-        }
-        if (!values.details.details.couponType) {
-            couponTypeProps = {
-                discountTypeFont: {
-                    enabled: false
-                },
-                discountTypeFontSize: {
-                    enabled: false
-                },
-                discountTypeColor: {
-                    enabled: false
-                },
-            }
-        }
-        else {
-            couponTypeProps = {
-                discountTypeFont: {
-                    enabled: true
-                },
-                discountTypeFontSize: {
-                    enabled: true
-                },
-                discountTypeColor: {
-                    enabled: true
-                },
-            }
-        }
         return {
             ...couponProps,
-            ...validFromProps,
             ...expireDateProps,
-            ...dicountValueProps,
-            ...dicountTypeProps,
             ...btnProps,
         }
     },
@@ -2795,10 +2711,10 @@ const labelsMap = {
     coupon: {
         coupon: 'Coupon title',
         startsAt: 'Valid from',
-        expireDate: 'Expire Date',
+        expireDate: 'Expiry Date',
         couponValue: 'Discount value',
         couponType: 'Discount type',
-        link: 'Link',
+        link: 'CTA',
     },
     cart: {
         name: 'Item name',
