@@ -1087,7 +1087,7 @@ const getEventsTemplateViewer = () => function (values) {
                       <tr>
                         <td style="vertical-align: text-top; padding-right: 10px;">
                             <div style="max-width:130px;border-radius:7px;overflow:hidden; display: inline-block">
-                                <img alt="" style="display: ${values?.details?.details.image ? 'block' : 'none'}" src="https://via.placeholder.com/480x320/D9EEFF/238AFE?text=Image" />
+                                <img alt="" style="display: ${values?.details?.details.image ? 'block' : 'none'}" src="https://storage.cloud.google.com/moda-platform-dev-us-central1-ui-connectors-icons/connector_icons/image/live/image_placeholder.svg?authuser=2" />
                             </div>
                         </td>
                         <td>
@@ -2263,7 +2263,7 @@ unlayer.registerTool({
                 },
                 details: {
                     label: 'Details',
-                    defaultValue: {title: 'cart', details: {name: true, price: false, quantity: false, button: false, recovery: false, image: true}},
+                    defaultValue: {title: 'cart', details: {name: true, price: true, quantity: false, button: false, recovery: false, image: true}},
                     widget: 'product_details',
                 },
                 titleFont: {
