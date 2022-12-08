@@ -900,7 +900,7 @@ const getEventsTemplate = () => function (values) {
                       <tr>
                         <td style="vertical-align: text-top; padding-right: 10px">
                             <div style="max-width:130px;border-radius:7px;overflow:hidden; display: inline-block">
-                                <img alt="" style="display: ${values?.details?.details.image ? 'block' : 'none'}" src="{{ line_item_logo }}" />
+                                <img alt="" style="display: ${values?.details?.details.image ? 'block' : 'none'}; max-width: 100%; height: auto;" src="{{ line_item_logo }}" />
                             </div>
                         </td>
                         <td>
@@ -928,7 +928,7 @@ const getEventsTemplate = () => function (values) {
                                             </table>
                                         </td>
                                         <td style="vertical-align: text-top;">
-                                          <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; padding-left: 20px; padding-top: 7px; margin-bottom: 15px; display: ${values?.details?.details.price ? 'inline-block' : 'none'};">
+                                          <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; padding-left: 20px; padding-top: 7px; margin-bottom: 15px; display: ${values?.details?.details.price ? 'inline-block' : 'none'}; word-break: initial;">
                                                 {{ line_item_price }}
                                           </div>
                                         </td>
