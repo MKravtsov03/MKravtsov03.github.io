@@ -15,6 +15,9 @@
       <change afterPath="$PROJECT_DIR$/../iDerma/app/blog.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/contact-confirm.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/contact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iDerma/app/content-page-2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iDerma/app/content-page-3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iDerma/app/content-page.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/faq.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/prices.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scripts/components/sliders.js" afterDir="false" />
@@ -25,6 +28,7 @@
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/blog.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/breadcrumbs.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/contact.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/content-page.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/error.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/faq.scss" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/scss/app/footer.scss" afterDir="false" />
@@ -85,7 +89,6 @@
       <change afterPath="$PROJECT_DIR$/../naked/app/shop.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../naked/app/subcategory.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/product.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +143,7 @@
       <workItem from="1661072447259" duration="4000" />
       <workItem from="1666172007265" duration="35697000" />
       <workItem from="1667834470109" duration="19000" />
-      <workItem from="1667894147633" duration="27299000" />
+      <workItem from="1667894147633" duration="27656000" />
     </task>
     <servers />
   </component>

@@ -11131,8 +11131,28 @@ document.addEventListener("DOMContentLoaded", function () {
       (0, _jquery2.default)(".about-block").each(function () {
         (0, _jquery2.default)(this).find(".about-block__inner").prepend((0, _jquery2.default)(this).find(".about-block__title"));
       });
+    };
+
+    if (window.innerWidth < 1051) {
+      (0, _jquery2.default)('.mobile-menu').append((0, _jquery2.default)('.navigation'));
+    } else {
+      (0, _jquery2.default)('.header .logo').after((0, _jquery2.default)('.navigation'));
     }
   });
+
+  if (window.innerWidth < 1051) {
+    (0, _jquery2.default)('.navigation-list > li > a').on('click', function (e) {
+      e.preventDefault();
+    });
+    (0, _jquery2.default)('.submenu > li > a').on('click', function (e) {
+      e.preventDefault();
+    });
+
+    (0, _jquery2.default)('.burger').on('click', function () {
+      (0, _jquery2.default)('.mobile-menu').toggleClass('active');
+      (0, _jquery2.default)(this).toggleClass('active');
+    });
+  }
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
@@ -11240,7 +11260,7 @@ initMarkapMenu();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ["dev", "404.html", "about.html", "appointment-confirmation.html", "appointment.html", "article.html", "blog.html", "contact-confirm.html", "contact.html", "faq.html", "index.html", "prices.html"];
+exports.default = ["dev", "404.html", "about.html", "appointment-confirmation.html", "appointment.html", "article.html", "blog.html", "contact-confirm.html", "contact.html", "content-page-2.html", "content-page-3.html", "content-page.html", "faq.html", "index.html", "prices.html"];
 
 /***/ }),
 /* 9 */
