@@ -1332,7 +1332,7 @@ const getProductTemplate = () => function (values) {
                                         </div>
                                     `) : '')
                                         `
-                                        <div style="padding: 0 10px; order: ${ '-1' : '0'}">
+                                        <div style="padding: 0 10px;">
                                             ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
                                             ${values?.details?.details.productType ? productTypeRenderer(currentProduct) : ''}
                                             <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; font-weight: 500; margin-bottom: 15px;">
@@ -1347,7 +1347,7 @@ const getProductTemplate = () => function (values) {
                                         `
                                     ) : (
                                             `
-                                            <div style="padding: 0 10px; order: ${ '-1' : '0'}">
+                                            <div style="padding: 0 10px;">
                                                 ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
                                                 ${values?.details?.details.productType ? productTypeRenderer(currentProduct) : ''}
                                                 <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; font-weight: 500; margin-bottom: 15px;">
