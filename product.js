@@ -1501,7 +1501,7 @@ unlayer.registerTool({
                 titleFontSize: {
                     enabled: true,
                     label: 'Product title font size',
-                    defaultValue: '24',
+                    defaultValue: '16',
                     widget: 'counter',
                 },
                 titleFontStyle: {
@@ -1549,7 +1549,7 @@ unlayer.registerTool({
                 },
                 descriptionFontSize: {
                     label: 'Product description font size',
-                    defaultValue: '16',
+                    defaultValue: '14',
                     widget: 'counter',
                 },
                 descriptionFontStyle: {
