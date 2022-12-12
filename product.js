@@ -1308,7 +1308,7 @@ const getProductTemplate = () => function (values) {
                                     text-align: center;
                                     float: left;">
                                     
-                                    <div style="padding: 0 10px;">
+                                    <div style="padding: 10px 10px 0;">
                                         ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
                                         ${values?.details?.details.productType ? productTypeRenderer(currentProduct) : ''}
                                         <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; font-weight: 500; margin-bottom: 15px;">
