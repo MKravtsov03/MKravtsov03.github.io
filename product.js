@@ -1268,7 +1268,7 @@ const getProductTemplate = () => function (values) {
                                     float: left;">
                             
                             ${values?.details?.details.image ? `
-                                <div style="overflow: hidden">
+                                <div style="max-height: 220px; display: flex; overflow: hidden">
                                     <img style="max-width: 100%;
                                     width: 100%;
                                     object-fit: contain;
@@ -1322,7 +1322,7 @@ const getProductTemplate = () => function (values) {
                                     </div>
                             
                                     ${values?.details?.details.image ? `
-                                        <div style="overflow: hidden">
+                                        <div style="max-height: 220px; display: flex; overflow: hidden">
                                             <img style="max-width: 100%;
                                             width: 100%;
                                             object-fit: contain;
@@ -1377,7 +1377,7 @@ const getProductTemplate = () => function (values) {
                                     float: left;">
                             
                             ${values?.details?.details.image ? `
-                                <div style="overflow: hidden">
+                                <div style="max-height: 150px; display: flex; overflow: hidden">
                                     <img style="max-width: 100%;
                                     width: 100%;
                                     object-fit: contain;
