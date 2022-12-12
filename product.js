@@ -1200,7 +1200,7 @@ const getProductTemplate = () => function (values) {
         console.log(values)
         const productTitleRenderer = (product) => `
             <div id="product-price" style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px;">
-                ${product?.productTitle || 'Product Title'}
+                ${product?.productTitle?.substring(0, 31) || 'Product Title'} ${product?.productTitle.length > 31 && '...'}
             </div> 
         `;
 
