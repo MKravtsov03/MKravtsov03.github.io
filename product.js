@@ -1252,15 +1252,8 @@ const getProductTemplate = () => function (values) {
                 </div>
         `;
 
-        const renderProducts = () => {
-            switch (layout) {
-                case('two-columns'):
-                    return `
-                        <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
-            ${products.map(productId => {
-                        const currentProduct = values.data.products.find((product) => product.id === +productId);
-                        return `
-                        <div data-at="${productId}" style="
+        const twoColumnsProductRenderer = (currentProduct, productId) => `
+            <div data-at="${productId}" style="
                                     position: relative;
                                     min-width: 0;
                                     max-width: calc(50% - 10px);
@@ -1282,7 +1275,7 @@ const getProductTemplate = () => function (values) {
                                     border-top-right-radius: 0.25rem;"
                                          alt="" src="${currentProduct?.productImage?.src || 'https://b-tm.com.ua/assets/galleries/105/noimage.png'}" />
                                 </div>`
-                                : ''}
+            : ''}
                            
                             <div style="padding: 0 10px;">
                                 ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
@@ -1297,18 +1290,10 @@ const getProductTemplate = () => function (values) {
                                 </div> 
                             </div>
                         </div>
-                        `
-                    }).join('')
-                    }
-        </div>
-                    `
-                case('two-columns--reverse'):
-                    return `
-                        <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
-            ${products.map((productId, index) => {
-                        const currentProduct = values.data.products.find((product) => product.id === +productId);
-                        return `
-                        <div data-at="${productId}" style="
+        `;
+
+    const twoColumnsProductReverseRenderer = (currentProduct, productId) => `
+            <div data-at="${productId}" style="
                                     position: relative;
                                     min-width: 0;
                                     max-width: calc(50% - 10px);
@@ -1321,58 +1306,50 @@ const getProductTemplate = () => function (values) {
                                     border-radius: 0.25rem;
                                     text-align: center;">
                                     
-                                    ${index % 2 == 0 ? ((values?.details?.details.image ? (`
+                                    <div style="padding: 0 10px;">
+                                        ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
+                                        ${values?.details?.details.productType ? productTypeRenderer(currentProduct) : ''}
+                                        <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; font-weight: 500; margin-bottom: 15px;">
+                                            ${values?.details?.details.price ? productPriceRenderer(currentProduct) : ''}
+                                            ${values?.details?.details.comparisonPrice ? productComparisonPriceRenderer(currentProduct) : ''}
+                                        </div>
+                                        ${values?.details?.details.description ? productDescriptionRenderer(currentProduct) : ''}
+                                        <div style="padding: 20px 10px">
+                                             ${values?.details?.details.button ? productButtonRenderer(currentProduct, values) : ''}
+                                        </div> 
+                                    </div>
+                            
+                                    ${values?.details?.details.image ? `
                                         <div style="max-height: 220px; overflow: hidden">
                                             <img style="max-width: 100%;
                                             width: 100%;
                                             object-fit: contain;
                                             border-top-left-radius: 0.25rem;
                                             border-top-right-radius: 0.25rem;"
-                                            alt="" src="${currentProduct?.productImage?.src || 'https://b-tm.com.ua/assets/galleries/105/noimage.png'}" />
-                                        </div>
-                                    `) : '')
-                                        `
-                                        <div style="padding: 0 10px;">
-                                            ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
-                                            ${values?.details?.details.productType ? productTypeRenderer(currentProduct) : ''}
-                                            <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; font-weight: 500; margin-bottom: 15px;">
-                                                ${values?.details?.details.price ? productPriceRenderer(currentProduct) : ''}
-                                                ${values?.details?.details.comparisonPrice ? productComparisonPriceRenderer(currentProduct) : ''}
-                                            </div>
-                                            ${values?.details?.details.description ? productDescriptionRenderer(currentProduct) : ''}
-                                            <div style="padding: 20px 10px">
-                                                 ${values?.details?.details.button ? productButtonRenderer(currentProduct, values) : ''}
-                                            </div> 
-                                        </div>
-                                        `
-                                    ) : (
-                                            `
-                                            <div style="padding: 0 10px;">
-                                                ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
-                                                ${values?.details?.details.productType ? productTypeRenderer(currentProduct) : ''}
-                                                <div style="font-size: ${values.priceFontSize}px; font-family: ${values.priceFont.value}; color: ${values.priceColor}; font-weight: 500; margin-bottom: 15px;">
-                                                    ${values?.details?.details.price ? productPriceRenderer(currentProduct) : ''}
-                                                    ${values?.details?.details.comparisonPrice ? productComparisonPriceRenderer(currentProduct) : ''}
-                                                </div>
-                                                ${values?.details?.details.description ? productDescriptionRenderer(currentProduct) : ''}
-                                                <div style="padding: 20px 10px">
-                                                     ${values?.details?.details.button ? productButtonRenderer(currentProduct, values) : ''}
-                                                </div> 
-                                            </div>
-                                            `
-                                            (values?.details?.details.image ? (`
-                                                <div style="max-height: 220px; overflow: hidden">
-                                                    <img style="max-width: 100%;
-                                                    width: 100%;
-                                                    object-fit: contain;
-                                                    border-top-left-radius: 0.25rem;
-                                                    border-top-right-radius: 0.25rem;"
-                                                    alt="" src="${currentProduct?.productImage?.src || 'https://b-tm.com.ua/assets/galleries/105/noimage.png'}" />
-                                                </div>
-                                            `) : '')
-                                        )}
+                                                 alt="" src="${currentProduct?.productImage?.src || 'https://b-tm.com.ua/assets/galleries/105/noimage.png'}" />
+                                        </div>`
+                                     : ''}
                         </div>
-                        `
+        `;
+
+        const renderProducts = () => {
+            switch (layout) {
+                case('two-columns'):
+                    return `
+                        <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+            ${products.map(productId => {
+                        const currentProduct = values.data.products.find((product) => product.id === +productId);
+                        return twoColumnsProductRenderer(currentProduct, productId);
+                    }).join('')
+                    }
+        </div>
+                    `
+                case('two-columns--reverse'):
+                    return `
+                        <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+            ${products.map((productId, index) => {
+                        const currentProduct = values.data.products.find((product) => product.id === +productId);
+                        return index % 2 == 0 ? twoColumnsProductRenderer(currentProduct, productId) : twoColumnsProductReverseRenderer(currentProduct, productId)
                     }).join('')
                     }
         </div>
