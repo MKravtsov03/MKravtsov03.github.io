@@ -1348,7 +1348,7 @@ const getProductTemplate = () => function (values) {
                     `
                 case('two-columns--reverse'):
                     return `
-                        <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+                        <div style="overflow: hidden;">
             ${products.map((productId, index) => {
                         const currentProduct = values.data.products.find((product) => product.id === +productId);
                         return index % 2 == 0 ? twoColumnsProductRenderer(currentProduct, productId) : twoColumnsProductReverseRenderer(currentProduct, productId)
@@ -1358,22 +1358,23 @@ const getProductTemplate = () => function (values) {
                     `
                 case('three-columns'):
                     return `
-                        <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap">
+                        <div style="overflow: hidden;">
             ${products.map((productId, index) => {
                         const currentProduct = values.data.products.find((product) => product.id === +productId);
                         return `
                         <div data-at="${productId}" style="
                                     position: relative;
                                     min-width: 0;
-                                    max-width: 50%;
-                                    margin: 0 5px 10px;
+                                    max-width: calc(33.33333% - 6px);
+                                    margin: 0 2px 10px;
                                     width: 100%;
                                     word-wrap: break-word;
                                     background-color: #fff;
                                     background-clip: border-box;
                                     border: 1px solid rgba(0,0,0,.125);
                                     border-radius: 0.25rem;
-                                    text-align: center;">
+                                    text-align: center;
+                                    float: left;">
                             
                             ${values?.details?.details.image ? `
                                 <div style="max-height: 150px; overflow: hidden">
