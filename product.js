@@ -1256,7 +1256,7 @@ const getProductTemplate = () => function (values) {
             <div data-at="${productId}" style="
                                     position: relative;
                                     min-width: 0;
-                                    max-width: calc(50% - 10px);
+                                    max-width: calc(50% - 12px);
                                     margin: 0 5px 10px;
                                     width: 100%;
                                     word-wrap: break-word;
@@ -1264,7 +1264,8 @@ const getProductTemplate = () => function (values) {
                                     background-clip: border-box;
                                     border: 1px solid rgba(0,0,0,.125);
                                     border-radius: 0.25rem;
-                                    text-align: center;">
+                                    text-align: center;
+                                    float: left;">
                             
                             ${values?.details?.details.image ? `
                                 <div style="max-height: 220px; overflow: hidden">
@@ -1296,7 +1297,7 @@ const getProductTemplate = () => function (values) {
             <div data-at="${productId}" style="
                                     position: relative;
                                     min-width: 0;
-                                    max-width: calc(50% - 10px);
+                                    max-width: calc(50% - 12px);
                                     margin: 0 5px 10px;
                                     width: 100%;
                                     word-wrap: break-word;
@@ -1304,7 +1305,8 @@ const getProductTemplate = () => function (values) {
                                     background-clip: border-box;
                                     border: 1px solid rgba(0,0,0,.125);
                                     border-radius: 0.25rem;
-                                    text-align: center;">
+                                    text-align: center;
+                                    float: left;">
                                     
                                     <div style="padding: 0 10px;">
                                         ${values?.details?.details.title ? productTitleRenderer(currentProduct) : ''}
@@ -1336,7 +1338,7 @@ const getProductTemplate = () => function (values) {
             switch (layout) {
                 case('two-columns'):
                     return `
-                        <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+                        <div style="overflow: hidden">
             ${products.map(productId => {
                         const currentProduct = values.data.products.find((product) => product.id === +productId);
                         return twoColumnsProductRenderer(currentProduct, productId);
