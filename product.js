@@ -1256,14 +1256,14 @@ const getProductTemplate = () => function (values) {
             switch (layout) {
                 case('two-columns'):
                     return `
-                        <div style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap">
+                        <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
             ${products.map(productId => {
                         const currentProduct = values.data.products.find((product) => product.id === +productId);
                         return `
                         <div data-at="${productId}" style="
                                     position: relative;
                                     min-width: 0;
-                                    max-width: 50%;
+                                    max-width: calc(50% - 10px);
                                     margin: 0 5px 10px;
                                     width: 100%;
                                     word-wrap: break-word;
@@ -1311,7 +1311,7 @@ const getProductTemplate = () => function (values) {
                         <div data-at="${productId}" style="
                                     position: relative;
                                     min-width: 0;
-                                    max-width: 50%;
+                                    max-width: calc(50% - 10px);
                                     margin: 0 5px 10px;
                                     width: 100%;
                                     word-wrap: break-word;
