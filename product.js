@@ -2265,7 +2265,7 @@ unlayer.registerTool({
 unlayer.registerTool({
     name: 'events_tool',
     label: 'Abandonment',
-    icon: 'https://mkravtsov03.github.io/coupon-icon.svg',
+    icon: 'https://mkravtsov03.github.io/shopping-cart.svg',
     supportedDisplayModes: ['web', 'email', 'popup'],
     options: {
         abandoned_cart: {
