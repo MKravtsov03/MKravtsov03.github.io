@@ -806,10 +806,10 @@ const getCouponTemplate = () => function (values) {
     `
         <div class="coupon-wrapper">
             ${values.details.details.coupon ? renderCoupon() : ''}
-            ${renderValidFrom()}
+            ${values.details.details.startsAt ? renderValidFrom() : ''}
             ${values.details.details.expireDate ? renderExpireDate() : ''}
-            ${renderCouponValue()}
-            ${renderCouponType()}
+            ${values.details.details.couponValue ? renderCouponValue() : ''}
+            ${values.details.details.couponType ? renderCouponType() : ''}
             ${values.details.details.link ? renderLink() : ''}
         </div>
     `
@@ -1903,7 +1903,7 @@ unlayer.registerTool({
                 },
                 details: {
                     label: 'Details',
-                    defaultValue: {title: 'coupon', details: {coupon: true, expireDate: false, link: false,}},
+                    defaultValue: {title: 'coupon', details: {coupon: true, startsAt: false, expireDate: false, couponValue: false, couponType: false, link: false,}},
                     widget: 'product_details',
                 },
                 couponBtn: {
