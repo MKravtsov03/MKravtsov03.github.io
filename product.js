@@ -3038,13 +3038,13 @@ const reviewSelect = (value, data) => {
 <div class="blockbuilder-widget-label">
     <p class="blockbuilder-label-primary">Select data</p>
 </div>
-<select class="form-control" data-placeholder="Select products">
+<select disabled style="margin-bottom: 20px;" class="form-control" data-placeholder="Select products">
             <option selected value="yotpo">
                 Yotpo
             </option>
     )}
 </select>
-<select class="form-control" data-placeholder="Select review type">
+<select class="form-control" style="margin-bottom: 20px;" data-placeholder="Select review type">
     ${data?.types?.map(option =>
         `
             <option value="${option.value}">
