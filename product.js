@@ -3038,10 +3038,21 @@ unlayer.registerTool({
     icon: 'https://mkravtsov03.github.io/shopping-cart.svg',
     supportedDisplayModes: ['web', 'email', 'popup'],
     options: {
-        Reviews: {
-            title: 'Reviews',
+        review_source: {
+            title: 'Select Data',
             position: 1,
-            options: {},
+            options: {
+                reviews_source: {
+                    label: '',
+                    defaultValue: 'yotpo',
+                    widget: 'dropdown',
+                },
+                review_type: {
+                    label: '',
+                    defaultValue: 'product',
+                    widget: 'dropdown',
+                },
+            },
         },
     },
     propertyStates: (values) => {},
