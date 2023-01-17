@@ -3033,6 +3033,7 @@ const getYotpoTemlate = () =>  function() {
 const yotpoTemplate = getYotpoTemlate();
 
 const reviewSelect = (value, data) => {
+    console.log({value, data})
     return `
 <div class="blockbuilder-widget-label">
     <p class="blockbuilder-label-primary">Select data</p>
