@@ -3023,3 +3023,45 @@ unlayer.registerPropertyEditor({
         }
     })
 });
+
+//  Yotpo tool
+
+const getYotpoTemlate = () =>  function() {
+    return 'Reviews'
+}
+
+const yotpoTemplate = getYotpoTemlate();
+
+unlayer.registerTool({
+    name: 'yotpo_tool',
+    label: 'Reviews',
+    icon: 'https://mkravtsov03.github.io/shopping-cart.svg',
+    supportedDisplayModes: ['web', 'email', 'popup'],
+    options: {
+        Reviews: {
+            title: 'Reviews',
+            position: 1,
+            options: {},
+        },
+    },
+    propertyStates: (values) => {},
+    renderer: {
+        Viewer: unlayer.createViewer({
+            render(values) {
+                return yotpoTemplate(values);
+            },
+        }),
+        exporters: {
+            web: function (values) {
+                return yotpoTemplate(values);
+            },
+            email: function (values) {
+                return yotpoTemplate(values);
+            },
+        },
+        head: {
+            css: ProductStyles(),
+            js: function (values) {},
+        },
+    },
+});
