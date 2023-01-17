@@ -3032,25 +3032,57 @@ const getYotpoTemlate = () =>  function() {
 
 const yotpoTemplate = getYotpoTemlate();
 
+const reviewSelect = (value, data) => {
+    return `
+<div class="blockbuilder-widget-label">
+    <p class="blockbuilder-label-primary">Select data</p>
+</div>
+<select data-placeholder="Select products">
+            <option selected value="yotpo">
+                Yotpo
+            </option>
+    )}
+</select>
+<select data-placeholder="Select products">
+    ${data?.types?.map(option =>
+        `
+            <option selected value="${option.value}">
+                ${option.label}
+            </option>
+        `
+    )}
+</select>
+`
+}
+
+
+unlayer.registerPropertyEditor({
+    name: 'review_source_select',
+    layout: 'bottom',
+    Widget: unlayer.createWidget({
+        render(value, updateValue, data) {
+            return reviewSelect(value)
+        },
+        mount(node, value, updateValue) {
+
+        }
+    })
+});
+
 unlayer.registerTool({
     name: 'yotpo_tool',
     label: 'Reviews',
     icon: 'https://mkravtsov03.github.io/shopping-cart.svg',
     supportedDisplayModes: ['web', 'email', 'popup'],
     options: {
-        review_source: {
-            title: 'Select Data',
+        review: {
+            title: 'Review',
             position: 1,
             options: {
-                reviews_source: {
+                reviews_select: {
                     label: '',
-                    defaultValue: 'yotpo',
-                    widget: 'dropdown',
-                },
-                review_type: {
-                    label: '',
-                    defaultValue: 'product',
-                    widget: 'dropdown',
+                    defaultValue: {},
+                    widget: 'review_source_select',
                 },
             },
         },
