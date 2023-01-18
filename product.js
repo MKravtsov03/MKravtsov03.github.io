@@ -3039,7 +3039,18 @@ const reviewSelect = (value, data) => {
 
     const {reviews, types} = data;
 
-    const filteredReviews = value?.filteredReviews.length ? value?.filteredReviews?.reviews : reviews[type]?.reviews;
+    const filteredReviews = value?.filteredReviews.length ? value?.filteredReviews? : reviews[type];
+
+    const reviewsList = filteredReviews.map(productWithReviews => {
+        const { yotpo_product_id, product_name }  = productWithReviews;
+        productWithReviews.reviews.map(review => {
+            return {
+                ...review,
+                yotpo_product_id,
+                product_name
+            }
+        })
+    })
 
     return `
 <div class="blockbuilder-widget-label">
@@ -3063,11 +3074,12 @@ const reviewSelect = (value, data) => {
 
 <div class="reviews-list">
     ${
-        filteredReviews.map(review => 
+        reviewsList.map(review => 
             `
                 <div className="review">
                     ${review?.review_title}
                     ${review?.review_content}
+                    ${review?.product_name}
                 </div>
             `
         )
