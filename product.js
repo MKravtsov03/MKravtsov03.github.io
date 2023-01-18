@@ -517,6 +517,43 @@ const ProductStyles = () =>
             margin: 30px auto 0;
             max-width: 300px;
         }
+        .review {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .review .details-item {
+            flex-shrink: 0;
+            width: 16px;
+        }
+        .review__heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+        .review__info {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            color: #667085;
+            font-weight: 600;
+        }
+        .review__title {
+             color: #101828;
+        }
+        .review__rating {
+            margin: 15px;
+        }
+        .review__content {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 20px;
+            color: #667085;
+        }
+        
+        
 `;
     };
 
@@ -3078,9 +3115,24 @@ const reviewSelect = (value, data) => {
         reviewsList.map(review => 
             `
                 <div className="review">
-                    ${review?.review_title}
-                    ${review?.review_content}
-                    ${review?.product_name}
+                    <div class="review__inner">
+                        <div class="review__heading">
+                            <div class="review__info">
+                                <div class="review__title">${review?.review_title}</div>
+                                •
+                                <div class="review__product-name">${review?.product_name}</div>
+                            </div>
+                        </div>
+                        <div class="review__rating"></div>
+                        <div class="review__content">
+                            ${review?.review_content}
+                        </div>
+                    </div>
+                    <div class="details-item">
+                        <label>
+                            <input data-id="${review_id}" data-productId="${yotpo_product_id}" name="title" type="checkbox">
+                        </label>
+                    </div>
                 </div>
             `
         )
