@@ -3240,6 +3240,20 @@ const getYotpoTemlate = () =>  function(values) {
         return reviews_select?.activeReviews.indexOf(String(el.review_id)) >= 0;
     });
     return `
+
+        <svg id="stars" style="display: none;" version="1.1">
+          <symbol id="stars-empty-star" viewBox="0 0 102 18" fill="#D0D5DD">
+            <path d="M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218" />
+          </symbol>
+          <symbol id="stars-full-star" viewBox="0 0 102 18" fill="#F2A439">
+            <path d="M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218" />
+          </symbol>
+          <symbol id="stars-half-star" viewBox="0 0 102 18" fill="#F2A439">
+            <use xlink:href="#stars-empty-star" />
+            <path d="M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792" />
+          </symbol>
+        </svg>
+
         <div class="template-reviews">
             ${
             selectedReviews.map(review =>
@@ -3262,7 +3276,7 @@ const getYotpoTemlate = () =>  function(values) {
                             </div>
                         </div>
                     </div>
-                `)
+                `).join('')
             }
             
         </div>
