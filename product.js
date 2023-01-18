@@ -3372,15 +3372,15 @@ unlayer.registerPropertyEditor({
         },
         mount(node, value, updateValue) {
             console.log("mount:", {value});
-            const reviewsChecks = node.querySelectorAll('.review__checkbox');
+            const reviewsChecks = node.querySelectorAll('.review');
             let activeReviews = [...value?.activeReviews]
             reviewsChecks.forEach((item, i) => {
-                item.onchange = function(e) {
+                item.onclick = function(e) {
                     console.log(item)
-                    if (e.target.checked) {
-                        activeReviews.push(item.dataset.id)
+                    if (item.querySelector('input').checked) {
+                        activeReviews.push(item.querySelector('input').dataset.id)
                     } else {
-                        activeReviews = activeReviews.filter(reviewId => reviewId !== item.dataset.id)
+                        activeReviews = activeReviews.filter(reviewId => reviewId !== item.querySelector('input').dataset.id)
                         console.log(activeReviews)
                     }
                     return updateValue({...value, activeReviews})
