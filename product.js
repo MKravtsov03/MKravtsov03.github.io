@@ -3300,8 +3300,9 @@ const reviewSelect = (value, data) => {
 </select>
 
 <div class="reviews-list">
-    ${reviewsList.map(review => 
-            `
+    ${reviewsList.map(review => {
+        console.log(activeReviews.includes(String(review?.review_id)))
+        return `
                 <label class="review">
                     <div class="review__inner">
                         <div class="review__heading">
@@ -3325,6 +3326,7 @@ const reviewSelect = (value, data) => {
                 </label>
             `
         ).join('')}
+    }
 </div>
 `
 }
@@ -3339,15 +3341,15 @@ unlayer.registerPropertyEditor({
         },
         mount(node, value, updateValue) {
             console.log("mount:", {value});
-            const reviewsChecks = node.querySelectorAll('.review');
+            const reviewsChecks = node.querySelectorAll('.review__checkbox');
             let activeReviews = [...value?.activeReviews]
             reviewsChecks.forEach((item, i) => {
-                item.onClick = function(e) {
-                    console.log(item.querySelector('input').checked)
-                    if (item.querySelector('input').checked) {
-                        activeReviews.push(item.querySelector('input').dataset.id)
+                item.onchange = function(e) {
+                    console.log(item)
+                    if (e.target.checked) {
+                        activeReviews.push(item.dataset.id)
                     } else {
-                        activeReviews = activeReviews.filter(reviewId => reviewId !== item.querySelector('input').dataset.id)
+                        activeReviews = activeReviews.filter(reviewId => reviewId !== item.dataset.id)
                         console.log(activeReviews)
                     }
                     return updateValue({...value, activeReviews})
