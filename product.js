@@ -583,11 +583,12 @@ const ProductStyles = () =>
           width: 100px;
         }
          .template-reviews {
-            max-width: 450px;
+            background: #fff;
          }
          .template-reviews .review {
             border: none;
-            margin-bottom: 30px;
+            max-width: 450px;
+            margin: 0 auto 30px;
          }
 `;
     };
@@ -3334,6 +3335,7 @@ unlayer.registerPropertyEditor({
     layout: 'bottom',
     Widget: unlayer.createWidget({
         render(value, updateValue, data) {
+            updateValue({...value, data})
             return reviewSelect(value, data)
         },
         mount(node, value, updateValue) {
