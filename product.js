@@ -584,6 +584,7 @@ const ProductStyles = () =>
         }
          .template-reviews {
             background: #fff;
+            padding: 20px;
          }
          .template-reviews .review {
             border: none;
@@ -3236,7 +3237,7 @@ const getYotpoTemlate = () =>  function(values) {
     const reviewsList = mapReviews(reviews[reviews_select?.type])
 
     const selectedReviews = reviewsList.filter(function (el) {
-        return reviews_select?.activeReviews.indexOf(el.review_id) >= 0;
+        return reviews_select?.activeReviews.indexOf(String(el.review_id)) >= 0;
     });
     return `
         <div class="template-reviews">
