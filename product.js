@@ -3282,7 +3282,7 @@ const reviewSelect = (value, data) => {
                         </div>
                     </div>
                     <div class="details-item">
-                         <input class="review__checkbox" checked="${activeReviews.includes(review?.review_id)}" data-id="${review?.review_id}" data-productId="${review?.yotpo_product_id}" type="checkbox">
+                         <input class="review__checkbox" ${activeReviews.includes(String(review?.review_id)) && 'checked'} data-id="${review?.review_id}" data-productId="${review?.yotpo_product_id}" type="checkbox">
                     </div>
                 </label>
             `
