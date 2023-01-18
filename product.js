@@ -3233,9 +3233,9 @@ const getYotpoTemlate = () =>  function(values) {
     //     review_date: '05.03.2022',
     //     product_name: 'Nike 45',
     // }
-    const reviews = mapReviews(reviews[reviews_select?.type])
+    const reviewsList = mapReviews(reviews[reviews_select?.type])
 
-    const selectedReviews = reviews.filter(function (el) {
+    const selectedReviews = reviewsList.filter(function (el) {
         return reviews_select?.activeReviews.indexOf(el.review_id) >= 0;
     });
     return `
