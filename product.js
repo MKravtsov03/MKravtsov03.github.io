@@ -3033,13 +3033,13 @@ const getYotpoTemlate = () =>  function() {
 const yotpoTemplate = getYotpoTemlate();
 
 const reviewSelect = (value, data) => {
-    console.log({value, data});
+    console.log("render:", {value, data});
 
     const {type} = value;
 
     const {reviews, types} = data;
 
-    const filteredReviews = value?.filteredReviews.length ? value?.filteredReviews : reviews[type];
+    const filteredReviews = value?.filteredReviews.length ? value?.filteredReviews?.reviews : reviews[type]?.reviews;
 
     return `
 <div class="blockbuilder-widget-label">
@@ -3085,7 +3085,7 @@ unlayer.registerPropertyEditor({
             return reviewSelect(value, data)
         },
         mount(node, value, updateValue) {
-
+            console.log("mount:", {value});
         }
     })
 });
