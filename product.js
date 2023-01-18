@@ -582,7 +582,13 @@ const ProductStyles = () =>
           height: 20px;
           width: 100px;
         }
-         
+         .template-reviews {
+            max-width: 450px;
+         }
+         .template-reviews .review {
+            border: none;
+            margin-bottom: 30px;
+         }
 `;
     };
 
@@ -3200,8 +3206,39 @@ const generateRating = (rating) => {
     }
 }
 
-const getYotpoTemlate = () =>  function() {
-    return 'Reviews'
+const getYotpoTemlate = () =>  function(values) {
+    console.log({values})
+    const review = {
+        review_id: 111,
+        review_title: 'Review Nike 45 1',
+        review_score: 3.5,
+        review_content: 'Here would be some text of review, naybe even not so short',
+        user_display_name: '...',
+        review_date: '05.03.2022',
+        product_name: 'Nike 45',
+    }
+    return `
+        <div class="template-reviews">
+            <div class="review">
+                <div class="review__inner">
+                    <div class="review__heading">
+                        <div class="review__info">
+                            <div class="review__title">${review?.review_title}</div>
+                            •
+                            <div class="review__product-name">${review?.product_name}</div>
+                        </div>
+                        <div class="review__date">${review?.review_date}</div>
+                    </div>
+                    <div class="review__rating">
+                        ${generateRating(roundHalf(review?.review_score))}
+                    </div>
+                    <div class="review__content">
+                        ${review?.review_content}
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
 }
 
 const yotpoTemplate = getYotpoTemlate();
