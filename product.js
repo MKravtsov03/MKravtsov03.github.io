@@ -3043,7 +3043,7 @@ const reviewSelect = (value, data) => {
 
     const reviewsList = filteredReviews.map(productWithReviews => {
         const { yotpo_product_id, product_name }  = productWithReviews;
-        productWithReviews.reviews.map(review => {
+        return productWithReviews.reviews.map(review => {
             return {
                 ...review,
                 yotpo_product_id,
