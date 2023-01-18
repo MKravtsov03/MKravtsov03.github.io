@@ -559,19 +559,17 @@ const ProductStyles = () =>
             line-height: 20px;
             color: #667085;
         }
-        .review use {
-          &:nth-child(2) {
+        .review use:nth-child(2) {
             transform: translate(20px);
-          }
-          &:nth-child(3) {
+         }
+        .review use:nth-child(3) {
             transform: translate(40px);
-          }
-          &:nth-child(4) {
+         }
+        .review use:nth-child(4) {
             transform: translate(60px);
-          }
-          &:nth-child(5) {
+        }
+        .review use:nth-child(5) {
             transform: translate(80px);
-          }
         }
         .rating {
           display: block;
