@@ -3041,16 +3041,17 @@ const reviewSelect = (value, data) => {
 
     const filteredReviews = value?.filteredReviews.length ? value?.filteredReviews : reviews[type];
 
-    const reviewsList = filteredReviews.map(productWithReviews => {
+    const reviewsList = filteredReviews.reduce((acc, productWithReviews) => {
         const { yotpo_product_id, product_name }  = productWithReviews;
-        return productWithReviews.reviews.map(review => {
+        const reviews = productWithReviews.reviews.map(review => {
             return {
                 ...review,
                 yotpo_product_id,
                 product_name
             }
         })
-    })
+        return acc = [...acc, ...reviews];
+    }, [])
     console.log({reviewsList})
     return `
 <div class="blockbuilder-widget-label">
