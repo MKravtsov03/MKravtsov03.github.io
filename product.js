@@ -522,14 +522,15 @@ const ProductStyles = () =>
             overflow-y: scroll;
         }
         .review {
-            display: flex;
+            display: flex !important;
             align-items: center;
             gap: 4px;
             background: #FFFFFF;
             border: 1px solid #E4E7EC;
             border-radius: 12px;
             padding: 16px;
-            margin-bottom: 16px;
+            margin-bottom: 16px !important;
+            cursor: pointer;
         }
         .review__inner {
             width: 100%;
@@ -3208,7 +3209,7 @@ const yotpoTemplate = getYotpoTemlate();
 const reviewSelect = (value, data) => {
     console.log("render:", {value, data});
 
-    const {type} = value;
+    const {type, activeReviews} = value;
 
     const {reviews, types} = data;
 
@@ -3281,7 +3282,7 @@ const reviewSelect = (value, data) => {
                         </div>
                     </div>
                     <div class="details-item">
-                         <input data-id="${review?.review_id}" data-productId="${review?.yotpo_product_id}" name="title" type="checkbox">
+                         <input class="review__checkbox" checked="${activeReviews.includes(review?.review_id)}" data-id="${review?.review_id}" data-productId="${review?.yotpo_product_id}" type="checkbox">
                     </div>
                 </label>
             `
@@ -3300,6 +3301,17 @@ unlayer.registerPropertyEditor({
         },
         mount(node, value, updateValue) {
             console.log("mount:", {value});
+            const reviewsChecks = node.querySelectorAll('.review__checkbox');
+            let activeReviews = [...value?.activeReviews]
+            reviewsChecks.forEach((item, i) => {
+                item.onchange = function(e) {
+                    if (e.target.checked) {
+                        return activeReviews.push(item.dataset.id)
+                    }
+                    activeReviews = activeReviews.filter(review?.review_id !== item.dataset.id)
+                    return updateValue({...value, activeReviews})
+                }
+            })
         }
     })
 });
