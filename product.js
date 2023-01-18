@@ -3309,7 +3309,7 @@ unlayer.registerPropertyEditor({
                     if (e.target.checked) {
                         activeReviews.push(item.dataset.id)
                     } else {
-                        activeReviews = activeReviews.filter(review => review?.review_id !== item.dataset.id)
+                        activeReviews = [...activeReviews.filter(review => review?.review_id !== item.dataset.id)]
                         console.log(activeReviews)
                     }
                     return updateValue({...value, activeReviews})
