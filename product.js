@@ -531,14 +531,14 @@ const ProductStyles = () =>
             align-items: center;
             justify-content: space-between;
             margin-bottom: 6px;
+            font-size: 14px;
+            color: #667085;
+            font-weight: 500;
         }
         .review__info {
             display: flex;
             align-items: center;
             gap: 5px;
-            font-size: 14px;
-            color: #667085;
-            font-weight: 600;
         }
         .review__title {
              color: #101828;
@@ -3122,6 +3122,7 @@ const reviewSelect = (value, data) => {
                                 •
                                 <div class="review__product-name">${review?.product_name}</div>
                             </div>
+                            <div class="review__date">${review?.review_date}</div>
                         </div>
                         <div class="review__rating"></div>
                         <div class="review__content">
@@ -3130,7 +3131,7 @@ const reviewSelect = (value, data) => {
                     </div>
                     <div class="details-item">
                         <label>
-                            <input data-id="${review_id}" data-productId="${yotpo_product_id}" name="title" type="checkbox">
+                            <input data-id="${review?.review_id}" data-productId="${review?.yotpo_product_id}" name="title" type="checkbox">
                         </label>
                     </div>
                 </div>
