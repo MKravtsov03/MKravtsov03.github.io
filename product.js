@@ -3301,8 +3301,8 @@ const reviewSelect = (value, data) => {
 
 <div class="reviews-list">
     ${reviewsList.map(review => {
-        console.log(activeReviews.includes(String(review?.review_id)))
-        return `
+            console.log('checked', activeReviews.includes(String(review?.review_id)))
+            return `
                 <label class="review">
                     <div class="review__inner">
                         <div class="review__heading">
@@ -3325,8 +3325,8 @@ const reviewSelect = (value, data) => {
                     </div>
                 </label>
             `
+            }
         ).join('')}
-    }
 </div>
 `
 }
