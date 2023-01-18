@@ -575,7 +575,7 @@ const ProductStyles = () =>
         }
         .rating {
           display: block;
-          height: 12px;
+          height: 20px;
           width: 100px;
         }
          
