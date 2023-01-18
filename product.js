@@ -3039,7 +3039,7 @@ const reviewSelect = (value, data) => {
 
     const {reviews, types} = data;
 
-    const activeReviews = value?.activeReviews.length ? value?.activeReviews : reviews[type];
+    const filteredReviews = value?.filteredReviews.length ? value?.filteredReviews : reviews[type];
 
     return `
 <div class="blockbuilder-widget-label">
@@ -3063,12 +3063,14 @@ const reviewSelect = (value, data) => {
 
 <div class="reviews-list">
     ${
-        activeReviews.map(review => (
-            <div className="review">
-                ${review?.review_title}
-                ${review?.review_content}
-            </div>
-        ))
+        filteredReviews.map(review => 
+            `
+                <div className="review">
+                    ${review?.review_title}
+                    ${review?.review_content}
+                </div>
+            `
+        )
     }
 </div>
 `
@@ -3100,7 +3102,7 @@ unlayer.registerTool({
             options: {
                 reviews_select: {
                     label: '',
-                    defaultValue: { type: "product_reviews", activeReviews: [], searchString: '', productFulter: '', ratingFilter: '' },
+                    defaultValue: { type: "product_reviews", filteredReviews: [], activeReviews: [], searchString: '', productFulter: '', ratingFilter: '' },
                     widget: 'review_source_select',
                 },
             },
