@@ -3039,7 +3039,7 @@ const reviewSelect = (value, data) => {
 
     const {reviews, types} = data;
 
-    const filteredReviews = value?.filteredReviews.length ? value?.filteredReviews? : reviews[type];
+    const filteredReviews = value?.filteredReviews.length ? value?.filteredReviews : reviews[type];
 
     const reviewsList = filteredReviews.map(productWithReviews => {
         const { yotpo_product_id, product_name }  = productWithReviews;
