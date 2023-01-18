@@ -551,7 +551,7 @@ const ProductStyles = () =>
              color: #101828;
         }
         .review__rating {
-            margin: 15px;
+            margin-bottom: 15px;
         }
         .review__content {
             font-weight: 500;
@@ -561,10 +561,10 @@ const ProductStyles = () =>
         }
         .review use:nth-child(2) {
             transform: translate(20px);
-         }
+        }
         .review use:nth-child(3) {
             transform: translate(40px);
-         }
+        }
         .review use:nth-child(4) {
             transform: translate(60px);
         }
@@ -3086,6 +3086,114 @@ unlayer.registerPropertyEditor({
 
 //  Yotpo tool
 
+const roundHalf = (num) => {
+    return Math.round(num*2)/2;
+}
+
+const generateRating = (rating) => {
+    switch (rating) {
+        case (0): return `
+            <svg aria-hidden="true" focusable="false" class="rating">
+              <use xlink:href="#stars-empty-star" />
+              <use xlink:href="#stars-empty-star" />
+              <use xlink:href="#stars-empty-star" />
+              <use xlink:href="#stars-empty-star" />
+              <use xlink:href="#stars-empty-star" />
+            </svg>
+        `
+        case (0.5): return `
+            <svg aria-hidden="true" focusable="false" class="rating">
+             <use xlink:href="#stars-half-star" />
+              <use xlink:href="#stars-empty-star" />
+              <use xlink:href="#stars-empty-star" />
+              <use xlink:href="#stars-empty-star" />
+              <use xlink:href="#stars-empty-star" />
+            </svg>
+        `
+        case (1): return `
+            <svg aria-hidden="true" focusable="false" class="rating">
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-empty-star" />
+              <use xlink:href="#stars-empty-star" />
+              <use xlink:href="#stars-empty-star" />
+              <use xlink:href="#stars-empty-star" />
+            </svg>
+        `
+        case (1.5): return `
+            <svg aria-hidden="true" focusable="false" class="rating">
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-half-star" />
+              <use xlink:href="#stars-empty-star" />
+              <use xlink:href="#stars-empty-star" />
+              <use xlink:href="#stars-empty-star" />
+            </svg>
+        `
+        case (2): return `
+            <svg aria-hidden="true" focusable="false" class="rating">
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-empty-star" />
+              <use xlink:href="#stars-empty-star" />
+              <use xlink:href="#stars-empty-star" />
+            </svg>
+        `
+        case (2.5): return `
+            <svg aria-hidden="true" focusable="false" class="rating">
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-half-star" />
+              <use xlink:href="#stars-empty-star" />
+              <use xlink:href="#stars-empty-star" />
+            </svg>
+        `
+        case (3): return `
+            <svg aria-hidden="true" focusable="false" class="rating">
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-empty-star" />
+              <use xlink:href="#stars-empty-star" />
+            </svg>
+        `
+        case (3.5): return `
+            <svg aria-hidden="true" focusable="false" class="rating">
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-half-star" />
+              <use xlink:href="#stars-empty-star" />
+            </svg>
+        `
+        case (4): return `
+            <svg aria-hidden="true" focusable="false" class="rating">
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-empty-star" />
+            </svg>
+        `
+        case (4.5): return `
+            <svg aria-hidden="true" focusable="false" class="rating">
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-half-star" />
+            </svg>
+        `
+        case (5): return `
+            <svg aria-hidden="true" focusable="false" class="rating">
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-full-star" />
+              <use xlink:href="#stars-full-star" />
+            </svg>
+        `
+    }
+}
+
 const getYotpoTemlate = () =>  function() {
     return 'Reviews'
 }
@@ -3161,13 +3269,7 @@ const reviewSelect = (value, data) => {
                             <div class="review__date">${review?.review_date}</div>
                         </div>
                         <div class="review__rating">
-                            <svg aria-hidden="true" focusable="false" class="rating">
-                              <use xlink:href="#stars-full-star" />
-                              <use xlink:href="#stars-full-star" />
-                              <use xlink:href="#stars-full-star" />
-                              <use xlink:href="#stars-half-star" />
-                              <use xlink:href="#stars-empty-star" />
-                            </svg>
+                            ${generateRating(roundHalf(review?.review_score))}
                         </div>
                         <div class="review__content">
                             ${review?.review_content}
