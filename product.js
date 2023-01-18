@@ -3051,7 +3051,7 @@ const reviewSelect = (value, data) => {
             }
         })
     })
-
+    console.log({reviewsList})
     return `
 <div class="blockbuilder-widget-label">
     <p class="blockbuilder-label-primary">Select data</p>
