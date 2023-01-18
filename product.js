@@ -3115,8 +3115,7 @@ const reviewSelect = (value, data) => {
 </select>
 
 <div class="reviews-list">
-    ${
-        reviewsList.map(review => 
+    ${reviewsList.map(review => 
             `
                 <div class="review">
                     <div class="review__inner">
@@ -3140,8 +3139,7 @@ const reviewSelect = (value, data) => {
                     </div>
                 </div>
             `
-        ).join('');
-    }
+        ).join('')}
 </div>
 `
 }
