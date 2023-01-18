@@ -3033,7 +3033,14 @@ const getYotpoTemlate = () =>  function() {
 const yotpoTemplate = getYotpoTemlate();
 
 const reviewSelect = (value, data) => {
-    console.log({value, data})
+    console.log({value, data});
+
+    const {type} = value;
+
+    const {reviews, types} = data;
+
+    const activeReviews = value?.activeReviews.length ? value?.activeReviews : reviews[type];
+
     return `
 <div class="blockbuilder-widget-label">
     <p class="blockbuilder-label-primary">Select data</p>
@@ -3044,8 +3051,8 @@ const reviewSelect = (value, data) => {
             </option>
     )}
 </select>
-<select class="form-control" style="margin-bottom: 20px;" data-placeholder="Select review type">
-    ${data?.types?.map(option =>
+<select id="review_type_select" class="form-control" style="margin-bottom: 20px;" data-placeholder="Select review type">
+    ${types?.map(option =>
         `
             <option value="${option.value}">
                 ${option.label}
@@ -3053,6 +3060,17 @@ const reviewSelect = (value, data) => {
         `
     )}
 </select>
+
+<div class="reviews-list">
+    ${
+        activeReviews.map(review => (
+            <div className="review">
+                ${review?.review_title}
+                ${review?.review_content}
+            </div>
+        ))
+    }
+</div>
 `
 }
 
@@ -3082,7 +3100,7 @@ unlayer.registerTool({
             options: {
                 reviews_select: {
                     label: '',
-                    defaultValue: {},
+                    defaultValue: { type: "product_reviews", activeReviews: [], searchString: '', productFulter: '', ratingFilter: '' },
                     widget: 'review_source_select',
                 },
             },
