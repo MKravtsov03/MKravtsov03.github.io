@@ -3375,7 +3375,7 @@ unlayer.registerPropertyEditor({
             const reviewsChecks = node.querySelectorAll('.review');
             let activeReviews = [...value?.activeReviews]
             reviewsChecks.forEach((item, i) => {
-                item.onclick = function(e) {
+                item.addEventListener('click', function(e) {
                     console.log(item)
                     if (item.querySelector('input').checked) {
                         activeReviews.push(item.querySelector('input').dataset.id)
@@ -3384,7 +3384,7 @@ unlayer.registerPropertyEditor({
                         console.log(activeReviews)
                     }
                     return updateValue({...value, activeReviews})
-                }
+                })
             })
         }
     })
