@@ -3306,9 +3306,10 @@ unlayer.registerPropertyEditor({
             reviewsChecks.forEach((item, i) => {
                 item.onchange = function(e) {
                     if (e.target.checked) {
-                        return activeReviews.push(item.dataset.id)
+                        activeReviews.push(item.dataset.id)
+                    } else {
+                        activeReviews = activeReviews.filter(review => review?.review_id !== item.dataset.id)
                     }
-                    activeReviews = activeReviews.filter(review?.review_id !== item.dataset.id)
                     return updateValue({...value, activeReviews})
                 }
             })
