@@ -3335,7 +3335,6 @@ unlayer.registerPropertyEditor({
     layout: 'bottom',
     Widget: unlayer.createWidget({
         render(value, updateValue, data) {
-            updateValue({...value, data})
             return reviewSelect(value, data)
         },
         mount(node, value, updateValue) {
