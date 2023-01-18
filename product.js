@@ -521,6 +521,10 @@ const ProductStyles = () =>
             display: flex;
             align-items: center;
             gap: 4px;
+            background: #FFFFFF;
+            border: 1px solid #E4E7EC;
+            border-radius: 12px;
+            padding: 16px;
         }
         .review .details-item {
             flex-shrink: 0;
@@ -3107,14 +3111,14 @@ const reviewSelect = (value, data) => {
                 ${option.label}
             </option>
         `
-    )}
+    ).join('')}
 </select>
 
 <div class="reviews-list">
     ${
         reviewsList.map(review => 
             `
-                <div className="review">
+                <div class="review">
                     <div class="review__inner">
                         <div class="review__heading">
                             <div class="review__info">
@@ -3136,7 +3140,7 @@ const reviewSelect = (value, data) => {
                     </div>
                 </div>
             `
-        )
+        ).join('');
     }
 </div>
 `
