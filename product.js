@@ -3368,10 +3368,6 @@ unlayer.registerPropertyEditor({
     layout: 'bottom',
     Widget: unlayer.createWidget({
         render(value, updateValue, data) {
-            return reviewSelect(value, data)
-        },
-        mount(node, value, updateValue) {
-            console.log("mount:", {value});
             const reviewsChecks = node.querySelectorAll('.review');
             let activeReviews = [...value?.activeReviews]
             reviewsChecks.forEach((item, i) => {
@@ -3386,6 +3382,11 @@ unlayer.registerPropertyEditor({
                     return updateValue({...value, activeReviews})
                 })
             })
+            return reviewSelect(value, data)
+        },
+        mount(node, value, updateValue) {
+            console.log("mount:", {value});
+
         }
     })
 });
