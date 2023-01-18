@@ -517,6 +517,10 @@ const ProductStyles = () =>
             margin: 30px auto 0;
             max-width: 300px;
         }
+        .reviews-list {
+            max-height: 440px;
+            overflow-y: scroll;
+        }
         .review {
             display: flex;
             align-items: center;
@@ -525,6 +529,7 @@ const ProductStyles = () =>
             border: 1px solid #E4E7EC;
             border-radius: 12px;
             padding: 16px;
+            margin-bottom: 16px;
         }
         .review__inner {
             width: 100%;
@@ -3258,7 +3263,7 @@ const reviewSelect = (value, data) => {
 <div class="reviews-list">
     ${reviewsList.map(review => 
             `
-                <div class="review">
+                <label class="review">
                     <div class="review__inner">
                         <div class="review__heading">
                             <div class="review__info">
@@ -3276,11 +3281,9 @@ const reviewSelect = (value, data) => {
                         </div>
                     </div>
                     <div class="details-item">
-                        <label>
-                            <input data-id="${review?.review_id}" data-productId="${review?.yotpo_product_id}" name="title" type="checkbox">
-                        </label>
+                         <input data-id="${review?.review_id}" data-productId="${review?.yotpo_product_id}" name="title" type="checkbox">
                     </div>
-                </div>
+                </label>
             `
         ).join('')}
 </div>
