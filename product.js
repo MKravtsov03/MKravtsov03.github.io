@@ -3395,7 +3395,9 @@ unlayer.registerPropertyEditor({
 
             const typeSelect = document.getElementById('review_type_select');
 
-            typeSelect.onchange(() => {
+            console.log(typeSelect);
+
+            typeSelect.addEventListener('changee', () => {
                 console.log(typeSelect.value);
             });
 
