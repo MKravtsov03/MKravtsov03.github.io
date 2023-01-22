@@ -3393,7 +3393,7 @@ unlayer.registerPropertyEditor({
         mount(node, value, updateValue) {
             console.log("mount:", {value});
 
-            const typeSelect = node.getElementById('review_type_select');
+            const typeSelect = node.querySelector('#review_type_select');
 
             typeSelect.onchange(() => {
                 console.log(typeSelect.value);
