@@ -3131,16 +3131,6 @@ const roundHalf = (num) => {
     return Math.round(num*2)/2;
 }
 
-function debounce(func, delay = 250) {
-    let timerId;
-    return (...args) => {
-        clearTimeout(timerId);
-        timerId = setTimeout(() => {
-            func.apply(this, args);
-        }, delay);
-    };
-}
-
 const generateRating = (rating) => {
     switch (rating) {
         case (0): return `
@@ -3420,36 +3410,43 @@ const reviewSelect = (value, data) => {
             )}
         </select>
     </div>
-
-    <div class="reviews-list">
-        ${reviewsList.map(review => {
-                console.log('checked', activeReviews.includes(String(review?.review_id)))
-                return `
-                    <label class="review">
-                        <div class="review__inner">
-                            <div class="review__heading">
-                                <div class="review__info">
-                                    <div class="review__title">${review?.user_display_name}</div>
-                                    •
-                                    <div class="review__product-name">${review?.product_name}</div>
-                                </div>
-                                <div class="review__date">${review?.review_date}</div>
-                            </div>
-                            <div class="review__rating">
-                                ${generateRating(roundHalf(review?.review_score))}
-                            </div>
-                            <div class="review__content">
-                                ${review?.review_content}
-                            </div>
+       ${
+            reviewsList.length ? `
+                <div class="reviews-list">
+                        ${reviewsList.map(review => {
+                                    console.log('checked', activeReviews.includes(String(review?.review_id)))
+                                    return `
+                                    <label class="review">
+                                        <div class="review__inner">
+                                            <div class="review__heading">
+                                                <div class="review__info">
+                                                    <div class="review__title">${review?.user_display_name}</div>
+                                                    •
+                                                    <div class="review__product-name">${review?.product_name}</div>
+                                                </div>
+                                                <div class="review__date">${review?.review_date}</div>
+                                            </div>
+                                            <div class="review__rating">
+                                                ${generateRating(roundHalf(review?.review_score))}
+                                            </div>
+                                            <div class="review__content">
+                                                ${review?.review_content}
+                                            </div>
+                                        </div>
+                                        <div class="details-item">
+                                             <input class="review__checkbox" ${activeReviews.includes(String(review?.review_id)) ? 'checked' : ''} name="${review?.review_id}" data-id="${review?.review_id}" data-productId="${review?.yotpo_product_id}" type="checkbox">
+                                        </div>
+                                    </label>
+                                `
+                                }
+                            ).join('')}
+                    </div>` : `
+                        <div style="text-align: center; padding: 20px; font-size: 20px; font-weight: 600; color: #667085">
+                            Select reviews
                         </div>
-                        <div class="details-item">
-                             <input class="review__checkbox" ${activeReviews.includes(String(review?.review_id)) ? 'checked' : ''} name="${review?.review_id}" data-id="${review?.review_id}" data-productId="${review?.yotpo_product_id}" type="checkbox">
-                        </div>
-                    </label>
-                `
-                }
-            ).join('')}
-    </div>
+                    `
+        }
+    
 `
 }
 
@@ -3672,11 +3669,11 @@ unlayer.registerPropertyEditor({
 
             const searchFilter = document.getElementById('filter-search');
 
-            const debounceInput = debounce((e) => {
-                return updateValue({...value, searchString: e.target.value})
-            })
-
-            searchFilter.addEventListener('keyup', debounceInput);
+            searchFilter.addEventListener('change', (e) => {
+                if (e.target.value.length == 0 || e.target.value.length > 2) {
+                    return updateValue({...value, searchString: e.target.value})
+                }
+            });
 
             // Search filter END
 
