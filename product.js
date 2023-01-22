@@ -3399,6 +3399,7 @@ unlayer.registerPropertyEditor({
 
             typeSelect.addEventListener('change', () => {
                 console.log(typeSelect.value);
+                return updateValue({...value, type: typeSelect.value})
             });
 
             const reviewsChecks = node.querySelectorAll('.review');
