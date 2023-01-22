@@ -3253,7 +3253,7 @@ const getYotpoTemlate = () =>  function(values) {
                 `
                     <div>
                         <div style="overflow: hidden;">
-                            <img style="max-width: 100%; width: 100%; object-fit: contain;" src="${review?.product_images_array}" alt="${${review?.product_name}}">
+                            <img style="max-width: 100%; width: 100%; object-fit: contain;" src="${review?.product_images_array}" alt="${review?.product_name}">
                         </div>
                         <div style="padding: 20px 10px; text-align: center;">    
                             <a style="font-weight: 400;
