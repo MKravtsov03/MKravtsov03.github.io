@@ -3345,13 +3345,13 @@ const yotpoTemplate = getYotpoTemlate();
 const reviewSelect = (value, data) => {
     console.log("render:", {value, data});
 
-    const {type, activeReviews, productFilter} = value;
+    const {type, activeReviews, productFilter, searchString} = value;
 
     const {reviews, types} = data;
 
     const filteredReviews = reviews[type];
 
-    const reviewsList = productFiltering(mapReviews(filteredReviews), productFilter)
+    const reviewsList = searchFiltering(productFiltering(mapReviews(filteredReviews), productFilter), searchString)
 
     const products = reviews.product_reviews.reduce((acc, product) => {
         acc.push({productId: product.yotpo_product_id, productName: product.product_name});
@@ -3663,7 +3663,7 @@ unlayer.registerPropertyEditor({
             const searchFilter = document.getElementById('filter-search');
 
             searchFilter.addEventListener('change', (e) => {
-                if (e.target.value.length > 2) {
+                if (e.target.value.length == 0 || e.target.value.length > 2) {
                     return updateValue({...value, searchString: e.target.value})
                 }
             });
