@@ -3322,7 +3322,7 @@ const reviewSelect = (value, data) => {
 
     const filteredReviews = reviews[type];
 
-    const reviewsList = mapReviews(filteredReviews).filter(review => productFilter.includes(review.yotpo_product_id));
+    const reviewsList = mapReviews(filteredReviews).filter(review => productFilter.includes(String(review.yotpo_product_id)));
 
     const products = reviews.product_reviews.reduce((acc, product) => {
         acc.push({productId: product.yotpo_product_id, productName: product.product_name});
@@ -3372,7 +3372,7 @@ const reviewSelect = (value, data) => {
     <select multiple data-placeholder="All products">
         ${products.map(product =>
             `
-                <option class="prodOption" value="${product.productId}">
+                <option ${productFilter.includes(String(product.productId)) ? 'selected' : ''} class="prodOption" value="${product.productId}">
                     ${product.productName}
                 </option>
             `
@@ -3520,12 +3520,12 @@ unlayer.registerPropertyEditor({
                     }
                 })
                 updateValue({...value, productFilter: newVal})
-                const layoutItem = document.querySelector('.layout-list .three-columns')
-                if (newVal.length > 2) {
-                    layoutItem.classList.remove('disabled')
-                } else {
-                    layoutItem.classList.add('disabled')
-                }
+                // const layoutItem = document.querySelector('.layout-list .three-columns')
+                // if (newVal.length > 2) {
+                //     layoutItem.classList.remove('disabled')
+                // } else {
+                //     layoutItem.classList.add('disabled')
+                // }
             }
 
             if (!document.querySelector('.selectMultiple')) {
