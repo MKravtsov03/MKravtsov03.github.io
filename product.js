@@ -3336,10 +3336,10 @@ const reviewSelect = (value, data) => {
             </option>
     )}
 </select>
-<select id="review_type_select" class="form-control" style="margin-bottom: 20px;" data-placeholder="Select review type">
+<select value="${value.type}" id="review_type_select" class="form-control" style="margin-bottom: 20px;" data-placeholder="Select review type">
     ${types?.map(option =>
         `
-            <option value="${option.value}">
+            <option ${option.value == value.type ? 'selected' : ''}  value="${option.value}">
                 ${option.label}
             </option>
         `
