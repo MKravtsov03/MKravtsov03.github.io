@@ -3210,7 +3210,7 @@ const generateRating = (rating) => {
 
 const mapReviews = (filteredReviews) => {
     return filteredReviews.reduce((acc, productWithReviews) => {
-        const { yotpo_product_id, product_name }  = productWithReviews;
+        const { yotpo_product_id, product_name, product_images_array }  = productWithReviews;
         const reviews = productWithReviews.reviews.map(review => {
             return {
                 ...review,
