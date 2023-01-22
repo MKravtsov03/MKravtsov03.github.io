@@ -3366,7 +3366,7 @@ const reviewSelect = (value, data) => {
     <select multiple data-placeholder="Select products">
         ${products.map(product =>
             `
-                <option ${value.products.includes(option.value.toString()) ? 'selected': ''} class="prodOption" value="${product.productId}">
+                <option class="prodOption" value="${product.productId}">
                     ${product.productName}
                 </option>
             `
