@@ -3215,7 +3215,8 @@ const mapReviews = (filteredReviews) => {
             return {
                 ...review,
                 yotpo_product_id,
-                product_name
+                product_name,
+                product_images_array
             }
         })
         return acc = [...acc, ...reviews];
@@ -3225,15 +3226,7 @@ const mapReviews = (filteredReviews) => {
 const getYotpoTemlate = () =>  function(values) {
     console.log({values})
     const {reviews_select, data: {reviews}} = values
-    // const review = {
-    //     review_id: 111,
-    //     review_title: 'Review Nike 45 1',
-    //     review_score: 3.5,
-    //     review_content: 'Here would be some text of review, naybe even not so short',
-    //     user_display_name: '...',
-    //     review_date: '05.03.2022',
-    //     product_name: 'Nike 45',
-    // }
+
     const reviewsList = mapReviews(reviews[reviews_select?.type])
 
     const selectedReviews = reviewsList.filter(function (el) {
@@ -3258,21 +3251,44 @@ const getYotpoTemlate = () =>  function(values) {
             ${
             selectedReviews.map(review =>
                 `
-                    <div class="review">
-                        <div class="review__inner">
-                            <div class="review__heading">
-                                <div class="review__info">
-                                    <div class="review__title">${review?.review_title}</div>
-                                    •
-                                    <div class="review__product-name">${review?.product_name}</div>
+                    <div>
+                        <div style="overflow: hidden;">
+                            <img style="max-width: 100%; width: 100%; object-fit: contain;" src="${review?.product_images_array}" alt="${${review?.product_name}}">
+                        </div>
+                        <div style="padding: 20px 10px; text-align: center;">    
+                            <a style="font-weight: 400;
+                                       text-align: center;
+                                       vertical-align: middle;
+                                       background-color: #000;
+                                       border-radius: 8px;
+                                       padding: 0.75rem;
+                                       font-size: 1rem;
+                                       line-height: 1.5;
+                                       transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                       cursor: pointer;
+                                       max-width: 300px;
+                                       cursor: pointer;
+                                       text-decoration: none; color: #fff; font-size: 16px; background-color: #000;" href="" target="_blank">
+                                    Buy it Now
+                            </a>
+        
+                        </div>
+                        <div class="review">
+                            <div class="review__inner">
+                                <div class="review__heading">
+                                    <div class="review__info">
+                                        <div class="review__title">${review?.user_display_name}</div>
+                                        •
+                                        <div class="review__product-name">${review?.product_name}</div>
+                                    </div>
+                                    <div class="review__date">${review?.review_date}</div>
                                 </div>
-                                <div class="review__date">${review?.review_date}</div>
-                            </div>
-                            <div class="review__rating">
-                                ${generateRating(roundHalf(review?.review_score))}
-                            </div>
-                            <div class="review__content">
-                                ${review?.review_content}
+                                <div class="review__rating">
+                                    ${generateRating(roundHalf(review?.review_score))}
+                                </div>
+                                <div class="review__content">
+                                    ${review?.review_content}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -3338,7 +3354,7 @@ const reviewSelect = (value, data) => {
                     <div class="review__inner">
                         <div class="review__heading">
                             <div class="review__info">
-                                <div class="review__title">${review?.review_title}</div>
+                                <div class="review__title">${review?.user_display_name}</div>
                                 •
                                 <div class="review__product-name">${review?.product_name}</div>
                             </div>
