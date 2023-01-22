@@ -3358,6 +3358,8 @@ const reviewSelect = (value, data) => {
         return acc;
     }, [])
 
+    console.log(reviewsList)
+
     return `
 
     <svg id="stars" style="display: none;" version="1.1">
