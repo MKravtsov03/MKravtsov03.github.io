@@ -3320,7 +3320,7 @@ const reviewSelect = (value, data) => {
 
     const {reviews, types} = data;
 
-    const filteredReviews = value?.filteredReviews.length ? value?.filteredReviews : reviews[type];
+    const filteredReviews = reviews[type];
 
     const reviewsList = mapReviews(filteredReviews);
 
