@@ -595,10 +595,13 @@ const ProductStyles = () =>
          .filters {
             display: flex;
             gap: 15px;
-            justiy-content: space-berween;
+            justiy-content: space-between;
          }
          .filters > * {
             width: calc(33.33333% - 15px);
+         }
+         .filters .selectMultiple ul {
+            width: 200px;
          }
 `;
     };
@@ -3361,7 +3364,10 @@ const reviewSelect = (value, data) => {
 </select>
 
 <div class="filters">
-    <input type="text" class="form-control" id="filter-search">
+    
+    <div class="search-filter">
+        <input type="text" class="form-control" id="filter-search">
+    </div>
     
     <select multiple data-placeholder="Select products">
         ${products.map(product =>
@@ -3513,7 +3519,7 @@ unlayer.registerPropertyEditor({
                         newVal.push(option.value)
                     }
                 })
-                // updateValue({...value, products: newVal})
+                updateValue({...value, productFilter: newVal})
                 const layoutItem = document.querySelector('.layout-list .three-columns')
                 if (newVal.length > 2) {
                     layoutItem.classList.remove('disabled')
@@ -3641,7 +3647,7 @@ unlayer.registerTool({
             options: {
                 reviews_select: {
                     label: '',
-                    defaultValue: { type: "product_reviews", filteredReviews: [], activeReviews: [], searchString: '', productFulter: '', ratingFilter: '' },
+                    defaultValue: { type: "product_reviews", activeReviews: [], searchString: '', productFilter: [], ratingFilter: [] },
                     widget: 'review_source_select',
                 },
             },
