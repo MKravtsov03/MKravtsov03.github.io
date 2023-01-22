@@ -595,10 +595,10 @@ const ProductStyles = () =>
          .filters {
             display: flex;
             gap: 15px;
-            justiy-content: space-between;
+            justify-content: space-between;
          }
          .filters > * {
-            width: calc(33.33333% - 15px);
+            width: calc(50% - 15px);
          }
          .filters .selectMultiple ul {
             width: 200px;
@@ -3316,13 +3316,13 @@ const yotpoTemplate = getYotpoTemlate();
 const reviewSelect = (value, data) => {
     console.log("render:", {value, data});
 
-    const {type, activeReviews} = value;
+    const {type, activeReviews, productFilter} = value;
 
     const {reviews, types} = data;
 
     const filteredReviews = reviews[type];
 
-    const reviewsList = mapReviews(filteredReviews);
+    const reviewsList = mapReviews(filteredReviews).filter(review => productFilter.includes(review.yotpo_product_id));
 
     const products = reviews.product_reviews.reduce((acc, product) => {
         acc.push({productId: product.yotpo_product_id, productName: product.product_name});
@@ -3369,7 +3369,7 @@ const reviewSelect = (value, data) => {
         <input type="text" class="form-control" id="filter-search">
     </div>
     
-    <select multiple data-placeholder="Select products">
+    <select multiple data-placeholder="All products">
         ${products.map(product =>
             `
                 <option class="prodOption" value="${product.productId}">
