@@ -3388,6 +3388,9 @@ unlayer.registerPropertyEditor({
     layout: 'bottom',
     Widget: unlayer.createWidget({
         render(value, updateValue, data) {
+            if (!value.filteredReviews.length) {
+                updateValue({...value, filteredReviews: data.reviews[value.type]})
+            }
             return reviewSelect(value, data)
         },
         mount(node, value, updateValue) {
