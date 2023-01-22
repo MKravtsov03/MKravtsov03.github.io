@@ -3411,7 +3411,7 @@ const reviewSelect = (value, data) => {
         </select>
     </div>
        ${
-            reviewsList.length ? `
+            reviewsList.length > 0 ? `
                 <div class="reviews-list">
                         ${reviewsList.map(review => {
                                     console.log('checked', activeReviews.includes(String(review?.review_id)))
