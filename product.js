@@ -591,6 +591,15 @@ const ProductStyles = () =>
             max-width: 450px;
             margin: 0 auto 30px;
          }
+         
+         .filters {
+            display: flex;
+            gap: 15px;
+            justiy-content: space-berween;
+         }
+         .filters > * {
+            width: calc(33.33333% - 15px);
+         }
 `;
     };
 
@@ -3310,7 +3319,12 @@ const reviewSelect = (value, data) => {
 
     const filteredReviews = value?.filteredReviews.length ? value?.filteredReviews : reviews[type];
 
-    const reviewsList = mapReviews(filteredReviews)
+    const reviewsList = mapReviews(filteredReviews);
+
+    const products = reviews.product_reviews.reduce((acc, product) => {
+        acc.push({productId: product.yotpo_product_id, productName: product.product_name});
+        return acc;
+    }, [])
 
     return `
 
@@ -3346,8 +3360,18 @@ const reviewSelect = (value, data) => {
     ).join('')}
 </select>
 
-<div class="fiters">
+<div class="filters">
     <input type="text" class="form-control" id="filter-search">
+    
+    <select multiple data-placeholder="Select products">
+        ${products.map(product =>
+            `
+                <option ${value.products.includes(option.value.toString()) ? 'selected': ''} class="prodOption" value="${product.productId}">
+                    ${product.productName}
+                </option>
+            `
+        )}
+    </select>
 </div>
 
 <div class="reviews-list">
@@ -3416,6 +3440,191 @@ unlayer.registerPropertyEditor({
                     return updateValue({...value, activeReviews})
                 })
             })
+
+            // filters
+
+            // products filter START
+
+            const handleClickListItem = (e) => {
+                const li = e.target.closest('.list-item');
+
+                const select = li.closest('.selectMultiple');
+                select.classList.add('clicked');
+
+                const a = document.createElement('a');
+                a.dataset.value = li.dataset.value;
+                a.innerHTML = `<em>${li.innerText}</em><i></i>`;
+                a.classList.add('notShown');
+
+                select.querySelector('div').appendChild(a);
+
+                Array.from(document.getElementsByClassName('prodOption')).forEach((option) => {
+                        if (option.value === li.dataset.value) {
+                            option.selected = true
+                            document.querySelector('select[multiple]').dispatchEvent(new Event('change'))
+                        }
+                    }
+                )
+
+                li.remove();
+
+                select.querySelector('span').classList.add('hide');
+                select.classList.remove('clicked');
+            }
+
+            const handleClickSelectedItem = (e) => {
+                const a = e.target.closest('a');
+                const select = e.target.closest('.selectMultiple');
+
+                if (!a) {
+                    return;
+                }
+
+                a.className = '';
+                a.classList.add('remove');
+                select.classList.add('open');
+                const selectEl = select.querySelector('select');
+
+                Array.from(document.getElementsByClassName('prodOption')).forEach((option) => {
+                        if (option.value === a.dataset.value) {
+                            option.selected = false
+                            document.querySelector('select[multiple]').dispatchEvent(new Event('change'))
+                        }
+                    }
+                )
+
+                const li = document.createElement('li');
+                li.dataset.value = a.dataset.value;
+                li.classList.add('list-item');
+                li.innerText = a.querySelector('em').innerText;
+                select.querySelector('ul').appendChild(li);
+
+                if (!selectEl.selectedOptions.length) {
+                    select.querySelector('span').classList.remove('hide');
+                }
+
+                a.remove();
+            }
+
+            document.querySelector('select[multiple]').onchange = function() {
+                const newVal = []
+                Array.from(document.getElementsByClassName('prodOption')).forEach(option => {
+                    if(option.selected) {
+                        newVal.push(option.value)
+                    }
+                })
+                // updateValue({...value, products: newVal})
+                const layoutItem = document.querySelector('.layout-list .three-columns')
+                if (newVal.length > 2) {
+                    layoutItem.classList.remove('disabled')
+                } else {
+                    layoutItem.classList.add('disabled')
+                }
+            }
+
+            if (!document.querySelector('.selectMultiple')) {
+                const select = document.querySelector('select[multiple]');
+                const selectOptions = document.getElementsByClassName('prodOption');
+
+                const newSelect = document.createElement('div');
+                newSelect.classList.add('selectMultiple');
+
+                const active = document.createElement('div');
+                active.classList.add('active');
+
+                const search = document.createElement('input');
+                search.classList.add('search-field');
+                search.setAttribute('placeholder', 'Search Products');
+
+                const optionList = document.createElement('ul');
+                const placeholder = select.dataset.placeholder;
+
+                const searchItem =  document.createElement('li');
+                searchItem.classList.add('search-item');
+                searchItem.innerHTML = '<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
+                    '<path d="M16.5 16.5L12.875 12.875M14.8333 8.16667C14.8333 11.8486 11.8486 14.8333 8.16667 14.8333C4.48477 14.8333 1.5 11.8486 1.5 8.16667C1.5 4.48477 4.48477 1.5 8.16667 1.5C11.8486 1.5 14.8333 4.48477 14.8333 8.16667Z" stroke="#667085" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>\n' +
+                    '</svg>'
+                searchItem.appendChild(search)
+
+                const placeholderElement = document.createElement('span');
+                placeholderElement.innerText = placeholder;
+                placeholderElement.classList.add('placeholder');
+                active.appendChild(placeholderElement);
+                optionList.appendChild(searchItem);
+
+
+                search.addEventListener('keyup', (e) => {
+                    let newOptions = document.querySelectorAll('.selectMultiple ul .list-item')
+                    if (e.target.value) {
+                        newOptions.forEach(function (item) {
+                            if (!item.innerText.toLowerCase().includes(e.target.value.toLowerCase())) {
+                                item.classList.add('hide')
+                            } else {
+                                item.classList.remove('hide')
+                            }
+                        })
+                        return
+                    }
+                    newOptions.forEach(function (item) {
+                        item.classList.remove('hide')
+                    })
+                })
+
+                Array.from(selectOptions).forEach(
+                    function(option) {
+                        let text = option.innerText;
+
+                        if (option.selected) {
+                            let tag = document.createElement('a');
+                            tag.dataset.value = option.value;
+                            tag.innerHTML = `<em>${text}</em><i></i>`;
+                            active.appendChild(tag);
+                            placeholderElement.classList.add('hide');
+                        } else {
+                            const item = document.createElement('li');
+                            item.classList.add('list-item');
+                            item.dataset.value = option.value;
+                            item.innerHTML = text;
+                            optionList.appendChild(item);
+                        }
+                    }
+                );
+
+                const arrow = document.createElement('div');
+                arrow.classList.add('arrow');
+                active.appendChild(arrow);
+
+                newSelect.appendChild(active);
+                newSelect.appendChild(optionList);
+
+                select.parentElement.append(newSelect);
+                placeholderElement.appendChild(select);
+
+                document.querySelector('.selectMultiple ul').removeEventListener('click', handleClickListItem);
+                document.querySelector('.selectMultiple > div').removeEventListener('click', handleClickSelectedItem);
+
+                document.querySelector('.selectMultiple ul').addEventListener('click', handleClickListItem);
+                document.querySelector('.selectMultiple > div').addEventListener('click', handleClickSelectedItem);
+
+                document.querySelectorAll('.selectMultiple > div, .selectMultiple > div span').forEach((el) => {
+                    el.addEventListener('click', (e) => {
+                        el.closest('.selectMultiple').classList.toggle('open');
+                    });
+                });
+
+                document.addEventListener('mouseup', function (e) {
+                    const container = document.querySelector('.selectMultiple');
+                    if (!container.contains(e.target)) {
+                        container.classList.remove('open')
+                    }
+                });
+
+            }
+
+            // products filter END
+
+
+
         }
     })
 });
