@@ -3346,6 +3346,10 @@ const reviewSelect = (value, data) => {
     ).join('')}
 </select>
 
+<div class="fiters">
+    <input type="text" class="form-control" id="filter-search">
+</div>
+
 <div class="reviews-list">
     ${reviewsList.map(review => {
             console.log('checked', activeReviews.includes(String(review?.review_id)))
@@ -3388,6 +3392,13 @@ unlayer.registerPropertyEditor({
         },
         mount(node, value, updateValue) {
             console.log("mount:", {value});
+
+            const typeSelect = node.getElementById('review_type_select');
+
+            typeSelect.onchange(() => {
+                console.log(typeSelect.value);
+            });
+
             const reviewsChecks = node.querySelectorAll('.review');
             let activeReviews = [...value?.activeReviews]
             reviewsChecks.forEach((item, i) => {
