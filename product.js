@@ -3131,6 +3131,16 @@ const roundHalf = (num) => {
     return Math.round(num*2)/2;
 }
 
+function debounce(func, delay = 250) {
+    let timerId;
+    return (...args) => {
+        clearTimeout(timerId);
+        timerId = setTimeout(() => {
+            func.apply(this, args);
+        }, delay);
+    };
+}
+
 const generateRating = (rating) => {
     switch (rating) {
         case (0): return `
@@ -3662,11 +3672,11 @@ unlayer.registerPropertyEditor({
 
             const searchFilter = document.getElementById('filter-search');
 
-            searchFilter.addEventListener('change', (e) => {
-                if (e.target.value.length == 0 || e.target.value.length > 2) {
-                    return updateValue({...value, searchString: e.target.value})
-                }
-            });
+            const debounceInput = debounce((e) => {
+                return updateValue({...value, searchString: e.target.value})
+            })
+
+            searchFilter.addEventListener('keyup', debounceInput);
 
             // Search filter END
 
