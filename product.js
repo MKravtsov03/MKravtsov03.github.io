@@ -603,6 +603,7 @@ const ProductStyles = () =>
          }
          .filters .selectMultiple ul {
             width: 200px;
+            left: -10px;
          }
          .filters .search-filter input {
             border-radius: 6px;
@@ -3256,6 +3257,13 @@ const productFiltering = (reviews, filter) => {
     return reviews
 }
 
+const searchFiltering = (reviews, search) => {
+    if (search) {
+        return reviews.filter(review => review.review_content.includes(search));
+    }
+    return reviews
+}
+
 const getYotpoTemlate = () =>  function(values) {
     console.log({values})
     const {reviews_select, data: {reviews}} = values
@@ -3365,74 +3373,73 @@ const reviewSelect = (value, data) => {
       </symbol>
     </svg>
 
-<div class="blockbuilder-widget-label">
-    <p class="blockbuilder-label-primary">Select data</p>
-</div>
-<select disabled style="margin-bottom: 20px;" class="form-control" data-placeholder="Select products">
-            <option selected value="yotpo">
-                Yotpo
-            </option>
-    )}
-</select>
-<select value="${value.type}" id="review_type_select" class="form-control" style="margin-bottom: 20px;" data-placeholder="Select review type">
-    ${types?.map(option =>
-        `
-            <option ${option.value == value.type ? 'selected' : ''}  value="${option.value}">
-                ${option.label}
-            </option>
-        `
-    ).join('')}
-</select>
-
-<div class="filters">
-    
-    <div class="search-filter">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.5 16.5L12.875 12.875M14.8333 8.16667C14.8333 11.8486 11.8486 14.8333 8.16667 14.8333C4.48477 14.8333 1.5 11.8486 1.5 8.16667C1.5 4.48477 4.48477 1.5 8.16667 1.5C11.8486 1.5 14.8333 4.48477 14.8333 8.16667Z" stroke="#667085" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <input type="text" class="form-control" id="filter-search">
+    <div class="blockbuilder-widget-label">
+        <p class="blockbuilder-label-primary">Select data</p>
     </div>
-    
-    <select multiple data-placeholder="All products">
-        ${products.map(product =>
+    <select disabled style="margin-bottom: 20px;" class="form-control" data-placeholder="Select products">
+        <option selected value="yotpo">
+            Yotpo
+        </option>
+    </select>
+    <select value="${value.type}" id="review_type_select" class="form-control" style="margin-bottom: 20px;" data-placeholder="Select review type">
+        ${types?.map(option =>
             `
-                <option ${productFilter.includes(String(product.productId)) ? 'selected' : ''} class="prodOption" value="${product.productId}">
-                    ${product.productName}
+                <option ${option.value == value.type ? 'selected' : ''}  value="${option.value}">
+                    ${option.label}
                 </option>
             `
-        )}
-    </select>
-</div>
-
-<div class="reviews-list">
-    ${reviewsList.map(review => {
-            console.log('checked', activeReviews.includes(String(review?.review_id)))
-            return `
-                <label class="review">
-                    <div class="review__inner">
-                        <div class="review__heading">
-                            <div class="review__info">
-                                <div class="review__title">${review?.user_display_name}</div>
-                                •
-                                <div class="review__product-name">${review?.product_name}</div>
-                            </div>
-                            <div class="review__date">${review?.review_date}</div>
-                        </div>
-                        <div class="review__rating">
-                            ${generateRating(roundHalf(review?.review_score))}
-                        </div>
-                        <div class="review__content">
-                            ${review?.review_content}
-                        </div>
-                    </div>
-                    <div class="details-item">
-                         <input class="review__checkbox" ${activeReviews.includes(String(review?.review_id)) ? 'checked' : ''} name="${review?.review_id}" data-id="${review?.review_id}" data-productId="${review?.yotpo_product_id}" type="checkbox">
-                    </div>
-                </label>
-            `
-            }
         ).join('')}
-</div>
+    </select>
+
+    <div class="filters">
+        
+        <div class="search-filter">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.5 16.5L12.875 12.875M14.8333 8.16667C14.8333 11.8486 11.8486 14.8333 8.16667 14.8333C4.48477 14.8333 1.5 11.8486 1.5 8.16667C1.5 4.48477 4.48477 1.5 8.16667 1.5C11.8486 1.5 14.8333 4.48477 14.8333 8.16667Z" stroke="#667085" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input type="text" class="form-control" id="filter-search">
+        </div>
+        
+        <select multiple data-placeholder="All products">
+            ${products.map(product =>
+                `
+                    <option ${productFilter.includes(String(product.productId)) ? 'selected' : ''} class="prodOption" value="${product.productId}">
+                        ${product.productName}
+                    </option>
+                `
+            )}
+        </select>
+    </div>
+
+    <div class="reviews-list">
+        ${reviewsList.map(review => {
+                console.log('checked', activeReviews.includes(String(review?.review_id)))
+                return `
+                    <label class="review">
+                        <div class="review__inner">
+                            <div class="review__heading">
+                                <div class="review__info">
+                                    <div class="review__title">${review?.user_display_name}</div>
+                                    •
+                                    <div class="review__product-name">${review?.product_name}</div>
+                                </div>
+                                <div class="review__date">${review?.review_date}</div>
+                            </div>
+                            <div class="review__rating">
+                                ${generateRating(roundHalf(review?.review_score))}
+                            </div>
+                            <div class="review__content">
+                                ${review?.review_content}
+                            </div>
+                        </div>
+                        <div class="details-item">
+                             <input class="review__checkbox" ${activeReviews.includes(String(review?.review_id)) ? 'checked' : ''} name="${review?.review_id}" data-id="${review?.review_id}" data-productId="${review?.yotpo_product_id}" type="checkbox">
+                        </div>
+                    </label>
+                `
+                }
+            ).join('')}
+    </div>
 `
 }
 
@@ -3448,8 +3455,6 @@ unlayer.registerPropertyEditor({
             console.log("mount:", {value});
 
             const typeSelect = document.getElementById('review_type_select');
-
-            console.log(typeSelect);
 
             typeSelect.addEventListener('change', () => {
                 console.log(typeSelect.value);
@@ -3652,6 +3657,18 @@ unlayer.registerPropertyEditor({
             }
 
             // products filter END
+
+            // Search filter START
+
+            const searchFilter = document.getElementById('filter-search');
+
+            searchFilter.addEventListener('change', (e) => {
+                if (e.target.value.length > 2) {
+                    return updateValue({...value, searchString: e.target.value})
+                }
+            });
+
+            // Search filter END
 
 
 
