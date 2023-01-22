@@ -3397,7 +3397,7 @@ unlayer.registerPropertyEditor({
 
             console.log(typeSelect);
 
-            typeSelect.addEventListener('changee', () => {
+            typeSelect.addEventListener('change', () => {
                 console.log(typeSelect.value);
             });
 
