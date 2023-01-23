@@ -3293,8 +3293,8 @@ const oneColumnRender = (review, details, values) =>`
                                    transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
                                    cursor: pointer;
                                    max-width: 300px;
-                                   cursor: pointer;
                                    text-decoration: none;
+                                   font-family: ${values.btnFont.value};
                                    border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
                                    border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
                                    border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
@@ -3324,7 +3324,7 @@ const oneColumnRender = (review, details, values) =>`
                                 ${generateRating(roundHalf(review?.review_score))}
                             </div>` : ''}
                         ${details?.reviewContent ? `
-                             <div class="review__content">
+                             <div class="review__content" style="font-family: ${values.reviewFont.value}; font-size: ${values.reviewFontSize}px; color: ${values.reviewColor}">
                                 ${review?.review_content}
                              </div>` : ''}
                     </div>
@@ -3352,8 +3352,8 @@ const twoColumnsRender = (review, details, values) =>`
                                    transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
                                    cursor: pointer;
                                    max-width: 300px;
-                                   cursor: pointer;
                                    text-decoration: none;
+                                   font-family: ${values.btnFont.value};
                                    border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
                                    border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
                                    border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
@@ -3383,7 +3383,7 @@ const twoColumnsRender = (review, details, values) =>`
                                 ${generateRating(roundHalf(review?.review_score))}
                             </div>` : ''}
                         ${details?.reviewContent ? `
-                             <div class="review__content">
+                             <div class="review__content" style="font-family: ${values.reviewFont.value}; font-size: ${values.reviewFontSize}px; color: ${values.reviewColor}">
                                 ${review?.review_content}
                              </div>` : ''}
                     </div>
@@ -3409,7 +3409,7 @@ const twoColumnsReverseRender = (review, details, values) =>`
                                 ${generateRating(roundHalf(review?.review_score))}
                             </div>` : ''}
                         ${details?.reviewContent ? `
-                             <div class="review__content">
+                             <div class="review__content" style="font-family: ${values.reviewFont.value}; font-size: ${values.reviewFontSize}px; color: ${values.reviewColor}">
                                 ${review?.review_content}
                              </div>` : ''}
                     </div>
@@ -3427,8 +3427,8 @@ const twoColumnsReverseRender = (review, details, values) =>`
                                    transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
                                    cursor: pointer;
                                    max-width: 300px;
-                                   cursor: pointer;
                                    text-decoration: none;
+                                   font-family: ${values.btnFont.value};
                                    border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
                                    border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
                                    border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
@@ -3878,10 +3878,25 @@ unlayer.registerTool({
                     ],
                     widget: 'layout',
                 },
+            },
+        },
+        formatting_options: {
+            title: 'Formatting options',
+            position: 2,
+            options: {
                 btn: {
                     label: 'Button Content',
                     defaultValue: 'Buy it Now',
                     widget: 'text',
+                },
+                btnFont: {
+                    label: 'Quantity font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
                 },
                 btnFontSize: {
                     enabled: true,
@@ -3906,8 +3921,29 @@ unlayer.registerTool({
                     defaultValue: '',
                     widget: 'border',
                 },
-            },
-        },
+                reviewFont: {
+                    label: 'Review content font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                reviewFontSize: {
+                    enabled: true,
+                    label: 'Review content font size',
+                    defaultValue: '14',
+                    widget: 'counter',
+                },
+                reviewColor: {
+                    enabled: true,
+                    label: 'Review content color',
+                    defaultValue: '#667085',
+                    widget: 'color_picker',
+                },
+            }
+        }
     },
     propertyStates: (values) => {},
     renderer: {
