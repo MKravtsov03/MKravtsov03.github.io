@@ -3324,7 +3324,7 @@ const oneColumnRender = (review, details) =>`
             </div>
 `
 
-const twoColumnsRender = (review) =>`
+const twoColumnsRender = (review, details) =>`
             <div style="float: left; max-width: calc(50% - 12px); margin: 0 5px 10px; width: 100%; border: 1px solid #E4E7EC; border-radius: 12px; overflow: hidden;">
                 ${details?.image ? `
                     <div style="overflow: hidden;">
@@ -3375,7 +3375,7 @@ const twoColumnsRender = (review) =>`
             </div>
 `
 
-const twoColumnsReverseRender = (review) =>`
+const twoColumnsReverseRender = (review, details) =>`
             <div style="float: left; max-width: calc(50% - 12px); margin: 0 5px 10px; width: 100%; border: 1px solid #E4E7EC; border-radius: 12px; overflow: hidden;">
                 <div class="review" style="border: none;">
                     <div class="review__inner">
