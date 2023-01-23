@@ -2843,6 +2843,15 @@ const labelsMap = {
         button: 'Item button',
         recovery: 'Checkout',
         image: 'Item image'
+    },
+    review: {
+        image: 'Image',
+        date: 'Date',
+        reviewContent: 'Review content',
+        userName: 'User name',
+        productName: 'Product Name',
+        rating: 'Rating',
+        cta: 'CTA'
     }
 }
 
