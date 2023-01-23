@@ -3699,17 +3699,17 @@ unlayer.registerTool({
                     defaultValue: { type: "product_reviews", activeReviews: [], searchString: '', productFilter: [], ratingFilter: [] },
                     widget: 'review_source_select',
                 },
+                layout: {
+                    label: 'layout',
+                    defaultValue: [
+                        {active: true, value: 'one-column', disabled: false},
+                        {active: false, value: 'two-columns', disabled: false},
+                        {active: false, value: 'two-columns--reverse', disabled: false},
+                        {active: false, value: 'three-columns', disabled: true},
+                    ],
+                    widget: 'layout',
+                },
             },
-        },
-        layout: {
-            label: 'layout',
-            defaultValue: [
-                {active: true, value: 'one-column', disabled: false},
-                {active: false, value: 'two-columns', disabled: false},
-                {active: false, value: 'two-columns--reverse', disabled: false},
-                {active: false, value: 'three-columns', disabled: true},
-            ],
-            widget: 'layout',
         },
     },
     propertyStates: (values) => {},
