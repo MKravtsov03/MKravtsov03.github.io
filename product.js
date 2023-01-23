@@ -3890,7 +3890,7 @@ unlayer.registerTool({
                     widget: 'text',
                 },
                 btnFont: {
-                    label: 'Quantity font',
+                    label: 'Button font',
                     defaultValue: {
                         label: "Inter",
                         url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
