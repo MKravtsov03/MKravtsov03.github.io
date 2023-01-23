@@ -3701,6 +3701,16 @@ unlayer.registerTool({
                 },
             },
         },
+        layout: {
+            label: 'layout',
+            defaultValue: [
+                {active: true, value: 'one-column', disabled: false},
+                {active: false, value: 'two-columns', disabled: false},
+                {active: false, value: 'two-columns--reverse', disabled: false},
+                {active: false, value: 'three-columns', disabled: true},
+            ],
+            widget: 'layout',
+        },
     },
     propertyStates: (values) => {},
     renderer: {
