@@ -3264,45 +3264,52 @@ const searchFiltering = (reviews, search) => {
     return reviews
 }
 
-const oneColumnRender = (review) =>`
+const oneColumnRender = (review, details) =>`
             <div style="width: 100%; border: 1px solid #E4E7EC; border-radius: 12px;">
-                <div style="overflow: hidden;">
-                    <img style="max-width: 100%; width: 100%; object-fit: contain;" src="${review?.product_images_array}" alt="${review?.product_name}">
-                </div>
-                <div style="padding: 20px 10px; text-align: center;">    
-                    <a style="font-weight: 400;
-                               text-align: center;
-                               vertical-align: middle;
-                               background-color: #000;
-                               border-radius: 8px;
-                               padding: 0.75rem;
-                               font-size: 1rem;
-                               line-height: 1.5;
-                               transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                               cursor: pointer;
-                               max-width: 300px;
-                               cursor: pointer;
-                               text-decoration: none; color: #fff; font-size: 16px; background-color: #000;" href="" target="_blank">
-                            Buy it Now
-                    </a>
-
-                </div>
+                ${details?.image ? `
+                    <div style="overflow: hidden;">
+                        <img style="max-width: 100%; width: 100%; object-fit: contain;" src="${review?.product_images_array}" alt="${review?.product_name}">
+                    </div>
+                ` : ''}
+                ${details?.cta ? `
+                    <div style="padding: 20px 10px; text-align: center;">    
+                        <a style="font-weight: 400;
+                                   text-align: center;
+                                   vertical-align: middle;
+                                   background-color: #000;
+                                   border-radius: 8px;
+                                   padding: 0.75rem;
+                                   font-size: 1rem;
+                                   line-height: 1.5;
+                                   transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                   cursor: pointer;
+                                   max-width: 300px;
+                                   cursor: pointer;
+                                   text-decoration: none; color: #fff; font-size: 16px; background-color: #000;" href="" target="_blank">
+                                Buy it Now
+                        </a>
+                    </div>
+                ` : ''}
+                
                 <div class="review" style="border: none;">
                     <div class="review__inner">
                         <div class="review__heading">
                             <div class="review__info">
-                                <div class="review__title">${review?.user_display_name}</div>
-                                •
-                                <div class="review__product-name">${review?.product_name}</div>
+                                ${details?.userName ? `<div class="review__title">${review?.user_display_name}</div>
+                                •` : ''}
+                                ${details?.productName ? `<div class="review__product-name">${review?.product_name}</div>` : ''}
                             </div>
-                            <div class="review__date">${review?.review_date}</div>
+                            ${details?.date ? `<div class="review__date">${review?.review_date}</div>` : ''}
+                            
                         </div>
-                        <div class="review__rating">
-                            ${generateRating(roundHalf(review?.review_score))}
-                        </div>
-                        <div class="review__content">
-                            ${review?.review_content}
-                        </div>
+                        ${details?.rating ? `
+                            <div class="review__rating">
+                                ${generateRating(roundHalf(review?.review_score))}
+                            </div>` : ''}
+                        ${details?.reviewContent ? `
+                             <div class="review__content">
+                                ${review?.review_content}
+                             </div>` : ''}
                     </div>
                 </div>
             </div>
@@ -3396,24 +3403,24 @@ const twoColumnsReverseRender = (review) =>`
             </div>
 `
 
-const reviewsRender = (selectedReviews, layout) => {
+const reviewsRender = (selectedReviews, layout, details) => {
     switch(layout) {
         case ('two-columns'):
             return `
             <div style="overflow: hidden; background: #fff; padding: 20px 5px 0;">
-                ${selectedReviews.map(review => twoColumnsRender(review)).join('')}
+                ${selectedReviews.map(review => twoColumnsRender(review, details)).join('')}
             </div>
         `
         case ('two-columns--reverse'):
             return `
             <div style="overflow: hidden; background: #fff; padding: 20px 5px 0;">
-                ${selectedReviews.map((review, index) => index % 2 == 0 ? twoColumnsReverseRender(review)  : twoColumnsRender(review)).join('')}
+                ${selectedReviews.map((review, index) => index % 2 == 0 ? twoColumnsRender(review, details) : twoColumnsReverseRender(review, details)).join('')}
             </div>
         `
         default:
             return `
             <div style="overflow: hidden; background: #fff; padding: 20px 10px 0;">
-                ${selectedReviews.map(review => oneColumnRender(review)).join('')}
+                ${selectedReviews.map(review => oneColumnRender(review, details)).join('')}
             </div>
         `
     }
@@ -3422,7 +3429,7 @@ const reviewsRender = (selectedReviews, layout) => {
 
 const getYotpoTemlate = () =>  function(values) {
     console.log({values})
-    const {reviews_select, data: {reviews}, layout} = values
+    const {reviews_select, data: {reviews}, layout, details} = values
 
     const reviewsList = mapReviews(reviews[reviews_select?.type])
 
@@ -3449,7 +3456,7 @@ const getYotpoTemlate = () =>  function(values) {
           </symbol>
         </svg>
         
-        ${selectedReviews.length ? reviewsRender(selectedReviews, activeLayout) : 
+        ${selectedReviews.length ? reviewsRender(selectedReviews, activeLayout, details) : 
             `
             <div style="text-align: center; padding: 20px; font-size: 20px; font-weight: 600; color: #667085">
                 Select reviews
@@ -3809,6 +3816,11 @@ unlayer.registerTool({
                     label: '',
                     defaultValue: { type: "product_reviews", activeReviews: [], searchString: '', productFilter: [], ratingFilter: [] },
                     widget: 'review_source_select',
+                },
+                details: {
+                    label: 'Details',
+                    defaultValue: {title: 'review', details: {image: true, date: true, reviewContent: true, rating: true, productName: true, userName: true, cta: true}},
+                    widget: 'product_details',
                 },
                 layout: {
                     label: 'layout',
