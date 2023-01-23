@@ -3333,8 +3333,8 @@ const twoColumnsRender = (review) =>`
                 </div>
                 <div class="review">
                     <div class="review__inner">
-                        <div class="review__heading">
-                            <div class="review__info">
+                        <div class="review__heading" style="display: block;">
+                            <div class="review__info" style="margin-bottom: 5px;">
                                 <div class="review__title">${review?.user_display_name}</div>
                                 •
                                 <div class="review__product-name">${review?.product_name}</div>
@@ -3356,14 +3356,14 @@ const reviewsRender = (selectedReviews, layout) => {
     switch(layout) {
         case ('two-columns'):
             return `
-            <div style="overflow: hidden">
-                ${selectedReviews.map(review => twoColumnsRender(review))}
+            <div style="overflow: hidden; background: #fff; padding: 20px 5px 0;">
+                ${selectedReviews.map(review => twoColumnsRender(review)).join('')}
             </div>
         `
         default:
             return `
-            <div style="overflow: hidden">
-                ${selectedReviews.map(review => oneColumnRender(review))}
+            <div style="overflow: hidden; background: #fff; padding: 20px 10px 0;">
+                ${selectedReviews.map(review => oneColumnRender(review)).join('')}
             </div>
         `
     }
