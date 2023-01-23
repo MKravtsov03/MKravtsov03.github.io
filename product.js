@@ -3273,7 +3273,7 @@ const searchFiltering = (reviews, search) => {
     return reviews
 }
 
-const oneColumnRender = (review, details) =>`
+const oneColumnRender = (review, details, values) =>`
             <div style="width: 100%; border: 1px solid #E4E7EC; border-radius: 12px;">
                 ${details?.image ? `
                     <div style="overflow: hidden;">
@@ -3294,8 +3294,16 @@ const oneColumnRender = (review, details) =>`
                                    cursor: pointer;
                                    max-width: 300px;
                                    cursor: pointer;
-                                   text-decoration: none; color: #fff; font-size: 16px; background-color: #000;" href="" target="_blank">
-                                Buy it Now
+                                   text-decoration: none;
+                                   border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                                   border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                                   border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                                   border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                                   color: ${values.btnColor};
+                                   font-size: ${values.btnFontSize}px; 
+                                   background-color: ${values.btnBg};" 
+                                   href="" target="_blank">
+                                ${values.btn}
                         </a>
                     </div>
                 ` : ''}
@@ -3324,11 +3332,11 @@ const oneColumnRender = (review, details) =>`
             </div>
 `
 
-const twoColumnsRender = (review, details) =>`
+const twoColumnsRender = (review, details, values) =>`
             <div style="float: left; max-width: calc(50% - 12px); margin: 0 5px 10px; width: 100%; border: 1px solid #E4E7EC; border-radius: 12px; overflow: hidden;">
                 ${details?.image ? `
                     <div style="overflow: hidden;">
-                        <img style="max-width: 100%; width: 100%; object-fit: contain;" src="${review?.product_images_array}" alt="${review?.product_name}">
+                        <img style="max-width: 100%; width: 100%; object-fit: contain; display: block;" src="${review?.product_images_array}" alt="${review?.product_name}">
                     </div>
                 ` : ''}
                 ${details?.cta ? `
@@ -3345,8 +3353,16 @@ const twoColumnsRender = (review, details) =>`
                                    cursor: pointer;
                                    max-width: 300px;
                                    cursor: pointer;
-                                   text-decoration: none; color: #fff; font-size: 16px; background-color: #000;" href="" target="_blank">
-                                Buy it Now
+                                   text-decoration: none;
+                                   border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                                   border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                                   border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                                   border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                                   color: ${values.btnColor};
+                                   font-size: ${values.btnFontSize}px; 
+                                   background-color: ${values.btnBg};" 
+                                   href="" target="_blank">
+                                ${values.btn}
                         </a>
                     </div>
                 ` : ''}
@@ -3375,7 +3391,7 @@ const twoColumnsRender = (review, details) =>`
             </div>
 `
 
-const twoColumnsReverseRender = (review, details) =>`
+const twoColumnsReverseRender = (review, details, values) =>`
             <div style="float: left; max-width: calc(50% - 12px); margin: 0 5px 10px; width: 100%; border: 1px solid #E4E7EC; border-radius: 12px; overflow: hidden;">
                 <div class="review" style="border: none;">
                     <div class="review__inner">
@@ -3412,37 +3428,45 @@ const twoColumnsReverseRender = (review, details) =>`
                                    cursor: pointer;
                                    max-width: 300px;
                                    cursor: pointer;
-                                   text-decoration: none; color: #fff; font-size: 16px; background-color: #000;" href="" target="_blank">
-                                Buy it Now
+                                   text-decoration: none;
+                                   border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                                   border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                                   border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                                   border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                                   color: ${values.btnColor};
+                                   font-size: ${values.btnFontSize}px; 
+                                   background-color: ${values.btnBg};" 
+                                  href="" target="_blank">
+                                ${values.btn}
                         </a>
                     </div>
                 ` : ''}
                 ${details?.image ? `
                     <div style="overflow: hidden;">
-                        <img style="max-width: 100%; width: 100%; object-fit: contain;" src="${review?.product_images_array}" alt="${review?.product_name}">
+                        <img style="max-width: 100%; width: 100%; object-fit: contain; display: block;" src="${review?.product_images_array}" alt="${review?.product_name}">
                     </div>
                 ` : ''}
             </div>
 `
 
-const reviewsRender = (selectedReviews, layout, details) => {
+const reviewsRender = (selectedReviews, layout, details, values) => {
     switch(layout) {
         case ('two-columns'):
             return `
             <div style="overflow: hidden; background: #fff; padding: 20px 5px 0;">
-                ${selectedReviews.map(review => twoColumnsRender(review, details)).join('')}
+                ${selectedReviews.map(review => twoColumnsRender(review, details, values)).join('')}
             </div>
         `
         case ('two-columns--reverse'):
             return `
             <div style="overflow: hidden; background: #fff; padding: 20px 5px 0;">
-                ${selectedReviews.map((review, index) => index % 2 == 0 ? twoColumnsRender(review, details) : twoColumnsReverseRender(review, details)).join('')}
+                ${selectedReviews.map((review, index) => index % 2 == 0 ? twoColumnsRender(review, details, values) : twoColumnsReverseRender(review, details, values)).join('')}
             </div>
         `
         default:
             return `
             <div style="overflow: hidden; background: #fff; padding: 20px 10px 0;">
-                ${selectedReviews.map(review => oneColumnRender(review, details)).join('')}
+                ${selectedReviews.map(review => oneColumnRender(review, details, values)).join('')}
             </div>
         `
     }
@@ -3478,7 +3502,7 @@ const getYotpoTemlate = () =>  function(values) {
           </symbol>
         </svg>
         
-        ${selectedReviews.length ? reviewsRender(selectedReviews, activeLayout, details) : 
+        ${selectedReviews.length ? reviewsRender(selectedReviews, activeLayout, details, values) : 
             `
             <div style="text-align: center; padding: 20px; font-size: 20px; font-weight: 600; color: #667085">
                 Select reviews
@@ -3853,6 +3877,34 @@ unlayer.registerTool({
                         {active: false, value: 'three-columns', disabled: true},
                     ],
                     widget: 'layout',
+                },
+                btn: {
+                    label: 'Button Content',
+                    defaultValue: 'Buy it Now',
+                    widget: 'text',
+                },
+                btnFontSize: {
+                    enabled: true,
+                    label: 'Button font size',
+                    defaultValue: '14',
+                    widget: 'counter',
+                },
+                btnColor: {
+                    enabled: true,
+                    label: 'Button color',
+                    defaultValue: '#fff',
+                    widget: 'color_picker',
+                },
+                btnBg: {
+                    enabled: true,
+                    label: 'Button  background color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                btnBorder: {
+                    label: 'Button border',
+                    defaultValue: '',
+                    widget: 'border',
                 },
             },
         },
