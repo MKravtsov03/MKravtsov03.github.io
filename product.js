@@ -3274,7 +3274,9 @@ const getYotpoTemlate = () =>  function(values) {
         return reviews_select?.activeReviews.indexOf(String(el.review_id)) >= 0;
     });
 
-    console.log('layout', layout)
+    const activeLayout = layout.find(item => item.active)?.value
+
+    console.log('layout', activeLayout)
 
     return `
 
