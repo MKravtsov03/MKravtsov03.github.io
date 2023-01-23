@@ -1394,7 +1394,7 @@ const getProductTemplate = () => function (values) {
                         </div>
         `;
 
-    const twoColumnsProductReverseRenderer = (currentProduct, productId) => `
+        const twoColumnsProductReverseRenderer = (currentProduct, productId) => `
             <div data-at="${productId}" style="
                                     position: relative;
                                     min-width: 0;
@@ -3266,13 +3266,16 @@ const searchFiltering = (reviews, search) => {
 
 const getYotpoTemlate = () =>  function(values) {
     console.log({values})
-    const {reviews_select, data: {reviews}} = values
+    const {reviews_select, data: {reviews}, layout} = values
 
     const reviewsList = mapReviews(reviews[reviews_select?.type])
 
     const selectedReviews = reviewsList.filter(function (el) {
         return reviews_select?.activeReviews.indexOf(String(el.review_id)) >= 0;
     });
+
+    console.log('layout', layout)
+
     return `
 
         <svg id="stars" style="display: none;" version="1.1">
