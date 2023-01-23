@@ -3438,7 +3438,7 @@ const reviewsRender = (selectedReviews, layout, details) => {
 
 const getYotpoTemlate = () =>  function(values) {
     console.log({values})
-    const {reviews_select, data: {reviews}, layout, details} = values
+    const {reviews_select, data: {reviews}, layout, details: {details}} = values
 
     const reviewsList = mapReviews(reviews[reviews_select?.type])
 
