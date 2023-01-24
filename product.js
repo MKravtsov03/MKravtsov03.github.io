@@ -3978,9 +3978,9 @@ const getFormTemplate = () => function(values) {
     `
         <div>
             ${values.duplicatable}
-            <form>
+            <div>
                 Custom form tool
-            </form>
+            </div>
         </div>
     `
 }
@@ -4001,7 +4001,7 @@ unlayer.registerTool({
                 email_phone: {
                     label: 'Email/phone',
                     defaultValue: '',
-                    widget: 'select',
+                    widget: 'dropdown',
                 },
             },
         },
