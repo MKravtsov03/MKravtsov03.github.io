@@ -3973,20 +3973,20 @@ unlayer.registerTool({
 //  Form tool ---- START ------------
 
 const getFormTemplate = () => function(values) {
-    console.log(values)
-    return
-    `
+    console.log({values})
+    return `
         <div>
             ${values.duplicatable}
-            <div>
+            <form action="">
                 Custom form tool
-            </div>
+            </form>
         </div>
     `
 }
 
 const formTemplate = getFormTemplate();
 
+console.log(formTemplate({}))
 
 unlayer.registerTool({
     name: 'form_tool',
