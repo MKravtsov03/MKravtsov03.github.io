@@ -3975,6 +3975,7 @@ unlayer.registerTool({
 const getFormTemplate = () => function(values) {
     return
     `
+        jjdkdk
         <form>
             Custom form tool
         </form>
@@ -3991,7 +3992,7 @@ unlayer.registerTool({
     supportedDisplayModes: ['web', 'email', 'popup'],
     options: {
         form: {
-            title: 'Review',
+            title: 'Form',
             position: 1,
             options: {
 
