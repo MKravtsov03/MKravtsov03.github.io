@@ -3977,7 +3977,7 @@ const getFormTemplate = () => function(values) {
     return
     `
         <div>
-            jjdkdk
+            ${values.duplicatable}
             <form>
                 Custom form tool
             </form>
