@@ -3973,12 +3973,15 @@ unlayer.registerTool({
 //  Form tool ---- START ------------
 
 const getFormTemplate = () => function(values) {
+    console.log(values)
     return
     `
-        jjdkdk
-        <form>
-            Custom form tool
-        </form>
+        <div>
+            jjdkdk
+            <form>
+                Custom form tool
+            </form>
+        </div>
     `
 }
 
