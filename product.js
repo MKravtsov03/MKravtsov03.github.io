@@ -3134,7 +3134,7 @@ unlayer.registerPropertyEditor({
     })
 });
 
-//  Yotpo tool
+//  Yotpo tool ---- START ------------
 
 const roundHalf = (num) => {
     return Math.round(num*2)/2;
@@ -3966,3 +3966,57 @@ unlayer.registerTool({
         },
     },
 });
+
+//  Yotpo tool ---- END ------------
+
+
+//  Form tool ---- START ------------
+
+const formTemplate = (values) => {
+    return
+    `
+        <form>
+            Custom form tool
+        </form>
+    `
+}
+
+
+unlayer.registerTool({
+    name: 'form_tool',
+    label: 'Form',
+    icon: 'https://mkravtsov03.github.io/shopping-cart.svg',
+    supportedDisplayModes: ['web', 'email', 'popup'],
+    options: {
+        form: {
+            title: 'Review',
+            position: 1,
+            options: {
+
+            },
+        },
+
+    },
+    propertyStates: (values) => {},
+    renderer: {
+        Viewer: unlayer.createViewer({
+            render(values) {
+                return formTemplate(values);
+            },
+        }),
+        exporters: {
+            web: function (values) {
+                return formTemplate(values);
+            },
+            email: function (values) {
+                return formTemplate(values);
+            },
+        },
+        head: {
+            css: ProductStyles(),
+            js: function (values) {},
+        },
+    },
+});
+
+//  Form tool ---- END ------------
