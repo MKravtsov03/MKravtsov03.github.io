@@ -3972,7 +3972,7 @@ unlayer.registerTool({
 
 //  Form tool ---- START ------------
 
-const formTemplate = (values) => {
+const getFormTemplate = () => function(values) {
     return
     `
         <form>
@@ -3980,6 +3980,8 @@ const formTemplate = (values) => {
         </form>
     `
 }
+
+const formTemplate = getFormTemplate();
 
 
 unlayer.registerTool({
