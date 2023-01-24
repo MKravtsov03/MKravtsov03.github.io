@@ -3998,7 +3998,11 @@ unlayer.registerTool({
             title: 'Form',
             position: 1,
             options: {
-
+                email_phone: {
+                    label: 'Email/phone',
+                    defaultValue: '',
+                    widget: 'select',
+                },
             },
         },
 
