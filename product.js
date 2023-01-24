@@ -3976,7 +3976,7 @@ const getFormTemplate = () => function(values) {
     console.log({values})
     return `
         <div>
-            ${values.duplicatable}
+            
             <form action="">
                 Custom form tool
             </form>
@@ -3986,7 +3986,6 @@ const getFormTemplate = () => function(values) {
 
 const formTemplate = getFormTemplate();
 
-console.log(formTemplate({}))
 
 unlayer.registerTool({
     name: 'form_tool',
