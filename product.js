@@ -3978,22 +3978,42 @@ const getFormTemplate = () => function(values) {
         <div>
             
             <form action="">
-                ${values?.name ? `<input type="text" name="name" id="name" />` : ''}
-                ${values?.email_phone == 'email' ? `<input type="email" name="email" id="email" />` : `<input type="tel" name="phone" id="phone" />`}
-                <button style="font-weight: 400;
-                               text-align: center;
-                               vertical-align: middle;
-                               background-color: #000;
-                               border-radius: 8px;
-                               padding: 0.75rem;
-                               font-size: 1rem;
-                               line-height: 1.5;
-                               transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                               cursor: pointer;
-                               max-width: 300px;
-                               text-decoration: none;">
-                            Submit
-                </button>
+                ${values?.name ? `
+                    <div style="margin-bottom: 20px">
+                        <input type="text" name="name" id="name" />
+                    </div>
+                ` : ''}
+                ${values?.email_phone == 'email' ? 
+                `
+                    <div style="margin-bottom: 20px">
+                        <input type="email" name="email" id="email" />
+                    </div>
+                ` 
+                : 
+                `
+                    <div style="margin-bottom: 20px">
+                        <input type="tel" name="phone" id="phone" />
+                    </div>
+                `
+                }
+                <div style="margin-bottom: 20px">
+                    <button style="font-weight: 400;
+                                   text-align: center;
+                                   vertical-align: middle;
+                                   background-color: #000;
+                                   border-radius: 8px;
+                                   padding: 0.75rem;
+                                   font-size: 1rem;
+                                   line-height: 1.5;
+                                   transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                   cursor: pointer;
+                                   max-width: 300px;
+                                   text-decoration: none;
+                                   border: none;
+                                   color: #fff;">
+                                Submit
+                    </button>
+                </div>
                 <label>
                     <input type="checkbox">
                     <span>Consent</span>
