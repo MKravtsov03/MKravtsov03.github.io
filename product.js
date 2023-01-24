@@ -3978,7 +3978,26 @@ const getFormTemplate = () => function(values) {
         <div>
             
             <form action="">
-                Custom form tool
+                ${values?.name ? `<input type="text" name="name" id="name" />` : ''}
+                ${values?.email_phone == 'email' ? `<input type="email" name="email" id="email" />` : `<input type="tel" name="phone" id="phone" />`}
+                <button style="font-weight: 400;
+                               text-align: center;
+                               vertical-align: middle;
+                               background-color: #000;
+                               border-radius: 8px;
+                               padding: 0.75rem;
+                               font-size: 1rem;
+                               line-height: 1.5;
+                               transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                               cursor: pointer;
+                               max-width: 300px;
+                               text-decoration: none;">
+                            Submit
+                </button>
+                <label>
+                    <input type="checkbox">
+                    <span>Consent</span>
+                </label>
             </form>
         </div>
     `
@@ -3993,13 +4012,18 @@ unlayer.registerTool({
     icon: 'https://mkravtsov03.github.io/shopping-cart.svg',
     supportedDisplayModes: ['web', 'email', 'popup'],
     options: {
-        form: {
-            title: 'Form',
+        input_fields: {
+            title: 'Input Fields',
             position: 1,
             options: {
+                name: {
+                    label: 'Name',
+                    defaultValue: true,
+                    widget: 'toggle',
+                },
                 email_phone: {
                     label: 'Email/phone',
-                    defaultValue: '',
+                    defaultValue: 'email',
                     widget: 'dropdown',
                 },
             },
