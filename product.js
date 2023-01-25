@@ -3974,6 +3974,9 @@ unlayer.registerTool({
 
 const formStyles = () => function (values) {
     return `
+        .custom-form * {
+            box-sizing: border-box;
+        }
         .custom-form__item {
            margin-bottom: 15px;
         }
@@ -3981,7 +3984,8 @@ const formStyles = () => function (values) {
            border-radius: 8px;
            height: 40px;
            padding: 0 10px;
-           width: 100%     
+           width: 100%;
+           border: 1px solid #ced4da     
         }
         .button-item {
             text-align: center;
