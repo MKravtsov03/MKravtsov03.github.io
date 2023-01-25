@@ -4001,18 +4001,21 @@ const getFormTemplate = () => function(values) {
             <form class="custom-form" action="">
                 ${values?.name ? `
                     <div class="custom-form__item">
+                        ${values?.name_label ? `<label for="name">Name</label>` : ''}
                         <input class="custom-form__field" placeholder="Enter your name" type="text" name="name" id="name" />
                     </div>
                 ` : ''}
                 ${values?.email_phone == 'email' ? 
                 `
                     <div class="custom-form__item">
+                        ${values?.email_phone_label ? `<label for="email">Email</label>` : ''}
                         <input class="custom-form__field" placeholder="Enter your email" type="email" name="email" id="email" />
                     </div>
                 ` 
                 : 
                 `
                     <div class="custom-form__item">
+                        ${values?.email_phone_label ? `<label for="phone">Phone</label>` : ''}
                         <input class="custom-form__field" placeholder="Enter your phone" type="tel" name="phone" id="phone" />
                     </div>
                 `
@@ -4058,14 +4061,24 @@ unlayer.registerTool({
             position: 1,
             options: {
                 name: {
-                    label: 'Name',
+                    label: 'Name field',
                     defaultValue: true,
                     widget: 'toggle',
                 },
+                name_label: {
+                    label: 'Name field label',
+                    defaultValue: false,
+                    widget: 'toggle',
+                },
                 email_phone: {
-                    label: 'Email/phone',
+                    label: 'Email/phone field',
                     defaultValue: 'email',
                     widget: 'dropdown',
+                },
+                email_phone_label: {
+                    label: 'Email/phone field label',
+                    defaultValue: false,
+                    widget: 'toggle',
                 },
             },
         },
