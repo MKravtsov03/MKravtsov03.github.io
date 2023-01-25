@@ -3972,31 +3972,48 @@ unlayer.registerTool({
 
 //  Form tool ---- START ------------
 
+const formStyles = () => function (values) {
+    return `
+        .custom-form__item {
+           margin-bottom: 15px;
+        }
+        .custom-form__field {
+           border-radius: 8px;
+           height: 40px;
+           padding: 0 10px;
+           width: 100%     
+        }
+        .button-item {
+            text-align: center;
+        }
+    `
+}
+
 const getFormTemplate = () => function(values) {
     console.log({values})
     return `
         <div>
             
-            <form action="">
+            <form class="custom-form" action="">
                 ${values?.name ? `
-                    <div style="margin-bottom: 20px">
-                        <input type="text" name="name" id="name" />
+                    <div class="custom-form__item">
+                        <input class="custom-form__field" placeholder="Enter your name" type="text" name="name" id="name" />
                     </div>
                 ` : ''}
                 ${values?.email_phone == 'email' ? 
                 `
-                    <div style="margin-bottom: 20px">
-                        <input type="email" name="email" id="email" />
+                    <div class="custom-form__item">
+                        <input class="custom-form__field" placeholder="Enter your email" type="email" name="email" id="email" />
                     </div>
                 ` 
                 : 
                 `
-                    <div style="margin-bottom: 20px">
-                        <input type="tel" name="phone" id="phone" />
+                    <div class="custom-form__item">
+                        <input class="custom-form__field" placeholder="Enter your phone" type="tel" name="phone" id="phone" />
                     </div>
                 `
                 }
-                <div style="margin-bottom: 20px">
+                <div class="custom-form__item button-item">
                     <button style="font-weight: 400;
                                    text-align: center;
                                    vertical-align: middle;
@@ -4066,7 +4083,7 @@ unlayer.registerTool({
             },
         },
         head: {
-            css: ProductStyles(),
+            css: formStyles(),
             js: function (values) {},
         },
     },
