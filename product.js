@@ -4084,7 +4084,20 @@ unlayer.registerTool({
         },
 
     },
-    propertyStates: (values) => {},
+    propertyStates: (values) => {
+        if (!values.name) {
+            return {
+                name_label: {
+                    enabled: false
+                }
+            }
+        }
+        return {
+            name_label: {
+                enabled: true
+            }
+        }
+    },
     renderer: {
         Viewer: unlayer.createViewer({
             render(values) {
