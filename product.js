@@ -4008,6 +4008,9 @@ const formStyles = () => function (values) {
         }
         .consent-check {
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
     `
 }
