@@ -4026,27 +4026,27 @@ const getFormTemplate = () => function(values) {
             
             <form class="custom-form" action="">
                 ${values?.name ? `
-                    <div style="margin-bottom: ${valus.fieldsGap}px" class="custom-form__item">
+                    <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
                         ${values?.name_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="name">${values?.name_label_text}</label>` : ''}
                         <input class="custom-form__field" placeholder="Enter your name" type="text" name="name" id="name" />
                     </div>
                 ` : ''}
                 ${values?.email_phone == 'email' ? 
                 `
-                    <div style="margin-bottom: ${valus.fieldsGap}px" class="custom-form__item">
+                    <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
                         ${values?.email_phone_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="email">${values?.email_phone_label_text}</label>` : ''}
                         <input required class="custom-form__field" placeholder="Enter your email" type="email" name="email" id="email" />
                     </div>
                 ` 
                 : 
                 `
-                    <div style="margin-bottom: ${valus.fieldsGap}px" class="custom-form__item">
+                    <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
                         ${values?.email_phone_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="phone">${values?.email_phone_label_text}</label>` : ''}
                         <input required class="custom-form__field" placeholder="Enter your phone" type="tel" name="phone" id="phone" />
                     </div>
                 `
                 }
-                <div  class="custom-form__item button-item" style="justify-content: ${mapAlignment[values?.btnAligment]}; margin-bottom: ${valus.fieldsGap}px">
+                <div  class="custom-form__item button-item" style="justify-content: ${mapAlignment[values?.btnAligment]}; margin-bottom: ${values.fieldsGap}px">
                     <button class="custom-form__btn" style="font-family: ${values.btnFont.value};
                                    border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
                                    border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
