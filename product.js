@@ -4285,6 +4285,7 @@ unlayer.registerTool({
     propertyStates: (values) => {
         let nameProps = {};
         let emailProps = {};
+        let consentProps = {};
         if (!values.name) {
             nameProps = {
                 name_label: {
@@ -4326,30 +4327,41 @@ unlayer.registerTool({
                 }
             }
         }
+        if (values.legal_consent_type == 'tcpa') {
+            consentProps = {
+                consent_label: {
+                    defaultValue: mapConsent.tcpa.label
+                }
+                consent_caption: {
+                    defaultValue: mapConsent.tcpa.description
+                }
+            }
+        }
         return {
             ...nameProps,
             ...emailProps,
+            ...consentProps
         }
     },
-    transformer: (values, source) => {
-        console.log({values, source})
-        const {value} = source
-        if (value == 'tcpa') {
-            return {
-                ...values,
-                consent_label: 'Receive offers via text message',
-                consent_caption: mapConsent[value].description
-            }
-        }
-        if (value == 'gdpr') {
-            return {
-                ...values,
-                consent_label: 'Keep me up to date on news and offers',
-                consent_caption: mapConsent[value].description,
-            }
-        }
-        return values
-    },
+    // transformer: (values, source) => {
+    //     console.log({values, source})
+    //     const {value} = source
+    //     if (value == 'tcpa') {
+    //         return {
+    //             ...values,
+    //             consent_label: 'Receive offers via text message',
+    //             consent_caption: mapConsent[value].description
+    //         }
+    //     }
+    //     if (value == 'gdpr') {
+    //         return {
+    //             ...values,
+    //             consent_label: 'Keep me up to date on news and offers',
+    //             consent_caption: mapConsent[value].description,
+    //         }
+    //     }
+    //     return values
+    // },
     renderer: {
         Viewer: unlayer.createViewer({
             render(values) {
