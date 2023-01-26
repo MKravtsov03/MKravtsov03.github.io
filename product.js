@@ -4334,7 +4334,7 @@ unlayer.registerTool({
     transformer: (values, source) => {
         console.log({values, source})
 
-    }
+    },
     renderer: {
         Viewer: unlayer.createViewer({
             render(values) {
