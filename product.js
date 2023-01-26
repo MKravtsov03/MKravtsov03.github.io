@@ -4052,7 +4052,7 @@ const getFormTemplate = () => function(values) {
                     </button>
                 </div>
                 <label class="consent-check">
-                    <input style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" checked type="checkbox">
+                    <input style="font-family: ${values?.consntLabelFont.value}; font-size: ${values?.consntLabelFontSize}px; color: ${values?.consntLabelColor}" checked type="checkbox">
                     <span>${values.consent_label}</span>
                 </label>
                 <div>
@@ -4200,7 +4200,7 @@ unlayer.registerTool({
                     defaultValue: 'Keep me up to date on neews and offers',
                     widget: 'text',
                 },
-                labelFont: {
+                consntLabelFont: {
                     label: 'Labels font',
                     defaultValue: {
                         label: "Inter",
@@ -4209,13 +4209,13 @@ unlayer.registerTool({
                     },
                     widget: 'font_family',
                 },
-                labelFontSize: {
+                consntLabelFontSize: {
                     enabled: true,
                     label: 'Labels font size',
                     defaultValue: '14',
                     widget: 'counter',
                 },
-                labelColor: {
+                consntLabelColor: {
                     enabled: true,
                     label: 'Labels color',
                     defaultValue: '#000',
