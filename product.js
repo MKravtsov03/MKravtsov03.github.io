@@ -4076,7 +4076,7 @@ const getFormTemplate = () => function(values) {
                             <input oninvalid="this.setCustomValidity('Please accept the terms to proceed')" oninput="this.setCustomValidity('')" required checked type="checkbox">
                             <span style="font-family: ${values?.consntLabelFont.value}; font-size: ${values?.consntLabelFontSize}px; color: ${values?.consntLabelColor}" >${mapConsent[values?.legal_consent_type].label}</span>
                         </label>
-                        <div contenteditable="true">
+                        <div>
                             ${mapConsent[values?.legal_consent_type].description(values?.policyLink)}
                         </div>
                     ` : ''
