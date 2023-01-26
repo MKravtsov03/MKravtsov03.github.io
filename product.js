@@ -4074,10 +4074,10 @@ const getFormTemplate = () => function(values) {
                     values?.legal_consent ? `
                         <label class="consent-check">
                             <input oninvalid="this.setCustomValidity('Please accept the terms to proceed')" oninput="this.setCustomValidity('')" required checked type="checkbox">
-                            <span style="font-family: ${values?.consntLabelFont.value}; font-size: ${values?.consntLabelFontSize}px; color: ${values?.consntLabelColor}" >${values?.mapConsent[values?.legal_consent_type].label}</span>
+                            <span style="font-family: ${values?.consntLabelFont.value}; font-size: ${values?.consntLabelFontSize}px; color: ${values?.consntLabelColor}" >${mapConsent[values?.legal_consent_type].label}</span>
                         </label>
                         <div>
-                            ${values?.mapConsent[values?.legal_consent_type].description(values?.policyLink)}
+                            ${mapConsent[values?.legal_consent_type].description(values?.policyLink)}
                         </div>
                     ` : ''
                 }
@@ -4142,11 +4142,6 @@ unlayer.registerTool({
                     defaultValue: 'Email',
                     widget: 'text',
                 },
-                policyLink: {
-                    label: 'Privacy Policy link',
-                    defaultValue: '',
-                    widget: 'text',
-                }
             },
         },
         labels: {
@@ -4254,6 +4249,11 @@ unlayer.registerTool({
                 consent_label: {
                     label: 'Legal consent label text',
                     defaultValue: 'Keep me up to date on neews and offers',
+                    widget: 'text',
+                },
+                policyLink: {
+                    label: 'Privacy Policy link',
+                    defaultValue: '',
                     widget: 'text',
                 },
                 consntLabelFont: {
