@@ -3991,7 +3991,20 @@ const formStyles = () => function (values) {
            border: 1px solid #ced4da     
         }
         .button-item {
+            display: flex;
+            justify-content: center;
+        }
+        .custom-form__btn {
+            font-weight: 400;
             text-align: center;
+            vertical-align: middle;
+            background-color: #000;
+            border-radius: 8px;
+            padding: 10px 20px;
+            line-height: 1.5;
+            transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+            cursor: pointer;
+            max-width: 100%;
         }
     `
 }
@@ -4024,21 +4037,15 @@ const getFormTemplate = () => function(values) {
                 `
                 }
                 <div class="custom-form__item button-item">
-                    <button style="font-weight: 400;
-                                   text-align: center;
-                                   vertical-align: middle;
-                                   background-color: #000;
-                                   border-radius: 8px;
-                                   padding: 0.75rem;
-                                   font-size: 1rem;
-                                   line-height: 1.5;
-                                   transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                                   cursor: pointer;
-                                   max-width: 300px;
-                                   text-decoration: none;
-                                   border: none;
-                                   color: #fff;">
-                                Submit
+                    <button class="custom-form__btn" style="font-family: ${values.btnFont.value};
+                                   border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                                   border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                                   border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                                   border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                                   color: ${values.btnColor};
+                                   font-size: ${values.btnFontSize}px; 
+                                   background-color: ${values.btnBg};">
+                                ${values.btn}
                     </button>
                 </div>
                 <label>
@@ -4119,6 +4126,49 @@ unlayer.registerTool({
                     label: 'Labels color',
                     defaultValue: '#000',
                     widget: 'color_picker',
+                },
+            }
+        },
+        btn: {
+            title: 'Submit button',
+            position: 3,
+            options: {
+                btn: {
+                    label: 'Button Content',
+                    defaultValue: 'Submit',
+                    widget: 'text',
+                },
+                btnFont: {
+                    label: 'Button font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                btnFontSize: {
+                    enabled: true,
+                    label: 'Button font size',
+                    defaultValue: '14',
+                    widget: 'counter',
+                },
+                btnColor: {
+                    enabled: true,
+                    label: 'Button color',
+                    defaultValue: '#fff',
+                    widget: 'color_picker',
+                },
+                btnBg: {
+                    enabled: true,
+                    label: 'Button  background color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                btnBorder: {
+                    label: 'Button border',
+                    defaultValue: '',
+                    widget: 'border',
                 },
             }
         }
