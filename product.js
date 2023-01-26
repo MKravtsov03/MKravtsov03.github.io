@@ -4016,9 +4016,10 @@ const formStyles = () => function (values) {
 }
 
 const mapAlignment = {
-    canter: 'center',
+    center: 'center',
     left: 'flex-start',
     right: 'flex-end',
+    justify: 'space-between'
 }
 
 const getFormTemplate = () => function(values) {
