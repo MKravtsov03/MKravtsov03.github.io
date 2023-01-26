@@ -4022,11 +4022,11 @@ const mapAlignment = {
 const mapConsent = {
     gdpr: {
         label: 'Keep me up to date on news and offers',
-        description: 'For more information on how we process your data for marketing communication. Check our Privacy policy.'
+        description: (link) => `For more information on how we process your data for marketing communication. Check our <a href="${link}" target="_blank">Privacy policy.</a>`
     },
     tcpa: {
         label: 'Receive offers via text message',
-        description: 'By checking this box, I consent to receive marketing text messages through an automatic telephone dialing system at the number provided. Consent is not a condition to purchase. Text STOP to unsubscribe or HELP for help. Msg and data rates may apply. Check our privacy policy'
+        description: (link) => `By checking this box, I consent to receive marketing text messages through an automatic telephone dialing system at the number provided. Consent is not a condition to purchase. Text STOP to unsubscribe or HELP for help. Msg and data rates may apply. Check our <a href="${link}" target="_blank">Privacy policy.</a>`
     }
 }
 
@@ -4074,10 +4074,10 @@ const getFormTemplate = () => function(values) {
                     values?.legal_consent ? `
                         <label class="consent-check">
                             <input oninvalid="this.setCustomValidity('Please accept the terms to proceed')" oninput="this.setCustomValidity('')" required checked type="checkbox">
-                            <span style="font-family: ${values?.consntLabelFont.value}; font-size: ${values?.consntLabelFontSize}px; color: ${values?.consntLabelColor}" >${values.consent_label}</span>
+                            <span style="font-family: ${values?.consntLabelFont.value}; font-size: ${values?.consntLabelFontSize}px; color: ${values?.consntLabelColor}" >${values?.mapConsent[values?.legal_consent_type].label}</span>
                         </label>
                         <div>
-                            ${values?.consent_caption}
+                            ${values?.mapConsent[values?.legal_consent_type].description(values?.policyLink)}
                         </div>
                     ` : ''
                 }
@@ -4142,6 +4142,11 @@ unlayer.registerTool({
                     defaultValue: 'Email',
                     widget: 'text',
                 },
+                policyLink: {
+                    label: 'Privacy Policy link',
+                    defaultValue: '',
+                    widget: 'text',
+                }
             },
         },
         labels: {
@@ -4272,12 +4277,6 @@ unlayer.registerTool({
                     defaultValue: '#000',
                     widget: 'color_picker',
                 },
-                consent_caption: {
-                    enabled: true,
-                    label: 'Legal consent description',
-                    defaultValue: mapConsent.gdpr.description,
-                    widget: 'rich_text',
-                }
             }
         }
 
@@ -4285,7 +4284,6 @@ unlayer.registerTool({
     propertyStates: (values) => {
         let nameProps = {};
         let emailProps = {};
-        let consentProps = {};
         if (!values.name) {
             nameProps = {
                 name_label: {
@@ -4327,20 +4325,9 @@ unlayer.registerTool({
                 }
             }
         }
-        if (values.legal_consent_type == 'tcpa') {
-            consentProps = {
-                consent_label: {
-                    defaultValue: mapConsent.tcpa.label
-                },
-                consent_caption: {
-                    defaultValue: mapConsent.tcpa.description
-                }
-            }
-        }
         return {
             ...nameProps,
             ...emailProps,
-            ...consentProps
         }
     },
     // transformer: (values, source) => {
