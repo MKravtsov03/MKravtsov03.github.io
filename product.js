@@ -4032,14 +4032,14 @@ const getFormTemplate = () => function(values) {
                 `
                     <div class="custom-form__item">
                         ${values?.email_phone_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="email">${values?.email_phone_label_text}</label>` : ''}
-                        <input class="custom-form__field" placeholder="Enter your email" type="email" name="email" id="email" />
+                        <input required class="custom-form__field" placeholder="Enter your email" type="email" name="email" id="email" />
                     </div>
                 ` 
                 : 
                 `
                     <div class="custom-form__item">
                         ${values?.email_phone_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="phone">${values?.email_phone_label_text}</label>` : ''}
-                        <input class="custom-form__field" placeholder="Enter your phone" type="tel" name="phone" id="phone" />
+                        <input required class="custom-form__field" placeholder="Enter your phone" type="tel" name="phone" id="phone" />
                     </div>
                 `
                 }
