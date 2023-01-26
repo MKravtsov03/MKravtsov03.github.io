@@ -4006,6 +4006,9 @@ const formStyles = () => function (values) {
             cursor: pointer;
             max-width: 100%;
         }
+        .consent-check {
+            margin-bottom: 10px;
+        }
     `
 }
 
@@ -4048,10 +4051,13 @@ const getFormTemplate = () => function(values) {
                                 ${values.btn}
                     </button>
                 </div>
-                <label>
-                    <input type="checkbox">
-                    <span>Consent</span>
+                <label class="consent-check">
+                    <input style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" checked type="checkbox">
+                    <span>${values.consent_label}</span>
                 </label>
+                <div>
+                    ${values?.consent_caption}
+                </div>
             </form>
         </div>
     `
@@ -4183,6 +4189,44 @@ unlayer.registerTool({
                     },
                     widget: 'border',
                 },
+            }
+        },
+        consent: {
+            title: 'Legal Consent',
+            position: 4,
+            options: {
+                consent_label: {
+                    label: 'Legal consent label text',
+                    defaultValue: 'Keep me up to date on neews and offers',
+                    widget: 'text',
+                },
+                labelFont: {
+                    label: 'Labels font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                labelFontSize: {
+                    enabled: true,
+                    label: 'Labels font size',
+                    defaultValue: '14',
+                    widget: 'counter',
+                },
+                labelColor: {
+                    enabled: true,
+                    label: 'Labels color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                consent_caption: {
+                    enabled: true,
+                    label: 'Labels color',
+                    defaultValue: '',
+                    widget: 'rich_text',
+                }
             }
         }
 
