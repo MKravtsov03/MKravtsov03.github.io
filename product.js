@@ -4019,6 +4019,17 @@ const mapAlignment = {
     justify: 'space-between'
 }
 
+const mapConsent = {
+    gdpr: {
+        label: 'Keep me up to date on news and offers',
+        description: 'For more information on how we process your data for marketing communication. Check our Privacy policy.'
+    },
+    tcpa: {
+        label: 'Receive offers via text message',
+        description: 'By checking this box, I consent to receive marketing text messages through an automatic telephone dialing system at the number provided. Consent is not a condition to purchase. Text STOP to unsubscribe or HELP for help. Msg and data rates may apply. Check our privacy policy'
+    }
+}
+
 const getFormTemplate = () => function(values) {
     console.log({values})
     return `
@@ -4062,7 +4073,7 @@ const getFormTemplate = () => function(values) {
                 ${
                     values?.legal_consent ? `
                         <label class="consent-check">
-                            <input required checked type="checkbox">
+                            <input oninvalid="this.setCustomValidity('Please accept the terms to proceed')" oninput="this.setCustomValidity('')" required checked type="checkbox">
                             <span style="font-family: ${values?.consntLabelFont.value}; font-size: ${values?.consntLabelFontSize}px; color: ${values?.consntLabelColor}" >${values.consent_label}</span>
                         </label>
                         <div>
@@ -4230,6 +4241,11 @@ unlayer.registerTool({
                     defaultValue: true,
                     widget: 'toggle',
                 },
+                legal_consent_type: {
+                    label: 'Legal Consent Type',
+                    defaultValue: 'gdpr',
+                    widget: 'dropdown',
+                },
                 consent_label: {
                     label: 'Legal consent label text',
                     defaultValue: 'Keep me up to date on neews and offers',
@@ -4315,6 +4331,10 @@ unlayer.registerTool({
             ...emailProps,
         }
     },
+    transformer: (values, source) => {
+        console.log({values, source})
+
+    }
     renderer: {
         Viewer: unlayer.createViewer({
             render(values) {
