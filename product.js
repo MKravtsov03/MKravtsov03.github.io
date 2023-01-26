@@ -4226,7 +4226,7 @@ unlayer.registerTool({
                 },
                 consent_caption: {
                     enabled: true,
-                    label: 'Labels color',
+                    label: 'Legal consent description',
                     defaultValue: '',
                     widget: 'rich_text',
                 }
