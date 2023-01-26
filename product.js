@@ -4001,21 +4001,21 @@ const getFormTemplate = () => function(values) {
             <form class="custom-form" action="">
                 ${values?.name ? `
                     <div class="custom-form__item">
-                        ${values?.name_label ? `<label for="name">Name</label>` : ''}
+                        ${values?.name_label ? `<label for="name">${values?.name_label_text}</label>` : ''}
                         <input class="custom-form__field" placeholder="Enter your name" type="text" name="name" id="name" />
                     </div>
                 ` : ''}
                 ${values?.email_phone == 'email' ? 
                 `
                     <div class="custom-form__item">
-                        ${values?.email_phone_label ? `<label for="email">Email</label>` : ''}
+                        ${values?.email_phone_label ? `<label for="email">${values?.email_phone_label_text}</label>` : ''}
                         <input class="custom-form__field" placeholder="Enter your email" type="email" name="email" id="email" />
                     </div>
                 ` 
                 : 
                 `
                     <div class="custom-form__item">
-                        ${values?.email_phone_label ? `<label for="phone">Phone</label>` : ''}
+                        ${values?.email_phone_label ? `<label for="phone">${values?.email_phone_label_text}</label>` : ''}
                         <input class="custom-form__field" placeholder="Enter your phone" type="tel" name="phone" id="phone" />
                     </div>
                 `
@@ -4070,6 +4070,11 @@ unlayer.registerTool({
                     defaultValue: false,
                     widget: 'toggle',
                 },
+                name_labeltext: {
+                    label: 'Name field label text',
+                    defaultValue: 'Name',
+                    widget: 'text',
+                },
                 email_phone: {
                     label: 'Email/phone field',
                     defaultValue: 'email',
@@ -4080,22 +4085,62 @@ unlayer.registerTool({
                     defaultValue: false,
                     widget: 'toggle',
                 },
+                email_phone_label_text: {
+                    label: 'Email/phone field label text',
+                    defaultValue: 'Name',
+                    widget: 'text',
+                },
             },
         },
 
     },
     propertyStates: (values) => {
+        let nameProps = {};
+        let emailProps = {};
         if (!values.name) {
-            return {
+            nameProps = {
                 name_label: {
                     enabled: false
+                },
+                name_label_text: {
+                    enabled: false
+                }
+            }
+        } else {
+            nameProps = {
+                name_label: {
+                    enabled: true
+                },
+                name_label_text: {
+                    enabled: true
+                }
+            }
+        }
+        if (!values.name_label) {
+            nameProps.name_label_text = {
+                enabled: false
+            }
+        } else {
+            nameProps.name_label_text = {
+                enabled: true
+            }
+        }
+        if (!values.email_phone_label) {
+            emailProps = {
+                email_phone_label_text: {
+                    enabled: false
+                }
+            }
+        } else {
+            emailProps = {
+                email_phone_label_text: {
+                    enabled: true
                 }
             }
         }
         return {
-            name_label: {
-                enabled: true
-            }
+            ...nameProps,
+            ...emailProps,
         }
     },
     renderer: {
