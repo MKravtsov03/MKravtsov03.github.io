@@ -4162,12 +4162,25 @@ unlayer.registerTool({
                 btnBg: {
                     enabled: true,
                     label: 'Button  background color',
-                    defaultValue: '#000',
+                    defaultValue: '#0b68ff',
                     widget: 'color_picker',
                 },
                 btnBorder: {
                     label: 'Button border',
-                    defaultValue: '',
+                    defaultValue: {
+                        borderTopWidth: "0px",
+                        borderTopStyle: "solid",
+                        borderTopColor: "#CCC",
+                        borderLeftWidth: "0px",
+                        borderLeftStyle: "solid",
+                        borderLeftColor: "#CCC",
+                        borderRightWidth: "0px",
+                        borderRightStyle: "solid",
+                        borderRightColor: "#CCC",
+                        borderBottomWidth: "0px",
+                        borderBottomStyle: "solid",
+                        borderBottomColor: "#CCC"
+                    },
                     widget: 'border',
                 },
             }
