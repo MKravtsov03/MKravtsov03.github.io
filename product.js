@@ -4338,14 +4338,14 @@ unlayer.registerTool({
             return {
                 ...values,
                 consent_label: 'Receive offers via text message',
-                consent_caption: '<p>By checking this box, I consent to receive marketing text messages through an automatic telephone dialing system at the number provided. Consent is not a condition to purchase. Text STOP to unsubscribe or HELP for help. Msg and data rates may apply. Check our <a rel="noopener" href="" target="_blank">privacy policy</a></p>'
+                consent_caption: mapConsent[value].description
             }
         }
         if (value == 'gdpr') {
             return {
                 ...values,
                 consent_label: 'Keep me up to date on news and offers',
-                consent_caption: '<p>For more information on how we process your data for marketing communication. Check our <a rel="noopener" href="" target="_blank">privacy policy</a></p>'
+                consent_caption: mapConsent[value].description,
             }
         }
         return values
