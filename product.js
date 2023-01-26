@@ -3980,6 +3980,9 @@ const formStyles = () => function (values) {
         .custom-form__item {
            margin-bottom: 15px;
         }
+        .custom-form__item label {
+           margin-bottom: 5px;
+        }
         .custom-form__field {
            border-radius: 8px;
            height: 40px;
@@ -4001,21 +4004,21 @@ const getFormTemplate = () => function(values) {
             <form class="custom-form" action="">
                 ${values?.name ? `
                     <div class="custom-form__item">
-                        ${values?.name_label ? `<label for="name">${values?.name_label_text}</label>` : ''}
+                        ${values?.name_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="name">${values?.name_label_text}</label>` : ''}
                         <input class="custom-form__field" placeholder="Enter your name" type="text" name="name" id="name" />
                     </div>
                 ` : ''}
                 ${values?.email_phone == 'email' ? 
                 `
                     <div class="custom-form__item">
-                        ${values?.email_phone_label ? `<label for="email">${values?.email_phone_label_text}</label>` : ''}
+                        ${values?.email_phone_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="email">${values?.email_phone_label_text}</label>` : ''}
                         <input class="custom-form__field" placeholder="Enter your email" type="email" name="email" id="email" />
                     </div>
                 ` 
                 : 
                 `
                     <div class="custom-form__item">
-                        ${values?.email_phone_label ? `<label for="phone">${values?.email_phone_label_text}</label>` : ''}
+                        ${values?.email_phone_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="phone">${values?.email_phone_label_text}</label>` : ''}
                         <input class="custom-form__field" placeholder="Enter your phone" type="tel" name="phone" id="phone" />
                     </div>
                 `
@@ -4092,6 +4095,33 @@ unlayer.registerTool({
                 },
             },
         },
+        labels: {
+            title: 'Labels',
+            position: 2,
+            options: {
+                labelFont: {
+                    label: 'Labels font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                labelFontSize: {
+                    enabled: true,
+                    label: 'Labels font size',
+                    defaultValue: '14',
+                    widget: 'counter',
+                },
+                labelColor: {
+                    enabled: true,
+                    label: 'Labels color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+            }
+        }
 
     },
     propertyStates: (values) => {
