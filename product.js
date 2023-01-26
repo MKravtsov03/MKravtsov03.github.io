@@ -3977,9 +3977,6 @@ const formStyles = () => function (values) {
         .custom-form * {
             box-sizing: border-box;
         }
-        .custom-form__item {
-           margin-bottom: 15px;
-        }
         .custom-form__item label {
            margin-bottom: 5px;
            display: block;
@@ -4029,27 +4026,27 @@ const getFormTemplate = () => function(values) {
             
             <form class="custom-form" action="">
                 ${values?.name ? `
-                    <div class="custom-form__item">
+                    <div style="margin-bottom: ${valus.fieldsGap}px" class="custom-form__item">
                         ${values?.name_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="name">${values?.name_label_text}</label>` : ''}
                         <input class="custom-form__field" placeholder="Enter your name" type="text" name="name" id="name" />
                     </div>
                 ` : ''}
                 ${values?.email_phone == 'email' ? 
                 `
-                    <div class="custom-form__item">
+                    <div style="margin-bottom: ${valus.fieldsGap}px" class="custom-form__item">
                         ${values?.email_phone_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="email">${values?.email_phone_label_text}</label>` : ''}
                         <input required class="custom-form__field" placeholder="Enter your email" type="email" name="email" id="email" />
                     </div>
                 ` 
                 : 
                 `
-                    <div class="custom-form__item">
+                    <div style="margin-bottom: ${valus.fieldsGap}px" class="custom-form__item">
                         ${values?.email_phone_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="phone">${values?.email_phone_label_text}</label>` : ''}
                         <input required class="custom-form__field" placeholder="Enter your phone" type="tel" name="phone" id="phone" />
                     </div>
                 `
                 }
-                <div class="custom-form__item button-item" style="justify-content: ${mapAlignment[values?.btnAligment]}">
+                <div  class="custom-form__item button-item" style="justify-content: ${mapAlignment[values?.btnAligment]}; margin-bottom: ${valus.fieldsGap}px">
                     <button class="custom-form__btn" style="font-family: ${values.btnFont.value};
                                    border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
                                    border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
@@ -4061,13 +4058,19 @@ const getFormTemplate = () => function(values) {
                                 ${values.btn}
                     </button>
                 </div>
-                <label class="consent-check">
-                    <input checked type="checkbox">
-                    <span style="font-family: ${values?.consntLabelFont.value}; font-size: ${values?.consntLabelFontSize}px; color: ${values?.consntLabelColor}" >${values.consent_label}</span>
-                </label>
-                <div>
-                    ${values?.consent_caption}
-                </div>
+                
+                ${
+                    values?.legal_consent ? `
+                        <label class="consent-check">
+                            <input required checked type="checkbox">
+                            <span style="font-family: ${values?.consntLabelFont.value}; font-size: ${values?.consntLabelFontSize}px; color: ${values?.consntLabelColor}" >${values.consent_label}</span>
+                        </label>
+                        <div>
+                            ${values?.consent_caption}
+                        </div>
+                    ` : ''
+                }
+                
             </form>
         </div>
     `
@@ -4082,6 +4085,18 @@ unlayer.registerTool({
     icon: 'https://mkravtsov03.github.io/shopping-cart.svg',
     supportedDisplayModes: ['web', 'email', 'popup'],
     options: {
+        layout: {
+            title: 'Layout',
+            position: 1,
+            options: {
+                fieldsGap: {
+                    enabled: true,
+                    label: 'Space between fields',
+                    defaultValue: '15',
+                    widget: 'counter',
+                },
+            }
+        }
         input_fields: {
             title: 'Input Fields',
             position: 1,
@@ -4210,6 +4225,11 @@ unlayer.registerTool({
             title: 'Legal Consent',
             position: 4,
             options: {
+                legal_consent: {
+                    label: 'Legal Consent',
+                    defaultValue: true,
+                    widget: 'toggle',
+                },
                 consent_label: {
                     label: 'Legal consent label text',
                     defaultValue: 'Keep me up to date on neews and offers',
