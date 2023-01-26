@@ -4331,7 +4331,7 @@ unlayer.registerTool({
             consentProps = {
                 consent_label: {
                     defaultValue: mapConsent.tcpa.label
-                }
+                },
                 consent_caption: {
                     defaultValue: mapConsent.tcpa.description
                 }
