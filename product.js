@@ -4052,8 +4052,8 @@ const getFormTemplate = () => function(values) {
                     </button>
                 </div>
                 <label class="consent-check">
-                    <input style="font-family: ${values?.consntLabelFont.value}; font-size: ${values?.consntLabelFontSize}px; color: ${values?.consntLabelColor}" checked type="checkbox">
-                    <span>${values.consent_label}</span>
+                    <input checked type="checkbox">
+                    <span style="font-family: ${values?.consntLabelFont.value}; font-size: ${values?.consntLabelFontSize}px; color: ${values?.consntLabelColor}" >${values.consent_label}</span>
                 </label>
                 <div>
                     ${values?.consent_caption}
