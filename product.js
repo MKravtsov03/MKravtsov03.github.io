@@ -4096,7 +4096,7 @@ unlayer.registerTool({
                     widget: 'counter',
                 },
             }
-        }
+        },
         input_fields: {
             title: 'Input Fields',
             position: 1,
