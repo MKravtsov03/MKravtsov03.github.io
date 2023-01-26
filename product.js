@@ -4070,7 +4070,7 @@ unlayer.registerTool({
                     defaultValue: false,
                     widget: 'toggle',
                 },
-                name_labeltext: {
+                name_label_text: {
                     label: 'Name field label text',
                     defaultValue: 'Name',
                     widget: 'text',
@@ -4087,7 +4087,7 @@ unlayer.registerTool({
                 },
                 email_phone_label_text: {
                     label: 'Email/phone field label text',
-                    defaultValue: 'Name',
+                    defaultValue: 'Email',
                     widget: 'text',
                 },
             },
