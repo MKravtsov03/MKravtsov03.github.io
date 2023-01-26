@@ -4275,7 +4275,7 @@ unlayer.registerTool({
                 consent_caption: {
                     enabled: true,
                     label: 'Legal consent description',
-                    defaultValue: '',
+                    defaultValue: mapConsent.gdpr.description,
                     widget: 'rich_text',
                 }
             }
