@@ -3982,6 +3982,7 @@ const formStyles = () => function (values) {
         }
         .custom-form__item label {
            margin-bottom: 5px;
+           display: block;
         }
         .custom-form__field {
            border-radius: 8px;
