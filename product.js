@@ -4201,7 +4201,7 @@ unlayer.registerTool({
                 btnAligment: {
                     label: 'Button alignment',
                     defaultValue: 'center',
-                    widget: 'align'
+                    widget: 'alignment'
                 }
             }
         },
