@@ -3993,7 +3993,6 @@ const formStyles = () => function (values) {
         }
         .button-item {
             display: flex;
-            justify-content: center;
         }
         .custom-form__btn {
             font-weight: 400;
@@ -4014,6 +4013,12 @@ const formStyles = () => function (values) {
             gap: 6px;
         }
     `
+}
+
+const mapAlignment = {
+    canter: 'center',
+    left: 'flex-start',
+    right: 'flex-end',
 }
 
 const getFormTemplate = () => function(values) {
@@ -4043,7 +4048,7 @@ const getFormTemplate = () => function(values) {
                     </div>
                 `
                 }
-                <div class="custom-form__item button-item">
+                <div class="custom-form__item button-item" style="justify-content: ${mapAlignment[values?.btnAligment]}">
                     <button class="custom-form__btn" style="font-family: ${values.btnFont.value};
                                    border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
                                    border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
@@ -4193,6 +4198,11 @@ unlayer.registerTool({
                     },
                     widget: 'border',
                 },
+                btnAligment: {
+                    label: 'Button alignment',
+                    defaultValue: 'center',
+                    widget: 'align'
+                }
             }
         },
         consent: {
