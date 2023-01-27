@@ -4086,14 +4086,16 @@ const getFormTemplate = () => function(values) {
                 `
                 }
                 <div  class="custom-form__item button-item" style="justify-content: ${mapAlignment[values?.btnAligment]}; margin-bottom: ${values.fieldsGap}px">
-                    <button class="custom-form__btn" style="font-family: ${values.btnFont.value};
+                    <button class="custom-form__btn" style="
+                                   font-family: ${values.btnFont.value};
                                    border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
                                    border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
                                    border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
                                    border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
                                    color: ${values.btnColor};
                                    font-size: ${values.btnFontSize}px; 
-                                   background-color: ${values.btnBg};">
+                                   background-color: ${values.btnBg};
+                                   width: ${values?.btnAutoWidth ? 'auto' : `${values?.btnWidth.value}%`}">
                                 ${values.btn}
                     </button>
                 </div>
@@ -4258,6 +4260,11 @@ unlayer.registerTool({
                     defaultValue: 'center',
                     widget: 'alignment'
                 },
+                btnAutoWidth: {
+                    label: 'Auto width',
+                    defaultValue: true,
+                    widget: 'toggle',
+                },
                 btnWidth: {
                     label: 'Button width',
                     defaultValue: {label: 'Button', value: '10'},
@@ -4317,6 +4324,7 @@ unlayer.registerTool({
     propertyStates: (values) => {
         let nameProps = {};
         let emailProps = {};
+        let btnProps = {};
         if (!values.name) {
             nameProps = {
                 name_label: {
@@ -4358,9 +4366,23 @@ unlayer.registerTool({
                 }
             }
         }
+        if (values.btnAutoWidth) {
+            btnProps = {
+                btnWidth: {
+                    enabled: false
+                }
+            }
+        } else {
+            btnProps = {
+                btnWidth: {
+                    enabled: true
+                }
+            }
+        }
         return {
             ...nameProps,
             ...emailProps,
+            ...btnProps,
         }
     },
     // transformer: (values, source) => {
