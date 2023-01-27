@@ -4030,6 +4030,29 @@ const mapConsent = {
     }
 }
 
+const widthRange = (value) => `
+    <div>
+        ${console.log('width render', value)}
+        <div class="blockbuilder-widget-label">
+            <p class="blockbuilder-label-primary">Width</p>
+        </div>
+        <input type="range" name="range" class="range">
+    </div>
+`
+
+unlayer.registerPropertyEditor({
+    name: 'width_range',
+    layout: 'bottom',
+    Widget: unlayer.createWidget({
+        render( value, updateValue, data) {
+            return widthRange(value)
+        },
+        mount(node, value, updateValue) {
+            console.log('width mount', {value, node})
+        }
+    })
+});
+
 const getFormTemplate = () => function(values) {
     console.log({values})
     return `
@@ -4229,6 +4252,11 @@ unlayer.registerTool({
                     label: 'Button alignment',
                     defaultValue: 'center',
                     widget: 'alignment'
+                },
+                btnWidth: {
+                    label: 'Button width',
+                    defaultValue: '',
+                    widget: 'width_range'
                 }
             }
         },
