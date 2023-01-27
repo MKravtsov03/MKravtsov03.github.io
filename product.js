@@ -4032,12 +4032,14 @@ const mapConsent = {
 
 const widthRange = (value) => `
     <div>
-        ${console.log('width render', value)}
         <div class="blockbuilder-widget-label">
             <p class="blockbuilder-label-primary">${value.label} Width</p>
         </div>
-        <input type="range" name="range" value="${value.value}" min="0" max="100" class="range">
-        ${value.value}%
+        <div class="range-wrapp">
+            <input type="range" name="range" value="${value.value}" min="0" max="100" class="range">
+            ${value.value}%
+        </div>
+        
     </div>
 `
 
@@ -4051,7 +4053,7 @@ unlayer.registerPropertyEditor({
         mount(node, value, updateValue) {
             console.log('width mount', {value, node})
             const range = node.querySelector('.range')
-            range.onchange = function() {
+            range.oninput = function() {
                 return updateValue({...value, value: this.value})
             }
         }
@@ -4267,7 +4269,7 @@ unlayer.registerTool({
                 },
                 btnWidth: {
                     label: 'Button width',
-                    defaultValue: {label: 'Button', value: '10'},
+                    defaultValue: {label: 'Button', value: '20'},
                     widget: 'width_range'
                 }
             }
