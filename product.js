@@ -4106,7 +4106,7 @@ const getFormTemplate = () => function(values) {
                     values?.legal_consent ? `
                         <label class="consent-check">
                             <input oninvalid="this.setCustomValidity('Please accept the terms to proceed')" oninput="this.setCustomValidity('')" required checked type="checkbox">
-                            <span style="font-family: ${values?.consntLabelFont.value}; font-size: ${values?.consntLabelFontSize}px; color: ${values?.consntLabelColor}" >${mapConsent[values?.legal_consent_type].label}</span>
+                            <span style="font-family: ${values?.consntLabelFont.value}; font-size: ${values?.consntLabelFontSize}px; color: ${values?.consntLabelColor}" >${values?.consent_label}</span>
                         </label>
                         <div>
                             ${mapConsent[values?.legal_consent_type].description(values?.policyLink)}
@@ -4412,25 +4412,23 @@ unlayer.registerTool({
             ...layoutProps,
         }
     },
-    // transformer: (values, source) => {
-    //     console.log({values, source})
-    //     const {value} = source
-    //     if (value == 'tcpa') {
-    //         return {
-    //             ...values,
-    //             consent_label: 'Receive offers via text message',
-    //             consent_caption: mapConsent[value].description
-    //         }
-    //     }
-    //     if (value == 'gdpr') {
-    //         return {
-    //             ...values,
-    //             consent_label: 'Keep me up to date on news and offers',
-    //             consent_caption: mapConsent[value].description,
-    //         }
-    //     }
-    //     return values
-    // },
+    transformer: (values, source) => {
+        console.log({values, source})
+        const {value} = source
+        if (value == 'tcpa') {
+            return {
+                ...values,
+                consent_label: 'Receive offers via text message',
+            }
+        }
+        if (value == 'gdpr') {
+            return {
+                ...values,
+                consent_label: 'Keep me up to date on news and offers',
+            }
+        }
+        return values
+    },
     renderer: {
         Viewer: unlayer.createViewer({
             render(values) {
