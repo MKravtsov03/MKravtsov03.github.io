@@ -4034,9 +4034,10 @@ const widthRange = (value) => `
     <div>
         ${console.log('width render', value)}
         <div class="blockbuilder-widget-label">
-            <p class="blockbuilder-label-primary">Width</p>
+            <p class="blockbuilder-label-primary">${value.label} Width</p>
         </div>
-        <input type="range" name="range" value="${value}" min="0" max="100" class="range">
+        <input type="range" name="range" value="${value.value}" min="0" max="100" class="range">
+        ${value.value}%
     </div>
 `
 
@@ -4051,7 +4052,7 @@ unlayer.registerPropertyEditor({
             console.log('width mount', {value, node})
             const range = node.querySelector('.range')
             range.onchange = function() {
-                console.log(this.value)
+                return updateValue({...value, value: this.value})
             }
         }
     })
@@ -4259,7 +4260,7 @@ unlayer.registerTool({
                 },
                 btnWidth: {
                     label: 'Button width',
-                    defaultValue: '10',
+                    defaultValue: {label: 'Button', value: '10'},
                     widget: 'width_range'
                 }
             }
