@@ -4053,7 +4053,7 @@ unlayer.registerPropertyEditor({
         mount(node, value, updateValue) {
             console.log('width mount', {value, node})
             const range = node.querySelector('.range')
-            range.oninput = function() {
+            range.onchange = function() {
                 return updateValue({...value, value: this.value})
             }
         }
@@ -4065,7 +4065,7 @@ const getFormTemplate = () => function(values) {
     return `
         <div>
             
-            <form class="custom-form" action="">
+            <form class="custom-form" action="" style="width: ${values?.formAutoWidth ? 'auto' : `${values?.formWidth.value}%`}">
                 ${values?.name ? `
                     <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
                         ${values?.name_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="name">${values?.name_label_text}</label>` : ''}
@@ -4132,6 +4132,16 @@ unlayer.registerTool({
             title: 'Layout',
             position: 1,
             options: {
+                formAutoWidth: {
+                    label: 'Auto width',
+                    defaultValue: true,
+                    widget: 'toggle',
+                },
+                formWidth: {
+                    label: 'Button width',
+                    defaultValue: {label: 'Form', value: '100'},
+                    widget: 'width_range'
+                },
                 fieldsGap: {
                     enabled: true,
                     label: 'Space between fields',
@@ -4327,6 +4337,7 @@ unlayer.registerTool({
         let nameProps = {};
         let emailProps = {};
         let btnProps = {};
+        let layoutProps = {};
         if (!values.name) {
             nameProps = {
                 name_label: {
@@ -4381,10 +4392,24 @@ unlayer.registerTool({
                 }
             }
         }
+        if (values.formAutoWidth) {
+            layoutProps = {
+                formWidth: {
+                    enabled: false
+                }
+            }
+        } else {
+            layoutProps = {
+                formWidth: {
+                    enabled: true
+                }
+            }
+        }
         return {
             ...nameProps,
             ...emailProps,
             ...btnProps,
+            ...layoutProps,
         }
     },
     // transformer: (values, source) => {
