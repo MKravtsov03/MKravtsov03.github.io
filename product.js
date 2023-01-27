@@ -4019,16 +4019,25 @@ const mapAlignment = {
     justify: 'space-between'
 }
 
+const checkLink = (link) => {
+    if (link.includes('https://') || link.includes('http://')) {
+        return link
+    }
+    return `https://${link}`
+}
+
 const mapConsent = {
     gdpr: {
         label: 'Keep me up to date on news and offers',
-        description: (link) => `For more information on how we process your data for marketing communication. Check our <a href="${link}" target="_blank">Privacy policy.</a>`
+        description: (link) => `For more information on how we process your data for marketing communication. Check our <a href="${checkLink(link)}" target="_blank">Privacy policy.</a>`
     },
     tcpa: {
         label: 'Receive offers via text message',
-        description: (link) => `By checking this box, I consent to receive marketing text messages through an automatic telephone dialing system at the number provided. Consent is not a condition to purchase. Text STOP to unsubscribe or HELP for help. Msg and data rates may apply. Check our <a href="${link}" target="_blank">Privacy policy.</a>`
+        description: (link) => `By checking this box, I consent to receive marketing text messages through an automatic telephone dialing system at the number provided. Consent is not a condition to purchase. Text STOP to unsubscribe or HELP for help. Msg and data rates may apply. Check our <a href="${checkLink(link)}" target="_blank">Privacy policy.</a>`
     }
 }
+
+
 
 const widthRange = (value) => `
     <div>
