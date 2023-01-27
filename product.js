@@ -4109,7 +4109,7 @@ const getFormTemplate = () => function(values) {
                             <span style="font-family: ${values?.consntLabelFont.value}; font-size: ${values?.consntLabelFontSize}px; color: ${values?.consntLabelColor}" >${values?.consent_label}</span>
                         </label>
                         <div>
-                            ${mapConsent[values?.legal_consent_type].description(values?.policyLink)}
+                            ${values?.customDescription ? values?.customDescriptionContent : mapConsent[values?.legal_consent_type].description(values?.policyLink)}
                         </div>
                     ` : ''
                 }
@@ -4274,12 +4274,12 @@ unlayer.registerTool({
                 },
                 btnAutoWidth: {
                     label: 'Auto width',
-                    defaultValue: true,
+                    defaultValue: false,
                     widget: 'toggle',
                 },
                 btnWidth: {
                     label: 'Button width',
-                    defaultValue: {label: 'Button', value: '20'},
+                    defaultValue: {label: 'Button', value: '100'},
                     widget: 'width_range'
                 }
             }
@@ -4308,8 +4308,18 @@ unlayer.registerTool({
                     defaultValue: '',
                     widget: 'text',
                 },
+                customDescription: {
+                    label: 'Legal Consent custom description',
+                    defaultValue: false,
+                    widget: 'toggle',
+                },
+                customDescriptionContent: {
+                    label: 'Legal Consent custom description text',
+                    defaultValue: '',
+                    widget: 'rich_text',
+                },
                 consntLabelFont: {
-                    label: 'Labels font',
+                    label: 'Label font',
                     defaultValue: {
                         label: "Inter",
                         url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
@@ -4319,13 +4329,13 @@ unlayer.registerTool({
                 },
                 consntLabelFontSize: {
                     enabled: true,
-                    label: 'Labels font size',
+                    label: 'Label font size',
                     defaultValue: '14',
                     widget: 'counter',
                 },
                 consntLabelColor: {
                     enabled: true,
-                    label: 'Labels color',
+                    label: 'Label color',
                     defaultValue: '#000',
                     widget: 'color_picker',
                 },
@@ -4338,6 +4348,7 @@ unlayer.registerTool({
         let emailProps = {};
         let btnProps = {};
         let layoutProps = {};
+        let consentProps = {};
         if (!values.name) {
             nameProps = {
                 name_label: {
@@ -4347,7 +4358,8 @@ unlayer.registerTool({
                     enabled: false
                 }
             }
-        } else {
+        }
+        else {
             nameProps = {
                 name_label: {
                     enabled: true
@@ -4361,7 +4373,8 @@ unlayer.registerTool({
             nameProps.name_label_text = {
                 enabled: false
             }
-        } else {
+        }
+        else {
             nameProps.name_label_text = {
                 enabled: true
             }
@@ -4372,7 +4385,8 @@ unlayer.registerTool({
                     enabled: false
                 }
             }
-        } else {
+        }
+        else {
             emailProps = {
                 email_phone_label_text: {
                     enabled: true
@@ -4385,7 +4399,8 @@ unlayer.registerTool({
                     enabled: false
                 }
             }
-        } else {
+        }
+        else {
             btnProps = {
                 btnWidth: {
                     enabled: true
@@ -4398,10 +4413,31 @@ unlayer.registerTool({
                     enabled: false
                 }
             }
-        } else {
+        }
+        else {
             layoutProps = {
                 formWidth: {
                     enabled: true
+                }
+            }
+        }
+        if (values.customDescription) {
+            consentProps = {
+                policyLink: {
+                    enabled: false
+                },
+                customDescriptionContent: {
+                    enabled: true
+                }
+            }
+        }
+        else {
+            consentProps = {
+                policyLink: {
+                    enabled: true
+                },
+                customDescriptionContent: {
+                    enabled: false
                 }
             }
         }
@@ -4410,6 +4446,7 @@ unlayer.registerTool({
             ...emailProps,
             ...btnProps,
             ...layoutProps,
+            ...consentProps,
         }
     },
     transformer: (values, source) => {
