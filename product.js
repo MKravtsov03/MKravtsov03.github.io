@@ -1369,7 +1369,7 @@ const getProductTemplate = () => function (values) {
                                     float: left;">
                             
                             ${values?.details?.details.image ? `
-                                <div style="max-height: 220px; display: flex; padding: 10px 0; overflow: hidden">
+                                <div style="height: 220px; display: flex; padding: 10px 0; overflow: hidden">
                                     <img style="max-width: 100%;
                                     width: 100%;
                                     object-fit: contain;
@@ -1423,7 +1423,7 @@ const getProductTemplate = () => function (values) {
                                     </div>
                             
                                     ${values?.details?.details.image ? `
-                                        <div style="max-height: 220px; display: flex; padding: 10px 0; overflow: hidden">
+                                        <div style="height: 220px; display: flex; padding: 10px 0; overflow: hidden">
                                             <img style="max-width: 100%;
                                             width: 100%;
                                             object-fit: contain;
