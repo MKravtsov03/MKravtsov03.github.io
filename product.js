@@ -4134,7 +4134,7 @@ const formTemplate = getFormTemplate();
 unlayer.registerTool({
     name: 'form_tool',
     label: 'Form',
-    icon: 'https://mkravtsov03.github.io/shopping-cart.svg',
+    icon: 'https://mkravtsov03.github.io/form-icon.svg',
     supportedDisplayModes: ['web', 'email', 'popup'],
     options: {
         layout: {
