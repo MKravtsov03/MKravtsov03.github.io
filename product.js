@@ -4084,7 +4084,9 @@ const additionalFieldsOptionsList = [
     },
 ]
 
-const additionalFields = (values) => `
+const additionalFields = (values) => {
+    const filteredFields = additionalFieldsOptionsList.filter(option => !values?.activeFields?.includes(option.value))
+    return `
     <div>
         ${console.log('additional form fields', values)}
         <div class="blockbuilder-widget-label">
@@ -4092,11 +4094,11 @@ const additionalFields = (values) => `
         </div>
         <select name="additional_field" id="additional_field">
             ${
-                additionalFieldsOptionsList.map(option => `<option value="${option.value}">${option.label}</option>`).join('')
+                filteredFields.map(option => `<option value="${option.value}">${option.label}</option>`).join('')
             }
         </select>
     </div>
-`
+`}
 
 unlayer.registerPropertyEditor({
     name: 'additional_form_fields',
@@ -4106,7 +4108,10 @@ unlayer.registerPropertyEditor({
             return additionalFields(value)
         },
         mount(node, value, updateValue) {
-
+            const select = node.querySelector('#additional_field')
+            select.onchange = function () {
+                return updateValue({...value, activeFields: [...value.activeFields, this.value]})
+            }
         }
     })
 });
@@ -4206,7 +4211,7 @@ unlayer.registerTool({
             position: 1,
             options: {
                 additional_form_fields: {
-                    defaultValue: true,
+                    defaultValue: {activeFields: []},
                     widget: 'additional_form_fields',
                 },
                 name: {
