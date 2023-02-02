@@ -4312,7 +4312,7 @@ unlayer.registerTool({
             position: 1,
             options: {
                 additional_form_fields: {
-                    defaultValue: {activeFields: [], editPopup: {active: false, field: null}, 
+                    defaultValue: {activeFields: [], editPopup: {active: false, field: 'first_name'},
                         fieldsProps: {
                             first_name: {
                                 label: false, 
