@@ -4175,7 +4175,7 @@ const getFormTemplate = () => function(values) {
         <div>
             
             <form class="custom-form" action="" style="width: ${values?.formAutoWidth ? 'auto' : `${values?.formWidth.value}%`}">
-                ${values?.additional_form_fields.activeFields.map(field => additionalFieldsRenderer[field]).join('')}
+                ${values?.additional_form_fields.activeFields.map(field => additionalFieldsRenderer[field]()).join('')}
                 
                 ${values?.email_phone == 'email' ? 
                 `
