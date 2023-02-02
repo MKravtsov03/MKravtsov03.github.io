@@ -4135,6 +4135,13 @@ unlayer.registerPropertyEditor({
             select.onchange = function () {
                 return updateValue({...value, activeFields: [...value.activeFields, this.value]})
             }
+            
+            const fieldItems = node.querySelectorAll('.fields-item');
+            fieldItems.forEach(function(item) {
+                item.querySelector('.delete-field').onclick = function() {
+                    console.log(this.dataset.value)
+                }
+            })
         }
     })
 });
