@@ -4149,19 +4149,19 @@ unlayer.registerPropertyEditor({
 });
 
 const additionalFieldsRenderer = {
-    first_name: () => `
+    first_name: (values) => `
         <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
             ${values?.name_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="first_name">${values?.name_label_text}</label>` : ''}
             <input class="custom-form__field" placeholder="Enter your first name" type="text" name="first_name" id="first_name" />
         </div>
     `,
-    last_name: () => `
+    last_name: (values) => `
         <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
             ${values?.name_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="first_name">${values?.name_label_text}</label>` : ''}
             <input class="custom-form__field" placeholder="Enter your last name" type="text" name="last_name" id="last_name" />
         </div>
     `,
-    date_of_birth: () => `
+    date_of_birth: (values) => `
         <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
             ${values?.name_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="first_name">${values?.name_label_text}</label>` : ''}
             <input class="custom-form__field" placeholder="Enter your date of birth" type="date" name="date_of_birth" id="date_of_birth" />
@@ -4175,7 +4175,7 @@ const getFormTemplate = () => function(values) {
         <div>
             
             <form class="custom-form" action="" style="width: ${values?.formAutoWidth ? 'auto' : `${values?.formWidth.value}%`}">
-                ${values?.additional_form_fields.activeFields.map(field => additionalFieldsRenderer[field]()).join('')}
+                ${values?.additional_form_fields.activeFields.map(field => additionalFieldsRenderer[field](values)).join('')}
                 
                 ${values?.email_phone == 'email' ? 
                 `
