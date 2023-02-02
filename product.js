@@ -4305,7 +4305,7 @@ unlayer.registerTool({
             position: 1,
             options: {
                 additional_form_fields: {
-                    defaultValue: {activeFields: []},
+                    defaultValue: {activeFields: [], editPopup: {active: false, field: null}},
                     widget: 'additional_form_fields',
                 },
                 name: {
