@@ -4133,23 +4133,23 @@ const additionalFields = (values) => {
                           <p>Label text</p>
                      </label>
                      <label>
-                        <input type="checkbox" name="label">
+                        <input ${values?.fieldsProps[values?.editPopup?.value].label ? 'checked' : ''} type="checkbox" name="label">
                         <span>Show label</span>
                       </label>
                      </span>
                    
-                     <input type="text" name="label_text" id="label_text" class="form-control">
+                     <input value="${values?.fieldsProps[values?.editPopup?.value].label_text}" type="text" name="label_text" id="label_text" class="form-control">
                  </div>
                  
                 <div class="form-item">
                     <label>
                         <p>Placeholder text</p>
-                        <input type="text" name="placeholder_text" class="form-control">
+                        <input value="${values?.fieldsProps[values?.editPopup?.value].placeholder_text}" type="text" name="placeholder_text" class="form-control">
                     </label>
                  </div>
                  
                  <div class="edit-form__footer">
-                    <button class="edit-form__save">
+                    <button type="submit" class="edit-form__save">
                         Update field
                     </button>
                     <button class="edit-form__cancel">
@@ -4188,6 +4188,13 @@ unlayer.registerPropertyEditor({
             const popupClose = node.querySelector('.edit-form__cancel');
             popupClose.onclick = function () {
                 return updateValue({...value, editPopup: {active: false, field: null}})
+            }
+
+            const form = node.querySelector('.edit-form');
+            form.onsubmit = function (e) {
+                e.preventDefault();
+                const data = new FormData(form)
+                consoe.log(data)
             }
         }
     })
@@ -4305,7 +4312,25 @@ unlayer.registerTool({
             position: 1,
             options: {
                 additional_form_fields: {
-                    defaultValue: {activeFields: [], editPopup: {active: false, field: null}},
+                    defaultValue: {activeFields: [], editPopup: {active: false, field: null}, 
+                        fieldsProps: {
+                            first_name: {
+                                label: false, 
+                                label_text: '',
+                                placeholder_text: ''
+                            },
+                            last_name: {
+                                label: false,
+                                label_text: '',
+                                placeholder_text: ''
+                            },
+                            date_of_birth: {
+                                label: false,
+                                label_text: '',
+                                placeholder_text: ''
+                            },
+                        }
+                    },
                     widget: 'additional_form_fields',
                 },
                 name: {
