@@ -4170,7 +4170,7 @@ unlayer.registerPropertyEditor({
         },
         mount(node, value, updateValue) {
             const select = node.querySelector('#additional_field')
-            const editPopup node.querySelector('.edit-popup')
+            const editPopup = node.querySelector('.edit-popup')
             select.onchange = function () {
                 return updateValue({...value, activeFields: [...value.activeFields, this.value]})
             }
