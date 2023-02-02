@@ -4194,7 +4194,9 @@ unlayer.registerPropertyEditor({
             form.onsubmit = function (e) {
                 e.preventDefault();
                 const data = new FormData(form)
-                console.log(data)
+                for (let [key, value] of data) {
+                    console.log({key, value});
+                }
             }
         }
     })
