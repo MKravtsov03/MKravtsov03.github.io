@@ -4139,7 +4139,7 @@ unlayer.registerPropertyEditor({
             const fieldItems = node.querySelectorAll('.fields-item');
             fieldItems.forEach(function(item) {
                 item.querySelector('.delete-field').onclick = function() {
-                    console.log(item.dataset.value)
+                    return updateValue({...value, activeFields: [...value.activeFields.filter(field => field !== item.dataset.value)]})
                 }
             })
         }
