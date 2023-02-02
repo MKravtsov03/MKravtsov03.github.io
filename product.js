@@ -4187,7 +4187,7 @@ unlayer.registerPropertyEditor({
 
             const popupClose = node.querySelector('.edit-form__cancel');
             popupClose.onclick = function () {
-                return updateValue({...value, editPopup: {active: false, field: null}})
+                return updateValue({...value, editPopup: { ...value.editPopup, active: false})
             }
 
             const form = node.querySelector('.edit-form');
