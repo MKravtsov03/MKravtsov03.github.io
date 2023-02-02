@@ -4092,7 +4092,7 @@ const additionalFields = (values) => {
         <div class="blockbuilder-widget-label">
             <p class="blockbuilder-label-primary">Form additional fields</p>
         </div>
-        <select name="additional_field" id="additional_field">
+        <select class="form-control" name="additional_field" id="additional_field">
             <option>Select field</option>
             ${
                 filteredFields.map(option => `<option value="${option.value}">${option.label}</option>`).join('')
