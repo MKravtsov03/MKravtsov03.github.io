@@ -4122,7 +4122,7 @@ const additionalFields = (values) => {
             `).join('')}
             
         </div>
-        <div class="edit-popup">
+        <div class="edit-popup ${values?.editPopup.active ? 'active' : ''}">
             <form class="edit-form">
                 <div class="edit-form__title">
                     Update field
@@ -4170,6 +4170,7 @@ unlayer.registerPropertyEditor({
         },
         mount(node, value, updateValue) {
             const select = node.querySelector('#additional_field')
+            const editPopup node.querySelector('.edit-popup')
             select.onchange = function () {
                 return updateValue({...value, activeFields: [...value.activeFields, this.value]})
             }
@@ -4179,7 +4180,15 @@ unlayer.registerPropertyEditor({
                 item.querySelector('.delete-field').onclick = function() {
                     return updateValue({...value, activeFields: [...value.activeFields.filter(field => field !== item.dataset.value)]})
                 }
-            })
+                item.querySelector('.edit-field').onclick = function() {
+                    return updateValue({...value, editPopup: {active: true, field: item.dataset.value}})
+                }
+            });
+
+            const popupClose = node.querySelector('.edit-form__cancel');
+            popupClose.onclick = function () {
+                return updateValue({...value, editPopup: {active: false, field: null}})
+            }
         }
     })
 });
