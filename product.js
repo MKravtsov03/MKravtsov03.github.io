@@ -4194,9 +4194,11 @@ unlayer.registerPropertyEditor({
             form.onsubmit = function (e) {
                 e.preventDefault();
                 const data = new FormData(form)
+                let formValues = {};
                 for (let [key, value] of data) {
-                    console.log({key, value});
+                    formValues[key] = value
                 }
+                return updateValue({...value, fieldsProps: {...fieldsProps, [value.editPopup.field]: formValues}  editPopup: { ...value.editPopup, active: false})
             }
         }
     })
