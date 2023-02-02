@@ -4122,6 +4122,42 @@ const additionalFields = (values) => {
             `).join('')}
             
         </div>
+        <div class="edit-popup">
+            <form class="edit-form">
+                <div class="edit-form__title">
+                    Update field
+                </div>
+                <div class="form-item">
+                     <span class="form-row">
+                     <label for="label_text">
+                          <p>Label text</p>
+                     </label>
+                     <label>
+                        <input type="checkbox" name="label">
+                        <span>Show label</span>
+                      </label>
+                     </span>
+                   
+                     <input type="text" name="label_text" id="label_text" class="form-control">
+                 </div>
+                 
+                <div class="form-item">
+                    <label>
+                        <p>Placeholder text</p>
+                        <input type="text" name="placeholder_text" class="form-control">
+                    </label>
+                 </div>
+                 
+                 <div class="edit-form__footer">
+                    <button class="edit-form__save">
+                        Update field
+                    </button>
+                    <button class="edit-form__cancel">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 `}
 
