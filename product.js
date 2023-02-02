@@ -4090,6 +4090,8 @@ const fieldsMap = {
     date_of_birth: 'Date of Birth',
 }
 
+
+
 const additionalFields = (values) => {
     const filteredFields = additionalFieldsOptionsList.filter(option => !values?.activeFields?.includes(option.value))
     return `
@@ -4146,18 +4148,35 @@ unlayer.registerPropertyEditor({
     })
 });
 
+const additionalFieldsRenderer = {
+    first_name: () => `
+        <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
+            ${values?.name_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="first_name">${values?.name_label_text}</label>` : ''}
+            <input class="custom-form__field" placeholder="Enter your first name" type="text" name="first_name" id="first_name" />
+        </div>
+    `,
+    last_name: () => `
+        <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
+            ${values?.name_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="first_name">${values?.name_label_text}</label>` : ''}
+            <input class="custom-form__field" placeholder="Enter your last name" type="text" name="last_name" id="last_name" />
+        </div>
+    `,
+    date_of_birth: () => `
+        <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
+            ${values?.name_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="first_name">${values?.name_label_text}</label>` : ''}
+            <input class="custom-form__field" placeholder="Enter your date of birth" type="date" name="date_of_birth" id="date_of_birth" />
+        </div>
+    `
+}
+
 const getFormTemplate = () => function(values) {
     console.log({values})
     return `
         <div>
             
             <form class="custom-form" action="" style="width: ${values?.formAutoWidth ? 'auto' : `${values?.formWidth.value}%`}">
-                ${values?.name ? `
-                    <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
-                        ${values?.name_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="name">${values?.name_label_text}</label>` : ''}
-                        <input class="custom-form__field" placeholder="Enter your name" type="text" name="name" id="name" />
-                    </div>
-                ` : ''}
+                ${values?.additional_form_fields.activeFields.map(field => additionalFieldsRenderer[field]).join('')}
+                
                 ${values?.email_phone == 'email' ? 
                 `
                     <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
