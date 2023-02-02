@@ -4069,6 +4069,48 @@ unlayer.registerPropertyEditor({
     })
 });
 
+const additionalFieldsOptionsList = [
+    {
+        label:'First Name',
+        value:'first_name',
+    },
+    {
+        label:'Last Name',
+        value:'last_name',
+    },
+    {
+        label:'Date of Birth',
+        value:'date_of_birth',
+    },
+]
+
+const additionalFields = (values) => `
+    <div>
+        ${console.log('additional form fields', values)}
+        <div class="blockbuilder-widget-label">
+            <p class="blockbuilder-label-primary">Form additional fields</p>
+        </div>
+        <select name="additional_field" id="additional_field">
+            ${
+                additionalFieldsOptionsList.map(option => `<option value="${option.value}">${option.label}</option>`).join('')
+            }
+        </select>
+    </div>
+`
+
+unlayer.registerPropertyEditor({
+    name: 'additional_form_fields',
+    layout: 'bottom',
+    Widget: unlayer.createWidget({
+        render( value, updateValue, data) {
+            return additionalFields(value)
+        },
+        mount(node, value, updateValue) {
+
+        }
+    })
+});
+
 const getFormTemplate = () => function(values) {
     console.log({values})
     return `
@@ -4163,6 +4205,10 @@ unlayer.registerTool({
             title: 'Input Fields',
             position: 1,
             options: {
+                additional_form_fields: {
+                    defaultValue: true,
+                    widget: 'additional_form_fields',
+                },
                 name: {
                     label: 'Name field',
                     defaultValue: true,
