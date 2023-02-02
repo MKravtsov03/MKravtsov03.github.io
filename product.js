@@ -4117,7 +4117,7 @@ const additionalFields = (values) => {
                         </button>
                     </div>
                 </div>
-            `)}
+            `).join('')}
             
         </div>
     </div>
