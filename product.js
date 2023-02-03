@@ -4207,20 +4207,20 @@ unlayer.registerPropertyEditor({
 const additionalFieldsRenderer = {
     first_name: (values) => `
         <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
-            ${values?.name_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="first_name">${values?.name_label_text}</label>` : ''}
-            <input class="custom-form__field" placeholder="Enter your first name" type="text" name="first_name" id="first_name" />
+            ${values?.additional_form_fields?.fieldsProps?.first_name?.label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="first_name">${values?.additional_form_fields?.fieldsProps?.first_name?.label_text}</label>` : ''}
+            <input class="custom-form__field" placeholder="${values?.additional_form_fields?.fieldsProps?.first_name?.placeholder_text}" type="text" name="first_name" id="first_name" />
         </div>
     `,
     last_name: (values) => `
         <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
-            ${values?.name_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="first_name">${values?.name_label_text}</label>` : ''}
-            <input class="custom-form__field" placeholder="Enter your last name" type="text" name="last_name" id="last_name" />
+            ${values?.additional_form_fields?.fieldsProps?.last_name?.label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="first_name">${values?.additional_form_fields?.fieldsProps?.last_name?.label_text}</label>` : ''}
+            <input class="custom-form__field" placeholder="${values?.additional_form_fields?.fieldsProps?.last_name?.placeholder_text}" type="text" name="last_name" id="last_name" />
         </div>
     `,
     date_of_birth: (values) => `
         <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
-            ${values?.name_label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="first_name">${values?.name_label_text}</label>` : ''}
-            <input class="custom-form__field" placeholder="Enter your date of birth" type="date" name="date_of_birth" id="date_of_birth" />
+            ${values?.additional_form_fields?.fieldsProps?.date_of_birth?.label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="first_name">${values?.additional_form_fields?.fieldsProps?.date_of_birth?.label_text}</label>` : ''}
+            <input class="custom-form__field" placeholder="${values?.additional_form_fields?.fieldsProps?.date_of_birth?.placeholder_text}" type="date" name="date_of_birth" id="date_of_birth" />
         </div>
     `
 }
@@ -4320,17 +4320,17 @@ unlayer.registerTool({
                         fieldsProps: {
                             first_name: {
                                 label: false, 
-                                label_text: '',
-                                placeholder_text: ''
+                                label_text: 'First Name',
+                                placeholder_text: 'Enter your first name'
                             },
                             last_name: {
                                 label: false,
-                                label_text: '',
-                                placeholder_text: ''
+                                label_text: 'Last Name',
+                                placeholder_text: 'Enter your first name'
                             },
                             date_of_birth: {
                                 label: false,
-                                label_text: '',
+                                label_text: 'Date of Birth',
                                 placeholder_text: ''
                             },
                         }
