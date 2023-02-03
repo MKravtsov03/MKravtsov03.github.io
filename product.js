@@ -4311,7 +4311,7 @@ unlayer.registerTool({
                 BtnGap: {
                     enabled: true,
                     label: 'Margin',
-                    defaultValue: '0',
+                    defaultValue: '15',
                     widget: 'counter',
                 },
             }
