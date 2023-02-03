@@ -4247,7 +4247,7 @@ const getFormTemplate = () => function(values) {
                     </div>
                 `
                 }
-                <div  class="custom-form__item button-item" style="justify-content: ${mapAlignment[values?.btnAligment]}; margin-bottom: ${values.fieldsGap}px">
+                <div  class="custom-form__item button-item" style="justify-content: ${mapAlignment[values?.btnAligment]}; margin-top: ${values.BtnGap}px; margin-bottom: ${values.fieldsGap}px">
                     <button class="custom-form__btn" style="
                                    font-family: ${values.btnFont.value};
                                    border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
@@ -4306,6 +4306,12 @@ unlayer.registerTool({
                     enabled: true,
                     label: 'Space between fields',
                     defaultValue: '15',
+                    widget: 'counter',
+                },
+                BtnGap: {
+                    enabled: true,
+                    label: 'Margin',
+                    defaultValue: '0',
                     widget: 'counter',
                 },
             }
