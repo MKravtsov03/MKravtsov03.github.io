@@ -4096,7 +4096,6 @@ const additionalFields = (values) => {
     const filteredFields = additionalFieldsOptionsList.filter(option => !values?.activeFields?.includes(option.value))
     return `
     <div>
-        ${console.log('additional form fields', values)}
         <div class="blockbuilder-widget-label">
             <p class="blockbuilder-label-primary">Form additional fields</p>
         </div>
@@ -4326,7 +4325,7 @@ unlayer.registerTool({
                             last_name: {
                                 label: false,
                                 label_text: 'Last Name',
-                                placeholder_text: 'Enter your first name'
+                                placeholder_text: 'Enter your last name'
                             },
                             date_of_birth: {
                                 label: false,
@@ -4336,21 +4335,6 @@ unlayer.registerTool({
                         }
                     },
                     widget: 'additional_form_fields',
-                },
-                name: {
-                    label: 'Name field',
-                    defaultValue: true,
-                    widget: 'toggle',
-                },
-                name_label: {
-                    label: 'Name field label',
-                    defaultValue: false,
-                    widget: 'toggle',
-                },
-                name_label_text: {
-                    label: 'Name field label text',
-                    defaultValue: 'Name',
-                    widget: 'text',
                 },
                 email_phone: {
                     label: 'Email/phone field',
@@ -4527,41 +4511,11 @@ unlayer.registerTool({
 
     },
     propertyStates: (values) => {
-        let nameProps = {};
         let emailProps = {};
         let btnProps = {};
         let layoutProps = {};
         let consentProps = {};
-        if (!values.name) {
-            nameProps = {
-                name_label: {
-                    enabled: false
-                },
-                name_label_text: {
-                    enabled: false
-                }
-            }
-        }
-        else {
-            nameProps = {
-                name_label: {
-                    enabled: true
-                },
-                name_label_text: {
-                    enabled: true
-                }
-            }
-        }
-        if (!values.name_label) {
-            nameProps.name_label_text = {
-                enabled: false
-            }
-        }
-        else {
-            nameProps.name_label_text = {
-                enabled: true
-            }
-        }
+
         if (!values.email_phone_label) {
             emailProps = {
                 email_phone_label_text: {
@@ -4625,7 +4579,6 @@ unlayer.registerTool({
             }
         }
         return {
-            ...nameProps,
             ...emailProps,
             ...btnProps,
             ...layoutProps,
