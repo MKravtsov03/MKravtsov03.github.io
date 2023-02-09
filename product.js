@@ -4401,6 +4401,12 @@ unlayer.registerTool({
                     defaultValue: '14',
                     widget: 'counter',
                 },
+                fieldsBg: {
+                    enabled: true,
+                    label: 'Background',
+                    defaultValue: '#fff',
+                    widget: 'color_picker',
+                },
             },
         },
         labels: {
