@@ -4268,7 +4268,7 @@ const getFormTemplate = () => function(values) {
                             <input oninvalid="this.setCustomValidity('Please accept the terms to proceed')" oninput="this.setCustomValidity('')" required checked type="checkbox">
                             <span style="font-family: ${values?.consntLabelFont.value}; font-size: ${values?.consntLabelFontSize}px; color: ${values?.consntLabelColor}" >${values?.consent_label}</span>
                         </label>
-                        <div>
+                        <div style="color: ${vaues?.consntDescriptionColor}; font-size: ${values?.consntDescriptionFontSize}px; font-family: ${values?.consntDescriptionFont.value};">
                             ${values?.customDescription ? values?.customDescriptionContent : mapConsent[values?.legal_consent_type].description(values?.policyLink)}
                         </div>
                     ` : ''
@@ -4512,6 +4512,27 @@ unlayer.registerTool({
                     defaultValue: '#000',
                     widget: 'color_picker',
                 },
+                consntDescriptionFont: {
+                    label: 'Description font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                consntDescriptionFontSize: {
+                    enabled: true,
+                    label: 'Description font size',
+                    defaultValue: '14',
+                    widget: 'counter',
+                },
+                consntDescriptionColor: {
+                    enabled: true,
+                    label: 'Description color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
             }
         }
 
@@ -4571,6 +4592,9 @@ unlayer.registerTool({
                 },
                 customDescriptionContent: {
                     enabled: true
+                },
+                consntDescriptionColor: {
+                    enabled: false
                 }
             }
         }
@@ -4581,6 +4605,9 @@ unlayer.registerTool({
                 },
                 customDescriptionContent: {
                     enabled: false
+                },
+                consntDescriptionColor: {
+                    enabled: true
                 }
             }
         }
