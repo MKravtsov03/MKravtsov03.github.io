@@ -3973,6 +3973,7 @@ unlayer.registerTool({
 //  Form tool ---- START ------------
 
 const formStyles = () => function (values) {
+    console.log('style', values)
     return `
         .custom-form * {
             box-sizing: border-box;
@@ -4357,6 +4358,24 @@ unlayer.registerTool({
                     defaultValue: 'Email',
                     widget: 'text',
                 },
+                fieldsBorder: {
+                    label: 'Fields border',
+                    defaultValue: {
+                        borderTopWidth: "1px",
+                        borderTopStyle: "solid",
+                        borderTopColor: "#ced4da",
+                        borderLeftWidth: "1px",
+                        borderLeftStyle: "solid",
+                        borderLeftColor: "#ced4da",
+                        borderRightWidth: "1px",
+                        borderRightStyle: "solid",
+                        borderRightColor: "#ced4da",
+                        borderBottomWidth: "1px",
+                        borderBottomStyle: "solid",
+                        borderBottomColor: "#ced4da"
+                    },
+                    widget: 'border',
+                },
             },
         },
         labels: {
@@ -4473,7 +4492,7 @@ unlayer.registerTool({
                 },
                 consent_label: {
                     label: 'Legal consent label text',
-                    defaultValue: 'Keep me up to date on neews and offers',
+                    defaultValue: 'Keep me up to date on news and offers',
                     widget: 'text',
                 },
                 policyLink: {
