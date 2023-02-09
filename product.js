@@ -3983,11 +3983,16 @@ const formStyles = () => function (values) {
            display: block;
         }
         .custom-form__field {
-           border-radius: 8px;
-           height: 40px;
-           padding: 0 10px;
+           border-radius: ${values.fieldsCorners}px;
+           min-height: 40px;
+           padding: ${values.fieldsPadding}px;
            width: 100%;
-           border: 1px solid #ced4da     
+           background: ${values.fieldsBg};
+           font-size: ${values.fieldsFontSize}px;
+           border-left: ${values.fieldsBorder.borderLeftWidth} ${values.fieldsBorder.borderLeftStyle} ${values.fieldsBorder.borderLeftColor}; 
+           border-top: ${values.fieldsBorder.borderTopWidth} ${values.fieldsBorder.borderTopStyle} ${values.fieldsBorder.borderTopColor}; 
+           border-right: ${values.fieldsBorder.borderRightWidth} ${values.fieldsBorder.borderRightStyle} ${values.fieldsBorder.borderRightColor}; 
+           border-bottom: ${values.fieldsBorder.borderBottomWidth} ${values.fieldsBorder.borderBottomStyle} ${values.fieldsBorder.borderBottomColor};      
         }
         .button-item {
             display: flex;
@@ -4375,6 +4380,24 @@ unlayer.registerTool({
                         borderBottomColor: "#ced4da"
                     },
                     widget: 'border',
+                },
+                fieldsCorners: {
+                    enabled: true,
+                    label: 'Rounden border',
+                    defaultValue: '8',
+                    widget: 'counter',
+                },
+                fieldsPadding: {
+                    enabled: true,
+                    label: 'Padding',
+                    defaultValue: '10',
+                    widget: 'counter',
+                },
+                fieldsFontSize: {
+                    enabled: true,
+                    label: 'Font size',
+                    defaultValue: '14',
+                    widget: 'counter',
                 },
             },
         },
