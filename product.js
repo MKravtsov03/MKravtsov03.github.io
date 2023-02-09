@@ -3989,6 +3989,7 @@ const formStyles = () => function (values) {
            width: 100%;
            background: ${values.fieldsBg};
            font-size: ${values.fieldsFontSize}px;
+           color: ${values.fieldsColor};
            border-left: ${values.fieldsBorder.borderLeftWidth} ${values.fieldsBorder.borderLeftStyle} ${values.fieldsBorder.borderLeftColor}; 
            border-top: ${values.fieldsBorder.borderTopWidth} ${values.fieldsBorder.borderTopStyle} ${values.fieldsBorder.borderTopColor}; 
            border-right: ${values.fieldsBorder.borderRightWidth} ${values.fieldsBorder.borderRightStyle} ${values.fieldsBorder.borderRightColor}; 
@@ -4400,6 +4401,12 @@ unlayer.registerTool({
                     label: 'Font size',
                     defaultValue: '14',
                     widget: 'counter',
+                },
+                fieldsColor: {
+                    enabled: true,
+                    label: 'Text color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
                 },
                 fieldsBg: {
                     enabled: true,
