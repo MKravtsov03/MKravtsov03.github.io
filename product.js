@@ -4263,6 +4263,8 @@ const getFormTemplate = () => function(values) {
                                    color: ${values.btnColor};
                                    font-size: ${values.btnFontSize}px; 
                                    background-color: ${values.btnBg};
+                                   border-radius: ${values.btnCorners}px;
+                                   padding: ${values.btnPadding}px;
                                    width: ${values?.btnAutoWidth ? 'auto' : `${values?.btnWidth.value}%`}">
                                 ${values.btn}
                     </button>
@@ -4383,7 +4385,7 @@ unlayer.registerTool({
                 },
                 fieldsCorners: {
                     enabled: true,
-                    label: 'Rounden border',
+                    label: 'Rounded border',
                     defaultValue: '8',
                     widget: 'counter',
                 },
@@ -4481,6 +4483,18 @@ unlayer.registerTool({
                         borderBottomColor: "#CCC"
                     },
                     widget: 'border',
+                },
+                btnCorners: {
+                    enabled: true,
+                    label: 'Rounded border',
+                    defaultValue: '8',
+                    widget: 'counter',
+                },
+                btnPadding: {
+                    enabled: true,
+                    label: 'Padding',
+                    defaultValue: '10',
+                    widget: 'counter',
                 },
                 btnAligment: {
                     label: 'Button alignment',
