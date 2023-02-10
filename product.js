@@ -4187,18 +4187,18 @@ const emaiPhoneEdit = (values) => {
                           <p>Label text</p>
                      </label>
                      <label>
-                        <input ${values?.fieldsProps.label ? 'checked' : ''} type="checkbox" name="label">
+                        <input ${values?.fieldProps.label ? 'checked' : ''} type="checkbox" name="label">
                         <span>Show label</span>
                       </label>
                      </span>
                    
-                     <input value="${values?.fieldsProps.label_text}" type="text" name="label_text" id="label_text" class="form-control">
+                     <input value="${values?.fieldProps.label_text}" type="text" name="label_text" id="label_text" class="form-control">
                  </div>
                  
                 <div class="form-item">
                     <label>
                         <p>Placeholder text</p>
-                        <input value="${values?.fieldsProps.placeholder_text}" type="text" name="placeholder_text" class="form-control">
+                        <input value="${values?.fieldProps.placeholder_text}" type="text" name="placeholder_text" class="form-control">
                     </label>
                  </div>
                  
