@@ -4286,7 +4286,7 @@ unlayer.registerPropertyEditor({
                 for (let [key, value] of data) {
                     formValues[key] = value
                 }
-                return updateValue({ fieldProps: {...value.fieldProps, ...formValues},  editPopup: false })
+                return updateValue({ fieldProps: {...formValues},  editPopup: false })
             }
         }
     })
@@ -4324,15 +4324,15 @@ const getFormTemplate = () => function(values) {
                 ${values?.email_phone == 'email' ? 
                 `
                     <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
-                        ${values?.email_phone_props.fieldProps.label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="email">${values?.email_phone_props.fieldProps.label_text}</label>` : ''}
-                        <input required class="custom-form__field" placeholder="${values?.email_phone_props.fieldProps.placeholder_text}" type="email" name="email" id="email" />
+                        ${values?.email_phone_props?.fieldProps?.label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="email">${values?.email_phone_props?.fieldProps?.label_text}</label>` : ''}
+                        <input required class="custom-form__field" placeholder="${values?.email_phone_props?.fieldProps?.placeholder_text}" type="email" name="email" id="email" />
                     </div>
                 ` 
                 : 
                 `
                     <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
-                        ${values?.email_phone_props.fieldProps.label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="phone">${values?.email_phone_props.fieldProps.label_text}</label>` : ''}
-                        <input required class="custom-form__field" placeholder="${values?.email_phone_props.fieldProps.placeholder_text}" type="tel" name="phone" id="phone" />
+                        ${values?.email_phone_props?.fieldProps?.label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="phone">${values?.email_phone_props?.fieldProps?.label_text}</label>` : ''}
+                        <input required class="custom-form__field" placeholder="${values?.email_phone_props?.fieldProps?.placeholder_text}" type="tel" name="phone" id="phone" />
                     </div>
                 `
                 }
