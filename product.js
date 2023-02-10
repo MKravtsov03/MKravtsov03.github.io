@@ -4286,7 +4286,7 @@ unlayer.registerPropertyEditor({
                 for (let [key, value] of data) {
                     formValues[key] = value
                 }
-                return updateValue({ fieldsProps: {...formValues},  editPopup: false })
+                return updateValue({ fieldsProps: {...value.fieldProps, ...formValues},  editPopup: false })
             }
         }
     })
