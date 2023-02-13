@@ -4773,7 +4773,7 @@ unlayer.registerTool({
     },
     transformer: (values, source) => {
         console.log({values, source})
-        const {value} = source
+        const { value, name } = source
         if (value == 'tcpa') {
             return {
                 ...values,
@@ -4784,6 +4784,32 @@ unlayer.registerTool({
             return {
                 ...values,
                 consent_label: 'Keep me up to date on news and offers',
+            }
+        }
+        if (name == "email_phone") {
+            if (value == 'phone') {
+                return {
+                    ...values,
+                    email_phone_props: {
+                        ...values.email_phone_props,
+                        fieldProps: {
+                            ...values.email_phone_props.fieldProps,
+                            label_text: 'Phone',
+                            placeholder_text: 'Enter your Phone',
+                        }
+                    }
+                }
+            }
+            return {
+                ...values,
+                email_phone_props: {
+                    ...values.email_phone_props,
+                    fieldProps: {
+                        ...values.email_phone_props.fieldProps,
+                        label_text: 'Email',
+                        placeholder_text: 'Enter your email',
+                    }
+                }
             }
         }
         return values
