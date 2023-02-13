@@ -4326,6 +4326,9 @@ const getFormTemplate = () => function(values) {
                     <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
                         ${values?.email_phone_props?.fieldProps?.label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="email">${values?.email_phone_props?.fieldProps?.label_text}</label>` : ''}
                         <input required class="custom-form__field" placeholder="${values?.email_phone_props?.fieldProps?.placeholder_text}" type="email" name="email" id="email" />
+                        <script>
+                            console.log('Internal JS was executed!')
+                        </script>
                     </div>
                 ` 
                 : 
