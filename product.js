@@ -4154,6 +4154,13 @@ const additionalFields = (values) => {
                     </label>
                  </div>
                  
+                 <div class="form-item">
+                    <label>
+                        <input ${values?.fieldsProps[values?.editPopup?.field].isRequired ? 'checked' : ''} type="checkbox" name="label">
+                        <span>Required</span>
+                    </label>
+                 </div>
+                 
                  <div class="edit-form__footer">
                     <button type="submit" class="edit-form__save">
                         Update field
@@ -4199,12 +4206,6 @@ const emaiPhoneEdit = (values) => {
                     <label>
                         <p>Placeholder text</p>
                         <input value="${values?.fieldProps.placeholder_text}" type="text" name="placeholder_text" class="form-control">
-                    </label>
-                 </div>
-                 <div class="form-item">
-                    <label>
-                        <input ${values?.fieldProps.isRequired ? 'checked' : ''} type="checkbox" name="label">
-                        <span>Required</span>
                     </label>
                  </div>
                  
