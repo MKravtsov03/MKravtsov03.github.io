@@ -4156,7 +4156,7 @@ const additionalFields = (values) => {
                  
                  <div class="form-item">
                     <label>
-                        <input ${values?.fieldsProps[values?.editPopup?.field].isRequired ? 'checked' : ''} type="checkbox" name="label">
+                        <input ${values?.fieldsProps[values?.editPopup?.field].isRequired ? 'checked' : ''} type="checkbox" name="isRequired">
                         <span>Required</span>
                     </label>
                  </div>
