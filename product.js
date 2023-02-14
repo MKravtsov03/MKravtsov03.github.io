@@ -4201,6 +4201,12 @@ const emaiPhoneEdit = (values) => {
                         <input value="${values?.fieldProps.placeholder_text}" type="text" name="placeholder_text" class="form-control">
                     </label>
                  </div>
+                 <div class="form-item">
+                    <label>
+                        <input ${values?.fieldProps.isRequired ? 'checked' : ''} type="checkbox" name="label">
+                        <span>Required</span>
+                    </label>
+                 </div>
                  
                  <div class="edit-form__footer">
                     <button type="submit" class="edit-form__save">
@@ -4296,19 +4302,19 @@ const additionalFieldsRenderer = {
     first_name: (values) => `
         <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
             ${values?.additional_form_fields?.fieldsProps?.first_name?.label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="first_name">${values?.additional_form_fields?.fieldsProps?.first_name?.label_text}</label>` : ''}
-            <input class="custom-form__field" placeholder="${values?.additional_form_fields?.fieldsProps?.first_name?.placeholder_text}" type="text" name="first_name" id="first_name" />
+            <input ${values?.additional_form_fields?.fieldsProps?.first_name?.isRequired ? 'required' : ''} class="custom-form__field" placeholder="${values?.additional_form_fields?.fieldsProps?.first_name?.placeholder_text}" type="text" name="first_name" id="first_name" />
         </div>
     `,
     last_name: (values) => `
         <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
             ${values?.additional_form_fields?.fieldsProps?.last_name?.label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="first_name">${values?.additional_form_fields?.fieldsProps?.last_name?.label_text}</label>` : ''}
-            <input class="custom-form__field" placeholder="${values?.additional_form_fields?.fieldsProps?.last_name?.placeholder_text}" type="text" name="last_name" id="last_name" />
+            <input ${values?.additional_form_fields?.fieldsProps?.last_name?.isRequired ? 'required' : ''} class="custom-form__field" placeholder="${values?.additional_form_fields?.fieldsProps?.last_name?.placeholder_text}" type="text" name="last_name" id="last_name" />
         </div>
     `,
     date_of_birth: (values) => `
         <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item">
             ${values?.additional_form_fields?.fieldsProps?.date_of_birth?.label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="first_name">${values?.additional_form_fields?.fieldsProps?.date_of_birth?.label_text}</label>` : ''}
-            <input class="custom-form__field" placeholder="${values?.additional_form_fields?.fieldsProps?.date_of_birth?.placeholder_text}" type="date" name="date_of_birth" id="date_of_birth" />
+            <input ${values?.additional_form_fields?.fieldsProps?.date_of_birth?.isRequired ? 'required' : ''} class="custom-form__field" placeholder="${values?.additional_form_fields?.fieldsProps?.date_of_birth?.placeholder_text}" type="date" name="date_of_birth" id="date_of_birth" />
         </div>
     `
 }
@@ -4420,17 +4426,20 @@ unlayer.registerTool({
                             first_name: {
                                 label: false, 
                                 label_text: 'First Name',
-                                placeholder_text: 'Enter your first name'
+                                placeholder_text: 'Enter your first name',
+                                isRequired: false,
                             },
                             last_name: {
                                 label: false,
                                 label_text: 'Last Name',
-                                placeholder_text: 'Enter your last name'
+                                placeholder_text: 'Enter your last name',
+                                isRequired: false,
                             },
                             date_of_birth: {
                                 label: false,
                                 label_text: 'Date of Birth',
-                                placeholder_text: ''
+                                placeholder_text: '',
+                                isRequired: false,
                             },
                         }
                     },
