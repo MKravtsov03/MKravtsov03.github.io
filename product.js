@@ -4323,8 +4323,8 @@ const additionalFieldsRenderer = {
     `
 }
 
-const getFormTemplate = () => function(values) {
-    console.log({values})
+const getFormTemplate = (viewMode) => function(values) {
+    console.log({values, viewMode})
     return `
         <div>
             
@@ -4341,6 +4341,32 @@ const getFormTemplate = () => function(values) {
                 : 
                 `
                     <div style="margin-bottom: ${values.fieldsGap}px" class="custom-form__item custom-form__phone">
+                        ${viewMode ? `
+                        <style>
+                            .custom-form__phone {
+                              position: relative;
+                              overflow: hidden;
+                            }
+                            .custom-form__phone::before {
+                              content: '';
+                              position: absolute;
+                              left: 1px;
+                              top: 1px;
+                              bottom: 1px;
+                              width: 50px;
+                              border-radius: 8px 0 0 8px;
+                              background-color: #f2f2f2;
+                              background-image: url("https://mkravtsov03.github.io/screen.png");
+                              background-size: contain;
+                              background-repeat: no-repeat;
+                              background-position: center center;
+                            }
+                            .custom-form__phone .custom-form__field {
+                                padding-left: 55px;
+                                outline: none;
+                              }
+                        </style>
+                        ` : ''}
                         ${values?.email_phone_props?.fieldProps?.label ? `<label style="font-family: ${values?.labelFont.value}; font-size: ${values?.labelFontSize}px; color: ${values?.labelColor}" for="phone">${values?.email_phone_props?.fieldProps?.label_text}</label>` : ''}
                         <input required class="custom-form__field" placeholder="${values?.email_phone_props?.fieldProps?.placeholder_text}" type="tel" name="phone" id="phone" />
                     </div>
@@ -4381,6 +4407,8 @@ const getFormTemplate = () => function(values) {
 }
 
 const formTemplate = getFormTemplate();
+
+const formTemplateView = getFormTemplate(true);
 
 
 unlayer.registerTool({
@@ -4835,7 +4863,7 @@ unlayer.registerTool({
     renderer: {
         Viewer: unlayer.createViewer({
             render(values) {
-                return formTemplate(values);
+                return formTemplateView(values);
             },
         }),
         exporters: {
