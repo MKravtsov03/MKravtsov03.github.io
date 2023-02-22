@@ -4036,11 +4036,11 @@ const checkLink = (link) => {
 const mapConsent = {
     gdpr: {
         label: 'Keep me up to date on news and offers',
-        description: (link) => `For more information on how we process your data for marketing communication. Check our <a href="${checkLink(link)}" target="_blank">Privacy policy.</a>`
+        description: (link, policyLinkColor) => `For more information on how we process your data for marketing communication. Check our <a href="${checkLink(link)}" style="color: ${policyLinkColor};" target="_blank">Privacy policy.</a>`
     },
     tcpa: {
         label: 'Receive offers via text message',
-        description: (link) => `By checking this box, I consent to receive marketing text messages through an automatic telephone dialing system at the number provided. Consent is not a condition to purchase. Text STOP to unsubscribe or HELP for help. Msg and data rates may apply. Check our <a href="${checkLink(link)}" target="_blank">Privacy policy.</a>`
+        description: (link, policyLinkColor) => `By checking this box, I consent to receive marketing text messages through an automatic telephone dialing system at the number provided. Consent is not a condition to purchase. Text STOP to unsubscribe or HELP for help. Msg and data rates may apply. Check our <a href="${checkLink(link)}" style="color: ${policyLinkColor};" target="_blank">Privacy policy.</a>`
     }
 }
 
@@ -4370,7 +4370,7 @@ const getFormTemplate = () => function(values) {
                             <span style="font-family: ${values?.consntLabelFont.value}; font-size: ${values?.consntLabelFontSize}px; color: ${values?.consntLabelColor}" >${values?.consent_label}</span>
                         </label>
                         <div style="color: ${values?.consntDescriptionColor}; font-size: ${values?.consntDescriptionFontSize}px; font-family: ${values?.consntDescriptionFont.value};">
-                            ${values?.customDescription ? values?.customDescriptionContent : mapConsent[values?.legal_consent_type].description(values?.policyLink)}
+                            ${values?.customDescription ? values?.customDescriptionContent : mapConsent[values?.legal_consent_type].description(values?.policyLink, values?.policyLinkColor)}
                         </div>
                     ` : ''
                 }
@@ -4646,6 +4646,11 @@ unlayer.registerTool({
                     label: 'Privacy Policy link',
                     defaultValue: '',
                     widget: 'text',
+                },
+                policyLinkColor: {
+                    label: 'Privacy Policy link color',
+                    defaultValue: '#0b68ff',
+                    widget: 'color_picker',
                 },
                 customDescription: {
                     label: 'Legal Consent custom description',
