@@ -3982,6 +3982,9 @@ const formStyles = () => function (values) {
            margin-bottom: 5px;
            display: block;
         }
+        .custom-form__item {
+            border-radius: ${values.fieldsCorners}px;
+        }
         .custom-form__field {
            border-radius: ${values.fieldsCorners}px;
            min-height: 40px;
