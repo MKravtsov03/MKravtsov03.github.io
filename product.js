@@ -4038,8 +4038,8 @@ const checkLink = (link) => {
 
 const mapConsent = {
     gdpr: {
-        label: 'Keep me up to date on news and offers',
-        description: (link, policyLinkColor) => `For more information on how we process your data for marketing communication. Check our <a href="${checkLink(link)}" style="color: ${policyLinkColor};" target="_blank">Privacy policy.</a>`
+        label: 'Keep me updated on the latest news & offers.',
+        description: (link, policyLinkColor) => `For more information on how we process your data for marketing communication, refer to our <a href="${checkLink(link)}" style="color: ${policyLinkColor};" target="_blank">Privacy policy.</a>`
     },
     tcpa: {
         label: 'Receive offers via text message',
@@ -4569,7 +4569,7 @@ unlayer.registerTool({
             }
         },
         btn: {
-            title: 'Submit button',
+            title: 'Button',
             position: 3,
             options: {
                 btn: {
@@ -4594,7 +4594,7 @@ unlayer.registerTool({
                 },
                 btnColor: {
                     enabled: true,
-                    label: 'Button color',
+                    label: 'Button text color',
                     defaultValue: '#fff',
                     widget: 'color_picker',
                 },
@@ -4671,7 +4671,7 @@ unlayer.registerTool({
                     widget: 'text',
                 },
                 policyLink: {
-                    label: 'Privacy Policy link',
+                    label: 'Privacy Policy link *',
                     defaultValue: '',
                     widget: 'text',
                 },
@@ -4691,7 +4691,7 @@ unlayer.registerTool({
                     widget: 'rich_text',
                 },
                 consntLabelFont: {
-                    label: 'Label font',
+                    label: 'Legal consent Font',
                     defaultValue: {
                         label: "Inter",
                         url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
@@ -4701,13 +4701,13 @@ unlayer.registerTool({
                 },
                 consntLabelFontSize: {
                     enabled: true,
-                    label: 'Label font size',
+                    label: 'Legal consent Font size',
                     defaultValue: '14',
                     widget: 'counter',
                 },
                 consntLabelColor: {
                     enabled: true,
-                    label: 'Label color',
+                    label: 'Legal consent Font color',
                     defaultValue: '#000',
                     widget: 'color_picker',
                 },
@@ -4841,7 +4841,7 @@ unlayer.registerTool({
                         fieldProps: {
                             ...values.email_phone_props.fieldProps,
                             label_text: 'Phone',
-                            placeholder_text: 'Enter your Phone',
+                            placeholder_text: 'Enter your Number',
                         }
                     }
                 }
