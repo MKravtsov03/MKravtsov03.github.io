@@ -4042,7 +4042,7 @@ const mapConsent = {
         description: (link, policyLinkColor) => `For more information on how we process your data for marketing communication, refer to our <a href="${checkLink(link)}" style="color: ${policyLinkColor};" target="_blank">Privacy policy.</a>`
     },
     tcpa: {
-        label: 'Receive offers via text message',
+        label: 'Receive offers via text message.',
         description: (link, policyLinkColor) => `By checking this box, I consent to receive marketing text messages through an automatic telephone dialing system at the number provided. Consent is not a condition to purchase. Text STOP to unsubscribe or HELP for help. Msg and data rates may apply. Check our <a href="${checkLink(link)}" style="color: ${policyLinkColor};" target="_blank">Privacy policy.</a>`
     }
 }
@@ -4667,7 +4667,7 @@ unlayer.registerTool({
                 },
                 consent_label: {
                     label: 'Legal consent label text',
-                    defaultValue: 'Keep me up to date on news and offers',
+                    defaultValue: 'Keep me updated on the latest news & offers.',
                     widget: 'text',
                 },
                 policyLink: {
@@ -4823,13 +4823,13 @@ unlayer.registerTool({
         if (value == 'tcpa') {
             return {
                 ...values,
-                consent_label: 'Receive offers via text message',
+                consent_label: 'Receive offers via text message.',
             }
         }
         if (value == 'gdpr') {
             return {
                 ...values,
-                consent_label: 'Keep me up to date on news and offers',
+                consent_label: 'Keep me updated on the latest news & offers.',
             }
         }
         if (name == "email_phone") {
