@@ -5078,8 +5078,8 @@ unlayer.registerTool({
     icon: 'https://mkravtsov03.github.io/shopping-cart.svg',
     supportedDisplayModes: ['web', 'email', 'popup'],
     options: {
-        abandoned_cart: {
-            title: 'Recommendations”',
+        recomendations: {
+            title: 'Recommendations',
             position: 1,
             options: {
                 recommendationsType: {
@@ -5356,7 +5356,7 @@ unlayer.registerTool({
     renderer: {
         Viewer: unlayer.createViewer({
             render(values) {
-                return getRecomendTemplateViewer(values);
+                return recomendViewer(values);
             },
         }),
         exporters: {
