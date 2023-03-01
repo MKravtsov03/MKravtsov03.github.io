@@ -4922,7 +4922,7 @@ const getRecomendTemplate = () => function (values) {
                                         <table style="padding:15px 10px;width: 100%;">
                                             <tbody style="width: 100%">
                                                 <tr style="width: 100%">
-                                                    <td id="product-inner-td" style="border-bottom: 1px solid #E4E7EC;">
+                                                    <td id="product-inner-td" style="padding: 0 15px;">
                                                         <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
                                                             {{ line_item_title }}
                                                         </div>
@@ -4932,30 +4932,32 @@ const getRecomendTemplate = () => function (values) {
                                                     </td> 
                                                 </tr>
                                                 <tr>
-                                                    <td style="padding: 15px; text-align: center">
-                                                        <a style="font-weight: 400;
-                                                                  text-align: center;
-                                                                  vertical-align: middle;
-                                                                  border-radius: 8px;
-                                                                  padding: 0.75rem;
-                                                                  font-size: 1rem;
-                                                                  line-height: 1.5;
-                                                                  transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                                                                  cursor: pointer;
-                                                                  text-decoration: none;
-                                                                  min-width: 105px;
-                                                                  max-width: 100%;
-                                                                  border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
-                                                                  border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
-                                                                  border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
-                                                                  border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
-                                                                  color: ${values.btnColor};
-                                                                  font-size: ${values.btnFontSize}px; 
-                                                                  background-color: ${values.btnBg};
-                                                                  display: ${values?.details?.details.button ? 'inline-block' : 'none'};"
-                                                                  href="{{ line_item_links }}" target="_blank">
-                                                            ${values.btn}
-                                                        </a>
+                                                    <td >
+                                                        <div style="display: ${values?.details?.details.button ? 'inline-block' : 'none'}; border-top: 1px solid #E4E7EC; padding: 15px; text-align: center;">
+                                                            <a style="font-weight: 400;
+                                                                      text-align: center;
+                                                                      vertical-align: middle;
+                                                                      border-radius: 8px;
+                                                                      padding: 0.75rem;
+                                                                      font-size: 1rem;
+                                                                      line-height: 1.5;
+                                                                      transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                                                      cursor: pointer;
+                                                                      text-decoration: none;
+                                                                      min-width: 105px;
+                                                                      max-width: 100%;
+                                                                      border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                                                                      border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                                                                      border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                                                                      border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                                                                      color: ${values.btnColor};
+                                                                      font-size: ${values.btnFontSize}px; 
+                                                                      background-color: ${values.btnBg};
+                                                                      display: inline-block;"
+                                                                      href="{{ line_item_links }}" target="_blank">
+                                                                ${values.btn}
+                                                            </a>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -5009,7 +5011,7 @@ const getRecomendTemplateViewer = () => function (values) {
                                         <table style="padding:15px 10px;width: 100%;">
                                             <tbody style="width: 100%">
                                                 <tr style="width: 100%">
-                                                    <td id="product-inner-td" style="border-bottom: 1px solid #E4E7EC;">
+                                                    <td id="product-inner-td" style="border-bottom: 1px solid #E4E7EC; padding: 0 15px;">
                                                         <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
                                                             {{ line_item_title }}
                                                         </div>
@@ -5018,31 +5020,33 @@ const getRecomendTemplateViewer = () => function (values) {
                                                         </div>
                                                     </td> 
                                                 </tr>
-                                                <tr>
-                                                    <td style="padding: 15px; text-align: center">
-                                                        <a style="font-weight: 400;
-                                                                  text-align: center;
-                                                                  vertical-align: middle;
-                                                                  border-radius: 8px;
-                                                                  padding: 0.75rem;
-                                                                  font-size: 1rem;
-                                                                  line-height: 1.5;
-                                                                  transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                                                                  cursor: pointer;
-                                                                  text-decoration: none;
-                                                                  min-width: 105px;
-                                                                  max-width: 100%;
-                                                                  border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
-                                                                  border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
-                                                                  border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
-                                                                  border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
-                                                                  color: ${values.btnColor};
-                                                                  font-size: ${values.btnFontSize}px; 
-                                                                  background-color: ${values.btnBg};
-                                                                  display: ${values?.details?.details.button ? 'inline-block' : 'none'};"
-                                                                  href="{{ line_item_links }}" target="_blank">
-                                                            ${values.btn}
-                                                        </a>
+                                                 <tr>
+                                                    <td >
+                                                        <div style="display: ${values?.details?.details.button ? 'inline-block' : 'none'}; border-top: 1px solid #E4E7EC; padding: 15px; text-align: center;">
+                                                            <a style="font-weight: 400;
+                                                                      text-align: center;
+                                                                      vertical-align: middle;
+                                                                      border-radius: 8px;
+                                                                      padding: 0.75rem;
+                                                                      font-size: 1rem;
+                                                                      line-height: 1.5;
+                                                                      transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                                                      cursor: pointer;
+                                                                      text-decoration: none;
+                                                                      min-width: 105px;
+                                                                      max-width: 100%;
+                                                                      border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                                                                      border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                                                                      border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                                                                      border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                                                                      color: ${values.btnColor};
+                                                                      font-size: ${values.btnFontSize}px; 
+                                                                      background-color: ${values.btnBg};
+                                                                      display: inline-block;"
+                                                                      href="{{ line_item_links }}" target="_blank">
+                                                                ${values.btn}
+                                                            </a>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
