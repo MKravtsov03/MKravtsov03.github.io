@@ -5185,8 +5185,8 @@ unlayer.registerTool({
             options: {
                 recommendationsType: {
                     label: 'Type of Recommendation',
-                    defaultValue: 'related'
-                    widget: 'dropdown'
+                    defaultValue: 'related',
+                    widget: 'dropdown',
                 },
                 layout: {
                     label: 'Layout',
