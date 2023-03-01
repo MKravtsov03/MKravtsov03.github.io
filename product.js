@@ -2851,13 +2851,13 @@ const labelsMap = {
         userName: 'User name',
         productName: 'Product Name',
         rating: 'Rating',
-        cta: 'CTA'
+        cta: 'CTA',
     },
     recomendation: {
-        image: 'Image'
+        image: 'Image',
         name: 'Title',
         price: 'Price',
-        button: 'CTA'
+        button: 'CTA',
     }
 }
 
