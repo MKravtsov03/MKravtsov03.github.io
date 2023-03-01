@@ -4933,7 +4933,7 @@ const getRecomendTemplate = () => function (values) {
                                                 </tr>
                                                 <tr>
                                                     <td >
-                                                        <div style="display: ${values?.details?.details.button ? 'inline-block' : 'none'}; border-top: 1px solid #E4E7EC; padding: 15px; text-align: center;">
+                                                        <div style="display: ${values?.details?.details.button ? 'block' : 'none'}; border-top: 1px solid #E4E7EC; padding: 15px; text-align: center;">
                                                             <a style="font-weight: 400;
                                                                       text-align: center;
                                                                       vertical-align: middle;
@@ -5011,7 +5011,7 @@ const getRecomendTemplateViewer = () => function (values) {
                                         <table style="padding:15px 10px;width: 100%;">
                                             <tbody style="width: 100%">
                                                 <tr style="width: 100%">
-                                                    <td id="product-inner-td" style="border-bottom: 1px solid #E4E7EC; padding: 0 15px;">
+                                                    <td id="product-inner-td" style="padding: 0 15px;">
                                                         <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
                                                             {{ line_item_title }}
                                                         </div>
@@ -5022,7 +5022,7 @@ const getRecomendTemplateViewer = () => function (values) {
                                                 </tr>
                                                  <tr>
                                                     <td >
-                                                        <div style="display: ${values?.details?.details.button ? 'inline-block' : 'none'}; border-top: 1px solid #E4E7EC; padding: 15px; text-align: center;">
+                                                        <div style="display: ${values?.details?.details.button ? 'block' : 'none'}; border-top: 1px solid #E4E7EC; padding: 15px; text-align: center;">
                                                             <a style="font-weight: 400;
                                                                       text-align: center;
                                                                       vertical-align: middle;
