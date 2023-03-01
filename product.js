@@ -2852,6 +2852,12 @@ const labelsMap = {
         productName: 'Product Name',
         rating: 'Rating',
         cta: 'CTA'
+    },
+    recomendation: {
+        image: 'Image'
+        name: 'Title',
+        price: 'Price',
+        button: 'CTA'
     }
 }
 
@@ -4882,3 +4888,618 @@ unlayer.registerTool({
 });
 
 //  Form tool ---- END ------------
+
+
+//  Recomendations tool ---- start ------------
+
+
+const getRecomendTemplate = () => function (values) {
+    console.log(values)
+    const acctiveLayout = values.layout.find(layout => layout.active)
+    const productCardRenderer = () => `
+            <span style="display: none;">**</span>
+                <table style="position: relative;
+                            min-width: 0;
+                            word-wrap: break-word;
+                            background-color: #fff;
+                            background-clip: border-box;
+                            text-align: center;
+                            border-bottom: 1px solid #E4E7EC;
+                            margin-bottom: 24px;
+                            border-radius: 12px 12px 0px 0px;
+                            width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ line_item_logo }}" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table style="padding:15px 10px;display:flex;width: 100%;">
+                                            <tbody style="width: 100%">
+                                                <tr style="width: 100%">
+                                                    <td id="product-inner-td" style="border-bottom: 1px solid #E4E7EC;">
+                                                        <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
+                                                            {{ line_item_title }}
+                                                        </div>
+                                                        <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.price ? 'block' : 'none'};">
+                                                            {{ line_item_price }}
+                                                        </div>
+                                                    </td> 
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <a style="font-weight: 400;
+                                                                  text-align: center;
+                                                                  vertical-align: middle;
+                                                                  border-radius: 8px;
+                                                                  padding: 0.75rem;
+                                                                  font-size: 1rem;
+                                                                  line-height: 1.5;
+                                                                  transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                                                  cursor: pointer;
+                                                                  text-decoration: none;
+                                                                  min-width: 105px;
+                                                                  max-width: 100%;
+                                                                  border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                                                                  border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                                                                  border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                                                                  border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                                                                  color: ${values.btnColor};
+                                                                  font-size: ${values.btnFontSize}px; 
+                                                                  background-color: ${values.btnBg};
+                                                                  display: ${values?.details?.details.button ? 'block' : 'none'};"
+                                                                  href="{{ line_item_links }}" target="_blank">
+                                                            ${values.btn}
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                </table>
+            <span style="display: none;">**</span>
+        `;
+    const productTwoColumnsCardRenderer = () => `
+           <span style="display: none;">**</span>
+                
+            <span style="display: none;">**</span>
+        `;
+    return `
+        <div style="background: #FFFFFF;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    padding-bottom: 24px;">
+            <div>
+                ${acctiveLayout.value === 'two-columns' ? productTwoColumnsCardRenderer() : productCardRenderer()}
+            </div>
+            <a style="font-weight: 400;
+                       text-align: center;
+                       vertical-align: middle;
+                       border-radius: 8px;
+                       padding: 16px;
+                       line-height: 1.5;
+                       transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                       cursor: pointer;
+                       margin: 30px auto 0;
+                       max-width: 170px;
+                       text-decoration: none;
+                       border-left: ${values.recoveryBorder.borderLeftWidth} ${values.recoveryBorder.borderLeftStyle} ${values.recoveryBorder.borderLeftColor};
+                       border-top: ${values.recoveryBorder.borderTopWidth} ${values.recoveryBorder.borderTopStyle} ${values.recoveryBorder.borderTopColor};
+                       border-right: ${values.recoveryBorder.borderRightWidth} ${values.recoveryBorder.borderRightStyle} ${values.recoveryBorder.borderRightColor}; 
+                       border-bottom: ${values.recoveryBorder.borderBottomWidth} ${values.recoveryBorder.borderBottomStyle} ${values.recoveryBorder.borderBottomColor};
+                       color: ${values.recoveryColor};
+                       font-size: ${values.recoveryFontSize}px;
+                       background-color: ${values.recoveryBg};
+                       display: ${values?.details?.details.recovery ? 'block' : 'none'};"
+                       href="{{ abandoned_checkout_url }}" target="_blank">
+                ${values.recovery}
+            </a>
+        </div>
+    `
+}
+
+const getRecomendTemplateViewer = () => function (values) {
+    console.log(values)
+    const acctiveLayout = values.layout.find(layout => layout.active)
+    const productCardRenderer = () => `
+           <span style="display: none;">**</span>
+                <table style="position: relative;
+                            min-width: 0;
+                            word-wrap: break-word;
+                            background-color: #fff;
+                            background-clip: border-box;
+                            text-align: center;
+                            border-bottom: 1px solid #E4E7EC;
+                            margin-bottom: 24px;
+                            border-radius: 12px 12px 0px 0px;
+                            width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="https://storage.cloud.google.com/moda-platform-dev-us-central1-ui-connectors-icons/connector_icons/image/live/image_placeholder.svg?authuser=2" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table style="padding:15px 10px;display:flex;width: 100%;">
+                                    <tbody style="width: 100%">
+                                        <tr style="width: 100%">
+                                            <td id="product-inner-td" style="width: 85%;">
+                                                <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
+                                                    {{ line_item_title }}
+                                                </div>
+                                                <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.price ? 'block' : 'none'};">
+                                                    {{ line_item_price }}
+                                                </div>
+                                                <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 0; display: ${values?.details?.details.quantity ? 'block' : 'none'}" class="quantity price"> 
+                                                    Quantity: {{ line_item_quantity }}
+                                                </div>
+                                            </td>
+                                            <td style="width: 100%; padding: 0 10px;"></td>
+                                            <td>
+                                                <a style="font-weight: 400;
+                                                          text-align: center;
+                                                          vertical-align: middle;
+                                                          border-radius: 8px;
+                                                          padding: 0.75rem;
+                                                          font-size: 1rem;
+                                                          line-height: 1.5;
+                                                          transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                                          cursor: pointer;
+                                                          text-decoration: none;
+                                                          min-width: 105px;
+                                                          max-width: 100%;
+                                                          border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                                                          border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                                                          border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                                                          border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                                                          color: ${values.btnColor};
+                                                          font-size: ${values.btnFontSize}px; 
+                                                          background-color: ${values.btnBg};
+                                                          display: ${values?.details?.details.button ? 'block' : 'none'};"
+                                                          href="{{ line_item_links }}" target="_blank">
+                                                    ${values.btn}
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            <span style="display: none;">**</span>
+        `;
+    const productTwoColumnsCardRenderer = () => `
+           <span style="display: none;">**</span>
+                <div style="border-bottom:1px solid #e4e7ec; padding: 20px 10px;">
+                    <table style="width:100%;">
+                    <tbody>
+                      <tr>
+                        <td style="vertical-align: text-top; padding-right: 10px;">
+                            <div style="max-width:130px;border-radius:7px;overflow:hidden; display: inline-block">
+                                <img alt="" style="display: ${values?.details?.details.image ? 'block' : 'none'}" src="https://storage.cloud.google.com/moda-platform-dev-us-central1-ui-connectors-icons/connector_icons/image/live/image_placeholder.svg?authuser=2" />
+                            </div>
+                        </td>
+                        <td>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td> 
+                                            <table>
+                                                <tbody>
+                                                  <tr>
+                                                    <td>
+                                                        <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
+                                                            {{ line_item_title }}
+                                                        </div>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>
+                                                      <div style="font-family: ${values.quantityFont.value}; font-size: ${values.quantityFontSize}px; text-align: ${values.quantityAligment}; color: ${values.quantityColor}; font-weight: ${values.quantityFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.quantityFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.quantityFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 0; display: ${values?.details?.details.quantity ? 'block' : 'none'}; margin-bottom: 40px" class="quantity price"> 
+                                                            Quantity: {{ line_item_quantity }}
+                                                        </div>
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                        <td style="vertical-align: text-top;">
+                                          <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; padding-left: 20px; padding-top: 7px; margin-bottom: 15px; display: ${values?.details?.details.price ? 'inline-block' : 'none'};">
+                                                {{ line_item_price }}
+                                          </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style="width: 100%">
+                                <div style="text-align: right">
+                                    <a style="font-weight: 400;
+                                      text-align: center;
+                                      vertical-align: middle;
+                                      border-radius: 8px;
+                                      padding: 0.75rem;
+                                      font-size: 1rem;
+                                      line-height: 1.5;
+                                      transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                      cursor: pointer;
+                                      text-decoration: none;
+                                      min-width: 105px;
+                                      max-width: 100%;
+                                      border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                                      border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                                      border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                                      border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                                      color: ${values.btnColor};
+                                      font-size: ${values.btnFontSize}px; 
+                                      background-color: ${values.btnBg};
+                                      display: ${values?.details?.details.button ? 'inline-block' : 'none'};"
+                                      href="{{ line_item_links }}" target="_blank">
+                                        ${values.btn}
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+                </div>
+            <span style="display: none;">**</span>
+        `;
+    return `
+        <div style="background: #FFFFFF;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    padding-bottom: 24px;">
+            <div>
+                 ${acctiveLayout.value === 'two-columns' ? productTwoColumnsCardRenderer() : productCardRenderer()}
+            </div>
+             <a style="font-weight: 400;
+                       text-align: center;
+                       vertical-align: middle;
+                       border-radius: 8px;
+                       padding: 16px;
+                       line-height: 1.5;
+                       transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                       cursor: pointer;
+                       margin: 30px auto 0;
+                       max-width: 170px;
+                       text-decoration: none;
+                       border-left: ${values.recoveryBorder.borderLeftWidth} ${values.recoveryBorder.borderLeftStyle} ${values.recoveryBorder.borderLeftColor};
+                       border-top: ${values.recoveryBorder.borderTopWidth} ${values.recoveryBorder.borderTopStyle} ${values.recoveryBorder.borderTopColor};
+                       border-right: ${values.recoveryBorder.borderRightWidth} ${values.recoveryBorder.borderRightStyle} ${values.recoveryBorder.borderRightColor}; 
+                       border-bottom: ${values.recoveryBorder.borderBottomWidth} ${values.recoveryBorder.borderBottomStyle} ${values.recoveryBorder.borderBottomColor};
+                       color: ${values.recoveryColor};
+                       font-size: ${values.recoveryFontSize}px;
+                       background-color: ${values.recoveryBg};
+                       display: ${values?.details?.details.recovery ? 'block' : 'none'};"
+                       href="{{ abandoned_checkout_url }}" target="_blank">
+                ${values.recovery}
+            </a>
+        </div>
+    `
+}
+
+const recomendTemplate = getRecomendTemplate();
+
+const recomendViewer = getRecomendTemplateViewer();
+
+
+
+unlayer.registerTool({
+    name: 'recommendations_tool',
+    label: 'Recommendations',
+    icon: 'https://mkravtsov03.github.io/shopping-cart.svg',
+    supportedDisplayModes: ['web', 'email', 'popup'],
+    options: {
+        abandoned_cart: {
+            title: 'Recommendations”',
+            position: 1,
+            options: {
+                recommendationsType: {
+                    label: 'Type of Recommendation',
+                    defaultValue: 'related'
+                    widget: 'dropdown'
+                },
+                layout: {
+                    label: 'Layout',
+                    defaultValue: [
+                        {active: true, value: 'one-column', disabled: false},
+                        {active: false, value: 'two-columns', disabled: false},
+                    ],
+                    widget: 'layout',
+                },
+                details: {
+                    label: 'Details',
+                    defaultValue: {title: 'recomendation', details: {name: true, price: false, button: true, image: true}},
+                    widget: 'product_details',
+                },
+                titleFont: {
+                    label: 'Product title font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                titleFontSize: {
+                    enabled: true,
+                    label: 'Product title font size',
+                    defaultValue: '18',
+                    widget: 'counter',
+                },
+                titleFontStyle: {
+                    enabled: true,
+                    label: 'Product title font style',
+                    defaultValue: {
+                        label: 'Title Font style',
+                        styles: {
+                            bold: {
+                                active: true,
+                                value: 'bold'
+                            },
+                            italic: {
+                                active: false,
+                                value: 'italic'
+                            },
+                            underline: {
+                                active: false,
+                                value: 'underline'
+                            }
+                        }
+                    },
+                    widget: 'title_font_styles',
+                },
+                titleColor: {
+                    enabled: true,
+                    label: 'Product title color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                titleAligment: {
+                    enabled: true,
+                    label: 'Product title aligment',
+                    defaultValue: 'left',
+                    widget: 'alignment',
+                },
+                priceFont: {
+                    label: 'Price font',
+                    defaultValue: {
+                        label: "Inter",
+                        url: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
+                        value: "'Inter', Arial, Helvetica, sans-serif"
+                    },
+                    widget: 'font_family',
+                },
+                priceFontStyle: {
+                    enabled: true,
+                    label: 'Price font style',
+                    defaultValue: {
+                        label: 'Price Font style',
+                        styles: {
+                            bold: {
+                                active: false,
+                                value: 'bold'
+                            },
+                            italic: {
+                                active: false,
+                                value: 'italic'
+                            },
+                            underline: {
+                                active: false,
+                                value: 'underline'
+                            }
+                        }
+                    },
+                    widget: 'title_font_styles',
+                },
+                priceFontSize: {
+                    enabled: true,
+                    label: 'Price font size',
+                    defaultValue: '14',
+                    widget: 'counter',
+                },
+                priceColor: {
+                    enabled: false,
+                    label: 'Price color',
+                    defaultValue: '#000',
+                    widget: 'color_picker',
+                },
+                priceAligment: {
+                    enabled: true,
+                    label: 'Price aligment',
+                    defaultValue: 'left',
+                    widget: 'alignment',
+                },
+                btn: {
+                    label: 'Button Content',
+                    defaultValue: 'Buy it Now',
+                    widget: 'text',
+                },
+                btnFontSize: {
+                    enabled: true,
+                    label: 'Button font size',
+                    defaultValue: '14',
+                    widget: 'counter',
+                },
+                btnColor: {
+                    enabled: true,
+                    label: 'Button color',
+                    defaultValue: '#0044D9',
+                    widget: 'color_picker',
+                },
+                btnBg: {
+                    enabled: true,
+                    label: 'Button  background color',
+                    defaultValue: '#F4FAFF',
+                    widget: 'color_picker',
+                },
+                btnBorder: {
+                    label: 'Button border',
+                    defaultValue: '',
+                    widget: 'border',
+                },
+            },
+        },
+    },
+    propertyStates: (values) => {
+        let titleProps = {};
+        let priceProps = {};
+        let btnProps = {};
+        if (!values.details.details.name) {
+            titleProps = {
+                titleFont: {
+                    enabled: false
+                },
+                titleFontSize: {
+                    enabled: false
+                },
+                titleColor: {
+                    enabled: false
+                },
+                titleAligment: {
+                    enabled: false
+                },
+                titleFontStyle: {
+                    enabled: false
+                }
+            }
+        }
+        else {
+            titleProps = {
+                titleFont: {
+                    enabled: true
+                },
+                titleFontSize: {
+                    enabled: true
+                },
+                titleColor: {
+                    enabled: true
+                },
+                titleAligment: {
+                    enabled: true
+                },
+                titleFontStyle: {
+                    enabled: true
+                }
+            }
+        }
+        if (!values.details.details.price) {
+            priceProps = {
+                titleFont: {
+                    enabled: false
+                },
+                priceFontSize: {
+                    enabled: false
+                },
+                priceColor: {
+                    enabled: false
+                },
+                priceAligment: {
+                    enabled: false
+                },
+                priceFontStyle: {
+                    enabled: false
+                }
+            }
+        }
+        else {
+            priceProps = {
+                titleFont: {
+                    enabled: true
+                },
+                priceFontSize: {
+                    enabled: true
+                },
+                priceColor: {
+                    enabled: true
+                },
+                priceAligment: {
+                    enabled: true
+                },
+                priceFontStyle: {
+                    enabled: true
+                }
+            }
+        }
+        if (!values.details.details.button) {
+            btnProps = {
+                btn: {
+                    enabled: false
+                },
+                btnFontSize: {
+                    enabled: false
+                },
+                btnColor: {
+                    enabled: false
+                },
+                btnBg: {
+                    enabled: false
+                },
+                btnBorder: {
+                    enabled: false
+                }
+            }
+        }
+        else {
+            btnProps = {
+                btn: {
+                    enabled: true
+                },
+                btnFontSize: {
+                    enabled: true
+                },
+                btnColor: {
+                    enabled: true
+                },
+                btnBg: {
+                    enabled: true
+                },
+                btnBorder: {
+                    enabled: true
+                }
+            }
+        }
+        return {
+            ...titleProps,
+            ...priceProps,
+            ...btnProps,
+        }
+    },
+    renderer: {
+        Viewer: unlayer.createViewer({
+            render(values) {
+                return recomendTemplate(values);
+            },
+        }),
+        exporters: {
+            web: function (values) {
+                return recomendTemplate(values);
+            },
+            email: function (values) {
+                return recomendTemplate(values);
+            },
+        },
+        head: {
+            css: ProductStyles(),
+            js: function (values) {},
+        },
+    },
+});
+
+
+//  Recomendations tool ---- end ------------
