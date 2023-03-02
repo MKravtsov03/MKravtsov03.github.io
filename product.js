@@ -5237,7 +5237,8 @@ const recomendTemplate = getRecomendTemplate();
 
 const recomendViewer = getRecomendTemplateViewer();
 
-const recommendationsCount = (values) => {
+const recommendationsCount = (value) => {
+    console.log(value)
     return `
          <div class="blockbuilder-widget-label">
             <p class="blockbuilder-label-primary">Number of Product Recommendations</p>
@@ -5245,27 +5246,27 @@ const recommendationsCount = (values) => {
          
          <div class="recomend-count">
             <label class="recomend-count-item">
-                <input type="radio" name="recomend_count" value="1">
+                <input ${value == '1' ? 'checked' : ''} type="radio" name="recomend_count" value="1">
                 <span>1</span>
             </label>
             <label class="recomend-count-item">
-                <input type="radio" name="recomend_count" value="2">
+                <input ${value == '2' ? 'checked' : ''} type="radio" name="recomend_count" value="2">
                 <span>2</span>
             </label>
             <label class="recomend-count-item">
-                <input type="radio" name="recomend_count" value="3">
+                <input ${value == '3' ? 'checked' : ''} type="radio" name="recomend_count" value="3">
                 <span>3</span>
             </label>
             <label class="recomend-count-item">
-                <input type="radio" name="recomend_count" value="4">
+                <input ${value == '4' ? 'checked' : ''} type="radio" name="recomend_count" value="4">
                 <span>4</span>
             </label>
             <label class="recomend-count-item">
-                <input type="radio" name="recomend_count" value="5">
+                <input ${value == '5' ? 'checked' : ''} type="radio" name="recomend_count" value="5">
                 <span>5</span>
             </label>
             <label class="recomend-count-item">
-                <input type="radio" name="recomend_count" value="6">
+                <input ${value == '6' ? 'checked' : ''} type="radio" name="recomend_count" value="6">
                 <span>6</span>
             </label>
          </div>
