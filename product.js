@@ -5284,7 +5284,11 @@ unlayer.registerPropertyEditor({
             return recommendationsCount(value)
         },
         mount(node, value, updateValue) {
-
+            node.querySelectorAll("input[name='recomend_count']").forEach((input) => {
+                input.addEventListener('change', function() {
+                    console.log(this.value);
+                });
+            });
         }
     })
 });
