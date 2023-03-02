@@ -3973,6 +3973,33 @@ unlayer.registerTool({
     },
 });
 
+// 'custom#yotpo_tool': {
+//     data: {
+//         reviews: fakeReviews,
+//     },
+//     properties: {
+//         reviews_select: {
+//             editor: {
+//                 data: {
+//                     types: [
+//                         {
+//                             label: 'Product Review',
+//                             value: 'product_reviews',
+//                         },
+//                         { label: 'Website Review', value: 'site_reviews' },
+//                         {
+//                             label: 'Aggregated product Review',
+//                             value: 'aggregated_reviews',
+//                         },
+//                     ],
+//                         sources: [],
+//                         reviews: fakeReviews,
+//                 },
+//             },
+//         },
+//     },
+// },
+
 //  Yotpo tool ---- END ------------
 
 
@@ -4907,70 +4934,139 @@ const getRecomendTemplate = () => function (values) {
                             margin-bottom: 24px;
                             border-radius: 12px;
                             width: 100%;">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ line_item_logo }}" />
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <table style="padding:15px 10px;width: 100%;">
-                                            <tbody style="width: 100%">
-                                                <tr style="width: 100%">
-                                                    <td id="product-inner-td" style="padding: 0 15px;">
-                                                        <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
-                                                            {{ line_item_title }}
-                                                        </div>
-                                                        <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.price ? 'block' : 'none'};">
-                                                            {{ line_item_price }}
-                                                        </div>
-                                                    </td> 
-                                                </tr>
-                                                <tr>
-                                                    <td >
-                                                        <div style="display: ${values?.details?.details.button ? 'block' : 'none'}; border-top: 1px solid #E4E7EC; padding: 15px; text-align: center;">
-                                                            <a style="font-weight: 400;
-                                                                      text-align: center;
-                                                                      vertical-align: middle;
-                                                                      border-radius: 8px;
-                                                                      padding: 0.75rem;
-                                                                      font-size: 1rem;
-                                                                      line-height: 1.5;
-                                                                      transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-                                                                      cursor: pointer;
-                                                                      text-decoration: none;
-                                                                      min-width: 105px;
-                                                                      max-width: 100%;
-                                                                      border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
-                                                                      border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
-                                                                      border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
-                                                                      border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
-                                                                      color: ${values.btnColor};
-                                                                      font-size: ${values.btnFontSize}px; 
-                                                                      background-color: ${values.btnBg};
-                                                                      display: inline-block;"
-                                                                      href="{{ line_item_links }}" target="_blank">
-                                                                ${values.btn}
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </tbody>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ line_item_logo }}" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table style="padding:15px 10px;width: 100%;">
+                                        <tbody style="width: 100%">
+                                            <tr style="width: 100%">
+                                                <td id="product-inner-td" style="padding: 0 15px;">
+                                                    <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
+                                                        {{ line_item_title }}
+                                                    </div>
+                                                    <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.price ? 'block' : 'none'};">
+                                                        {{ line_item_price }}
+                                                    </div>
+                                                </td> 
+                                            </tr>
+                                            <tr>
+                                                <td >
+                                                    <div style="display: ${values?.details?.details.button ? 'block' : 'none'}; border-top: 1px solid #E4E7EC; padding: 15px; text-align: center;">
+                                                        <a style="font-weight: 400;
+                                                                  text-align: center;
+                                                                  vertical-align: middle;
+                                                                  border-radius: 8px;
+                                                                  padding: 0.75rem;
+                                                                  font-size: 1rem;
+                                                                  line-height: 1.5;
+                                                                  transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                                                  cursor: pointer;
+                                                                  text-decoration: none;
+                                                                  min-width: 105px;
+                                                                  max-width: 100%;
+                                                                  border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                                                                  border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                                                                  border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                                                                  border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                                                                  color: ${values.btnColor};
+                                                                  font-size: ${values.btnFontSize}px; 
+                                                                  background-color: ${values.btnBg};
+                                                                  display: inline-block;"
+                                                                  href="{{ line_item_links }}" target="_blank">
+                                                            ${values.btn}
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
                 </table>
              <span style="display: none;">**</span>
         `;
     const productTwoColumnsCardRenderer = () => `
            <span style="display: none;">**</span>
-                
+                 <div style="max-width: calc(50% - 12px); margin: 0 5px 10px; float: left; width: 100%;">
+                    <table style="position: relative;
+                                min-width: 0;
+                                word-wrap: break-word;
+                                background-color: #fff;
+                                background-clip: border-box;
+                                text-align: center;
+                                margin-bottom: 24px;
+                                border-radius: 12px;
+                                width: 100%;">
+                         <tbody>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ line_item_logo }}" />
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table style="padding:15px 10px;width: 100%;">
+                                                <tbody style="width: 100%">
+                                                    <tr style="width: 100%">
+                                                        <td id="product-inner-td" style="padding: 0 15px;">
+                                                            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
+                                                                {{ line_item_title }}
+                                                            </div>
+                                                            <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.price ? 'block' : 'none'};">
+                                                                {{ line_item_price }}
+                                                            </div>
+                                                        </td> 
+                                                    </tr>
+                                                     <tr>
+                                                        <td >
+                                                            <div style="display: ${values?.details?.details.button ? 'block' : 'none'}; border-top: 1px solid #E4E7EC; padding: 15px; text-align: center;">
+                                                                <a style="font-weight: 400;
+                                                                          text-align: center;
+                                                                          vertical-align: middle;
+                                                                          border-radius: 8px;
+                                                                          padding: 0.75rem;
+                                                                          font-size: 1rem;
+                                                                          line-height: 1.5;
+                                                                          transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                                                          cursor: pointer;
+                                                                          text-decoration: none;
+                                                                          min-width: 105px;
+                                                                          max-width: 100%;
+                                                                          border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                                                                          border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                                                                          border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                                                                          border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                                                                          color: ${values.btnColor};
+                                                                          font-size: ${values.btnFontSize}px; 
+                                                                          background-color: ${values.btnBg};
+                                                                          display: inline-block;"
+                                                                          href="{{ line_item_links }}" target="_blank">
+                                                                    ${values.btn}
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                    </table>
+                </div>
             <span style="display: none;">**</span>
         `;
     return `
@@ -4996,7 +5092,7 @@ const getRecomendTemplateViewer = () => function (values) {
                             margin-bottom: 24px;
                             border-radius: 12px;
                             width: 100%;">
-                            <tbody>
+                      <tbody>
                                 <tr>
                                     <td>
                                         <table>
@@ -5059,12 +5155,81 @@ const getRecomendTemplateViewer = () => function (values) {
         `;
     const productTwoColumnsCardRenderer = () => `
            <span style="display: none;">**</span>
-                
-            <span style="display: none;">**</span>
+               <div style="max-width: calc(50% - 12px); margin: 0 5px 10px; float: left; width: 100%;">
+                    <table style="position: relative;
+                                min-width: 0;
+                                word-wrap: break-word;
+                                background-color: #fff;
+                                background-clip: border-box;
+                                text-align: center;
+                                margin-bottom: 24px;
+                                border-radius: 12px;
+                                width: 100%;">
+                          <tbody>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="https://storage.cloud.google.com/moda-platform-dev-us-central1-ui-connectors-icons/connector_icons/image/live/image_placeholder.svg?authuser=2" />
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table style="padding:15px 10px;width: 100%;">
+                                                <tbody style="width: 100%">
+                                                    <tr style="width: 100%">
+                                                        <td id="product-inner-td" style="padding: 0 15px;">
+                                                            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
+                                                                {{ line_item_title }}
+                                                            </div>
+                                                            <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.price ? 'block' : 'none'};">
+                                                                {{ line_item_price }}
+                                                            </div>
+                                                        </td> 
+                                                    </tr>
+                                                     <tr>
+                                                        <td >
+                                                            <div style="display: ${values?.details?.details.button ? 'block' : 'none'}; border-top: 1px solid #E4E7EC; padding: 15px; text-align: center;">
+                                                                <a style="font-weight: 400;
+                                                                          text-align: center;
+                                                                          vertical-align: middle;
+                                                                          border-radius: 8px;
+                                                                          padding: 0.75rem;
+                                                                          font-size: 1rem;
+                                                                          line-height: 1.5;
+                                                                          transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                                                          cursor: pointer;
+                                                                          text-decoration: none;
+                                                                          min-width: 105px;
+                                                                          max-width: 100%;
+                                                                          border-left: ${values.btnBorder.borderLeftWidth} ${values.btnBorder.borderLeftStyle} ${values.btnBorder.borderLeftColor}; 
+                                                                          border-top: ${values.btnBorder.borderTopWidth} ${values.btnBorder.borderTopStyle} ${values.btnBorder.borderTopColor}; 
+                                                                          border-right: ${values.btnBorder.borderRightWidth} ${values.btnBorder.borderRightStyle} ${values.btnBorder.borderRightColor}; 
+                                                                          border-bottom: ${values.btnBorder.borderBottomWidth} ${values.btnBorder.borderBottomStyle} ${values.btnBorder.borderBottomColor}; 
+                                                                          color: ${values.btnColor};
+                                                                          font-size: ${values.btnFontSize}px; 
+                                                                          background-color: ${values.btnBg};
+                                                                          display: inline-block;"
+                                                                          href="{{ line_item_links }}" target="_blank">
+                                                                    ${values.btn}
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                    </table>
+                </div>
+             <span style="display: none;">**</span>
         `;
     return `
         <div>
-            <div>
+            <div style="overflow: hidden">
                 ${acctiveLayout.value === 'two-columns' ? productTwoColumnsCardRenderer() : productCardRenderer()}
             </div>
         </div>`
@@ -5074,7 +5239,53 @@ const recomendTemplate = getRecomendTemplate();
 
 const recomendViewer = getRecomendTemplateViewer();
 
+const recommendationsCount = (values) => {
+    return `
+         <div class="blockbuilder-widget-label">
+            <p class="blockbuilder-label-primary">Number of Product Recommendations</p>
+         </div>
+         
+         <div class="recomend-count">
+            <label for="" class="recomend-count-item">
+                <input type="radio" name="recomend_count" value="1">
+                <span>1</span>
+            </label>
+            <label for="" class="recomend-count-item">
+                <input type="radio" name="recomend_count" value="2">
+                <span>2</span>
+            </label>
+            <label for="" class="recomend-count-item">
+                <input type="radio" name="recomend_count" value="3">
+                <span>3</span>
+            </label>
+            <label for="" class="recomend-count-item">
+                <input type="radio" name="recomend_count" value="4">
+                <span>4</span>
+            </label>
+            <label for="" class="recomend-count-item">
+                <input type="radio" name="recomend_count" value="5">
+                <span>5</span>
+            </label>
+            <label for="" class="recomend-count-item">
+                <input type="radio" name="recomend_count" value="6">
+                <span>6</span>
+            </label>
+         </div>
+    `
+}
 
+unlayer.registerPropertyEditor({
+    name: 'recommendationsCount',
+    layout: 'bottom',
+    Widget: unlayer.createWidget({
+        render( value, updateValue, data) {
+            return recommendationsCount(value)
+        },
+        mount(node, value, updateValue) {
+
+        }
+    })
+});
 
 unlayer.registerTool({
     name: 'recommendations_tool',
@@ -5086,6 +5297,11 @@ unlayer.registerTool({
             title: 'Recommendations',
             position: 1,
             options: {
+                recommendationsCount: {
+                    label: 'Number of Product Recommendations',
+                    defaultValue: '1',
+                    widget: 'recommendationsCount',
+                },
                 recommendationsType: {
                     label: 'Type of Recommendation',
                     defaultValue: 'related',
@@ -5377,6 +5593,32 @@ unlayer.registerTool({
         },
     },
 });
+
+//
+// 'custom#recommendations_tool': {
+//     properties: {
+//         recommendationsType: {
+//             editor: {
+//                 data: {
+//                     options: [
+//                         {
+//                             value: 'related',
+//                             label: 'Related recommendations',
+//                         },
+//                         {
+//                             value: 'bestsellers',
+//                             label: 'Bestsellers',
+//                         },
+//                         {
+//                             value: 'viewed',
+//                             label: 'Most viewed',
+//                         },
+//                     ],
+//                 },
+//             },
+//         },
+//     },
+// },
 
 
 //  Recomendations tool ---- end ------------
