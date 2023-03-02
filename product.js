@@ -5248,27 +5248,27 @@ const recommendationsCount = (values) => {
          </div>
          
          <div class="recomend-count">
-            <label for="" class="recomend-count-item">
+            <labe class="recomend-count-item">
                 <input type="radio" name="recomend_count" value="1">
                 <span>1</span>
-            </label>
-            <label for="" class="recomend-count-item">
+            </labe>
+            <label class="recomend-count-item">
                 <input type="radio" name="recomend_count" value="2">
                 <span>2</span>
             </label>
-            <label for="" class="recomend-count-item">
+            <label class="recomend-count-item">
                 <input type="radio" name="recomend_count" value="3">
                 <span>3</span>
             </label>
-            <label for="" class="recomend-count-item">
+            <label class="recomend-count-item">
                 <input type="radio" name="recomend_count" value="4">
                 <span>4</span>
             </label>
-            <label for="" class="recomend-count-item">
+            <label class="recomend-count-item">
                 <input type="radio" name="recomend_count" value="5">
                 <span>5</span>
             </label>
-            <label for="" class="recomend-count-item">
+            <label class="recomend-count-item">
                 <input type="radio" name="recomend_count" value="6">
                 <span>6</span>
             </label>
