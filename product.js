@@ -5248,10 +5248,10 @@ const recommendationsCount = (values) => {
          </div>
          
          <div class="recomend-count">
-            <labe class="recomend-count-item">
+            <label class="recomend-count-item">
                 <input type="radio" name="recomend_count" value="1">
                 <span>1</span>
-            </labe>
+            </label>
             <label class="recomend-count-item">
                 <input type="radio" name="recomend_count" value="2">
                 <span>2</span>
@@ -5286,7 +5286,7 @@ unlayer.registerPropertyEditor({
         mount(node, value, updateValue) {
             node.querySelectorAll("input[name='recomend_count']").forEach((input) => {
                 input.addEventListener('change', function() {
-                    console.log(this.value);
+                    updateValue(this.value);
                 });
             });
         }
