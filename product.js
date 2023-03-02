@@ -5071,6 +5071,8 @@ const getRecomendTemplate = () => function (values) {
         `;
     return `
         <div>
+            <span data-count="&[${values.recommendationsCount}]&"></span>
+            <span data-type="$[${values.recommendationsType}]$"></span>
             <div>
                 ${acctiveLayout.value === 'two-columns' ? productTwoColumnsCardRenderer() : productCardRenderer()}
             </div>
