@@ -4924,7 +4924,7 @@ const getRecomendTemplate = () => function (values) {
     console.log(values)
     const acctiveLayout = values.layout.find(layout => layout.active)
     const productCardRenderer = () => `
-            <span style="display: none;">**</span>
+            <span style="display: none;">$$</span>
                 <table style="position: relative;
                             min-width: 0;
                             word-wrap: break-word;
@@ -4941,7 +4941,7 @@ const getRecomendTemplate = () => function (values) {
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ line_item_logo }}" />
+                                                    <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ recommendation_image }}" />
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -4951,10 +4951,10 @@ const getRecomendTemplate = () => function (values) {
                                             <tr style="width: 100%">
                                                 <td id="product-inner-td" style="padding: 0 15px;">
                                                     <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
-                                                        {{ line_item_title }}
+                                                        {{ recommendation_title }}
                                                     </div>
                                                     <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.price ? 'block' : 'none'};">
-                                                        {{ line_item_price }}
+                                                        {{ recommendation_price }}
                                                     </div>
                                                 </td> 
                                             </tr>
@@ -4981,7 +4981,7 @@ const getRecomendTemplate = () => function (values) {
                                                                   font-size: ${values.btnFontSize}px; 
                                                                   background-color: ${values.btnBg};
                                                                   display: inline-block;"
-                                                                  href="{{ line_item_links }}" target="_blank">
+                                                                  href="{{ recommendation_link }}" target="_blank">
                                                             ${values.btn}
                                                         </a>
                                                     </div>
@@ -4993,10 +4993,10 @@ const getRecomendTemplate = () => function (values) {
                             </tr>
                         </tbody>
                 </table>
-             <span style="display: none;">**</span>
+             <span style="display: none;">$$</span>
         `;
     const productTwoColumnsCardRenderer = () => `
-           <span style="display: none;">**</span>
+           <span style="display: none;">$$</span>
                  <div style="max-width: calc(50% - 12px); margin: 0 5px 10px; float: left; width: 100%;">
                     <table style="position: relative;
                                 min-width: 0;
@@ -5014,7 +5014,7 @@ const getRecomendTemplate = () => function (values) {
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ line_item_logo }}" />
+                                                            <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ recommendation_image }}" />
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -5024,10 +5024,10 @@ const getRecomendTemplate = () => function (values) {
                                                     <tr style="width: 100%">
                                                         <td id="product-inner-td" style="padding: 0 15px;">
                                                             <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
-                                                                {{ line_item_title }}
+                                                                {{ recommendation_title }}
                                                             </div>
                                                             <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.price ? 'block' : 'none'};">
-                                                                {{ line_item_price }}
+                                                                {{ recommendation_price }}
                                                             </div>
                                                         </td> 
                                                     </tr>
@@ -5054,7 +5054,7 @@ const getRecomendTemplate = () => function (values) {
                                                                           font-size: ${values.btnFontSize}px; 
                                                                           background-color: ${values.btnBg};
                                                                           display: inline-block;"
-                                                                          href="{{ line_item_links }}" target="_blank">
+                                                                          href="{{ recommendation_link }}" target="_blank">
                                                                     ${values.btn}
                                                                 </a>
                                                             </div>
@@ -5067,13 +5067,13 @@ const getRecomendTemplate = () => function (values) {
                                 </tbody>
                     </table>
                 </div>
-            <span style="display: none;">**</span>
+            <span style="display: none;">$$</span>
         `;
     return `
         <div>
             <span data-count="&[${values.recommendationsCount}]&"></span>
             <span data-type="$[${values.recommendationsType}]$"></span>
-            <div>
+            <div style="overflow: hidden;">
                 ${acctiveLayout.value === 'two-columns' ? productTwoColumnsCardRenderer() : productCardRenderer()}
             </div>
         </div>
@@ -5084,7 +5084,6 @@ const getRecomendTemplateViewer = () => function (values) {
     console.log(values)
     const acctiveLayout = values.layout.find(layout => layout.active)
     const productCardRenderer = () => `
-            <span style="display: none;">**</span>
                 <table style="position: relative;
                             min-width: 0;
                             word-wrap: break-word;
@@ -5111,10 +5110,10 @@ const getRecomendTemplateViewer = () => function (values) {
                                                 <tr style="width: 100%">
                                                     <td id="product-inner-td" style="padding: 0 15px;">
                                                         <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
-                                                            {{ line_item_title }}
+                                                            {{ recommendation_title }}
                                                         </div>
                                                         <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.price ? 'block' : 'none'};">
-                                                            {{ line_item_price }}
+                                                            {{ recommendation_price }}
                                                         </div>
                                                     </td> 
                                                 </tr>
@@ -5141,7 +5140,7 @@ const getRecomendTemplateViewer = () => function (values) {
                                                                       font-size: ${values.btnFontSize}px; 
                                                                       background-color: ${values.btnBg};
                                                                       display: inline-block;"
-                                                                      href="{{ line_item_links }}" target="_blank">
+                                                                      href="{{ recommendation_link }}" target="_blank">
                                                                 ${values.btn}
                                                             </a>
                                                         </div>
@@ -5153,10 +5152,8 @@ const getRecomendTemplateViewer = () => function (values) {
                                 </tr>
                             </tbody>
                 </table>
-             <span style="display: none;">**</span>
         `;
     const productTwoColumnsCardRenderer = () => `
-           <span style="display: none;">**</span>
                <div style="max-width: calc(50% - 12px); margin: 0 5px 10px; float: left; width: 100%;">
                     <table style="position: relative;
                                 min-width: 0;
@@ -5184,10 +5181,10 @@ const getRecomendTemplateViewer = () => function (values) {
                                                     <tr style="width: 100%">
                                                         <td id="product-inner-td" style="padding: 0 15px;">
                                                             <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
-                                                                {{ line_item_title }}
+                                                                {{ recommendation_title }}
                                                             </div>
                                                             <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.price ? 'block' : 'none'};">
-                                                                {{ line_item_price }}
+                                                                {{ recommendation_price }}
                                                             </div>
                                                         </td> 
                                                     </tr>
@@ -5214,7 +5211,7 @@ const getRecomendTemplateViewer = () => function (values) {
                                                                           font-size: ${values.btnFontSize}px; 
                                                                           background-color: ${values.btnBg};
                                                                           display: inline-block;"
-                                                                          href="{{ line_item_links }}" target="_blank">
+                                                                          href="{{ recommendation_link }}" target="_blank">
                                                                     ${values.btn}
                                                                 </a>
                                                             </div>
@@ -5227,11 +5224,10 @@ const getRecomendTemplateViewer = () => function (values) {
                                 </tbody>
                     </table>
                 </div>
-             <span style="display: none;">**</span>
         `;
     return `
         <div>
-            <div style="overflow: hidden">
+            <div style="overflow: hidden;">
                 ${acctiveLayout.value === 'two-columns' ? productTwoColumnsCardRenderer() : productCardRenderer()}
             </div>
         </div>`
