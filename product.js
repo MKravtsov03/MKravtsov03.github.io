@@ -5293,7 +5293,7 @@ unlayer.registerPropertyEditor({
 unlayer.registerTool({
     name: 'recommendations_tool',
     label: 'Recommendations',
-    icon: 'https://mkravtsov03.github.io/shopping-cart.svg',
+    icon: 'https://mkravtsov03.github.io/recommendations.svg',
     supportedDisplayModes: ['web', 'email', 'popup'],
     options: {
         recomendations: {
