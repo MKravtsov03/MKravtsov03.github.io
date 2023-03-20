@@ -3483,7 +3483,7 @@ const getYotpoTemlate = () =>  function(values) {
     console.log({values})
     const {reviews_select, data: {reviews}, layout, details: {details}} = values
 
-    const reviewsList = mapReviews(reviews[reviews_select?.type])
+    const reviewsList = reviews[reviews_select?.type]
 
     const selectedReviews = reviewsList.filter(function (el) {
         return reviews_select?.activeReviews.indexOf(String(el.review_id)) >= 0;
@@ -3529,7 +3529,7 @@ const reviewSelect = (value, data) => {
 
     const filteredReviews = reviews[type];
 
-    const reviewsList = searchFiltering(productFiltering(mapReviews(filteredReviews), productFilter), searchString)
+    const reviewsList = searchFiltering(productFiltering(filteredReviews, productFilter), searchString)
 
     const products = reviews.product_reviews.reduce((acc, product) => {
         acc.push({productId: product.yotpo_product_id, productName: product.product_name});
