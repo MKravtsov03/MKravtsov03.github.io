@@ -268,9 +268,10 @@ const ProductStyles = () =>
              padding: 0 24px 6px 8px;
              line-height: 28px;
              color: #1e2330;
-             display: inline-block;
+             display: block;
              vertical-align: top;
              margin: 0 6px 0 0;
+             width: 100%;
         }
          .selectMultiple > div a em {
              font-style: normal;
@@ -555,6 +556,13 @@ const ProductStyles = () =>
         }
         .review__title {
              color: #101828;
+        }
+        .review__product-name {
+            max-width: 200px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            margin-right: 10px;
         }
         .review__rating {
             margin-bottom: 15px;
