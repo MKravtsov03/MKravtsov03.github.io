@@ -3532,7 +3532,7 @@ const reviewSelect = (value, data) => {
     const reviewsList = searchFiltering(productFiltering(filteredReviews, productFilter), searchString)
 
     const products = reviews.product_reviews.reduce((acc, product) => {
-        if (!acc[product.yotpo_product_id]) {
+        if (!acc.find(product => product.productId == yotpo_product_id)) {
             acc.push({productId: product.yotpo_product_id, productName: product.product_name});
         }
         return acc;
