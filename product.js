@@ -3601,7 +3601,7 @@ const reviewSelect = (value, data) => {
                                     •
                                     <div class="review__product-name">${review?.product_name}</div>
                                 </div>
-                                <div class="review__date">${review?.review_date}</div>
+                                <div class="review__date">${new Date(review?.review_date).toLocaleDateString()}</div>
                             </div>
                             <div class="review__rating">
                                 ${generateRating(roundHalf(review?.review_score))}
