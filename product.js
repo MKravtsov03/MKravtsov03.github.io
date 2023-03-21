@@ -208,7 +208,7 @@ const ProductStyles = () =>
          .selectMultiple > div {
              position: relative;
              z-index: 2;
-             padding: 8px 12px 2px 12px;
+             padding: 8px 26px 2px 12px;
              background: #fff;
              font-size: 14px;
              font-weight: 500;
@@ -265,7 +265,7 @@ const ProductStyles = () =>
         }
          .selectMultiple > div a {
              position: relative;
-             padding: 0 24px 6px 8px;
+             padding: 0 19px 6px 8px;
              line-height: 28px;
              color: #1e2330;
              display: block;
