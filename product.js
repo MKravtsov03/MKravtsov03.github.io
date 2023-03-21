@@ -3867,7 +3867,7 @@ unlayer.registerPropertyEditor({
 unlayer.registerTool({
     name: 'yotpo_tool',
     label: 'Reviews',
-    icon: 'https://mkravtsov03.github.io/shopping-cart.svg',
+    icon: 'https://mkravtsov03.github.io/yotpo_tool_icon.svg',
     supportedDisplayModes: ['web', 'email', 'popup'],
     options: {
         review: {
