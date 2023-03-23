@@ -3291,7 +3291,7 @@ const oneColumnRender = (review, details, values) =>`
             <div style="width: 100%; border: 1px solid #E4E7EC; border-radius: 12px;">
                 ${details?.image ? `
                     <div style="overflow: hidden;">
-                        <img style="max-width: 100%; width: 100%; object-fit: contain;" src="${review?.product_images_array}" alt="${review?.product_name}">
+                        <img style="max-width: 100%; width: 100%; object-fit: contain;" src="${review?.product_images_array[0]?.original}" alt="${review?.product_name}">
                     </div>
                 ` : ''}
                 ${details?.cta ? `
@@ -3350,7 +3350,7 @@ const twoColumnsRender = (review, details, values) =>`
             <div style="float: left; max-width: calc(50% - 12px); margin: 0 5px 10px; width: 100%; border: 1px solid #E4E7EC; border-radius: 12px; overflow: hidden;">
                 ${details?.image ? `
                     <div style="overflow: hidden;">
-                        <img style="max-width: 100%; width: 100%; object-fit: contain; display: block;" src="${review?.product_images_array}" alt="${review?.product_name}">
+                        <img style="max-width: 100%; width: 100%; object-fit: contain; display: block;" src="${review?.product_images_array[0]?.original}" alt="${review?.product_name}">
                     </div>
                 ` : ''}
                 ${details?.cta ? `
@@ -3457,7 +3457,7 @@ const twoColumnsReverseRender = (review, details, values) =>`
                 ` : ''}
                 ${details?.image ? `
                     <div style="overflow: hidden;">
-                        <img style="max-width: 100%; width: 100%; object-fit: contain; display: block;" src="${review?.product_images_array}" alt="${review?.product_name}">
+                        <img style="max-width: 100%; width: 100%; object-fit: contain; display: block;" src="${review?.product_images_array[0]?.original}" alt="${review?.product_name}">
                     </div>
                 ` : ''}
             </div>
