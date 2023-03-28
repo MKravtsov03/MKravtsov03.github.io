@@ -3157,103 +3157,81 @@ const roundHalf = (num) => {
 const generateRating = (rating) => {
     switch (rating) {
         case (0): return `
-            <svg aria-hidden="true" focusable="false" class="rating">
-              <use xlink:href="#stars-empty-star" />
-              <use xlink:href="#stars-empty-star" />
-              <use xlink:href="#stars-empty-star" />
-              <use xlink:href="#stars-empty-star" />
-              <use xlink:href="#stars-empty-star" />
-            </svg>
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
         `
         case (0.5): return `
-            <svg aria-hidden="true" focusable="false" class="rating">
-             <use xlink:href="#stars-half-star" />
-              <use xlink:href="#stars-empty-star" />
-              <use xlink:href="#stars-empty-star" />
-              <use xlink:href="#stars-empty-star" />
-              <use xlink:href="#stars-empty-star" />
-            </svg>
+            <img alt="0" src="https://mkravtsov03.github.io/half-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
         `
         case (1): return `
-            <svg aria-hidden="true" focusable="false" class="rating">
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-empty-star" />
-              <use xlink:href="#stars-empty-star" />
-              <use xlink:href="#stars-empty-star" />
-              <use xlink:href="#stars-empty-star" />
-            </svg>
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
         `
         case (1.5): return `
-            <svg aria-hidden="true" focusable="false" class="rating">
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-half-star" />
-              <use xlink:href="#stars-empty-star" />
-              <use xlink:href="#stars-empty-star" />
-              <use xlink:href="#stars-empty-star" />
-            </svg>
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/half-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
         `
         case (2): return `
-            <svg aria-hidden="true" focusable="false" class="rating">
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-empty-star" />
-              <use xlink:href="#stars-empty-star" />
-              <use xlink:href="#stars-empty-star" />
-            </svg>
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
         `
         case (2.5): return `
-            <svg aria-hidden="true" focusable="false" class="rating">
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-half-star" />
-              <use xlink:href="#stars-empty-star" />
-              <use xlink:href="#stars-empty-star" />
-            </svg>
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/half-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
         `
         case (3): return `
-            <svg aria-hidden="true" focusable="false" class="rating">
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-empty-star" />
-              <use xlink:href="#stars-empty-star" />
-            </svg>
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
         `
         case (3.5): return `
-            <svg aria-hidden="true" focusable="false" class="rating">
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-half-star" />
-              <use xlink:href="#stars-empty-star" />
-            </svg>
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/half-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
         `
         case (4): return `
-            <svg aria-hidden="true" focusable="false" class="rating">
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-empty-star" />
-            </svg>
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/empty-star.svg" />
         `
         case (4.5): return `
-            <svg aria-hidden="true" focusable="false" class="rating">
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-half-star" />
-            </svg>
+             <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/half-star.svg" />
         `
         case (5): return `
-            <svg aria-hidden="true" focusable="false" class="rating">
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-full-star" />
-              <use xlink:href="#stars-full-star" />
-            </svg>
+             <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
+            <img alt="0" src="https://mkravtsov03.github.io/full-star.svg" />
         `
     }
 }
