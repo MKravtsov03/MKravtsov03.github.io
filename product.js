@@ -3336,7 +3336,7 @@ const oneColumnRender = (review, details, values) =>`
                                                  ${details?.productName ? `<span style="max-width: 200px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;margin-right: 10px; color: #667085;">${review?.product_name}</span>` : ''}
                                             </td>
                                             <td style="text-align: right;padding: 15px;">
-                                                ${details?.date ? `<span style="color: #667085;">${review?.review_date}</span>` : ''}
+                                                ${details?.date ? `<span style="color: #667085;">${new Date(review?.review_date).toLocaleDateString()}</span>` : ''}
                                             </td>
                                         </tr>
                                         <tr>
@@ -3357,7 +3357,7 @@ const oneColumnRender = (review, details, values) =>`
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td style="padding: 15px;">
+                                            <td style="padding: 0 15px 15px;">
                                                 ${details?.reviewContent ? `
                                                      <div class="review__content" style="font-family: ${values.reviewFont.value}; font-size: ${values.reviewFontSize}px; color: ${values.reviewColor}; line-height: 20px;">
                                                         ${review?.review_content}
@@ -3433,27 +3433,54 @@ const twoColumnsRender = (review, details, values) =>`
                     </div>
                 ` : ''}
                 
-                <div class="review" style="border: none;">
-                    <div class="review__inner">
-                        <div class="review__heading" style="display: block;">
-                            <div class="review__info" style="margin-bottom: 5px;">
-                                ${details?.userName ? `<div class="review__title">${review?.user_display_name}</div>
-                                •` : ''}
-                                ${details?.productName ? `<div class="review__product-name">${review?.product_name}</div>` : ''}
-                            </div>
-                            ${details?.date ? `<div class="review__date">${review?.review_date}</div>` : ''}
-                            
-                        </div>
-                        ${details?.rating ? `
-                            <div class="review__rating">
-                                ${generateRating(roundHalf(review?.review_score))}
-                            </div>` : ''}
-                        ${details?.reviewContent ? `
-                             <div class="review__content" style="font-family: ${values.reviewFont.value}; font-size: ${values.reviewFontSize}px; color: ${values.reviewColor}">
-                                ${review?.review_content}
-                             </div>` : ''}
-                    </div>
-                </div>
+                <table style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table style="width: 100%; ">
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding: 10px 7px;">
+                                                ${details?.userName ? `<span style="color: #101828;">${review?.user_display_name}</span>
+                                                •` : ''}
+                                                 ${details?.productName ? `<span style="max-width: 200px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;margin-right: 10px; color: #667085;">${review?.product_name}</span>` : ''}
+                                            </td>
+                                            <td style="text-align: right;padding: 10px 7px;">
+                                                ${details?.date ? `<span style="color: #667085;">${new Date(review?.review_date).toLocaleDateString()}</span>` : ''}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 0 7px;">
+                                                ${details?.rating ? `
+                                                    <div style="margin-bottom: 15px;">
+                                                        ${generateRating(roundHalf(review?.review_score))}
+                                                    </div>` : ''
+}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding: 0 7px 10px;">
+                                                ${details?.reviewContent ? `
+                                                     <div class="review__content" style="font-family: ${values.reviewFont.value}; font-size: ${values.reviewFontSize}px; color: ${values.reviewColor}; line-height: 20px;">
+                                                        ${review?.review_content}
+                                                     </div>` : ''
+}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 `
 
@@ -3467,7 +3494,7 @@ const twoColumnsReverseRender = (review, details, values) =>`
                                 •` : ''}
                                 ${details?.productName ? `<div class="review__product-name">${review?.product_name}</div>` : ''}
                             </div>
-                            ${details?.date ? `<div class="review__date">${review?.review_date}</div>` : ''}
+                            ${details?.date ? `<div class="review__date">${new Date(review?.review_date).toLocaleDateString()}</div>` : ''}
                             
                         </div>
                         ${details?.rating ? `
