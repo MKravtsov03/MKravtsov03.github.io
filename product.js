@@ -3340,7 +3340,7 @@ const oneColumnRender = (review, details, values) =>`
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td style="padding: 15px;">
+                                            <td style="padding: 0 15px;">
                                                 ${details?.rating ? `
                                                     <div style="margin-bottom: 15px;">
                                                         ${generateRating(roundHalf(review?.review_score))}
