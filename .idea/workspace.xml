@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eaf0f0c4-ebf1-4777-910e-85bf8b032d72" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/empty-star.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/full-star.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/half-star.svg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/404.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/_includes/footer.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../iDerma/app/_includes/header.html" afterDir="false" />
@@ -149,7 +146,7 @@
       <workItem from="1667834470109" duration="19000" />
       <workItem from="1667894147633" duration="33354000" />
       <workItem from="1672152223236" duration="58427000" />
-      <workItem from="1674816605992" duration="42973000" />
+      <workItem from="1674816605992" duration="43289000" />
     </task>
     <servers />
   </component>
