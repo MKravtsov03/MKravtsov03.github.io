@@ -3374,29 +3374,29 @@ const oneColumnRender = (review, details, values) =>`
             </div>
 `
 
-const pp = `
-<div class="review" style="border: none;">
-    <div class="review__inner">
-        <div class="review__heading">
-            <div class="review__info">
-                ${details?.userName ? `<div class="review__title">${review?.user_display_name}</div>
-                •` : ''}
-                ${details?.productName ? `<div class="review__product-name">${review?.product_name}</div>` : ''}
-            </div>
-            ${details?.date ? `<div class="review__date">${review?.review_date}</div>` : ''}
-
-        </div>
-        ${details?.rating ? `
-            <div class="review__rating">
-                ${generateRating(roundHalf(review?.review_score))}
-            </div>` : ''}
-        ${details?.reviewContent ? `
-             <div class="review__content" style="font-family: ${values.reviewFont.value}; font-size: ${values.reviewFontSize}px; color: ${values.reviewColor}">
-                ${review?.review_content}
-             </div>` : ''}
-    </div>
-</div>
-`
+// const pp = `
+// <div class="review" style="border: none;">
+//     <div class="review__inner">
+//         <div class="review__heading">
+//             <div class="review__info">
+//                 ${details?.userName ? `<div class="review__title">${review?.user_display_name}</div>
+//                 •` : ''}
+//                 ${details?.productName ? `<div class="review__product-name">${review?.product_name}</div>` : ''}
+//             </div>
+//             ${details?.date ? `<div class="review__date">${review?.review_date}</div>` : ''}
+//
+//         </div>
+//         ${details?.rating ? `
+//             <div class="review__rating">
+//                 ${generateRating(roundHalf(review?.review_score))}
+//             </div>` : ''}
+//         ${details?.reviewContent ? `
+//              <div class="review__content" style="font-family: ${values.reviewFont.value}; font-size: ${values.reviewFontSize}px; color: ${values.reviewColor}">
+//                 ${review?.review_content}
+//              </div>` : ''}
+//     </div>
+// </div>
+// `
 
 const twoColumnsRender = (review, details, values) =>`
             <div style="float: left; max-width: calc(50% - 12px); margin: 0 5px 10px; width: 100%; border: 1px solid #E4E7EC; border-radius: 12px; overflow: hidden;">
