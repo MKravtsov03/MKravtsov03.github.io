@@ -3323,29 +3323,79 @@ const oneColumnRender = (review, details, values) =>`
                         </a>
                     </div>
                 ` : ''}
-                
-                <div class="review" style="border: none;">
-                    <div class="review__inner">
-                        <div class="review__heading">
-                            <div class="review__info">
-                                ${details?.userName ? `<div class="review__title">${review?.user_display_name}</div>
-                                •` : ''}
-                                ${details?.productName ? `<div class="review__product-name">${review?.product_name}</div>` : ''}
-                            </div>
-                            ${details?.date ? `<div class="review__date">${review?.review_date}</div>` : ''}
-                            
-                        </div>
-                        ${details?.rating ? `
-                            <div class="review__rating">
-                                ${generateRating(roundHalf(review?.review_score))}
-                            </div>` : ''}
-                        ${details?.reviewContent ? `
-                             <div class="review__content" style="font-family: ${values.reviewFont.value}; font-size: ${values.reviewFontSize}px; color: ${values.reviewColor}">
-                                ${review?.review_content}
-                             </div>` : ''}
-                    </div>
-                </div>
+                <table style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table style="width: 100%; ">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                ${details?.userName ? `<span style="color: #101828;">${review?.user_display_name}</span>
+                                                •` : ''}
+                                                 ${details?.productName ? `<span style="max-width: 200px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;margin-right: 10px;">${review?.product_name}</span>` : ''}
+                                            </td>
+                                            <td style="text-align: right">
+                                                ${details?.date ? `<span style="">${review?.review_date}</span>` : ''}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                ${details?.rating ? `
+                                                    <div style="margin-bottom: 15px;">
+                                                        ${generateRating(roundHalf(review?.review_score))}
+                                                    </div>` : ''
+                                                }
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                ${details?.reviewContent ? `
+                                                     <div class="review__content" style="font-family: ${values.reviewFont.value}; font-size: ${values.reviewFontSize}px; color: ${values.reviewColor}; line-height: 20px;">
+                                                        ${review?.review_content}
+                                                     </div>` : ''
+                                                }
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+`
+
+const pp = `
+<div class="review" style="border: none;">
+    <div class="review__inner">
+        <div class="review__heading">
+            <div class="review__info">
+                ${details?.userName ? `<div class="review__title">${review?.user_display_name}</div>
+                •` : ''}
+                ${details?.productName ? `<div class="review__product-name">${review?.product_name}</div>` : ''}
+            </div>
+            ${details?.date ? `<div class="review__date">${review?.review_date}</div>` : ''}
+
+        </div>
+        ${details?.rating ? `
+            <div class="review__rating">
+                ${generateRating(roundHalf(review?.review_score))}
+            </div>` : ''}
+        ${details?.reviewContent ? `
+             <div class="review__content" style="font-family: ${values.reviewFont.value}; font-size: ${values.reviewFontSize}px; color: ${values.reviewColor}">
+                ${review?.review_content}
+             </div>` : ''}
+    </div>
+</div>
 `
 
 const twoColumnsRender = (review, details, values) =>`
