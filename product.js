@@ -3330,17 +3330,17 @@ const oneColumnRender = (review, details, values) =>`
                                 <table style="width: 100%; ">
                                     <tbody>
                                         <tr>
-                                            <td>
+                                            <td style="padding: 15px;">
                                                 ${details?.userName ? `<span style="color: #101828;">${review?.user_display_name}</span>
                                                 •` : ''}
-                                                 ${details?.productName ? `<span style="max-width: 200px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;margin-right: 10px;">${review?.product_name}</span>` : ''}
+                                                 ${details?.productName ? `<span style="max-width: 200px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;margin-right: 10px; color: #667085;">${review?.product_name}</span>` : ''}
                                             </td>
-                                            <td style="text-align: right">
-                                                ${details?.date ? `<span style="">${review?.review_date}</span>` : ''}
+                                            <td style="text-align: right;padding: 15px;">
+                                                ${details?.date ? `<span style="color: #667085;">${review?.review_date}</span>` : ''}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td style="padding: 15px;">
                                                 ${details?.rating ? `
                                                     <div style="margin-bottom: 15px;">
                                                         ${generateRating(roundHalf(review?.review_score))}
@@ -3357,7 +3357,7 @@ const oneColumnRender = (review, details, values) =>`
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td>
+                                            <td style="padding: 15px;">
                                                 ${details?.reviewContent ? `
                                                      <div class="review__content" style="font-family: ${values.reviewFont.value}; font-size: ${values.reviewFontSize}px; color: ${values.reviewColor}; line-height: 20px;">
                                                         ${review?.review_content}
