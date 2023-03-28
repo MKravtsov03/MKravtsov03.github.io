@@ -3290,7 +3290,7 @@ const searchFiltering = (reviews, search) => {
 const imgPlaceholder = 'https://storage.cloud.google.com/moda-platform-dev-us-central1-ui-connectors-icons/connector_icons/image/live/image_placeholder.svg?authuser=2'
 
 const oneColumnRender = (review, details, values) =>`
-            <div style="width: 100%; border: 1px solid #E4E7EC; border-radius: 12px;">
+            <div style="width: 100%; border: 1px solid #E4E7EC; border-radius: 12px; overflow: hidden; margin-bottom: 20px;">
                 ${details?.image ? `
                     <div style="overflow: hidden;">
                         <img style="max-width: 100%; width: 100%; object-fit: contain;" src="${review?.product_images_array?.length ? review?.product_images_array[0]?.original : imgPlaceholder}" alt="${review?.product_name}">
