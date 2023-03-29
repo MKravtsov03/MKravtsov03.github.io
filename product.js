@@ -3157,81 +3157,81 @@ const roundHalf = (num) => {
 const generateRating = (rating) => {
     switch (rating) {
         case (0): return `
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
         `
         case (0.5): return `
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/half-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/half-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
         `
         case (1): return `
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
         `
         case (1.5): return `
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/half-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/half-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
         `
         case (2): return `
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
-            <img alt="0"  width="16" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0"  style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
         `
         case (2.5): return `
-            <img alt="0"  width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0"  width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0"  width="16" src="https://mkravtsov03.github.io/half-star.png" />
-            <img alt="0"  width="16" src="https://mkravtsov03.github.io/empty-star.png" />
-            <img alt="0"  width="16" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0"  style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0"  style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0"  style="width: 16px;" src="https://mkravtsov03.github.io/half-star.png" />
+            <img alt="0"  style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0"  style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
         `
         case (3): return `
-            <img alt="0"  width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0"  style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
         `
         case (3.5): return `
-            <img alt="0"  width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0"  width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0"  width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/half-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0"  style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0"  style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0"  style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/half-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
         `
         case (4): return `
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0"  width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/empty-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0"  style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/empty-star.png" />
         `
         case (4.5): return `
-             <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/half-star.png" />
+             <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/half-star.png" />
         `
         case (5): return `
-             <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
-            <img alt="0" width="16" src="https://mkravtsov03.github.io/full-star.png" />
+             <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
+            <img alt="0" style="width: 16px;" src="https://mkravtsov03.github.io/full-star.png" />
         `
     }
 }
