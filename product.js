@@ -4200,15 +4200,6 @@ const fieldsMap = {
     date_of_birth: 'Date of Birth',
 }
 
-const mapAlignment = (alignment) => {
-    switch (alignment) {
-        case ('left'): return 'flex-start';
-        case ('right'): return 'flex-end';
-        case ('center'): return 'center';
-        default: return 'flex-start'
-    }
-}
-
 
 
 const additionalFields = (values) => {
@@ -4435,7 +4426,7 @@ const additionalFieldsRenderer = {
 const getFormTemplate = (viewMode) => function(values) {
     console.log({values, viewMode})
     return `
-        <div style="display: flex; justify-content: ${mapAlignment(values?.formAligment)}">
+        <div style="display: flex; justify-content: ${mapAlignment[values?.formAligment)]}">
             
             <form class="custom-form" action="" style="width: ${values?.formAutoWidth ? 'auto' : `${values?.formWidth.value}%`}">
                 ${values?.additional_form_fields.activeFields.map(field => additionalFieldsRenderer[field](values)).join('')}
