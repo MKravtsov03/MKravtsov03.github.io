@@ -3592,6 +3592,8 @@ const reviewSelect = (value, data) => {
 
     const {reviews, types} = data;
 
+    const filteredTypes = types.filter(type => type.value !== 'aggregated_reviews')
+
     const filteredReviews = reviews[type];
 
     const reviewsList = searchFiltering(productFiltering(filteredReviews, productFilter), searchString)
@@ -3604,6 +3606,7 @@ const reviewSelect = (value, data) => {
     }, [])
 
     return `
+
 
     <svg id="stars" style="display: none;" version="1.1">
       <symbol id="stars-empty-star" viewBox="0 0 102 18" fill="#D0D5DD">
@@ -3627,7 +3630,7 @@ const reviewSelect = (value, data) => {
         </option>
     </select>
     <select value="${value.type}" id="review_type_select" class="form-control" style="margin-bottom: 20px;" data-placeholder="Select review type">
-        ${types?.map(option =>
+        ${filteredTypes?.map(option => 
             `
                 <option ${option.value == value.type ? 'selected' : ''}  value="${option.value}">
                     ${option.label}
