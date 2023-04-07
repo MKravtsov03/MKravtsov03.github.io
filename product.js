@@ -3792,7 +3792,7 @@ unlayer.registerPropertyEditor({
                 a.remove();
             }
 
-            document.querySelector('select[multiple]').onchange = function() {
+            document.querySelector('select[multiple]')?.onchange = function() {
                 const newVal = []
                 Array.from(document.getElementsByClassName('prodOption')).forEach(option => {
                     if(option.selected) {
@@ -3913,7 +3913,7 @@ unlayer.registerPropertyEditor({
 
             const searchFilter = document.getElementById('filter-search');
 
-            searchFilter.addEventListener('change', (e) => {
+            searchFilter?.addEventListener('change', (e) => {
                 if (e.target.value.length == 0 || e.target.value.length > 2) {
                     return updateValue({...value, searchString: e.target.value})
                 }
