@@ -3649,7 +3649,7 @@ const reviewSelect = (value, data) => {
         </div>
         
         <select multiple data-placeholder="All products">
-            ${products.map(product =>
+            ${products?.map(product =>
                 `
                     <option ${productFilter.includes(String(product.productId)) ? 'selected' : ''} class="prodOption" value="${product.productId}">
                         ${product.productName}
@@ -3660,7 +3660,7 @@ const reviewSelect = (value, data) => {
     </div>
      
     <div class="reviews-list">
-        ${reviewsList.map(review => {
+        ${reviewsList?.map(review => {
                 console.log('checked', activeReviews.includes(String(review?.review_id)))
                 return `
                     <label class="review">
