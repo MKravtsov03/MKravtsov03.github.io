@@ -3686,7 +3686,7 @@ const reviewSelect = (value, data) => {
                     </label>
                 `
                 }
-    ).join('') : <div style="text-align: center; ">No reviews</div>}
+    ).join('') : `<div style="text-align: center; ">No reviews</div>`}
     </div>
 `
 }
