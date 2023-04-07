@@ -3809,7 +3809,7 @@ unlayer.registerPropertyEditor({
                 }
             }
 
-            if (!document.querySelector('.selectMultiple')) {
+            if (!document.querySelector('.selectMultiple') && document.querySelector('select[multiple]')) {
                 const select = document.querySelector('select[multiple]');
                 const selectOptions = document.getElementsByClassName('prodOption');
 
