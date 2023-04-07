@@ -5093,7 +5093,9 @@ const getRecomendTemplate = () => function (values) {
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ recommendation_image }}" />
+                                                            <div style="height: 220px; overflow: hidden;">
+                                                                <img alt="" style="max-width: 100%; margin-bottom: 15px; height: auto; display: ${values?.details?.details.image ? 'inline-block' : 'none'}" src="{{ recommendation_image }}" />
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -5102,7 +5104,7 @@ const getRecomendTemplate = () => function (values) {
                                                 <tbody style="width: 100%">
                                                     <tr style="width: 100%">
                                                         <td id="product-inner-td" style="padding: 0 15px;">
-                                                            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
+                                                            <div style="font-family: ${values.titleFont.value}; font-size: ${values.titleFontSize}px; text-align: ${values.titleAligment}; color: ${values.titleColor}; font-weight: ${values.titleFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.titleFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.titleFontStyle.styles.underline.active ? 'underline' : 'none'}; height: 80px; overflow: hidden; margin-bottom: 15px; display: ${values?.details?.details.name ? 'block' : 'none'};">
                                                                 {{ recommendation_title }}
                                                             </div>
                                                             <div style="font-family: ${values.priceFont.value}; font-size: ${values.priceFontSize}px; text-align: ${values.priceAligment}; color: ${values.priceColor}; font-weight: ${values.priceFontStyle.styles.bold.active ? '700' : '400'};  font-style: ${values.priceFontStyle.styles.italic.active ? 'italic' : 'normal'}; text-decoration: ${values.priceFontStyle.styles.underline.active ? 'underline' : 'none'}; word-break: break-all; margin-bottom: 15px; display: ${values?.details?.details.price ? 'block' : 'none'};">
