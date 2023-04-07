@@ -3648,15 +3648,18 @@ const reviewSelect = (value, data) => {
             <input type="text" class="form-control" value="${searchString}" id="filter-search">
         </div>
         
-        <select multiple data-placeholder="All products">
-            ${products?.map(product =>
-                `
-                    <option ${productFilter.includes(String(product.productId)) ? 'selected' : ''} class="prodOption" value="${product.productId}">
-                        ${product.productName}
-                    </option>
-                `
-            )}
-        </select>
+        ${value?.type !== 'site_reviews' ?  (`
+            <select multiple data-placeholder="All products">
+                ${products?.map(product =>
+            `
+                        <option ${productFilter.includes(String(product.productId)) ? 'selected' : ''} class="prodOption" value="${product.productId}">
+                            ${product.productName}
+                        </option>
+                    `
+                        )}
+            </select>`) : ''}
+        
+        
     </div>
      
     <div class="reviews-list">
