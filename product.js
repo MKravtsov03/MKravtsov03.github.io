@@ -3550,7 +3550,7 @@ const getYotpoTemlate = () =>  function(values) {
 
     const reviewsList = reviews[reviews_select?.type]
 
-    const selectedReviews = reviewsList.filter(function (el) {
+    const selectedReviews = reviewsList?.filter(function (el) {
         return reviews_select?.activeReviews.indexOf(String(el.review_id)) >= 0;
     });
 
