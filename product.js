@@ -3791,21 +3791,22 @@ unlayer.registerPropertyEditor({
 
                 a.remove();
             }
-
-            document.querySelector('select[multiple]')?.onchange = function() {
-                const newVal = []
-                Array.from(document.getElementsByClassName('prodOption')).forEach(option => {
-                    if(option.selected) {
-                        newVal.push(option.value)
-                    }
-                })
-                updateValue({...value, productFilter: newVal})
-                // const layoutItem = document.querySelector('.layout-list .three-columns')
-                // if (newVal.length > 2) {
-                //     layoutItem.classList.remove('disabled')
-                // } else {
-                //     layoutItem.classList.add('disabled')
-                // }
+            if (document.querySelector('select[multiple]')) {
+                document.querySelector('select[multiple]').onchange = function() {
+                    const newVal = []
+                    Array.from(document.getElementsByClassName('prodOption')).forEach(option => {
+                        if(option.selected) {
+                            newVal.push(option.value)
+                        }
+                    })
+                    updateValue({...value, productFilter: newVal})
+                    // const layoutItem = document.querySelector('.layout-list .three-columns')
+                    // if (newVal.length > 2) {
+                    //     layoutItem.classList.remove('disabled')
+                    // } else {
+                    //     layoutItem.classList.add('disabled')
+                    // }
+                }
             }
 
             if (!document.querySelector('.selectMultiple')) {
