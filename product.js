@@ -3573,7 +3573,7 @@ const getYotpoTemlate = () =>  function(values) {
           </symbol>
         </svg>
         
-        ${selectedReviews.length ? reviewsRender(selectedReviews, activeLayout, details, values) : 
+        ${selectedReviews?.length ? reviewsRender(selectedReviews, activeLayout, details, values) : 
             `
             <div style="text-align: center; padding: 20px; font-size: 20px; font-weight: 600; color: #667085">
                 Select reviews
@@ -3660,7 +3660,7 @@ const reviewSelect = (value, data) => {
     </div>
      
     <div class="reviews-list">
-        ${reviewsList?.map(review => {
+        ${reviewsList?.length  ? reviewsList?.map(review => {
                 console.log('checked', activeReviews.includes(String(review?.review_id)))
                 return `
                     <label class="review">
@@ -3686,7 +3686,7 @@ const reviewSelect = (value, data) => {
                     </label>
                 `
                 }
-            ).join('')}
+    ).join('') : <div style="text-align: center; ">No reviews</div>}
     </div>
 `
 }
