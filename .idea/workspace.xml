@@ -107,6 +107,10 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/product.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/hhh.css" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -145,7 +149,7 @@
       <workItem from="1667834470109" duration="19000" />
       <workItem from="1667894147633" duration="33354000" />
       <workItem from="1672152223236" duration="58427000" />
-      <workItem from="1674816605992" duration="48138000" />
+      <workItem from="1674816605992" duration="48941000" />
     </task>
     <servers />
   </component>
