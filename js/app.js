@@ -11654,7 +11654,8 @@ exports.default = function () {
             slidesToShow: 2,
             slidesToScroll: 1,
             infinite: true,
-            variableWidth: true
+            variableWidth: true,
+            dots: true
         });
     }
 
@@ -11663,7 +11664,8 @@ exports.default = function () {
             slidesToShow: 2,
             slidesToScroll: 1,
             infinite: true,
-            variableWidth: true
+            variableWidth: true,
+            dots: true
         });
     }
 
@@ -11680,7 +11682,8 @@ exports.default = function () {
                 arrows: false,
                 variableWidth: true,
                 infinite: true,
-                slidesToShow: 2
+                slidesToShow: 2,
+                dots: true
             }
         }]
     });
@@ -11698,7 +11701,8 @@ exports.default = function () {
                 arrows: false,
                 variableWidth: true,
                 infinite: true,
-                slidesToShow: 2
+                slidesToShow: 2,
+                dots: true
             }
         }]
     });
