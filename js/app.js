@@ -10884,7 +10884,11 @@ var _select = __webpack_require__(11);
 
 var _select2 = _interopRequireDefault(_select);
 
-var _sliders = __webpack_require__(12);
+var _tabs = __webpack_require__(12);
+
+var _tabs2 = _interopRequireDefault(_tabs);
+
+var _sliders = __webpack_require__(13);
 
 var _sliders2 = _interopRequireDefault(_sliders);
 
@@ -10898,6 +10902,7 @@ document.addEventListener('DOMContentLoaded', function () {
   (0, _sliders2.default)();
   global.customPopups = new _popups2.default();
   global.customSelect = new _select2.default();
+  global.tabs = new _tabs2.default();
 
   if (window.innerWidth > 899) {
     (0, _jquery2.default)(window).on('scroll', function () {
@@ -11085,7 +11090,7 @@ initMarkapMenu();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ["dev", "category.html", "index.html"];
+exports.default = ["dev", "category-hub-european.html", "category-hub-real-swords.html", "category.html", "index.html"];
 
 /***/ }),
 /* 10 */
@@ -11631,6 +11636,155 @@ exports.default = Select;
 
 
 Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+var _createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+  };
+}();
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+var Tabs = function () {
+  function Tabs(options) {
+    _classCallCheck(this, Tabs);
+
+    var defaultOption = {
+      selector: ".tabs-list",
+      activeClass: "active",
+      checkHash: true,
+      tabLinks: "a",
+      attribute: "href",
+      event: "click",
+      onChange: null
+    };
+    this.options = _extends({}, defaultOption, options);
+
+    return this.init(this.options);
+  }
+
+  _createClass(Tabs, [{
+    key: "init",
+    value: function init(options) {
+      var _this = this;
+
+      var tabs = document.querySelectorAll(options.selector);
+      tabs.forEach(function (element) {
+        _this.setInitialState(element);
+      });
+    }
+  }, {
+    key: "update",
+    value: function update(selector) {
+      var _this2 = this;
+
+      var tabs = document.querySelectorAll(selector || this.options.selector);
+      tabs.forEach(function (element) {
+        _this2.setInitialState(element);
+      });
+    }
+  }, {
+    key: "setInitialState",
+    value: function setInitialState(element) {
+      var _this3 = this;
+
+      var links = element.querySelectorAll(this.options.tabLinks);
+      this.addEvents(links);
+      var historyLink = null;
+      if (this.options.checkHash && window.location.hash) {
+        historyLink = element.querySelector("[" + this.options.attribute + "=\"" + window.location.hash + "\"]");
+      }
+      if (historyLink) {
+        this.setActiveTab(historyLink);
+      } else {
+        links.forEach(function (link, index) {
+          if (index === 0) {
+            _this3.setActiveTab(link);
+          }
+        });
+      }
+    }
+  }, {
+    key: "addEvents",
+    value: function addEvents(links) {
+      var _this4 = this;
+
+      links.forEach(function (link) {
+        link.addEventListener(_this4.options.event, function (event) {
+          event.preventDefault();
+          if (!event.currentTarget.classList.contains(_this4.options.activeClass)) {
+            _this4.setActiveTab(link);
+          }
+        });
+      });
+    }
+  }, {
+    key: "setActiveTab",
+    value: function setActiveTab(activeTab) {
+      activeTab.classList.add(this.options.activeClass);
+      var activeTabID = activeTab.getAttribute(this.options.attribute);
+      if (activeTabID === "#") return;
+      var activeTabBlock = document.querySelector(activeTabID);
+      if (activeTabBlock) {
+        activeTabBlock.classList.add("active");
+      }
+      this.removeTabs(activeTab);
+      if (typeof this.options.onChange === "function") {
+        this.options.onChange();
+      }
+    }
+  }, {
+    key: "removeTabs",
+    value: function removeTabs(activeTab) {
+      var _this5 = this;
+
+      var tabNav = activeTab.closest(this.options.selector);
+      tabNav.querySelectorAll(this.options.tabLinks).forEach(function (element) {
+        if (element !== activeTab) {
+          element.classList.remove("active");
+          var tabID = element.getAttribute(_this5.options.attribute);
+          var tabBlock = document.querySelector(tabID);
+          if (tabBlock) {
+            tabBlock.classList.remove("active");
+          }
+        }
+      });
+    }
+  }]);
+
+  return Tabs;
+}();
+
+exports.default = Tabs;
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
@@ -11638,7 +11792,7 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-__webpack_require__(13);
+__webpack_require__(14);
 
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
@@ -11646,7 +11800,13 @@ function _interopRequireDefault(obj) {
 
 exports.default = function () {
     if (window.innerWidth < 768) {
-        (0, _jquery2.default)('.featured-list').addClass('products-slider');
+        var featured = (0, _jquery2.default)('.featured-list');
+        featured.each(function () {
+            console.log((0, _jquery2.default)(this).parents('.tab').length);
+            if ((0, _jquery2.default)(this).parents('.tab').length == 0) {
+                (0, _jquery2.default)(this).addClass('products-slider');
+            }
+        });
     }
 
     if (window.innerWidth < 1300) {
@@ -11709,7 +11869,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
