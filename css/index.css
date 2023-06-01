@@ -463,6 +463,21 @@ p.error {
     transition: all 0.3s ease-in-out; }
     .content-area a:hover {
       color: #ff8b66; }
+  .content-area .table {
+    overflow: auto; }
+  .content-area table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 500px; }
+    .content-area table thead {
+      background: #4D6562;
+      color: #fff;
+      font-weight: 700; }
+    .content-area table td {
+      padding: 8px;
+      border: 1px solid #B3BDBC; }
+    .content-area table tr:nth-child(even) td {
+      background: #F0F2F2; }
 
 .flex {
   display: -webkit-box;
@@ -4145,7 +4160,7 @@ yx-axis
     background: #E6E9E9;
     border-radius: 90px; }
     .price-filter .ui-slider-range {
-      background: #B3BDBC; }
+      background: #FF3D00; }
   .price-filter .ui-slider-handle {
     background: #fff;
     border: 1px solid #B3BDBC;
@@ -5072,11 +5087,15 @@ yx-axis
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     z-index: 999;
-    max-width: 500px;
+    max-width: 620px;
     width: 100%;
     overflow: hidden;
     max-height: 100%;
-    overflow-y: auto; }
+    overflow-y: auto;
+    font-size: 14px; }
+    @media only screen and (max-width: 767px) {
+      .popup__holder {
+        padding: 30px  15px; } }
   .popup__close {
     position: absolute;
     right: 15px;
@@ -5094,7 +5113,14 @@ yx-axis
     font-weight: 700;
     font-size: 22px;
     line-height: 120%;
-    margin-bottom: 16px; }
+    margin-bottom: 16px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 10px; }
   .popup__footer {
     font-weight: 700;
     font-size: 12px;
@@ -5108,11 +5134,6 @@ yx-axis
   width: 100%;
   height: 100%;
   overflow: hidden; }
-
-.popup-classification {
-  font-size: 14px; }
-  .popup-classification .popup__holder {
-    max-width: 620px; }
 
 .classification-table {
   margin: 16px 0;
@@ -5284,6 +5305,10 @@ yx-axis
   display: flex;
   gap: 8px;
   margin-bottom: 16px; }
+  @media only screen and (max-width: 767px) {
+    .product-info-labels {
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap; } }
 
 .product-label {
   display: -webkit-box;
