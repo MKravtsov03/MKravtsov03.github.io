@@ -14057,7 +14057,7 @@ initMarkapMenu();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ["dev", "category-hub-european.html", "category-hub-real-swords.html", "category.html", "index.html", "product-with-fields.html", "product.html"];
+exports.default = ["dev", "brand-page.html", "cart.html", "category-hub-european.html", "category-hub-real-swords.html", "category.html", "index.html", "product-with-fields.html", "product.html"];
 
 /***/ }),
 /* 12 */
@@ -14164,6 +14164,7 @@ var Popups = function () {
       popupLinkSelector: '.popup-open',
       popupSelector: '.popup',
       closeButtonSelector: '.popup__close',
+      closeHandlerSelector: '.close-popup',
       popupOverlaySelector: '.popup__overlay',
       bugIOSClassName: 'iosBugFixCaret'
     };
@@ -14225,7 +14226,7 @@ var Popups = function () {
       var _this2 = this;
 
       var popupSelector = document.querySelectorAll(this.options.popupSelector);
-      var close = document.querySelectorAll(this.options.closeButtonSelector);
+      var close = document.querySelectorAll(this.options.closeHandlerSelector);
       close.forEach(function (closeElement) {
         closeElement.addEventListener('click', function () {
           popupSelector.forEach(function (popupSelectorElement) {
@@ -14768,13 +14769,14 @@ function _interopRequireDefault(obj) {
 
 exports.default = function () {
     if (window.innerWidth < 768) {
-        var featured = (0, _jquery2.default)('.featured-list');
-        featured.each(function () {
-            console.log((0, _jquery2.default)(this).parents('.tab').length);
-            if ((0, _jquery2.default)(this).parents('.tab').length == 0) {
-                (0, _jquery2.default)(this).addClass('products-slider');
-            }
-        });
+        (0, _jquery2.default)('.featured-list').addClass('products-slider');
+        // const featured = $('.featured-list');
+        // featured.each(function() {
+        //     console.log($(this).parents('.tab').length)
+        //     if($(this).parents('.tab').length == 0) {
+        //         $(this).addClass('products-slider')
+        //     }
+        // })
     }
 
     if (window.innerWidth < 1300) {
