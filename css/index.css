@@ -7553,6 +7553,9 @@ select {
 .search-select .select__list {
   padding-top: 60px; }
 
+.shipping-wrapp {
+  overflow: visible; }
+
 .shipping-heading {
   padding: 40px 0;
   max-width: 840px; }
@@ -7568,7 +7571,12 @@ select {
 .shipping-nav {
   padding: 20px 0;
   border-top: 1px solid #B3BDBC;
-  border-bottom: 1px solid #B3BDBC; }
+  border-bottom: 1px solid #B3BDBC;
+  position: sticky;
+  left: 0;
+  top: 95px;
+  background: #fff;
+  z-index: 3; }
   .shipping-nav__label {
     font-weight: 700;
     font-size: 12px;
@@ -7593,7 +7601,9 @@ select {
     text-decoration: none;
     font-size: 14px;
     -ms-flex-negative: 0;
-    flex-shrink: 0; }
+    flex-shrink: 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; }
     .shipping-nav-item__title {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -7610,11 +7620,14 @@ select {
         -webkit-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out; }
     @media only screen and (min-width: 1025px) {
-      .shipping-nav-item:hover .shipping-nav-item__title {
-        color: #FF3D00;
-        border-color: #FF3D00; }
-        .shipping-nav-item:hover .shipping-nav-item__title svg path {
-          fill: #FF3D00; } }
+      .shipping-nav-item:hover {
+        background: #4D6562;
+        border-color: #4D6562; }
+        .shipping-nav-item:hover .shipping-nav-item__title {
+          color: #fff;
+          border-color: transparent; }
+          .shipping-nav-item:hover .shipping-nav-item__title svg path {
+            fill: #fff; } }
 
 .shipping-title {
   display: -webkit-box;
