@@ -4207,7 +4207,16 @@ yx-axis
     .types-block-list {
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-      gap: 16px; } }
+      gap: 16px; }
+      .types-block-list.slider {
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 0; }
+        .types-block-list.slider .types-block-card {
+          -ms-flex-negative: 0;
+          flex-shrink: 0;
+          margin: 0 8px; } }
   .types-block-list.slider .slick-slide {
     padding: 0 8px; }
   @media only screen and (max-width: 900px) {
@@ -4253,7 +4262,7 @@ yx-axis
     .types-block-card {
       width: calc(50% - 8px);
       font-size: 14px;
-      max-width: 168px; } }
+      max-width: 160px; } }
 
 .types-block .categories-block-list {
   margin-top: 40px; }
@@ -5555,7 +5564,10 @@ yx-axis
     display: none; }
   .search-sidebar {
     max-width: 180px;
-    width: 100%; }
+    width: 100%;
+    background: #F0F2F2;
+    margin: -20px 0 -20px -20px;
+    padding: 20px; }
     .search-sidebar-item {
       margin-bottom: 32px; }
       .search-sidebar-item:last-child {
@@ -5573,22 +5585,23 @@ yx-axis
       padding: 0;
       margin: 0; }
       .search-sidebar__list li {
-        margin-bottom: 8px; }
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: #01231F; }
         .search-sidebar__list li:last-child {
           margin-bottom: 0; }
       .search-sidebar__list a {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
-        font-size: 14px;
-        color: #01231F;
         text-decoration: none;
+        color: #80918F;
         -webkit-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out; }
         @media only screen and (min-width: 1025px) {
@@ -6562,6 +6575,12 @@ yx-axis
 .popup-classification .popup__holder {
   padding-top: 0; }
 
+@media only screen and (max-width: 767px) {
+  .popup-classification .popup__footer {
+    padding-top: 16px;
+    border-top: 1px solid #B3BDBC;
+    margin-top: 16px; } }
+
 .classification-table {
   margin: 16px 0;
   display: -webkit-box;
@@ -6570,6 +6589,10 @@ yx-axis
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   border-bottom: 1px solid #B3BDBC; }
+  @media only screen and (max-width: 767px) {
+    .classification-table {
+      border: none;
+      margin-bottom: 0; } }
 
 .classification-item {
   width: 50%;
@@ -6598,6 +6621,9 @@ yx-axis
     line-height: 135%;
     color: #4D6562;
     text-transform: uppercase; }
+  @media only screen and (max-width: 767px) {
+    .classification-item {
+      width: 100%; } }
 
 .product-heading {
   padding: 20px 0 40px; }
@@ -7022,6 +7048,13 @@ yx-axis
   display: flex;
   gap: 16px;
   margin-bottom: 16px; }
+  @media only screen and (max-width: 767px) {
+    .add-to-cart-block {
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between; } }
 
 .product-add-to-cart {
   width: 100%;
@@ -7177,7 +7210,14 @@ yx-axis
       font-weight: 700; }
     @media only screen and (max-width: 767px) {
       .specifications-table-item {
-        max-width: 100%; } }
+        max-width: 100%;
+        margin: 0 0 10px; } }
+  @media only screen and (max-width: 767px) {
+    .specifications-table {
+      -webkit-columns: 1;
+      -moz-columns: 1;
+      columns: 1;
+      margin: 0; } }
 
 .product-reviews {
   display: -webkit-box;
@@ -7889,7 +7929,7 @@ select {
         font-size: 28px; } }
 
 .shipping-nav {
-  padding: 20px 0;
+  padding: 20px 0 8px;
   border-top: 1px solid #B3BDBC;
   border-bottom: 1px solid #B3BDBC;
   position: sticky;
@@ -7908,7 +7948,9 @@ select {
     display: -ms-flexbox;
     display: flex;
     gap: 8px;
-    overflow: auto; }
+    overflow: auto;
+    padding-bottom: 12px;
+    scrollbar-gutter: stable both-edges; }
     @media only screen and (max-width: 767px) {
       .shipping-nav__list {
         margin-right: -30px; } }

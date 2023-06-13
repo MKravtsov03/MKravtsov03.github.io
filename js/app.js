@@ -14874,14 +14874,14 @@ exports.default = function () {
     });
     (0, _jquery2.default)(".category-page-types-list").slick("slickNext");
 
-    (0, _jquery2.default)(".types-block-list.slider").slick({
-      slidesToShow: 3,
-      centerMode: true,
-      infinite: false,
-      slidesToScroll: 1,
-      variableWidth: true
-    });
-    (0, _jquery2.default)(".types-block-list.slider").slick("slickNext");
+    // $(".types-block-list.slider").slick({
+    //   slidesToShow: 3,
+    //   centerMode: true,
+    //   infinite: false,
+    //   slidesToScroll: 1,
+    //   variableWidth: true
+    // });
+    // $(".types-block-list.slider").slick("slickNext");
   }
 
   (0, _jquery2.default)(".header-cart-products").slick({
