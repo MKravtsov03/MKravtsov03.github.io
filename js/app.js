@@ -11014,7 +11014,7 @@ document.addEventListener('DOMContentLoaded', function () {
   (0, _jquery2.default)('.anchor').on('click', function ancordsLinks(e) {
     var id = (0, _jquery2.default)(this).attr('href');
     e.preventDefault();
-    var top = (0, _jquery2.default)(id).offset().top - 100;
+    var top = (0, _jquery2.default)(id).offset().top - 150;
     (0, _jquery2.default)('body,html').animate({ scrollTop: top }, 1000);
   });
 
@@ -11106,6 +11106,9 @@ document.addEventListener('DOMContentLoaded', function () {
             (0, _jquery2.default)(this).addClass('active');
           }
         });
+      }
+      if ((0, _jquery2.default)(window).scrollTop() < 300) {
+        (0, _jquery2.default)('.shipping-nav-item').removeClass('active');
       }
     });
   });

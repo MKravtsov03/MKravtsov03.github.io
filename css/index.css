@@ -4342,14 +4342,18 @@ yx-axis
         .types-block-list.slider .types-block-card {
           -ms-flex-negative: 0;
           flex-shrink: 0;
-          margin: 0 8px; }
-          .types-block-list.slider .types-block-card:first-child {
-            margin-left: 30px; } }
+          margin: 0 8px; } }
   .types-block-list.slider .slick-slide {
     padding: 0 8px; }
   @media only screen and (max-width: 900px) {
     .types-block-list.slider {
-      margin: 0 -15px; } }
+      margin: 0 -15px 0 0; } }
+  @media only screen and (max-width: 900px) {
+    .types-block-list.slider .types-block-card {
+      width: 100%;
+      height: 137px;
+      font-size: 14px;
+      max-width: 160px; } }
 
 .types-block-card {
   background: #fff;
@@ -4388,10 +4392,7 @@ yx-axis
       border-color: #FF3D00; } }
   @media only screen and (max-width: 900px) {
     .types-block-card {
-      width: 100%;
-      height: 137px;
-      font-size: 14px;
-      max-width: 160px; } }
+      width: calc(50% - 10px); } }
 
 .types-block .categories-block-list {
   margin-top: 40px; }
@@ -4720,7 +4721,7 @@ yx-axis
         padding: 0 7px; }
       @media only screen and (max-width: 900px) {
         .category-page-types-list {
-          margin: 0 -15px; } }
+          margin: 0 -15px 0 0; } }
   .category-page-type {
     background: #fff;
     border: 1px solid #B3BDBC;
@@ -7193,13 +7194,6 @@ yx-axis
   display: flex;
   gap: 16px;
   margin-bottom: 16px; }
-  @media only screen and (max-width: 767px) {
-    .add-to-cart-block {
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between; } }
 
 .product-add-to-cart {
   width: 100%;
@@ -8099,7 +8093,7 @@ select {
     scrollbar-gutter: stable both-edges; }
     @media only screen and (max-width: 767px) {
       .shipping-nav__list {
-        margin-right: -30px; } }
+        margin-right: -15px; } }
   .shipping-nav-item {
     border: 1px solid #B3BDBC;
     border-radius: 2px;
@@ -8144,6 +8138,9 @@ select {
           border-color: transparent; }
           .shipping-nav-item:hover .shipping-nav-item__title svg path {
             fill: #fff; } }
+    @media only screen and (max-width: 767px) {
+      .shipping-nav-item:last-child {
+        margin-right: 30px; } }
 
 .shipping-title {
   display: -webkit-box;
