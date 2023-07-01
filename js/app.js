@@ -11140,6 +11140,51 @@ document.addEventListener("DOMContentLoaded", function () {
     (0, _jquery2.default)('.terminology-slider').slick('slickGoTo', (0, _jquery2.default)(this).index());
     console.log((0, _jquery2.default)(this).index());
   });
+
+  (0, _jquery2.default)(".wiki-heading__list a").on("click", function ancordsLinks(e) {
+    var id = (0, _jquery2.default)(this).attr("href");
+    e.preventDefault();
+    var top = (0, _jquery2.default)(id).offset().top - 170;
+    (0, _jquery2.default)("body,html").animate({ scrollTop: top }, 800);
+  });
+
+  (0, _jquery2.default)(window).on("scroll", function () {
+    (0, _jquery2.default)(".wiki-section").each(function () {
+      var sectionTop = (0, _jquery2.default)(this).offset().top;
+      var sectionHeight = (0, _jquery2.default)(this).height();
+      console.log({ sectionTop: sectionTop, sectionHeight: sectionHeight });
+      if ((0, _jquery2.default)(window).scrollTop() >= sectionTop - 190 && (0, _jquery2.default)(window).scrollTop() <= sectionTop + sectionHeight) {
+        var current = (0, _jquery2.default)(this).attr("id");
+        (0, _jquery2.default)(".wiki-heading__list a").each(function () {
+          if ((0, _jquery2.default)(this).attr("href") == "#" + current) {
+            (0, _jquery2.default)(".wiki-heading__list a").removeClass("active");
+            (0, _jquery2.default)(this).addClass("active");
+          }
+        });
+      }
+      if ((0, _jquery2.default)(window).scrollTop() < 140) {
+        (0, _jquery2.default)(".wiki-heading__list a").removeClass("active");
+      }
+    });
+
+    (0, _jquery2.default)(".faq-category").each(function () {
+      var sectionTop = (0, _jquery2.default)(this).offset().top;
+      var sectionHeight = (0, _jquery2.default)(this).height();
+      if ((0, _jquery2.default)(window).scrollTop() >= sectionTop - 190 && (0, _jquery2.default)(window).scrollTop() <= sectionTop + sectionHeight) {
+        var current = (0, _jquery2.default)(this).attr("id");
+        console.log(current);
+        (0, _jquery2.default)(".faq-nav a").each(function () {
+          if ((0, _jquery2.default)(this).attr("href") == "#" + current) {
+            (0, _jquery2.default)(".faq-nav a").removeClass("active");
+            (0, _jquery2.default)(this).addClass("active");
+          }
+        });
+      }
+      if ((0, _jquery2.default)(window).scrollTop() < 100) {
+        (0, _jquery2.default)(".faq-nav a").removeClass("active");
+      }
+    });
+  });
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
@@ -14185,7 +14230,7 @@ initMarkapMenu();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ["dev", "404.html", "blog-category-comparisons.html", "blog-category-guides.html", "blog.html", "brand-page.html", "cart-empty.html", "cart.html", "category-brand.html", "category-hub-european.html", "category-hub-real-swords.html", "category.html", "contact-sent.html", "contact.html", "faq.html", "index.html", "product-with-fields.html", "product.html", "shipping.html"];
+exports.default = ["dev", "404.html", "blog-category-comparisons.html", "blog-category-guides.html", "blog.html", "brand-page.html", "cart-empty.html", "cart.html", "category-brand.html", "category-hub-european.html", "category-hub-real-swords.html", "category.html", "contact-sent.html", "contact.html", "faq.html", "index.html", "product-with-fields.html", "product.html", "shipping.html", "wiki.html"];
 
 /***/ }),
 /* 12 */
