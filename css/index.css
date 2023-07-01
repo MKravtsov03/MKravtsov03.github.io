@@ -3582,6 +3582,19 @@ yx-axis
 
 .blog-header .nav-btn {
   display: none; }
+  @media only screen and (max-width: 900px) {
+    .blog-header .nav-btn {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; } }
+
+.blog-header .header-nav {
+  display: none; }
+  @media only screen and (max-width: 900px) {
+    .blog-header .header-nav {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; } }
 
 .blog-heading {
   background-image: url("../data/blog-hero.png");
