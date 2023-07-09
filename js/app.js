@@ -10999,6 +10999,14 @@ document.addEventListener("DOMContentLoaded", function () {
     plugins: []
   });
 
+  (0, _lightgallery2.default)(document.getElementById("comparison-table"), {
+    speed: 500,
+    selector: ".comparison-table__head-cell a",
+    controls: true,
+    download: false,
+    plugins: []
+  });
+
   (0, _jquery2.default)(window).on("load resize", function () {
     if (window.innerWidth < 1101) {
       (0, _jquery2.default)(".product-heading-holder").prepend((0, _jquery2.default)(".product-heading .product-info-rating"));
@@ -11182,6 +11190,24 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       if ((0, _jquery2.default)(window).scrollTop() < 100) {
         (0, _jquery2.default)(".faq-nav a").removeClass("active");
+      }
+    });
+
+    (0, _jquery2.default)(".article-content .content-area").each(function () {
+      var sectionTop = (0, _jquery2.default)(this).offset().top;
+      var sectionHeight = (0, _jquery2.default)(this).height();
+      if ((0, _jquery2.default)(window).scrollTop() >= sectionTop - 190 && (0, _jquery2.default)(window).scrollTop() <= sectionTop + sectionHeight) {
+        var current = (0, _jquery2.default)(this).attr("id");
+        console.log(current);
+        (0, _jquery2.default)(".article-nav a").each(function () {
+          if ((0, _jquery2.default)(this).attr("href") == "#" + current) {
+            (0, _jquery2.default)(".article-nav a").removeClass("active");
+            (0, _jquery2.default)(this).addClass("active");
+          }
+        });
+      }
+      if ((0, _jquery2.default)(window).scrollTop() < 100) {
+        (0, _jquery2.default)(".article-nav a").removeClass("active");
       }
     });
   });
@@ -14230,7 +14256,7 @@ initMarkapMenu();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ["dev", "404.html", "author-page.html", "blog-category-comparisons.html", "blog-category-guides.html", "blog.html", "brand-page.html", "cart-empty.html", "cart.html", "category-brand.html", "category-hub-european.html", "category-hub-real-swords.html", "category.html", "contact-sent.html", "contact.html", "faq.html", "index.html", "product-with-fields.html", "product.html", "shipping.html", "wiki-page.html", "wiki.html"];
+exports.default = ["dev", "404.html", "article.html", "author-page.html", "blog-category-comparisons.html", "blog-category-guides.html", "blog.html", "brand-page.html", "cart-empty.html", "cart.html", "category-brand.html", "category-hub-european.html", "category-hub-real-swords.html", "category.html", "contact-sent.html", "contact.html", "faq.html", "index.html", "product-with-fields.html", "product.html", "shipping.html", "wiki-page.html", "wiki.html"];
 
 /***/ }),
 /* 12 */
