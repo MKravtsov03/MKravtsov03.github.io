@@ -9967,7 +9967,7 @@ select {
   background-size: cover;
   padding: 57px  15px; }
   .wiki-page-heading__inner {
-    max-width: 680px;
+    max-width: 720px;
     margin: 0 auto; }
   .wiki-page-heading__back {
     display: -webkit-box;
@@ -10031,7 +10031,10 @@ select {
         gap: 16px; } }
 
 .wiki-page-content {
-  max-width: 680px;
+  max-width: 720px;
+  width: 100%;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   border-radius: 2px;
   border: 8px solid #F0F2F2;
   padding: 40px; }
@@ -10055,6 +10058,7 @@ select {
   font-size: 17px;
   font-weight: 700;
   line-height: 155%;
+  width: 100%;
   text-decoration: none;
   color: #B3BDBC;
   -webkit-transition: all 0.3s ease-in-out;
