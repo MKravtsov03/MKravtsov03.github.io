@@ -11211,6 +11211,28 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  (0, _jquery2.default)('.mobile-search-handler').on('click', function () {
+    if ((0, _jquery2.default)(this).hasClass('active')) {
+      (0, _jquery2.default)(this).removeClass('active');
+      (0, _jquery2.default)('.header-inner .search').hide();
+    } else {
+      (0, _jquery2.default)(this).addClass('active');
+      (0, _jquery2.default)('.header-inner .search').show();
+    }
+  });
+
+  (0, _jquery2.default)('.blog-head-search__handler').on('click', function () {
+    if ((0, _jquery2.default)(this).hasClass('active')) {
+      (0, _jquery2.default)(this).removeClass('active');
+      (0, _jquery2.default)('.header__overlay').hide();
+      (0, _jquery2.default)('.blog-search').removeClass('active');
+    } else {
+      (0, _jquery2.default)(this).addClass('active');
+      (0, _jquery2.default)('.header__overlay').show();
+      (0, _jquery2.default)('.blog-search').addClass('active');
+    }
+  });
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 

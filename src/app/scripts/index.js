@@ -361,4 +361,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
+  $('.mobile-search-handler').on('click', function () {
+    if ($(this).hasClass('active')) {
+      $(this).removeClass('active');
+      $('.header-inner .search').hide();
+    } else {
+      $(this).addClass('active');
+      $('.header-inner .search').show();
+    }
+  })
+
+  $('.blog-head-search__handler').on('click', function () {
+    if ($(this).hasClass('active')) {
+      $(this).removeClass('active');
+      $('.header__overlay').hide();
+      $('.blog-search').removeClass('active');
+    } else {
+      $(this).addClass('active');
+      $('.header__overlay').show();
+      $('.blog-search').addClass('active');
+    }
+  })
+
 });
