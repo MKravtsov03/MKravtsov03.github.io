@@ -1,0 +1,360 @@
+.wiki-wrapp {
+  overflow: visible;
+  padding-top: 85px;
+}
+
+.wiki-heading {
+  background: $main-10;
+  padding: 40px 15px 0;
+  &__inner {
+    max-width: 1017px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 110%;
+    margin: 0 0 16px;
+    text-align: center;
+  }
+  &-search {
+    position: relative;
+    max-width: 320px;
+    width: 100%;
+    &__field {
+      width: 100%;
+      border-radius: 99px;
+      border: 1px solid $main-30;
+      background: #fff;
+      height: 35px;
+      padding: 0 35px 0 16px;
+    }
+    &__btn {
+      position: absolute;
+      right: 16px;
+      top: 0;
+      background: none;
+      border: none;
+      padding: 0;
+      height: 35px;
+      cursor: pointer;
+    }
+  }
+  &__bot {
+    background: $main-10;
+    padding: 20px 15px;
+    position: sticky;
+    top: 85px;
+    z-index: 2;
+    overflow: hidden;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    list-style: none;
+    text-transform: uppercase;
+    max-width: 1017px;
+    margin: 0 auto;
+    padding: 0;
+    overflow-x: auto;
+    width: 100%;
+    a {
+      font-size: 17px;
+      display: block;
+      padding: 0 10px;
+      font-weight: 700;
+      line-height: 155%;
+      color: $main-50;
+      text-decoration: none;
+      position: relative;
+      @include transition();
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-bottom: 2px solid $accent;
+        width: 0;
+        @include transition();
+      }
+      @include hover {
+        color: $accent;
+      }
+      &.active {
+        color: $accent;
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+.wiki {
+  &-holder {
+    max-width: 1047px;
+    padding: 40px 15px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  &-sidebar {
+    max-width: 290px;
+    width: 100%;
+    @include response(900px) {
+      display: none;
+    }
+  }
+  &-filters {
+    position: sticky;
+    top: 165px;
+    padding: 16px;
+    border: 1px solid $main-30;
+    border-radius: 2px;
+    &__title {
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 155%;
+      padding-bottom: 8px;
+      border-bottom: 1px solid $main-30;
+      margin-bottom: 8px;
+    }
+    &__item {
+      display: block;
+      margin-bottom: 16px;
+    }
+  }
+  &-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+    border-bottom: 1px solid $main-30;
+    margin-bottom: 20px;
+    width: 100%;
+    &__title {
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 110%;
+      position: sticky;
+      top: 155px;
+      @include response(767px) {
+        font-size: 32px;
+      }
+    }
+    &__content {
+      width: 100%;
+    }
+    &:last-child {
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+    @include response(767px) {
+      gap: 16px;
+    }
+  }
+}
+.wiki-item {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid $main-30;
+  border-radius: 2px;
+  display: block;
+  color: #000;
+  text-decoration: none;
+  background: #fff;
+  width: 100%;
+  @include transition();
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  &__title {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 120%;
+    @include transition();
+  }
+  &__icon {
+    background: $main-6;
+    padding: 4px;
+    width: 26px;
+    height: 26px;
+    border-radius: 2px;
+  }
+  &__content  {
+    font-size: 14px;
+  }
+  @include hover {
+    border-color: $accent;
+    .wiki-item__title {
+      color: $accent;
+    }
+  }
+  &.empty {
+    background: $main-10;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    border-color: $main-30;
+    .wiki-item__heading {
+      margin-bottom: 0;
+    }
+    .wiki-item__title {
+      font-size: 17px;
+      color: #000;
+    }
+  }
+}
+
+.wiki-page {
+  &-heading {
+    background-image: url(../data/wiki-page-banner.jpg);
+    background-position: center;
+    background-size: cover;
+    padding: 57px  15px;
+    &__inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    &__back {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: $main;
+      font-size: 17px;
+      line-height: 155%;
+      margin-bottom: 13px;
+      gap: 8px;
+      &-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 2px;
+        background: $main-50;
+        @include transition();
+      }
+      @include hover {
+        .wiki-page-heading__back-icon {
+          background: $accent;
+        }
+      }
+    }
+    &__title {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 110%;
+    }
+  }
+  &-block {
+    padding: 40px 15px;
+    &-inner {
+      max-width: 1280px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      margin: 0 auto;
+      @include response(900px) {
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+      }
+    }
+  }
+  &-content {
+    max-width: 720px;
+    width: 100%;
+    flex-shrink: 0;
+    border-radius: 2px;
+    border: 8px solid $main-6;
+    padding: 40px;
+    a {
+      font-weight: 400;
+    }
+    @include response(767px) {
+      padding: 25px;
+      border-width: 4px;
+    }
+  }
+  &-link {
+    position: sticky;
+    top: 200px;
+    display: flex;
+    flex-direction: column;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 155%;
+    width: 100%;
+    text-decoration: none;
+    color: $main-30;
+    @include transition();
+    &:first-child {
+      align-items: flex-end;
+      text-align: right;
+      @include response(900px) {
+       order: 1;
+      }
+    }
+    @include hover {
+      color: $accent;
+    }
+    @include response(900px) {
+      order: 2;
+      position: static;
+      width: calc(50% - 8px);
+      font-size: 14px;
+    }
+  }
+  &-footer {
+    padding: 24px 0 40px;
+    border-top: 1px solid $main-30;
+    &__title {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 110%;
+      color: $main-50;
+      margin-bottom: 24px;
+    }
+  }
+  &-related {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    &-item {
+      width: 100%;
+      max-width: 305px;
+      border: 1px solid $main-30;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 155%;
+      color: #000;
+      text-decoration: none;
+      @include transition();
+      @include hover {
+        color: $accent;
+        border-color: $accent;
+      }
+      @include response(767px) {
+        width: calc(50% - 6px);
+      }
+    }
+    @include response(767px) {
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  }
+}

@@ -1,0 +1,213 @@
+ .brand-holder {
+    padding: 40px 15px 60px;
+   @include response(900px){
+     padding-top: 0;
+   }
+  }
+
+ .brand-heading {
+   max-width: 840px;
+   padding: 30px;
+   background: $main-10;
+   border-radius: 2px;
+   margin-bottom: 40px;
+   &__title {
+     font-weight: 700;
+     font-size: 32px;
+     line-height: 110%;
+     margin-bottom: 20px;
+   }
+   &__caption {
+     font-size: 16px;
+     line-height: 155%;
+     margin-bottom: 24px;
+     color: $main;
+   }
+   &__note {
+     padding: 16px;
+     background: #fff;
+     border: 1px solid $main-30;
+     border-radius: 2px;
+     color: $main;
+     display: flex;
+     align-items: center;
+     gap: 6px;
+     font-size: 14px;
+     svg {
+       flex-shrink: 0;
+     }
+   }
+   @include response(900px) {
+     margin: 0 -15px 24px;
+     padding: 32px 15px;
+   }
+ }
+
+ .brand-page-list  {
+   display: flex;
+   gap: 40px;
+   flex-wrap: wrap;
+   align-items: flex-start;
+   @include response(1100px) {
+     gap: 16px;
+   }
+ }
+ .brand-item {
+   background: #FFFFFF;
+   border: 1px solid $main-30;
+   border-radius: 2px;
+   padding: 16px;
+   max-width: 400px;
+   width: calc(100% / 3 - 28px);
+   @include response(1100px) {
+     width: calc(50% - 8px);
+   }
+   @include response(767px) {
+     width: 100%;
+   }
+   &__heading {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 16px;
+     margin-bottom: 16px;
+   }
+   &__title {
+     font-weight: 700;
+     line-height: 155%;
+     color: #000;
+     text-decoration: none;
+     margin-bottom: 10px;
+     display: flex;
+     @include transition();
+     @include hover {
+       color: $accent;
+     }
+   }
+   &__count {
+     font-size: 14px;
+     display: flex;
+     align-items: center;
+     gap: 4px;
+     margin-bottom: 10px;
+   }
+   &__logo {
+     width: 100px;
+     height: 84px;
+     overflow: hidden;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     img {
+       max-width: 80px;
+     }
+   }
+   &__categories {
+     background: $main-10;
+     border: 1px solid $main-30;
+     border-radius: 2px;
+     padding: 10px 16px;
+     max-width: 368px;
+     @include transition();
+     &-header {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       cursor: pointer;
+       font-size: 14px;
+       font-weight: 700;
+       color: $main;
+     }
+     &-title {
+       display: flex;
+       align-items: center;
+       gap: 6px;
+     }
+     &-opener {
+       width: 20px;
+       height: 20px;
+       border-radius: 50%;
+       background: $main-50;
+       position: relative;
+       @include transition();
+       &::before,
+       &::after{
+         width: 10px;
+         height: 2px;
+         background: #fff;
+         border-radius: 2px;
+         content: '';
+         position: absolute;
+         left: calc(50% - 5px);
+         top: calc(50% - 1px);
+         @include transition();
+       }
+       &::after {
+         transform: rotate(90deg);
+       }
+     }
+     &-inner {
+       font-size: 14px;
+       padding-top: 10px;
+       line-height: 135%;
+       a {
+         text-decoration: none;
+         color: #000;
+         @include transition();
+         @include hover {
+           color: $accent;
+           text-decoration: underline;
+         }
+       }
+     }
+     &.active {
+       background: #fff;
+       .brand-item__categories-opener {
+         background: $main-70;
+         &::after {
+           transform: rotate(0deg);
+         }
+       }
+     }
+   }
+ }
+
+ .for-suppliers {
+   background-size: cover;
+   background-repeat: no-repeat;
+   padding: 60px 15px;
+   &__inner {
+     max-width: 1060px;
+     margin: 0 auto;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 30px;
+     @include response(767px) {
+       flex-wrap: wrap;
+       justify-content: center;
+     }
+   }
+   &__content {
+     color: #fff;
+     max-width: 510px;
+   }
+   &__thumb {
+     flex-shrink: 0;
+     max-width: 50%;
+     border: 1px solid $accent;
+     @include response(767px) {
+       max-width: 100%;
+     }
+   }
+   &__title {
+     font-weight: 700;
+     font-size: 32px;
+     line-height: 110%;
+     border-bottom: 1px solid $main-50;
+     margin-bottom: 20px;
+   }
+   @include response(900px) {
+     padding: 48px 15px;
+   }
+ }

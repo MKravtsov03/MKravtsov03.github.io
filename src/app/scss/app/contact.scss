@@ -1,0 +1,162 @@
+.contact {
+  &-holder {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0 0;
+    gap: 40px;
+    @include response(900px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0;
+      gap: 32px;
+    }
+  }
+  &-info {
+    max-width: 620px;
+    width: 100%;
+    padding-top: 60px;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 700px;
+      height: 434px;
+      background-image: url("../data/contact-deco.jpg");
+      background-size: cover;
+      top: -90px;
+      right: 0;
+    }
+    &-inner {
+      padding: 40px;
+      background: #fff;
+      border: 1px solid $main-30;
+      border-radius: 2px;
+      position: relative;
+      z-index: 2;
+      @include response(767px) {
+        padding: 32px 15px 0;
+      }
+    }
+    &__title {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 110%;
+      border-bottom: 1px solid $main-30;
+      margin-bottom: 40px;
+    }
+    &__caption {
+      margin-bottom: 24px;
+    }
+    &__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      padding: 4px 8px;
+      background: $main-10;
+      color: $main;
+    }
+    &.sent {
+      padding-top: 0;
+      margin-bottom: 60px;
+      @include response(767px) {
+        margin-bottom: 0;
+      }
+    }
+    @include response(767px) {
+      margin: 0 -15px;
+      width: auto;
+      padding-top: 0;
+    }
+  }
+}
+
+.contact-forms {
+  max-width: 510px;
+  width: 100%;
+  &-tabs.tabs-list {
+    margin: 0;
+    padding-left: 30px;
+    a {
+      display: flex;
+      gap: 10px;
+      max-width: 135px;
+      background: $main-10;
+      padding: 10px;
+      color: $main-70;
+      height: 60px;
+      border: none;
+      border-radius: 0;
+      @include transition();
+      svg {
+        flex-shrink: 0;
+      }
+      svg path {
+        @include transition();
+      }
+      &.active,
+      &:hover {
+        color: #fff;
+        background: $main;
+        svg path {
+          fill: #fff;
+        }
+      }
+    }
+    @include response(767px) {
+      padding-left: 0;
+    }
+  }
+  &-inner {
+    padding: 30px;
+    background: $main-70;
+    @include response(767px) {
+      margin: 0 -15px;
+    }
+  }
+}
+
+.contact-form {
+  &__title {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 120%;
+    color: #fff;
+    border-bottom: 1px solid $main-50;
+    margin-bottom: 20px;
+  }
+
+  .button {
+    width: 100%;
+    height: 42px;
+  }
+
+  .custom-checkbox {
+    &__box {
+      border-color: #fff;
+    }
+    &__label {
+      color: #fff;
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.message-sent {
+  &-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 120%;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  &-caption {
+    line-height: 155%;
+    color: #fff;
+  }
+}

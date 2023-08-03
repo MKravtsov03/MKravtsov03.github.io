@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'head.html' %}
+<body>
+<div class="wrapp error-wrapp">
+    {% include 'header.html' %}
+        <div class="error-holder">
+            <div class="error-title">
+                Oops! There seems to be a problem
+            </div>
+            <div class="error-thumb">
+                <img src="./data/error.svg" alt="">
+            </div>
+            <div class="error-caption content-area">
+                The page you are looking for doesn't exist or is no longer available on our website. If the problem persists,
+                <a href="">get in touch with us.</a>
+            </div>
+            <a href="/" class="button error-link">
+                BACK TO HOMEPAGE
+            </a>
+        </div>
+    {% include 'footer.html' %}
+</div>
+</body>
+</html>

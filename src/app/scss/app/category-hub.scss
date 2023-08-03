@@ -1,0 +1,310 @@
+.category-hub {
+  &-heading {
+    background: #fff;
+    border-bottom: 1px solid $main-30;
+    position: relative;
+
+    &__holder {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: auto;
+      min-height: 226px;
+      @include response(1220px) {
+        flex-direction: column;
+        gap: 16px;
+        padding-top: 16px;
+      }
+    }
+    &__inner {
+      max-width: 620px;
+    }
+    &__title{
+      font-weight: 700;
+      font-size: 32px;
+      margin: 0 0 16px;
+    }
+    &__content {
+      font-size: 14px;
+    }
+    &__thumb {
+      position: absolute;
+      right: 0;
+      top: 0;
+      @include response(1220px) {
+        position: static;
+        margin: 0 -15px;
+      }
+    }
+  }
+}
+
+.types-block {
+  .flickity-viewport  {
+    width: 100%;
+  }
+  &-list {
+    display: flex;
+    gap: 20px;
+    @include response(900px) {
+      flex-wrap: wrap;
+      gap: 16px;
+      &.slider {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 0;
+        .types-block-card  {
+          flex-shrink: 0;
+          margin: 0 8px;
+        }
+      }
+    }
+    &.slider {
+      .slick-slide {
+        padding: 0 8px;
+      }
+      @include response(900px) {
+        margin: 0 -15px 0 0;
+      }
+      .types-block-card {
+        @include response(900px) {
+          width: 100%;
+          height: 137px;
+          font-size: 14px;
+          max-width: 160px;
+        }
+      }
+    }
+  }
+  &-card {
+    background: #fff;
+    border-radius: 2px;
+    border: 1px solid $main-30;
+    overflow: hidden;
+    line-height: 155%;
+    font-size: 17px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    width: calc(20% - 10px);
+    max-width: 240px;
+    @include transition();
+    &__title{
+      height: 53px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 8px;
+      border-top: 1px solid $main-30;
+      @include response(900px) {
+        height: 40px;
+      }
+    }
+    @include hover() {
+      color: $accent;
+      border-color: $accent;
+    }
+    @include response(900px) {
+      width: calc(50% - 10px);
+    }
+  }
+  .categories-block-list {
+    margin-top: 40px;
+  }
+}
+
+.swords {
+  &-block  {
+    padding: 60px 0;
+  }
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    &.list-3 {
+      gap: 20px;
+      .swords-item {
+        width: calc(33.33333% - 10px);
+        max-width: 413px;
+      }
+      @include response(1300px){
+        justify-content: center;
+        .swords-item {
+          width: calc(33.33333% - 14px);
+        }
+      }
+      @include response(1000px){
+        .swords-item {
+          width: 100%;
+          max-width: 413px;
+        }
+      }
+    }
+    &.list-4 {
+      gap: 16px;
+      @include response(1000px){
+       justify-content: center;
+      }
+      .swords-item {
+        width: calc(25% - 12px);
+        max-width: 308px;
+        @include response(1000px){
+          width: calc(50% - 12px);
+        }
+        @include response(767px){
+          width: 100%;
+          max-width: 400px;
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+    }
+  }
+  &-item  {
+    border: 1px solid $main-30;
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    &__inner {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      flex: 1 1 auto;
+    }
+    &__title {
+      font-weight: 700;
+      font-size: 17px;
+      line-height: 155%;
+      margin-bottom: 10px;
+    }
+    &__caption {
+      font-size: 14px;
+      line-height: 135%;
+    }
+    &__props {
+      &-title {
+        font-weight: 700;
+        font-size: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid $main-30;
+        color: $main-50;
+        margin-bottom: 8px;
+      }
+      &-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      &-tag {
+        border: 1px solid $main-30;
+        border-radius: 2px;
+        background: $main-6;
+        padding: 4px 8px;
+        font-weight: 700;
+        font-size: 14px;
+        color: #000;
+        text-decoration: none;
+        @include transition();
+        @include hover{
+          border-color: $main-70;
+          color: $main-70;
+        }
+      }
+    }
+    &__footer  {
+      border-top: 1px solid $main-30;
+      padding-top: 10px;
+    }
+  }
+}
+
+.faq {
+  .page-header {
+    margin-bottom: 32px;
+    &__title {
+      text-transform: capitalize;
+    }
+  }
+  &-inner {
+    max-width: 870px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+  &-item {
+    background: $main-6;
+    border: 1px solid $main-50;
+    border-radius: 2px;
+    margin-bottom: 8px;
+    @include transition();
+    &__heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      gap: 20px;
+      cursor: pointer;
+      padding: 16px;
+    }
+    &__opener {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      position: relative;
+      background: $main-50;
+      &::before,
+      &::after{
+        width: 10px;
+        height: 2px;
+        background: #fff;
+        border-radius: 2px;
+        content: '';
+        position: absolute;
+        left: calc(50% - 5px);
+        top: calc(50% - 1px);
+        @include transition();
+      }
+      &::after {
+        transform: rotate(90deg);
+      }
+    }
+    &__content {
+      padding: 0 16px 16px;
+      font-size: 14px;
+    }
+    &.active {
+      background: #fff;
+      border-color: $main-30;
+      .faq-item__opener::after {
+        transform: rotate(0deg);
+      }
+    }
+  }
+}
+
+.featured-tabs-block  {
+  .featured-list {
+    @include response(1200px) {
+      flex-wrap: wrap;
+    }
+    @include response(767px) {
+      gap: 8px;
+    }
+  }
+  .product-item {
+    max-width: calc(50% - 6px);
+    &__btn {
+      padding: 0 16px;
+    }
+    @include response(767px) {
+      max-width: 240px;
+    }
+  }
+}

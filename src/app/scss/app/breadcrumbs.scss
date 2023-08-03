@@ -1,0 +1,35 @@
+.breadcrumbs {
+  margin-bottom: 20px;
+  &-list {
+    padding: 8px 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 10px;
+    font-size: 14px;
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      &::after {
+        content: '';
+        @include triangle(right, 5px, $main-70);
+        position: static;
+      }
+      &:last-child::after {
+        display: none;
+      }
+    }
+    a  {
+      text-decoration: none;
+      color: #000;
+    }
+    span {
+      color: $main-50;
+    }
+  }
+  @include response(900px) {
+    margin-bottom: 0;
+  }
+}
