@@ -7502,6 +7502,9 @@ yx-axis
     text-transform: uppercase;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out; }
+    .sub-nav__link.main {
+      text-transform: uppercase;
+      color: #FF3D00; }
     .sub-nav__link svg {
       -webkit-transform: rotate(-90deg);
       transform: rotate(-90deg);

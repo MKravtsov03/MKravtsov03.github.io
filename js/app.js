@@ -11052,6 +11052,8 @@ document.addEventListener("DOMContentLoaded", function () {
         currentItem.siblings().hide();
         currentItem.show();
         (0, _jquery2.default)(link).addClass("active");
+        console.log(link);
+        currentItem.children(".sub-nav").append("<li class=\"sub-nav__item\"><a href=\"" + (0, _jquery2.default)(link).attr('href') + "\" class=\"sub-nav__link main\">ALL " + (0, _jquery2.default)(link).text() + "</a></li>");
         currentItem.children(".sub-nav").show();
         (0, _jquery2.default)(link).prepend(backBtn);
         if (selector === "sub-nav") {
@@ -16664,13 +16666,13 @@ exports.default = function () {
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
+    infinite: false,
     asNavFor: (0, _jquery2.default)(".product-thumb-nav"),
     responsive: [{
       breakpoint: 767,
       settings: {
         arrows: false,
         variableWidth: true,
-        infinite: true,
         fade: false
       }
     }]
