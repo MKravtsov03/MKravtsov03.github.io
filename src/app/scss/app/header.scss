@@ -45,10 +45,14 @@
       gap: 24px;
       @include response(900px) {
         width: 100%;
+        gap: 55px;
       }
     }
     &__right {
       gap: 32px;
+      @include response(900px) {
+        gap: 10px;
+      }
     }
     &__item {
       text-decoration: none;
@@ -689,6 +693,10 @@
     margin-bottom: 10px;
     text-transform: uppercase;
     @include transition();
+    &.main {
+      text-transform: uppercase;
+      color: $accent;
+    }
     svg {
       transform: rotate(-90deg);
       flex-shrink: 0;
@@ -756,6 +764,7 @@
 }
 
 .mobile-search-handler {
+  display: none;
   background: none;
   padding: 0;
   border: none;
@@ -769,5 +778,8 @@
     .icon {
       display: none;
     }
+  }
+  @include response(900px) {
+    display: block;
   }
 }

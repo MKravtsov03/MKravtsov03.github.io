@@ -177,6 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentItem.siblings().hide();
         currentItem.show();
         $(link).addClass("active");
+        currentItem.children(".sub-nav").append(`<li class="sub-nav__item main"><a href="${$(link).attr('href')}" class="sub-nav__link main">ALL ${$(link).text()}</a></li>`);
         currentItem.children(".sub-nav").show();
         $(link).prepend(backBtn);
         if (selector === "sub-nav") {
@@ -197,6 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       } else {
         currentItem.find(".sub-nav").hide();
+        currentItem.find(".sub-nav__item.main").remove();
         currentItem
           .parent()
           .find(`.${selector}__item`)

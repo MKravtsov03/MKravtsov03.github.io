@@ -176,14 +176,15 @@ export default () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
+    infinite: false,
     asNavFor: $(".product-thumb-nav"),
     responsive: [
       {
         breakpoint: 767,
         settings: {
           arrows: false,
+          infinite: false,
           variableWidth: true,
-          infinite: true,
           fade: false
         }
       }

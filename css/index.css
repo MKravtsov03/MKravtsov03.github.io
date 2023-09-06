@@ -6864,9 +6864,13 @@ yx-axis
       gap: 24px; }
       @media only screen and (max-width: 900px) {
         .header-inner__left {
-          width: 100%; } }
+          width: 100%;
+          gap: 55px; } }
     .header-inner__right {
       gap: 32px; }
+      @media only screen and (max-width: 900px) {
+        .header-inner__right {
+          gap: 10px; } }
     .header-inner__item {
       text-decoration: none;
       color: #fff;
@@ -7577,6 +7581,7 @@ yx-axis
   text-transform: capitalize; }
 
 .mobile-search-handler {
+  display: none;
   background: none;
   padding: 0;
   border: none; }
@@ -7586,6 +7591,9 @@ yx-axis
     display: block; }
   .mobile-search-handler.active .icon {
     display: none; }
+  @media only screen and (max-width: 900px) {
+    .mobile-search-handler {
+      display: block; } }
 
 .main-heading {
   background-repeat: no-repeat;

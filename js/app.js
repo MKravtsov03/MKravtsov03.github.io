@@ -11052,8 +11052,7 @@ document.addEventListener("DOMContentLoaded", function () {
         currentItem.siblings().hide();
         currentItem.show();
         (0, _jquery2.default)(link).addClass("active");
-        console.log(link);
-        currentItem.children(".sub-nav").append("<li class=\"sub-nav__item\"><a href=\"" + (0, _jquery2.default)(link).attr('href') + "\" class=\"sub-nav__link main\">ALL " + (0, _jquery2.default)(link).text() + "</a></li>");
+        currentItem.children(".sub-nav").append("<li class=\"sub-nav__item main\"><a href=\"" + (0, _jquery2.default)(link).attr('href') + "\" class=\"sub-nav__link main\">ALL " + (0, _jquery2.default)(link).text() + "</a></li>");
         currentItem.children(".sub-nav").show();
         (0, _jquery2.default)(link).prepend(backBtn);
         if (selector === "sub-nav") {
@@ -11072,6 +11071,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       } else {
         currentItem.find(".sub-nav").hide();
+        currentItem.find(".sub-nav__item.main").remove();
         currentItem.parent().find("." + selector + "__item").show();
         (0, _jquery2.default)(link).find(".nav-back").remove();
         (0, _jquery2.default)(link).removeClass("active");
@@ -16672,6 +16672,7 @@ exports.default = function () {
       breakpoint: 767,
       settings: {
         arrows: false,
+        infinite: false,
         variableWidth: true,
         fade: false
       }
