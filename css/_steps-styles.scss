@@ -1,0 +1,199 @@
+.process-steps-wrapper{
+    overflow-x: auto;
+    width: 100%;
+    padding-left: 10px;
+    margin-bottom: 50px;
+    .inner-process-items{
+        width: max-content;
+        display: flex;
+        .single-process{
+            &:first-child{
+                width: 160px;
+                .wrapper-process{
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    .sub-precess-wrapper{
+                        left: 50px;
+                        width:  calc(100% + 50px);
+                    }
+                }
+                .top-title{
+                    text-align: left;
+                }
+            }
+            &:nth-child(4){
+                .wrapper-process{
+                    .sub-precess-wrapper{
+                        width: calc(60% - 60px);
+                    }
+                }
+            }
+            &.active{
+                .top-title{
+                    color: $secondary-color;
+                }
+                .wrapper-process{
+                    .number-indicator{
+                        background-color: $secondary-color;
+                    }
+                    .sub-precess-wrapper{
+                        .wrap-bar{
+                            .fill-valued{
+                                background-color: $secondary-color;
+                                .toptip-value{
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .top-title{
+            text-align: center;
+            width: 270px;
+            color: $disabled-color;
+            h2{
+                font-size: 19px;
+                line-height: 20px;
+                font-weight: 600;
+            }
+            span{
+                display: none;
+            }
+        }
+        .wrapper-process{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            .number-indicator{
+                width: 42px;
+                height: 42px;
+                color: #fff;
+                background: $disabled-color;
+                border-radius: 22px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .sub-precess-wrapper{
+                position: absolute;
+                left: 60%;
+                top: 20px;
+                width: calc(60% + 50px);
+                .wrap-bar{
+                    width: 100%;
+                    height: 4px;
+                    background: $disabled-color;
+                    border-radius: 3px;
+                    position: relative;
+                    .fill-valued{
+                        display: block;
+                        position: absolute;
+                        left: 0;
+                        height: 100%;
+                        background-color: $disabled-color;
+                        .toptip-value{
+                            display: none;
+                            right: -16.5px;
+                            position: absolute;
+                            top: -25px;
+                            z-index: 2;
+                            background-color: $secondary-color;
+                            color: #fff;
+                            font-size: 11px;
+                            line-height: 15px;
+                            padding: 2px 3px;
+                            border-radius: 3px;
+                            width: 33px;
+                            text-align: center;
+                            &:after {
+                                content:'';
+                                position:absolute;
+                                width:5px;
+                                height:5px;
+                                left:50%;
+                                transform:translate(-50%,-50%) rotate(45deg);
+                                background-color:$secondary-color;
+                                z-index: -1;
+                                bottom: -5px;
+                            }
+                        }   
+                    }
+                }
+            }
+        }
+        .last-step{
+            position: relative;
+            padding-right: 35px;
+            &.active{
+                span{
+                    background-color: $secondary-color;
+                }
+            }
+            span{
+                display: block;
+                width: 20px;
+                height: 20px;
+                background: $disabled-color;
+                border-radius: 15px;
+                position: absolute;
+                bottom: 11px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .process-steps-wrapper{
+        overflow: inherit;
+        padding: 0;
+        .inner-process-items{
+            width: 100%;
+            justify-content: space-between;
+            .single-process{
+                width: 25%;
+                &:first-child{
+                    width: 20%;
+                    .wrapper-process{
+                        .sub-precess-wrapper{
+                            left: 60px;
+                            width: calc(100% + 75px);
+                        }
+                    }
+                }
+            }
+            .top-title{
+                width: 100%;
+                padding-bottom: 20px;
+                h2{
+                    margin-bottom: 5px;
+                }
+                span{
+                    display: block;
+                    font-size: 14px;
+                    font-weight: 100;
+                }
+            }
+            .wrapper-process{
+                .number-indicator{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                }
+                .sub-precess-wrapper{
+                    top: 23px;
+                    width:calc(70% + 35px);
+                }
+            }
+            .last-step{
+                span{
+                    bottom: 15px;
+                }
+            }
+        }
+    }
+}

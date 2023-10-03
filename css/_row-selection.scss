@@ -1,0 +1,36 @@
+.wrapp-row-selection{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+    .single-row-selection{
+        border: 1px solid $disabled-color;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            transition: all 0.3s ease-in-out;
+            box-shadow: 4px 5px 18px 3px rgba(0,0,0,0.08);
+        }
+        &.active{
+            border-color: $primary-color;
+        }
+        .selec-input{
+            label{
+                font-size: 16px;
+                font-weight: 600;
+                padding-left: 10px;
+                &::before{
+                    left: -10px;
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .price{
+            font-weight: 600;
+        }
+    }
+}

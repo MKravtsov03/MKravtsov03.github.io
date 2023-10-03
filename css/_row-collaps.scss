@@ -1,0 +1,60 @@
+.wrap-row-collaps{
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    margin-bottom: 20px;
+    .header-collaps{
+        border: 1px solid $disabled-color;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all 0.3s ease-in-out;
+        &.active{
+            .left-content{
+                .icon{
+                    span{
+                        &:last-child{
+                            transition: all 0.3s ease-in-out;
+                            transform: rotate(0deg);
+                        }
+                    }
+                }
+            }
+        }
+        &:hover{
+            transition: all 0.3s ease-in-out;
+            box-shadow: 4px 5px 18px 3px rgba(0,0,0,0.08);
+            cursor: pointer;
+        }
+        &.active{
+            border-color: $primary-color;
+        }
+        font-weight: 600;
+        .left-content{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            .icon{
+                width: 13px;
+                position: relative;
+                span{
+                    position: absolute;
+                    display: block;
+                    width: 100%;
+                    height: 2px;
+                    background: $text-color;
+                    transition: all 0.3s ease-in-out;
+                    &:last-child{
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+        }
+    }
+
+    .content-of-collaps{
+        display: none;
+        padding-top: 20px;
+    }
+}
