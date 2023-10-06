@@ -14280,7 +14280,7 @@ initMarkapMenu();
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ["dev", "404.html", "article.html", "author-page.html", "blog-category-comparisons.html", "blog-category-guides.html", "blog.html", "brand-page.html", "cart-empty.html", "cart.html", "category-brand.html", "category-hub-european.html", "category-hub-real-swords.html", "category.html", "contact-sent.html", "contact.html", "faq.html", "index.html", "product-with-fields.html", "product.html", "shipping.html", "wiki-page.html", "wiki.html"];
+exports.default = ["dev", "404.html", "article.html", "author-page.html", "blog-category-comparisons.html", "blog-category-guides.html", "blog.html", "brand-page.html", "cart-empty.html", "cart.html", "category-brand.html", "category-hub-european.html", "category-hub-real-swords.html", "category.html", "contact-sent.html", "contact.html", "faq.html", "index.html", "landingPage.html", "product-with-fields.html", "product.html", "shipping.html", "wiki-page.html", "wiki.html"];
 
 /***/ }),
 /* 12 */
