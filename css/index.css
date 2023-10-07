@@ -5602,7 +5602,8 @@ yx-axis
   .types-block-card__labels {
     position: absolute;
     left: 15px;
-    top: 15px; }
+    top: 15px;
+    z-index: 2; }
   .types-block-card__label {
     font-size: 12px;
     font-weight: 700;
