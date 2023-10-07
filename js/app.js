@@ -11007,6 +11007,46 @@ document.addEventListener("DOMContentLoaded", function () {
     plugins: []
   });
 
+  var elements = document.getElementsByClassName("brands-swordsmiths-portfolio-item__slider");
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = elements[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var item = _step.value;
+
+      (0, _lightgallery2.default)(item, {
+        speed: 500,
+        selector: ".brands-swordsmiths-portfolio-item__slide",
+        controls: true,
+        download: false,
+        plugins: []
+      });
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+
+  (0, _lightgallery2.default)(document.getElementsByClassName(".portfolio-item-1"), {
+    speed: 500,
+    selector: ".brands-swordsmiths-portfolio-item__slide",
+    controls: true,
+    download: false,
+    plugins: []
+  });
+
   (0, _jquery2.default)(window).on("load resize", function () {
     if (window.innerWidth < 1101) {
       (0, _jquery2.default)(".product-heading-holder").prepend((0, _jquery2.default)(".product-heading .product-info-rating"));
@@ -11052,7 +11092,7 @@ document.addEventListener("DOMContentLoaded", function () {
         currentItem.siblings().hide();
         currentItem.show();
         (0, _jquery2.default)(link).addClass("active");
-        currentItem.children(".sub-nav").append("<li class=\"sub-nav__item main\"><a href=\"" + (0, _jquery2.default)(link).attr('href') + "\" class=\"sub-nav__link main\">ALL " + (0, _jquery2.default)(link).text() + "</a></li>");
+        currentItem.children(".sub-nav").append("<li class=\"sub-nav__item main\"><a href=\"" + (0, _jquery2.default)(link).attr("href") + "\" class=\"sub-nav__link main\">ALL " + (0, _jquery2.default)(link).text() + "</a></li>");
         currentItem.children(".sub-nav").show();
         (0, _jquery2.default)(link).prepend(backBtn);
         if (selector === "sub-nav") {
@@ -11147,7 +11187,7 @@ document.addEventListener("DOMContentLoaded", function () {
     e.stopPropagation();
     (0, _jquery2.default)(".terminology-item").removeClass("active");
     (0, _jquery2.default)(this).addClass("active");
-    (0, _jquery2.default)('.terminology-slider').slick('slickGoTo', (0, _jquery2.default)(this).index());
+    (0, _jquery2.default)(".terminology-slider").slick("slickGoTo", (0, _jquery2.default)(this).index());
     console.log((0, _jquery2.default)(this).index());
   });
 
@@ -11214,27 +11254,36 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  (0, _jquery2.default)('.mobile-search-handler').on('click', function () {
-    if ((0, _jquery2.default)(this).hasClass('active')) {
-      (0, _jquery2.default)(this).removeClass('active');
-      (0, _jquery2.default)('.header-inner .search').hide();
+  (0, _jquery2.default)(".mobile-search-handler").on("click", function () {
+    if ((0, _jquery2.default)(this).hasClass("active")) {
+      (0, _jquery2.default)(this).removeClass("active");
+      (0, _jquery2.default)(".header-inner .search").hide();
     } else {
-      (0, _jquery2.default)(this).addClass('active');
-      (0, _jquery2.default)('.header-inner .search').show();
+      (0, _jquery2.default)(this).addClass("active");
+      (0, _jquery2.default)(".header-inner .search").show();
     }
   });
 
-  (0, _jquery2.default)('.blog-head-search__handler').on('click', function () {
-    if ((0, _jquery2.default)(this).hasClass('active')) {
-      (0, _jquery2.default)(this).removeClass('active');
-      (0, _jquery2.default)('.header__overlay').hide();
-      (0, _jquery2.default)('.blog-search').removeClass('active');
+  (0, _jquery2.default)(".blog-head-search__handler").on("click", function () {
+    if ((0, _jquery2.default)(this).hasClass("active")) {
+      (0, _jquery2.default)(this).removeClass("active");
+      (0, _jquery2.default)(".header__overlay").hide();
+      (0, _jquery2.default)(".blog-search").removeClass("active");
     } else {
-      (0, _jquery2.default)(this).addClass('active');
-      (0, _jquery2.default)('.header__overlay').show();
-      (0, _jquery2.default)('.blog-search').addClass('active');
+      (0, _jquery2.default)(this).addClass("active");
+      (0, _jquery2.default)(".header__overlay").show();
+      (0, _jquery2.default)(".blog-search").addClass("active");
     }
   });
+});
+
+(0, _jquery2.default)(".brands-swordsmiths-item__btn").on("click", function () {
+  if ((0, _jquery2.default)(this).hasClass("active")) {
+    (0, _jquery2.default)(this).removeClass("active");
+    return (0, _jquery2.default)(this).parent().find(".brands-swordsmiths-portfolio__list").removeClass("active");
+  }
+  (0, _jquery2.default)(this).addClass("active");
+  (0, _jquery2.default)(this).parent().find(".brands-swordsmiths-portfolio__list").addClass("active");
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
@@ -16534,7 +16583,7 @@ exports.default = function () {
     //     }
     // })
 
-    (0, _jquery2.default)('.list-slider').slick({
+    (0, _jquery2.default)(".list-slider").slick({
       slidesToShow: 2,
       slidesToScroll: 1,
       infinite: true,
@@ -16599,15 +16648,15 @@ exports.default = function () {
     console.log({ currentSlide: currentSlide, nextSlide: nextSlide, slick: slick });
     (0, _jquery2.default)(".header-cart-products__count").text(nextSlide + 1 + "/" + slick.slideCount);
     if (nextSlide == 0) {
-      (0, _jquery2.default)('.header-cart-products__arrow.prev').addClass('disabled');
+      (0, _jquery2.default)(".header-cart-products__arrow.prev").addClass("disabled");
     } else {
-      (0, _jquery2.default)('.header-cart-products__arrow.prev').removeClass('disabled');
+      (0, _jquery2.default)(".header-cart-products__arrow.prev").removeClass("disabled");
     }
 
     if (nextSlide + 1 == slick.slideCount) {
-      (0, _jquery2.default)('.header-cart-products__arrow.next').addClass('disabled');
+      (0, _jquery2.default)(".header-cart-products__arrow.next").addClass("disabled");
     } else {
-      (0, _jquery2.default)('.header-cart-products__arrow.next').removeClass('disabled');
+      (0, _jquery2.default)(".header-cart-products__arrow.next").removeClass("disabled");
     }
   });
   (0, _jquery2.default)(".header-cart-products__arrow.next").on("click", function () {
@@ -16617,7 +16666,7 @@ exports.default = function () {
     (0, _jquery2.default)(".header-cart-products").slick("slickPrev");
   });
 
-  (0, _jquery2.default)('.similar-products-list').slick({
+  (0, _jquery2.default)(".similar-products-list").slick({
     arrows: false,
     variableWidth: true,
     infinite: true,
@@ -16689,7 +16738,7 @@ exports.default = function () {
     prevArrow: "\n                    <button type=\"button\" class=\"slick-arrow slick-prev\">\n                        <svg width=\"36\" height=\"21\" viewBox=\"0 0 36 21\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <path d=\"M16.4082 1.40821L1.40821 16.4082C0.985519 16.8309 0.748054 17.4042 0.748054 18.002C0.748054 18.5997 0.985519 19.173 1.40821 19.5957C1.83089 20.0184 2.40419 20.2559 3.00196 20.2559C3.59973 20.2559 4.17302 20.0184 4.59571 19.5957L18.0001 6.18758L31.4082 19.592C31.6175 19.8013 31.866 19.9673 32.1394 20.0805C32.4129 20.1938 32.706 20.2521 33.002 20.2521C33.2979 20.2521 33.591 20.1938 33.8645 20.0805C34.1379 19.9673 34.3864 19.8013 34.5957 19.592C34.805 19.3827 34.971 19.1342 35.0843 18.8607C35.1976 18.5873 35.2559 18.2942 35.2559 17.9982C35.2559 17.7022 35.1976 17.4091 35.0843 17.1357C34.971 16.8622 34.805 16.6138 34.5957 16.4045L19.5957 1.40446C19.3864 1.19495 19.1378 1.0288 18.8642 0.915562C18.5906 0.802321 18.2973 0.74421 18.0012 0.744559C17.705 0.744908 17.4119 0.80371 17.1385 0.917594C16.8652 1.03148 16.617 1.1982 16.4082 1.40821Z\" fill=\"#80918F\"/>\n                        </svg>\n                    </button>\n                    "
   });
 
-  (0, _jquery2.default)('.terminology-slider').slick({
+  (0, _jquery2.default)(".terminology-slider").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: false,
@@ -16698,9 +16747,17 @@ exports.default = function () {
   });
 };
 
-(0, _jquery2.default)('.terminology-slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-  (0, _jquery2.default)('.terminology-item').removeClass('active');
-  (0, _jquery2.default)('.terminology-item').eq(nextSlide).addClass('active');
+(0, _jquery2.default)(".terminology-slider").on("beforeChange", function (event, slick, currentSlide, nextSlide) {
+  (0, _jquery2.default)(".terminology-item").removeClass("active");
+  (0, _jquery2.default)(".terminology-item").eq(nextSlide).addClass("active");
+});
+
+(0, _jquery2.default)(".brands-swordsmiths-portfolio-item__slider").slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  infinite: false,
+  nextArrow: "\n                    <button type=\"button\" class=\"slick-arrow slick-next\">\n                        <svg width=\"21\" height=\"36\" viewBox=\"0 0 21 36\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <path d=\"M19.5919 19.5919L4.59188 34.5919C4.1692 35.0146 3.59591 35.252 2.99813 35.252C2.40036 35.252 1.82707 35.0146 1.40438 34.5919C0.981696 34.1692 0.744232 33.5959 0.744232 32.9981C0.744232 32.4003 0.981696 31.8271 1.40438 31.4044L14.8125 18L1.40814 4.59187C1.19884 4.38258 1.03282 4.13411 0.91955 3.86065C0.806281 3.5872 0.747982 3.29411 0.747982 2.99812C0.747982 2.70213 0.806281 2.40904 0.91955 2.13559C1.03282 1.86213 1.19884 1.61366 1.40814 1.40437C1.61743 1.19508 1.8659 1.02905 2.13935 0.915785C2.41281 0.802516 2.7059 0.744217 3.00189 0.744217C3.29787 0.744217 3.59096 0.802516 3.86442 0.915785C4.13787 1.02905 4.38634 1.19508 4.59564 1.40437L19.5956 16.4044C19.8051 16.6136 19.9713 16.8622 20.0845 17.1359C20.1978 17.4095 20.2559 17.7028 20.2555 17.9989C20.2552 18.295 20.1964 18.5882 20.0825 18.8615C19.9686 19.1349 19.8019 19.3831 19.5919 19.5919Z\" fill=\"#80918F\"/>\n                        </svg>\n                    </button>\n                    ",
+  prevArrow: "\n                    <button type=\"button\" class=\"slick-arrow slick-prev\">\n                        <svg width=\"21\" height=\"36\" viewBox=\"0 0 21 36\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <path d=\"M1.40808 19.5919L16.4081 34.5919C16.8308 35.0146 17.4041 35.252 18.0018 35.252C18.5996 35.252 19.1729 35.0146 19.5956 34.5919C20.0183 34.1692 20.2557 33.5959 20.2557 32.9981C20.2557 32.4003 20.0183 31.8271 19.5956 31.4044L6.18746 18L19.5918 4.59187C19.8011 4.38258 19.9672 4.13411 20.0804 3.86065C20.1937 3.5872 20.252 3.29411 20.252 2.99812C20.252 2.70213 20.1937 2.40904 20.0804 2.13559C19.9672 1.86213 19.8011 1.61366 19.5918 1.40437C19.3825 1.19508 19.1341 1.02905 18.8606 0.915785C18.5872 0.802516 18.2941 0.744217 17.9981 0.744217C17.7021 0.744217 17.409 0.802516 17.1356 0.915785C16.8621 1.02905 16.6136 1.19508 16.4043 1.40437L1.40434 16.4044C1.19482 16.6136 1.02868 16.8622 0.91544 17.1359C0.802199 17.4095 0.744088 17.7028 0.744436 17.9989C0.744785 18.295 0.803587 18.5882 0.917471 18.8615C1.03135 19.1349 1.19808 19.3831 1.40808 19.5919Z\" fill=\"#80918F\"/>\n                        </svg>\n                    </button>\n                    "
 });
 
 /***/ }),
