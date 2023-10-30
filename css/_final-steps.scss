@@ -18,8 +18,8 @@
             padding: 20px;
             .single-item-wrapper{
                 // font-size: 14px;
-                border-bottom: 1px solid $disabled-color;
-                padding-top: 20px;
+                // border-bottom: 1px solid $disabled-color;
+                padding-top: 10px;
                 font-size: 15px;
                 &:last-child{
                     border-bottom: none;
@@ -34,8 +34,9 @@
                 .wrap-row{
                     padding: 10px;
                     .item-title{
-                        font-weight: 500;
+                        font-weight: 600;
                         margin-bottom: 5px;
+                        font-size: 16px;
                     }
                     .describ{
                         display: flex;
@@ -116,14 +117,15 @@
                 justify-content: space-between;
             }
             .header-data{
-                padding: 40px 20px;
+                padding: 25px 20px;
                 h5{
                     font-size: 22px;
                     padding: 0;
+                    font-weight: 500;
                 }
             }
             .content-area{
-                padding: 30px;
+                padding: 10px;
                 line-height: normal;
                 .single-item-wrapper{
                     .head-title{

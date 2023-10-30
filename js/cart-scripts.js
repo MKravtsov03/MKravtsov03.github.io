@@ -3,6 +3,14 @@ lenghtSelectionHandler();
 collapsHandler();
 cartItemCollapsHandler();
 
+$(document).on('scroll',function () {
+    if ($(this).scrollTop() >= 40) {
+        $(".header-wrapper a.mobile-popup").addClass("active");
+    } else {
+        $(".header-wrapper a.mobile-popup").removeClass("active");
+    }
+});
+
 // Open popup
 $('.view-all-button').on('click', function () {
     $('.popup-sword-part').addClass('active');
@@ -26,7 +34,8 @@ $('.popup-sword-part .close').on('click', function () {
 
 // open mobile cart
 $('#open-mobile-cart').on('click', function() {
-    $('.cart-content-wrapper').addClass('active');
+    $(this).toggleClass('active');
+    $('.cart-content-wrapper').toggleClass('active');
 });
 
 $('.popup-on-mobile .close').on('click', function() {
