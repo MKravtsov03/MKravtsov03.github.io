@@ -10,9 +10,10 @@
             margin-top: 0;
         }
         p{
-            font-weight: 100;
+            font-weight: 400;
             color: $text-color;
             line-height: 25px;
+            font-size: 17px;
         }
         h3{
             font-size: 23px;
@@ -198,18 +199,25 @@
         gap: 30px;
         .left-content-wrapper{
             width: calc(100% - 300px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 0;
             .cards-wrapper{
                 gap: 30px;
                 .single-card{
                     flex-basis: calc(50% - 15px);
                     &:nth-child(2), &:nth-child(3){
-                        border-color: $button-background;
+                        // border-color: $button-background;
                     }
                 }
             }
         }
         .right-cart{
             width: 300px;
+            .cart-main-wrapper{
+                margin-bottom: 0;
+            }
         }
     }
 }

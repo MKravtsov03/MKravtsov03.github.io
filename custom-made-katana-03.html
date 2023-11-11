@@ -1055,211 +1055,230 @@
                 <!-- Cart Content -->
                 <div class="cart-content-wrapper">
                     <div class="left-content-wrapper">
-                        <div class="process-steps-wrapper">
-                        
-                            <!-- This will be only display in mobile  -->
-                            <div class="mobile-progressbar-card below-ten">
-                                <div class="wrapper-progressbar">
-                                    <div class="middle-row">
-                                        <div class="progress-fill" style="width: 4%;">
-                                            <span style="left: 15px">4%</span>
+                        <div class="wrap-middle-area">
+                            <div class="process-steps-wrapper">
+                            
+                                <!-- This will be only display in mobile  -->
+                                <div class="mobile-progressbar-card below-ten">
+                                    <div class="wrapper-progressbar">
+                                        <div class="middle-row">
+                                            <div class="progress-fill" style="width: 4%;">
+                                                <span style="left: 15px">4%</span>
+                                            </div>
                                         </div>
                                     </div>
+                                    <button id="open-mobile-cart">
+                                        <div class="open-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                width="512" height="512" x="0" y="0" viewBox="0 0 128 128" style="enable-background:new 0 0 512 512"
+                                                xml:space="preserve" class="">
+                                                <path
+                                                    d="M64 104a3.988 3.988 0 0 1-2.828-1.172l-40-40c-1.563-1.563-1.563-4.094 0-5.656s4.094-1.563 5.656 0L64 94.344l37.172-37.172c1.563-1.563 4.094-1.563 5.656 0s1.563 4.094 0 5.656l-40 40A3.988 3.988 0 0 1 64 104zm2.828-33.172 40-40c1.563-1.563 1.563-4.094 0-5.656s-4.094-1.563-5.656 0L64 62.344 26.828 25.172c-1.563-1.563-4.094-1.563-5.656 0s-1.563 4.094 0 5.656l40 40C61.953 71.609 62.977 72 64 72s2.047-.391 2.828-1.172z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <div class="close-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512"
+                                                xml:space="preserve" class="">
+                                                <path
+                                                    d="M25 512a25 25 0 0 1-17.68-42.68l462-462a25 25 0 0 1 35.36 35.36l-462 462A24.93 24.93 0 0 1 25 512z">
+                                                </path>
+                                                <path
+                                                    d="M487 512a24.93 24.93 0 0 1-17.68-7.32l-462-462A25 25 0 0 1 42.68 7.32l462 462A25 25 0 0 1 487 512z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                    </button>
                                 </div>
-                                <button id="open-mobile-cart">
-                                    <div class="open-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            width="512" height="512" x="0" y="0" viewBox="0 0 128 128" style="enable-background:new 0 0 512 512"
-                                            xml:space="preserve" class="">
-                                            <path
-                                                d="M64 104a3.988 3.988 0 0 1-2.828-1.172l-40-40c-1.563-1.563-1.563-4.094 0-5.656s4.094-1.563 5.656 0L64 94.344l37.172-37.172c1.563-1.563 4.094-1.563 5.656 0s1.563 4.094 0 5.656l-40 40A3.988 3.988 0 0 1 64 104zm2.828-33.172 40-40c1.563-1.563 1.563-4.094 0-5.656s-4.094-1.563-5.656 0L64 62.344 26.828 25.172c-1.563-1.563-4.094-1.563-5.656 0s-1.563 4.094 0 5.656l40 40C61.953 71.609 62.977 72 64 72s2.047-.391 2.828-1.172z">
-                                            </path>
-                                        </svg>
-                                    </div>
-                                    <div class="close-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512"
-                                            xml:space="preserve" class="">
-                                            <path
-                                                d="M25 512a25 25 0 0 1-17.68-42.68l462-462a25 25 0 0 1 35.36 35.36l-462 462A24.93 24.93 0 0 1 25 512z">
-                                            </path>
-                                            <path
-                                                d="M487 512a24.93 24.93 0 0 1-17.68-7.32l-462-462A25 25 0 0 1 42.68 7.32l462 462A25 25 0 0 1 487 512z">
-                                            </path>
-                                        </svg>
-                                    </div>
-                                </button>
-                            </div>
-                        
-                            <!-- This is a desktop progress bars -->
-                            <div class="inner-process-items">
-                                <div class="single-process active">
-                                    <div class="top-title">
-                                        <h2>Blade</h2>
-                                    </div>
-                                    <div class="wrapper-process">
-                                        <div class="number-indicator">
-                                            <span>10%</span>
+                            
+                                <!-- This is a desktop progress bars -->
+                                <div class="inner-process-items">
+                                    <div class="single-process active">
+                                        <div class="top-title">
+                                            <h2>Blade</h2>
                                         </div>
-                                        <div class="sub-precess-wrapper">
-                                            <div class="wrap-bar">
-                                                <div class="fill-valued" style="width:10%">
-                                                    <!-- <div class="toptip-value">47%</div> -->
+                                        <div class="wrapper-process">
+                                            <div class="number-indicator">
+                                                <span>10%</span>
+                                            </div>
+                                            <div class="sub-precess-wrapper">
+                                                <div class="wrap-bar">
+                                                    <div class="fill-valued" style="width:10%">
+                                                        <!-- <div class="toptip-value">47%</div> -->
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="single-process">
-                                    <div class="top-title">
-                                        <h2>Tsuka/Monting</h2>
-                                    </div>
-                                    <div class="wrapper-process">
-                                        <div class="number-indicator">
-                                            <span>0%</span>
+                                    <div class="single-process">
+                                        <div class="top-title">
+                                            <h2>Tsuka/Monting</h2>
                                         </div>
-                                        <div class="sub-precess-wrapper">
-                                            <div class="wrap-bar">
-                                                <div class="fill-valued" style="width:0%">
-                                                    <!-- <div class="toptip-value">0%</div> -->
+                                        <div class="wrapper-process">
+                                            <div class="number-indicator">
+                                                <span>0%</span>
+                                            </div>
+                                            <div class="sub-precess-wrapper">
+                                                <div class="wrap-bar">
+                                                    <div class="fill-valued" style="width:0%">
+                                                        <!-- <div class="toptip-value">0%</div> -->
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="single-process">
-                                    <div class="top-title">
-                                        <h2>Saya</h2>
-                                    </div>
-                                    <div class="wrapper-process">
-                                        <div class="number-indicator">
-                                            <span>0%</span>
+                                    <div class="single-process">
+                                        <div class="top-title">
+                                            <h2>Saya</h2>
                                         </div>
-                                        <div class="sub-precess-wrapper">
-                                            <div class="wrap-bar">
-                                                <div class="fill-valued" style="width:0%">
-                                                    <!-- <div class="toptip-value">47%</div> -->
+                                        <div class="wrapper-process">
+                                            <div class="number-indicator">
+                                                <span>0%</span>
+                                            </div>
+                                            <div class="sub-precess-wrapper">
+                                                <div class="wrap-bar">
+                                                    <div class="fill-valued" style="width:0%">
+                                                        <!-- <div class="toptip-value">47%</div> -->
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="last-step">
-                                    <span class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            width="512" height="512" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512"
-                                            xml:space="preserve">
-                                            <path
-                                                d="M1 1a1 1 0 1 0 0 2h1.78a.694.694 35.784 0 1 .657.474l3.297 9.893c.147.44.165.912.053 1.362l-.271 1.087C6.117 17.41 7.358 19 9 19h12a1 1 0 1 0 0-2H9c-.39 0-.64-.32-.545-.697l.205-.818A.64.64 142.028 0 1 9.28 15H20a1 1 0 0 0 .95-.684l2.665-8A1 1 0 0 0 22.666 5H6.555a.694.694 35.783 0 1-.658-.474l-.948-2.842A1 1 0 0 0 4 1zm7 19a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
-                                                paint-order="fill markers stroke"></path>
-                                        </svg>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Step 1 -->
-                        <div class="step-content">
-                            <div class="step-header-title">
-                                <div class="steps-indicator">
-                                    <span class="text">Blade</span>
-                                    <div class="numbers">
-                                        02<span>/10</span>
+                                    <div class="last-step">
+                                        <span class="icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                width="512" height="512" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512"
+                                                xml:space="preserve">
+                                                <path
+                                                    d="M1 1a1 1 0 1 0 0 2h1.78a.694.694 35.784 0 1 .657.474l3.297 9.893c.147.44.165.912.053 1.362l-.271 1.087C6.117 17.41 7.358 19 9 19h12a1 1 0 1 0 0-2H9c-.39 0-.64-.32-.545-.697l.205-.818A.64.64 142.028 0 1 9.28 15H20a1 1 0 0 0 .95-.684l2.665-8A1 1 0 0 0 22.666 5H6.555a.694.694 35.783 0 1-.658-.474l-.948-2.842A1 1 0 0 0 4 1zm7 19a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
+                                                    paint-order="fill markers stroke"></path>
+                                            </svg>
+                                        </span>
                                     </div>
                                 </div>
-                                <h2>Length</h2>
-                                <p>Different types of steel have various properties that contribute to the overall quality of the sword blade.</p>
                             </div>
-
-                            <!-- Length selection -->
-                            <div class="lenght-selection">
-                                <span class="select-title">Sword Length:</span>
-                                <div class="wrap-selection">
-                                    <span>Select</span>
-                                    <div class="icon"></div>
+                            <!-- Step 1 -->
+                            <div class="step-content">
+                                <div class="step-header-title">
+                                    <div class="steps-indicator">
+                                        <span class="text">Blade</span>
+                                        <div class="numbers">
+                                            02<span>/10</span>
+                                        </div>
+                                    </div>
+                                    <h2>Length</h2>
+                                    <p>Different types of steel have various properties that contribute to the overall quality of the sword blade.
+                                    </p>
                                 </div>
-                                <div class="dropdown">
-                                    <ul>
-                                        <li>
-                                            <div class="wrap-row">
-                                                <div class="value">66.5-68 cm</div>
-                                                <div class="price disabled">+$0</div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="wrap-row highlighted">
-                                                <div class="value">66.5-68 cm <span>STANDARD</span></div>
-                                                <div class="price disabled">+$0</div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="wrap-row">
-                                                <div class="value">71 - 72.5 cm</div>
-                                                <div class="price disabled">+$0</div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="wrap-row">
-                                                <div class="value">71 - 72.5 cm</div>
-                                                <div class="price disabled">+$0</div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="wrap-row">
-                                                <div class="value">77 - 78.5 cm</div>
-                                                <div class="price">+$12</div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="wrap-row">
-                                                <div class="value">77 - 78.5 cm</div>
-                                                <div class="price">+$12</div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="wrap-row">
-                                                <div class="value">77 - 78.5 cm</div>
-                                                <div class="price">+$12</div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                            
+                                <!-- Length selection -->
+                                <div class="lenght-selection">
+                                    <span class="select-title">Sword Length:</span>
+                                    <div class="wrap-selection">
+                                        <span>Select</span>
+                                        <div class="icon"></div>
+                                    </div>
+                                    <div class="dropdown">
+                                        <ul>
+                                            <li>
+                                                <div class="wrap-row">
+                                                    <div class="value">66.5-68 cm</div>
+                                                    <div class="price disabled">+$0</div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="wrap-row highlighted">
+                                                    <div class="value">66.5-68 cm <span>STANDARD</span></div>
+                                                    <div class="price disabled">+$0</div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="wrap-row">
+                                                    <div class="value">71 - 72.5 cm</div>
+                                                    <div class="price disabled">+$0</div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="wrap-row">
+                                                    <div class="value">71 - 72.5 cm</div>
+                                                    <div class="price disabled">+$0</div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="wrap-row">
+                                                    <div class="value">77 - 78.5 cm</div>
+                                                    <div class="price">+$12</div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="wrap-row">
+                                                    <div class="value">77 - 78.5 cm</div>
+                                                    <div class="price">+$12</div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="wrap-row">
+                                                    <div class="value">77 - 78.5 cm</div>
+                                                    <div class="price">+$12</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <select name="Length">
+                                        <option value="1"></option>
+                                        <option value="2"></option>
+                                        <option value="3"></option>
+                                        <option value="4"></option>
+                                    </select>
                                 </div>
-                                <select name="Length">
-                                    <option value="1"></option>
-                                    <option value="2"></option>
-                                    <option value="3"></option>
-                                    <option value="4"></option>
-                                </select>
                             </div>
-                        </div>
-
-                        <!-- Alert -->
-                        <div class="cart-alert-wrapper">
-                            <div class="icon">
-                                <img src="./data/info.svg" alt="info">
+                            
+                            <!-- Alert -->
+                            <div class="cart-alert-wrapper">
+                                <div class="icon">
+                                    <img src="./data/info.svg" alt="info">
+                                </div>
+                                <p>When you opt for a tamahagane steel blade, it comes with additional costs for certain extras as these components
+                                    are
+                                    necessary and cannot be excluded in the construction of a sword of this type. You will be notified at each step
+                                    where
+                                    downgrading is not an option for this particular steel. <a href="">contatct us</a> For an overview, the
+                                    additional costs are associated with the
+                                    Hamon, Type of polishing, Yokote, and Hishigami.</p>
                             </div>
-                            <p>When you opt for a tamahagane steel blade, it comes with additional costs for certain extras as these components are
-                            necessary and cannot be excluded in the construction of a sword of this type. You will be notified at each step where
-                            downgrading is not an option for this particular steel. <a href="">contatct us</a> For an overview, the additional costs are associated with the
-                            Hamon, Type of polishing, Yokote, and Hishigami.</p>
                         </div>
 
                         <div class="mobile-actions">
                             <div class="arrow-buttons">
                                 <div class="back-button">
-                                    <a href="/custom-made-katana-02.html" class="com-btn back">
-                                        <img src="./data/back-arrow.svg" alt="">
+                                    <a href="/swardis/custom-made-katana-02.html" class="com-btn back">
+                                        <div class="arrow"></div>
                                         <span>Back</span>
                                     </a>
                                 </div>
                                 <div class="last-step-button">
-                                    <a href="/custom-made-katana-final.html" class="com-btn">
+                                    <a href="/swardis/custom-made-katana-final.html" class="com-btn">
                                         <span>Back to last step</span>
-                                        <img src="./data/arrow-double-right.svg" alt="">
+                                        <div class="arrow-anim">
+                                            <div class="arrow-sliding">
+                                                <div class="arrow"></div>
+                                            </div>
+                                            <div class="arrow-sliding delay1">
+                                                <div class="arrow"></div>
+                                            </div>
+                                            <div class="arrow-sliding delay2">
+                                                <div class="arrow"></div>
+                                            </div>
+                                            <div class="arrow-sliding delay3">
+                                                <div class="arrow"></div>
+                                            </div>
+                                        </div>
                                     </a>
                                 </div>
-                                <div class="next-button">
-                                    <a href="/custom-made-katana-04.html" class="com-btn">
-                                        <img src="./data/next-arrow.svg" alt="">
+                                <div class="next-button active">
+                                    <a href="/swardis/custom-made-katana-04.html" class="com-btn">
+                                        <div class="arrow"></div>
                                         <span>Next</span>
                                     </a>
                                 </div>
@@ -1282,6 +1301,12 @@
                             <div class="empty-view">
                                 <h3>Your Custom Katana</h3>
                                 <div class="empty-icon">
+                                    <div class="animated-icon">
+                                        <video autoplay loop muted controls="false" width="100%" height="auto">
+                                            <source src="./data/Hammer_and_Anvil.webm" type="video/webm">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
                                     <img src="./data/empty-cart.png" alt="empty cart">
                                 </div>
                             </div>
@@ -1289,6 +1314,7 @@
                             <div class="content-area">
                                 <div class="expanded-rows">
                                     <div class="single-item-row cart-item-row">
+                                        <!-- If you want to add open add a active class to the below row, and add a style display:block to the row-content div -->
                                         <div class="row-head">
                                             <span>Sword brand</span>
                                             <div class="icon">
@@ -1296,9 +1322,15 @@
                                                 <span></span>
                                             </div>
                                         </div>
-                                        <div class="row-content">
-                                            <div class="inner-row">
-                                                <span class="item-title">Brand / Swordsmith Selection</span>
+                                        <div class="row-content" >
+                                            <div class="inner-row remove-border">
+                                                <div class="wrap-top-title">
+                                                    <span class="item-title">Brand / Swordsmith</span>
+                                                    <a href="#" class="edit open-confirm">
+                                                        <img src="./data/pencil.svg" alt="edit">
+                                                        <span>Edit</span>
+                                                    </a>
+                                                </div>
                                                 <div class="desc-price">
                                                     <span>Red Dragon Army</span>
                                                     <span>$0</span>
@@ -1308,18 +1340,19 @@
                                         </div>
                                     </div>
                                     <div class="single-item-row cart-item-row">
-                                        <div class="row-head">
+                                        <!-- If you want to add open add a active class to the below row, and add a style display:block to the row-content div -->
+                                        <div class="row-head active">
                                             <span>The brand</span>
                                             <div class="icon">
                                                 <span></span>
                                                 <span></span>
                                             </div>
                                         </div>
-                                        <div class="row-content">
+                                        <div class="row-content" style="display: block;">
                                             <div class="inner-row">
                                                 <div class="wrap-top-title">
                                                     <span class="item-title">Type of steel</span>
-                                                    <a href="#" class="edit">
+                                                    <a href="#" class="edit open-confirm">
                                                         <img src="./data/pencil.svg" alt="edit">
                                                         <span>Edit</span>
                                                     </a>
@@ -1339,6 +1372,30 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- popup confirmation -->
+        <div class="popup-confirmation">
+            <div class="middle-col">
+                <div class="header-bar">
+                    <h3>Change brand/swordsmith?</h3>
+                    <button class="close-popup">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512"
+                            height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve">
+                            <path d="M25 512a25 25 0 0 1-17.68-42.68l462-462a25 25 0 0 1 35.36 35.36l-462 462A24.93 24.93 0 0 1 25 512z"></path>
+                            <path d="M487 512a24.93 24.93 0 0 1-17.68-7.32l-462-462A25 25 0 0 1 42.68 7.32l462 462A25 25 0 0 1 487 512z"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="content">
+                    <p>Are you sure you want to change the brand/swordsmith? If you proceed, your current progress will be lost.</p>
+                    <div class="button-wrapper">
+                        <a href="" class="color">Reset</a>
+                        <a href="#" class="close-popup">Cancel</a>
                     </div>
                 </div>
             </div>

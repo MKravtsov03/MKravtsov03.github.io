@@ -14,6 +14,26 @@ $disabled-color: #dcdcdc;
 $cart-color: #4D6562;
 $alert-background: #f6f6f6;
 
+@-webkit-keyframes slide {
+     0% { opacity:0; transform: translateX(-15px); }	
+   20% { opacity:1; transform: translateX(-9px); }	
+   80% { opacity:1; transform: translateX(9px); }	
+  100% { opacity:0; transform: translateX(10px); }	
+}
+@keyframes slide {
+     0% { opacity:0; transform: translateX(-15px); }	
+   20% { opacity:1; transform: translateX(-9px); }	
+   80% { opacity:1; transform: translateX(9px); }	
+  100% { opacity:0; transform: translateX(10px); }	
+}
+
+body{
+    overflow: visible;
+    &.hide-overflow{
+        overflow: hidden;
+    }
+}
+
 .com-btn{
     background-color: $primary-color;
     display: flex;
@@ -29,7 +49,7 @@ $alert-background: #f6f6f6;
     }
 }
 
-.popup-sword-part{
+.popup-sword-part, .popup-confirmation{
     position: fixed;
     top: 0;
     left: 0;
@@ -45,7 +65,7 @@ $alert-background: #f6f6f6;
         visibility: visible;
         transition: all 0.3s ease-in-out;
     }
-    .middle-content{
+    .middle-content, .middle-col{
         width: 90%;
         position: absolute;
         left: 50%;
@@ -106,6 +126,81 @@ $alert-background: #f6f6f6;
             margin-top: 20px;
             img{
                 width: 100%;
+            }
+        }
+    }
+}
+
+.popup-confirmation{
+    .header-bar{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(0,0,0,0.12);
+        padding-bottom:20px;
+        margin-bottom:20px;
+        h3{
+            font-size: 20px;
+            margin: 0;
+            line-height: 20px;
+            font-weight: 500;
+        }
+        button{
+            width: 26px;
+            height: 26px;
+            background-color: #B4BEBD;
+            border-radius: 3px;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            &:hover{
+                transition: all 0.3s ease-in-out;
+                background-color: $button-background;
+            }
+            svg{
+                fill: #fff;
+                width: 90%;
+                height: 90%;
+            }
+        }
+    }
+    .content{
+        p{
+            font-weight: 100;
+            line-height: 24px;
+            font-size: 16px;
+        }
+        .button-wrapper{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            a{
+                display: block;
+                font-size: 14px;
+                text-transform: uppercase;
+                border-radius: 3px;
+                color: #fff;
+                background-color: #80918F;
+                text-decoration: none;
+                padding: 8px 20px;
+                min-width: 100px;
+                text-align: center;
+                transition: all 0.3s ease-in-out;
+                &:hover{
+                    transition: all 0.3s ease-in-out;
+                    background-color: #63716f;
+                }
+                &.color{
+                    background-color: $primary-color;
+                    &:hover{
+                        transition: all 0.3s ease-in-out;
+                        background-color: #c93304;
+                    }
+                }
             }
         }
     }
@@ -181,9 +276,10 @@ $alert-background: #f6f6f6;
         }
         p{
             margin: 0;
-            font-weight: 100;
+            font-weight: 400;
             line-height: 25px;
             padding-left: 15px;
+            font-size: 17px;
             border-left: 2px solid $text-color;
         }
     }
@@ -196,10 +292,15 @@ $alert-background: #f6f6f6;
         background: $button-background;
         padding: 12px 24px;
         text-decoration: none;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            background-color: #4D6562;
+        }
         .icon{
             width: 15px;
             display: block;
             height: 15px;
+            display: none;
             img{
                 width: 100%;
                 display: block;
@@ -269,6 +370,7 @@ $alert-background: #f6f6f6;
                 box-shadow: 6px 5px 15px rgba(0,0,0,0.2);
                 transition: all 0.3s ease-in-out;
                 transform: scale(0);
+                cursor: pointer;
                 &.active{
                     transition: all 0.3s ease-in-out;
                     transform: scale(1);
@@ -276,6 +378,7 @@ $alert-background: #f6f6f6;
                 .icon{
                     width: 25px;
                     height: 25px;
+                    display: block;
                     svg{
                         fill: #fff;
                         width: 100%;
@@ -372,6 +475,9 @@ $alert-background: #f6f6f6;
                         font-weight: 500;
                         margin-left: 5px;
                     }
+                    b{
+                        color: $primary-color;
+                    }
                 }
                 .icon{
                     &::after{
@@ -465,12 +571,14 @@ $alert-background: #f6f6f6;
                 align-items: center;
                 justify-content: center;
                 border: 2px solid #fff;
+                position: relative;
                 span{
                     padding-left: 5px;
                     text-transform: uppercase;
                     color: #fff;
                     font-size: 16px;
                 }
+                
             }
 
             .last-step-button{
@@ -483,6 +591,41 @@ $alert-background: #f6f6f6;
                     background: $secondary-color;
                     padding: 16px;
                     height: auto;
+                    &:hover{
+                        background-color: #026d60;
+                    }
+
+                    .arrow-anim{
+                        width: 50px;
+                        height: 20px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        .arrow{
+                            width: 10px;
+                            height: 10px;
+                            border: 2px solid;
+                            border-color: #fff transparent transparent #fff;
+                            transform: rotate(138deg);
+                        }
+                        .arrow-sliding {
+                            position: absolute;
+                            -webkit-animation: slide 4s linear infinite; 
+                            animation: slide 4s linear infinite;
+                            &.delay1 {
+                                -webkit-animation-delay: 1s; 
+                                animation-delay: 1s;
+                            }
+                            &.delay2 {
+                                -webkit-animation-delay: 2s; 
+                                animation-delay: 2s;
+                            }
+                            &.delay3 {
+                                -webkit-animation-delay: 3s; 
+                                animation-delay: 3s;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -504,6 +647,41 @@ $alert-background: #f6f6f6;
                     width: 100%;
                     background-color: $button-background;
                     padding: 0; 
+                    .arrow{
+                        width: 9px;
+                        height: 9px;
+                        border-left: 2px solid #fff;
+                        border-top: 2px solid #fff;
+                        position: relative;
+                        transform: rotate(-45deg);
+                        margin: 0 6px;
+                        transition: all .3s ease;
+                        &::before{
+                            display: block;
+                            background-color: currentColor;
+                            width: 3px;
+                            transform-origin: bottom right;
+                            height: 2px;
+                            position: absolute;
+                            opacity: 0;
+                            bottom: -1.4px;
+                            transform: rotate(45deg);
+                            transition: all .3s ease;
+                            content: "";
+                            right: 0;
+                        }
+                    }
+                    &:hover{
+                        background-color: #4D6562;
+                        .arrow{
+                            transform: rotate(-45deg) translate(-4px , -4px);
+                            &::before{
+                                transform: rotate(45deg) translate(4px, 0px);
+                                opacity: 1;
+                                width: 15px;
+                            }
+                        }
+                    }
                     img{
                         padding-left: 0;
                     }
@@ -519,9 +697,51 @@ $alert-background: #f6f6f6;
                 bottom: 15px;
                 right: 15px;
                 z-index: 10;
+                &.active{
+                    a{
+                        opacity: 1;
+                        pointer-events: auto;
+                    }
+                }
                 a{
                     width: 100%;
                     flex-direction: row-reverse;
+                    opacity: 0.5;
+                    pointer-events: none;
+                    .arrow{
+                        width: 9px;
+                        height: 9px;
+                        border-right: 2px solid #fff;
+                        border-bottom: 2px solid #fff;
+                        position: relative;
+                        transform: rotate(-45deg);
+                        margin: 0 6px;
+                        transition: all .3s ease;
+                        &::before{
+                            display: block;
+                            background-color: currentColor;
+                            width: 3px;
+                            transform-origin: bottom right;
+                            height: 2px;
+                            position: absolute;
+                            opacity: 0;
+                            bottom: calc(-2px / 2);
+                            transform: rotate(45deg);
+                            transition: all .3s ease;
+                            content: "";
+                            right: 0;
+                        }
+                    }
+                    &:hover{
+                        background-color: #4D6562;
+                        .arrow{
+                            transform: rotate(-45deg) translate(4px, 4px);
+                            &::before{
+                                opacity: 1;
+                                width: 15px;
+                            }
+                        }
+                    }
                     img{
                         padding-left: 5px;
                     }
@@ -565,6 +785,12 @@ $alert-background: #f6f6f6;
         }
     }
 
+    .popup-confirmation{
+        .middle-col{
+            max-width: 600px;
+        }
+    }
+
     .custom-made-cart-wrapper{
         &.steps-screens{
             padding-top: 7px;
@@ -580,7 +806,7 @@ $alert-background: #f6f6f6;
         transition: all 0.3s ease-in-out;
         &:hover{
             transition: all 0.3s ease-in-out;
-            background-color: $text-color;
+            background-color: #D73705;
         }
     }
     .custom-made-cart-wrapper{
@@ -630,7 +856,7 @@ $alert-background: #f6f6f6;
                 background: transparent;
                 padding: 0;
                 border: none;
-                margin-top: 40px;
+                margin-top: 20px;
                 a{
                     padding: 15px;
                     height: auto;
@@ -674,7 +900,8 @@ $alert-background: #f6f6f6;
 
         .cart-alert-wrapper{
             padding: 20px;
-            margin-top: 60px;
+            margin-top: 20px;
+            margin-bottom: 30px;
             border-radius: 5px;
             .icon{
                 width: 70px;

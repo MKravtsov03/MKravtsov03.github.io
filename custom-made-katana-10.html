@@ -1028,9 +1028,9 @@
             <div class="header-wrapper container">
                 <a href="#" class="view-all-button">
                     <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512"
-                            height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512"
-                            xml:space="preserve" class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            width="512" height="512" x="0" y="0" viewBox="0 0 512 512"
+                            style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
                             <path
                                 d="M256 0C114.509 0 0 114.496 0 256c0 141.489 114.496 256 256 256 141.491 0 256-114.496 256-256C512 114.509 397.504 0 256 0zm-7.575 375.819c-14.49 0-25.61-12.131-25.61-25.948 0-14.153 11.457-25.946 25.61-25.946 14.154 0 25.946 11.794 25.946 25.947 0 13.815-11.457 25.947-25.946 25.947zm38.414-131.083c-18.533 14.49-18.871 24.599-18.871 42.121 0 6.404-3.37 13.817-19.881 13.817-13.817 0-18.533-5.055-18.533-22.577 0-28.98 12.805-42.796 22.577-51.22 11.12-9.436 29.991-19.881 29.991-38.077 0-15.502-13.479-22.915-30.328-22.915-34.371 0-26.957 25.948-45.155 25.948-9.098 0-20.218-6.067-20.218-19.208 0-18.196 20.892-45.155 66.384-45.155 43.132 0 71.775 23.926 71.775 55.601s-28.643 54.589-37.741 61.665z">
                             </path>
@@ -1038,12 +1038,12 @@
                     </div>
                     <span>View All Sword Parts</span>
                 </a>
-            
+
                 <a class="mobile-popup view-all-button">
                     <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512"
-                            height="512" x="0" y="0" viewBox="0 0 2000 2000" style="enable-background:new 0 0 512 512"
-                            xml:space="preserve">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            width="512" height="512" x="0" y="0" viewBox="0 0 2000 2000"
+                            style="enable-background:new 0 0 512 512" xml:space="preserve">
                             <path
                                 d="M953.2 1383.7c-29.8 0-53.9-24.1-53.9-53.9 0-70.5 10-131.4 29.9-182.6 14.6-38.6 38.3-77.5 70.9-116.8 24-28.6 67-70.4 129.2-125.2 62.2-54.9 102.6-98.6 121.3-131.2s27.9-68.2 27.9-106.8c0-69.9-27.3-131.2-81.8-184.1s-121.4-79.3-200.6-79.3c-76.5 0-140.4 24-191.6 71.9-37.4 35-65.5 84.4-84.1 148.2-12.8 43.8-55.5 71.8-100.8 66.4-57.4-6.8-95.2-63.6-78.8-119.1 25.2-85.3 67.4-154 126.5-206.2 82.1-72.7 190.7-109 325.8-109 143 0 257.1 38.9 342.3 116.8s127.7 172 127.7 282.4c0 63.9-15 122.8-44.9 176.6-29.9 53.9-88.5 119.4-175.6 196.6-58.5 51.9-96.8 90.2-114.8 114.8s-31.3 52.9-39.9 84.8c-6.4 23.7-10.8 58.5-13.2 104.2-1.5 28.8-25.4 51.4-54.2 51.4h-67.3zm-63.9 258c0-56.5 45.8-102.3 102.3-102.3s102.3 45.8 102.3 102.3-45.8 102.3-102.3 102.3-102.3-45.8-102.3-102.3z">
                             </path>
@@ -1055,161 +1055,187 @@
                 <!-- Cart Content -->
                 <div class="cart-content-wrapper">
                     <div class="left-content-wrapper">
-                        <div class="process-steps-wrapper">
-                        
-                            <!-- This will be only display in mobile  -->
-                            <div class="mobile-progressbar-card">
-                                <div class="wrapper-progressbar">
-                                    <div class="middle-row">
-                                        <div class="progress-fill" style="width: 32%;">
-                                            <span>32%</span>
+                        <div class="wrap-middle-area">
+                            <div class="process-steps-wrapper">
+
+                                <!-- This will be only display in mobile  -->
+                                <div class="mobile-progressbar-card">
+                                    <div class="wrapper-progressbar">
+                                        <div class="middle-row">
+                                            <div class="progress-fill" style="width: 32%;">
+                                                <span>32%</span>
+                                            </div>
                                         </div>
                                     </div>
+                                    <button id="open-mobile-cart">
+                                        <div class="open-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512"
+                                                x="0" y="0" viewBox="0 0 128 128"
+                                                style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                                <path
+                                                    d="M64 104a3.988 3.988 0 0 1-2.828-1.172l-40-40c-1.563-1.563-1.563-4.094 0-5.656s4.094-1.563 5.656 0L64 94.344l37.172-37.172c1.563-1.563 4.094-1.563 5.656 0s1.563 4.094 0 5.656l-40 40A3.988 3.988 0 0 1 64 104zm2.828-33.172 40-40c1.563-1.563 1.563-4.094 0-5.656s-4.094-1.563-5.656 0L64 62.344 26.828 25.172c-1.563-1.563-4.094-1.563-5.656 0s-1.563 4.094 0 5.656l40 40C61.953 71.609 62.977 72 64 72s2.047-.391 2.828-1.172z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <div class="close-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512"
+                                                x="0" y="0" viewBox="0 0 512 512"
+                                                style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                                <path
+                                                    d="M25 512a25 25 0 0 1-17.68-42.68l462-462a25 25 0 0 1 35.36 35.36l-462 462A24.93 24.93 0 0 1 25 512z">
+                                                </path>
+                                                <path
+                                                    d="M487 512a24.93 24.93 0 0 1-17.68-7.32l-462-462A25 25 0 0 1 42.68 7.32l462 462A25 25 0 0 1 487 512z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                    </button>
                                 </div>
-                                <button id="open-mobile-cart">
-                                    <div class="open-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            width="512" height="512" x="0" y="0" viewBox="0 0 128 128" style="enable-background:new 0 0 512 512"
-                                            xml:space="preserve" class="">
-                                            <path
-                                                d="M64 104a3.988 3.988 0 0 1-2.828-1.172l-40-40c-1.563-1.563-1.563-4.094 0-5.656s4.094-1.563 5.656 0L64 94.344l37.172-37.172c1.563-1.563 4.094-1.563 5.656 0s1.563 4.094 0 5.656l-40 40A3.988 3.988 0 0 1 64 104zm2.828-33.172 40-40c1.563-1.563 1.563-4.094 0-5.656s-4.094-1.563-5.656 0L64 62.344 26.828 25.172c-1.563-1.563-4.094-1.563-5.656 0s-1.563 4.094 0 5.656l40 40C61.953 71.609 62.977 72 64 72s2.047-.391 2.828-1.172z">
-                                            </path>
-                                        </svg>
+
+                                <!-- This is a desktop progress bars -->
+                                <div class="inner-process-items">
+                                    <div class="single-process active">
+                                        <div class="top-title">
+                                            <h2>Blade</h2>
+                                        </div>
+                                        <div class="wrapper-process">
+                                            <div class="number-indicator">
+                                                <span>80%</span>
+                                            </div>
+                                            <div class="sub-precess-wrapper">
+                                                <div class="wrap-bar">
+                                                    <div class="fill-valued" style="width:80%">
+                                                        <!-- <div class="toptip-value">47%</div> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="close-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512"
-                                            xml:space="preserve" class="">
-                                            <path
-                                                d="M25 512a25 25 0 0 1-17.68-42.68l462-462a25 25 0 0 1 35.36 35.36l-462 462A24.93 24.93 0 0 1 25 512z">
-                                            </path>
-                                            <path
-                                                d="M487 512a24.93 24.93 0 0 1-17.68-7.32l-462-462A25 25 0 0 1 42.68 7.32l462 462A25 25 0 0 1 487 512z">
-                                            </path>
-                                        </svg>
+                                    <div class="single-process">
+                                        <div class="top-title">
+                                            <h2>Tsuka/Monting</h2>
+                                        </div>
+                                        <div class="wrapper-process">
+                                            <div class="number-indicator">
+                                                <span>0%</span>
+                                            </div>
+                                            <div class="sub-precess-wrapper">
+                                                <div class="wrap-bar">
+                                                    <div class="fill-valued" style="width:0%">
+                                                        <!-- <div class="toptip-value">0%</div> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </button>
+                                    <div class="single-process">
+                                        <div class="top-title">
+                                            <h2>Saya</h2>
+                                        </div>
+                                        <div class="wrapper-process">
+                                            <div class="number-indicator">
+                                                <span>0%</span>
+                                            </div>
+                                            <div class="sub-precess-wrapper">
+                                                <div class="wrap-bar">
+                                                    <div class="fill-valued" style="width:0%">
+                                                        <!-- <div class="toptip-value">47%</div> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="last-step">
+                                        <span class="icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512"
+                                                x="0" y="0" viewBox="0 0 24 24"
+                                                style="enable-background:new 0 0 512 512" xml:space="preserve">
+                                                <path
+                                                    d="M1 1a1 1 0 1 0 0 2h1.78a.694.694 35.784 0 1 .657.474l3.297 9.893c.147.44.165.912.053 1.362l-.271 1.087C6.117 17.41 7.358 19 9 19h12a1 1 0 1 0 0-2H9c-.39 0-.64-.32-.545-.697l.205-.818A.64.64 142.028 0 1 9.28 15H20a1 1 0 0 0 .95-.684l2.665-8A1 1 0 0 0 22.666 5H6.555a.694.694 35.783 0 1-.658-.474l-.948-2.842A1 1 0 0 0 4 1zm7 19a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
+                                                    paint-order="fill markers stroke"></path>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
-                        
-                            <!-- This is a desktop progress bars -->
-                            <div class="inner-process-items">
-                                <div class="single-process active">
-                                    <div class="top-title">
-                                        <h2>Blade</h2>
-                                    </div>
-                                    <div class="wrapper-process">
-                                        <div class="number-indicator">
-                                            <span>80%</span>
+                            <!-- Step 1 -->
+                            <div class="step-content">
+                                <div class="step-header-title">
+                                    <div class="steps-indicator">
+                                        <span class="text">Blade</span>
+                                        <div class="numbers">
+                                            08<span>/10</span>
                                         </div>
-                                        <div class="sub-precess-wrapper">
-                                            <div class="wrap-bar">
-                                                <div class="fill-valued" style="width:80%">
-                                                    <!-- <div class="toptip-value">47%</div> -->
-                                                </div>
+                                    </div>
+                                    <h3>Mei (Signature on Tang)</h3>
+                                    <p>The mei is the inscription on the tang of the sword, usually a smith’s name, but
+                                        may also include other information.
+                                    </p>
+                                </div>
+
+                                <!-- Row checkbox with price -->
+                                <div class="wrapp-row-selection">
+                                    <div class="wrap-single-row">
+                                        <div class="single-row-selection row-selected">
+                                            <div class="selec-input">
+                                                <input type="checkbox" id="selection-select1">
+                                                <label for="selection-select1">No Mei</label>
                                             </div>
+                                            <div class="price">$0</div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="single-process">
-                                    <div class="top-title">
-                                        <h2>Tsuka/Monting</h2>
-                                    </div>
-                                    <div class="wrapper-process">
-                                        <div class="number-indicator">
-                                            <span>0%</span>
-                                        </div>
-                                        <div class="sub-precess-wrapper">
-                                            <div class="wrap-bar">
-                                                <div class="fill-valued" style="width:0%">
-                                                    <!-- <div class="toptip-value">0%</div> -->
-                                                </div>
+                                    <div class="wrap-single-row">
+                                        <div class="single-row-selection row-selected">
+                                            <div class="selec-input">
+                                                <input type="checkbox" id="selection-select2">
+                                                <label for="selection-select2">Custom Mei</label>
                                             </div>
+                                            <div class="price">$0</div>
+                                        </div>
+                                        <div class="content-area">
+                                            <textarea placeholder="Your message here..."></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="single-process">
-                                    <div class="top-title">
-                                        <h2>Saya</h2>
-                                    </div>
-                                    <div class="wrapper-process">
-                                        <div class="number-indicator">
-                                            <span>0%</span>
-                                        </div>
-                                        <div class="sub-precess-wrapper">
-                                            <div class="wrap-bar">
-                                                <div class="fill-valued" style="width:0%">
-                                                    <!-- <div class="toptip-value">47%</div> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="last-step">
-                                    <span class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            width="512" height="512" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512"
-                                            xml:space="preserve">
-                                            <path
-                                                d="M1 1a1 1 0 1 0 0 2h1.78a.694.694 35.784 0 1 .657.474l3.297 9.893c.147.44.165.912.053 1.362l-.271 1.087C6.117 17.41 7.358 19 9 19h12a1 1 0 1 0 0-2H9c-.39 0-.64-.32-.545-.697l.205-.818A.64.64 142.028 0 1 9.28 15H20a1 1 0 0 0 .95-.684l2.665-8A1 1 0 0 0 22.666 5H6.555a.694.694 35.783 0 1-.658-.474l-.948-2.842A1 1 0 0 0 4 1zm7 19a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
-                                                paint-order="fill markers stroke"></path>
-                                        </svg>
-                                    </span>
-                                </div>
+
                             </div>
                         </div>
-                        <!-- Step 1 -->
-                        <div class="step-content">
-                            <div class="step-header-title">
-                                <div class="steps-indicator">
-                                    <span class="text">Blade</span>
-                                    <div class="numbers">
-                                        08<span>/10</span>
-                                    </div>
-                                </div>
-                                <h3>Mei (Signature on Tang)</h3>
-                                <p>The mei is the inscription on the tang of the sword, usually a smith’s name, but may also include other information.
-                                </p>
-                            </div>
 
-                            <!-- Row checkbox with price -->
-                            <div class="wrapp-row-selection">
-                                <div class="single-row-selection row-selected">
-                                    <div class="selec-input">
-                                        <input type="checkbox" id="selection-select1">
-                                        <label for="selection-select1">No Mei</label>
-                                    </div>
-                                    <div class="price">$0</div>
-                                </div>
-                                <div class="single-row-selection row-selected">
-                                    <div class="selec-input">
-                                        <input type="checkbox" id="selection-select2">
-                                        <label for="selection-select2">Custom Mei</label>
-                                    </div>
-                                    <div class="price">$0</div>
-                                </div>
-                            </div>
 
-                        </div>
-
-                    
 
                         <div class="mobile-actions">
                             <div class="arrow-buttons">
                                 <div class="back-button">
-                                    <a href="/custom-made-katana-09.html" class="com-btn back">
-                                        <img src="./data/back-arrow.svg" alt="">
+                                    <a href="/swardis/custom-made-katana-09.html" class="com-btn back">
+                                        <div class="arrow"></div>
                                         <span>Back</span>
                                     </a>
                                 </div>
                                 <div class="last-step-button">
-                                    <a href="/custom-made-katana-final.html" class="com-btn">
+                                    <a href="/swardis/custom-made-katana-final.html" class="com-btn">
                                         <span>Back to last step</span>
-                                        <img src="./data/arrow-double-right.svg" alt="">
+                                        <div class="arrow-anim">
+                                            <div class="arrow-sliding">
+                                                <div class="arrow"></div>
+                                            </div>
+                                            <div class="arrow-sliding delay1">
+                                                <div class="arrow"></div>
+                                            </div>
+                                            <div class="arrow-sliding delay2">
+                                                <div class="arrow"></div>
+                                            </div>
+                                            <div class="arrow-sliding delay3">
+                                                <div class="arrow"></div>
+                                            </div>
+                                        </div>
                                     </a>
                                 </div>
                                 <div class="next-button">
-                                    <a href="/custom-made-katana-11.html" class="com-btn">
-                                        <img src="./data/next-arrow.svg" alt="">
+                                    <a href="/swardis/custom-made-katana-11.html" class="com-btn">
+                                        <div class="arrow"></div>
                                         <span>Next</span>
                                     </a>
                                 </div>
@@ -1232,6 +1258,12 @@
                             <div class="empty-view">
                                 <h3>Your Custom Katana</h3>
                                 <div class="empty-icon">
+                                    <div class="animated-icon">
+                                        <video autoplay loop muted controls="false" width="100%" height="auto">
+                                            <source src="./data/Hammer_and_Anvil.webm" type="video/webm">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
                                     <img src="./data/empty-cart.png" alt="empty cart">
                                 </div>
                             </div>
@@ -1239,6 +1271,7 @@
                             <div class="content-area">
                                 <div class="expanded-rows">
                                     <div class="single-item-row cart-item-row">
+                                        <!-- If you want to add open add a active class to the below row, and add a style display:block to the row-content div -->
                                         <div class="row-head">
                                             <span>Sword brand</span>
                                             <div class="icon">
@@ -1246,6 +1279,7 @@
                                                 <span></span>
                                             </div>
                                         </div>
+                                        <!-- if you want to scroll to the bottom add a scroll-to-bottom class -->
                                         <div class="row-content">
                                             <div class="inner-row">
                                                 <span class="item-title">Brand / Swordsmith Selection</span>
@@ -1258,18 +1292,20 @@
                                         </div>
                                     </div>
                                     <div class="single-item-row cart-item-row">
-                                        <div class="row-head">
+                                        <!-- If you want to add open add a active class to the below row, and add a style display:block to the row-content div -->
+                                        <div class="row-head active">
                                             <span>The brand</span>
                                             <div class="icon">
                                                 <span></span>
                                                 <span></span>
                                             </div>
                                         </div>
-                                        <div class="row-content">
+                                        <!-- if you want to scroll to the bottom add a scroll-to-bottom class -->
+                                        <div class="row-content scroll-to-bottom" style="display: block;">
                                             <div class="inner-row">
                                                 <div class="wrap-top-title">
                                                     <span class="item-title">Type of steel</span>
-                                                    <a href="#" class="edit">
+                                                    <a href="#" class="edit open-confirm">
                                                         <img src="./data/pencil.svg" alt="edit">
                                                         <span>Edit</span>
                                                     </a>
@@ -1282,7 +1318,7 @@
                                             <div class="inner-row">
                                                 <div class="wrap-top-title">
                                                     <span class="item-title">Type of steel</span>
-                                                    <a href="#" class="edit">
+                                                    <a href="#" class="edit open-confirm">
                                                         <img src="./data/pencil.svg" alt="edit">
                                                         <span>Edit</span>
                                                     </a>
@@ -1296,7 +1332,7 @@
                                                 <span class="item-title">Brand configuration</span>
                                                 <div class="wrap-top-title">
                                                     <span class="item-title">Type of steel</span>
-                                                    <a href="#" class="edit">
+                                                    <a href="#" class="edit open-confirm">
                                                         <img src="./data/pencil.svg" alt="edit">
                                                         <span>Edit</span>
                                                     </a>
@@ -1307,7 +1343,7 @@
                                                 </div>
                                                 <div class="wrap-top-title">
                                                     <span class="item-title">Type of steel</span>
-                                                    <a href="#" class="edit">
+                                                    <a href="#" class="edit open-confirm">
                                                         <img src="./data/pencil.svg" alt="edit">
                                                         <span>Edit</span>
                                                     </a>
@@ -1327,6 +1363,37 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- popup confirmation -->
+        <div class="popup-confirmation">
+            <div class="middle-col">
+                <div class="header-bar">
+                    <h3>Change brand/swordsmith?</h3>
+                    <button class="close-popup">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            width="512" height="512" x="0" y="0" viewBox="0 0 512 512"
+                            style="enable-background:new 0 0 512 512" xml:space="preserve">
+                            <path
+                                d="M25 512a25 25 0 0 1-17.68-42.68l462-462a25 25 0 0 1 35.36 35.36l-462 462A24.93 24.93 0 0 1 25 512z">
+                            </path>
+                            <path
+                                d="M487 512a24.93 24.93 0 0 1-17.68-7.32l-462-462A25 25 0 0 1 42.68 7.32l462 462A25 25 0 0 1 487 512z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="content">
+                    <p>Are you sure you want to change the brand/swordsmith? If you proceed, your current progress will
+                        be lost.
+                    </p>
+                    <div class="button-wrapper">
+                        <a href="" class="color">Reset</a>
+                        <a href="#" class="close-popup">Cancel</a>
                     </div>
                 </div>
             </div>
