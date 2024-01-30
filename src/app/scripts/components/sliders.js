@@ -12,12 +12,12 @@ export default () => {
     //     }
     // })
 
-    $('.list-slider').slick({
+    $(".list-slider").slick({
       slidesToShow: 2,
       slidesToScroll: 1,
       infinite: true,
-      variableWidth: true,
-    })
+      variableWidth: true
+    });
   }
 
   if (window.innerWidth < 1300) {
@@ -40,18 +40,18 @@ export default () => {
     // });
     // $(".category-page-types-list").slick("slickNext");
 
-     $(".category-page-types-list").flickity({
-       freeScroll: true,
-       contain: true,
-       prevNextButtons: false,
-       pageDots: false
+    $(".category-page-types-list").flickity({
+      freeScroll: true,
+      contain: true,
+      prevNextButtons: false,
+      pageDots: false
     });
 
-     $(".types-block-list.slider").flickity({
-       freeScroll: true,
-       contain: true,
-       prevNextButtons: false,
-       pageDots: false
+    $(".types-block-list.slider").flickity({
+      freeScroll: true,
+      contain: true,
+      prevNextButtons: false,
+      pageDots: false
     });
 
     // $(".types-block-list.slider").slick({
@@ -75,23 +75,26 @@ export default () => {
     `1/${$(".header-cart-products .cart-item").length}`
   );
 
-  $(".header-cart-products").on("beforeChange init", (event, slick, currentSlide, nextSlide) => {
-    console.log({currentSlide, nextSlide, slick})
-    $(".header-cart-products__count").text(
-      `${nextSlide + 1}/${slick.slideCount}`
-    );
-    if (nextSlide  == 0)  {
-      $('.header-cart-products__arrow.prev').addClass('disabled');
-    } else {
-      $('.header-cart-products__arrow.prev').removeClass('disabled');
-    }
+  $(".header-cart-products").on(
+    "beforeChange init",
+    (event, slick, currentSlide, nextSlide) => {
+      console.log({ currentSlide, nextSlide, slick });
+      $(".header-cart-products__count").text(
+        `${nextSlide + 1}/${slick.slideCount}`
+      );
+      if (nextSlide == 0) {
+        $(".header-cart-products__arrow.prev").addClass("disabled");
+      } else {
+        $(".header-cart-products__arrow.prev").removeClass("disabled");
+      }
 
-    if (nextSlide +  1  == slick.slideCount)  {
-      $('.header-cart-products__arrow.next').addClass('disabled');
-    } else {
-      $('.header-cart-products__arrow.next').removeClass('disabled');
+      if (nextSlide + 1 == slick.slideCount) {
+        $(".header-cart-products__arrow.next").addClass("disabled");
+      } else {
+        $(".header-cart-products__arrow.next").removeClass("disabled");
+      }
     }
-  });
+  );
   $(".header-cart-products__arrow.next").on("click", () => {
     $(".header-cart-products").slick("slickNext");
   });
@@ -99,12 +102,12 @@ export default () => {
     $(".header-cart-products").slick("slickPrev");
   });
 
-  $('.similar-products-list').slick({
+  $(".similar-products-list").slick({
     arrows: false,
     variableWidth: true,
     infinite: true,
-    slidesToShow: 2,
-  })
+    slidesToShow: 2
+  });
 
   $(".products-slider").slick({
     slidesToShow: 5,
@@ -214,7 +217,7 @@ export default () => {
                     `
   });
 
-  $('.terminology-slider').slick({
+  $(".terminology-slider").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: false,
@@ -231,11 +234,53 @@ export default () => {
                             <path d="M1.40808 19.5919L16.4081 34.5919C16.8308 35.0146 17.4041 35.252 18.0018 35.252C18.5996 35.252 19.1729 35.0146 19.5956 34.5919C20.0183 34.1692 20.2557 33.5959 20.2557 32.9981C20.2557 32.4003 20.0183 31.8271 19.5956 31.4044L6.18746 18L19.5918 4.59187C19.8011 4.38258 19.9672 4.13411 20.0804 3.86065C20.1937 3.5872 20.252 3.29411 20.252 2.99812C20.252 2.70213 20.1937 2.40904 20.0804 2.13559C19.9672 1.86213 19.8011 1.61366 19.5918 1.40437C19.3825 1.19508 19.1341 1.02905 18.8606 0.915785C18.5872 0.802516 18.2941 0.744217 17.9981 0.744217C17.7021 0.744217 17.409 0.802516 17.1356 0.915785C16.8621 1.02905 16.6136 1.19508 16.4043 1.40437L1.40434 16.4044C1.19482 16.6136 1.02868 16.8622 0.91544 17.1359C0.802199 17.4095 0.744088 17.7028 0.744436 17.9989C0.744785 18.295 0.803587 18.5882 0.917471 18.8615C1.03135 19.1349 1.19808 19.3831 1.40808 19.5919Z" fill="#80918F"/>
                         </svg>
                     </button>
+                    `
+  });
+
+  $(".terminology-slider").on(
+      "beforeChange",
+      (event, slick, currentSlide, nextSlide) => {
+        $(".terminology-item").removeClass("active");
+        $(".terminology-item")
+            .eq(nextSlide)
+            .addClass("active");
+      }
+  );
+
+  $(".brands-swordsmiths-portfolio-item__slider").slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: false,
+    nextArrow: `
+                    <button type="button" class="slick-arrow slick-next">
+                        <svg width="21" height="36" viewBox="0 0 21 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.5919 19.5919L4.59188 34.5919C4.1692 35.0146 3.59591 35.252 2.99813 35.252C2.40036 35.252 1.82707 35.0146 1.40438 34.5919C0.981696 34.1692 0.744232 33.5959 0.744232 32.9981C0.744232 32.4003 0.981696 31.8271 1.40438 31.4044L14.8125 18L1.40814 4.59187C1.19884 4.38258 1.03282 4.13411 0.91955 3.86065C0.806281 3.5872 0.747982 3.29411 0.747982 2.99812C0.747982 2.70213 0.806281 2.40904 0.91955 2.13559C1.03282 1.86213 1.19884 1.61366 1.40814 1.40437C1.61743 1.19508 1.8659 1.02905 2.13935 0.915785C2.41281 0.802516 2.7059 0.744217 3.00189 0.744217C3.29787 0.744217 3.59096 0.802516 3.86442 0.915785C4.13787 1.02905 4.38634 1.19508 4.59564 1.40437L19.5956 16.4044C19.8051 16.6136 19.9713 16.8622 20.0845 17.1359C20.1978 17.4095 20.2559 17.7028 20.2555 17.9989C20.2552 18.295 20.1964 18.5882 20.0825 18.8615C19.9686 19.1349 19.8019 19.3831 19.5919 19.5919Z" fill="#80918F"/>
+                        </svg>
+                    </button>
                     `,
+    prevArrow: `
+                    <button type="button" class="slick-arrow slick-prev">
+                        <svg width="21" height="36" viewBox="0 0 21 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.40808 19.5919L16.4081 34.5919C16.8308 35.0146 17.4041 35.252 18.0018 35.252C18.5996 35.252 19.1729 35.0146 19.5956 34.5919C20.0183 34.1692 20.2557 33.5959 20.2557 32.9981C20.2557 32.4003 20.0183 31.8271 19.5956 31.4044L6.18746 18L19.5918 4.59187C19.8011 4.38258 19.9672 4.13411 20.0804 3.86065C20.1937 3.5872 20.252 3.29411 20.252 2.99812C20.252 2.70213 20.1937 2.40904 20.0804 2.13559C19.9672 1.86213 19.8011 1.61366 19.5918 1.40437C19.3825 1.19508 19.1341 1.02905 18.8606 0.915785C18.5872 0.802516 18.2941 0.744217 17.9981 0.744217C17.7021 0.744217 17.409 0.802516 17.1356 0.915785C16.8621 1.02905 16.6136 1.19508 16.4043 1.40437L1.40434 16.4044C1.19482 16.6136 1.02868 16.8622 0.91544 17.1359C0.802199 17.4095 0.744088 17.7028 0.744436 17.9989C0.744785 18.295 0.803587 18.5882 0.917471 18.8615C1.03135 19.1349 1.19808 19.3831 1.40808 19.5919Z" fill="#80918F"/>
+                        </svg>
+                    </button>
+                    `
+  });
+
+
+
+  $(window).on("load", () => {
+    if (window.innerWidth < 641) {
+      $('.looking-for-katana__price').after($('.looking-for-katana__logos'));
+      $('.looking-for-katana__logos').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        centerMode: true,
+        arrows: false,
+        variableWidth: true,
+      })
+    }
   })
+
 };
 
-$('.terminology-slider').on('beforeChange', (event, slick, currentSlide, nextSlide) => {
-  $('.terminology-item').removeClass('active');
-  $('.terminology-item').eq(nextSlide).addClass('active');
-});

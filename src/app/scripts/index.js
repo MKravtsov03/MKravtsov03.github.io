@@ -126,6 +126,30 @@ document.addEventListener("DOMContentLoaded", () => {
     plugins: []
   });
 
+  const elements = document.getElementsByClassName(
+    "brands-swordsmiths-portfolio-item__slider"
+  );
+  for (let item of elements) {
+    lightGallery(item, {
+      speed: 500,
+      selector: ".brands-swordsmiths-portfolio-item__slide",
+      controls: true,
+      download: false,
+      plugins: []
+    });
+  }
+
+  if (document.getElementsByClassName(".portfolio-item-1").length) {
+    lightGallery(document.getElementsByClassName(".portfolio-item-1"), {
+      speed: 500,
+      selector: ".brands-swordsmiths-portfolio-item__slide",
+      controls: true,
+      download: false,
+      plugins: []
+    });
+  }
+
+
   $(window).on("load resize", () => {
     if (window.innerWidth < 1101) {
       $(".product-heading-holder").prepend(
@@ -143,6 +167,12 @@ document.addEventListener("DOMContentLoaded", () => {
       $(".faq-title").after($(".faq-sidebar"));
     } else {
       $(".faq-holder").prepend($(".faq-sidebar"));
+    }
+
+    if (window.innerWidth < 641) {
+      $(".product-widget__footer").append($(".lead-time"));
+    } else {
+      $(".product-widget__footer .product-price").after($(".lead-time"));
     }
   });
 
@@ -177,7 +207,13 @@ document.addEventListener("DOMContentLoaded", () => {
         currentItem.siblings().hide();
         currentItem.show();
         $(link).addClass("active");
-        currentItem.children(".sub-nav").append(`<li class="sub-nav__item main"><a href="${$(link).attr('href')}" class="sub-nav__link main">ALL ${$(link).text()}</a></li>`);
+        currentItem
+          .children(".sub-nav")
+          .append(
+            `<li class="sub-nav__item main"><a href="${$(link).attr(
+              "href"
+            )}" class="sub-nav__link main">ALL ${$(link).text()}</a></li>`
+          );
         currentItem.children(".sub-nav").show();
         $(link).prepend(backBtn);
         if (selector === "sub-nav") {
@@ -295,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.stopPropagation();
     $(".terminology-item").removeClass("active");
     $(this).addClass("active");
-    $('.terminology-slider').slick('slickGoTo', $(this).index());
+    $(".terminology-slider").slick("slickGoTo", $(this).index());
     console.log($(this).index());
   });
 
@@ -310,8 +346,11 @@ document.addEventListener("DOMContentLoaded", () => {
     $(".wiki-section").each(function() {
       const sectionTop = $(this).offset().top;
       const sectionHeight = $(this).height();
-      console.log({sectionTop, sectionHeight})
-      if ($(window).scrollTop() >= (sectionTop - 190) && $(window).scrollTop() <= (sectionTop + sectionHeight)) {
+      console.log({ sectionTop, sectionHeight });
+      if (
+        $(window).scrollTop() >= sectionTop - 190 &&
+        $(window).scrollTop() <= sectionTop + sectionHeight
+      ) {
         const current = $(this).attr("id");
         $(".wiki-heading__list a").each(function() {
           if ($(this).attr("href") == `#${current}`) {
@@ -328,9 +367,12 @@ document.addEventListener("DOMContentLoaded", () => {
     $(".faq-category").each(function() {
       const sectionTop = $(this).offset().top;
       const sectionHeight = $(this).height();
-      if ($(window).scrollTop() >= (sectionTop - 190) && $(window).scrollTop() <= (sectionTop + sectionHeight)) {
+      if (
+        $(window).scrollTop() >= sectionTop - 190 &&
+        $(window).scrollTop() <= sectionTop + sectionHeight
+      ) {
         const current = $(this).attr("id");
-        console.log(current)
+        console.log(current);
         $(".faq-nav a").each(function() {
           if ($(this).attr("href") == `#${current}`) {
             $(".faq-nav a").removeClass("active");
@@ -346,9 +388,12 @@ document.addEventListener("DOMContentLoaded", () => {
     $(".article-content .content-area").each(function() {
       const sectionTop = $(this).offset().top;
       const sectionHeight = $(this).height();
-      if ($(window).scrollTop() >= (sectionTop - 190) && $(window).scrollTop() <= (sectionTop + sectionHeight)) {
+      if (
+        $(window).scrollTop() >= sectionTop - 190 &&
+        $(window).scrollTop() <= sectionTop + sectionHeight
+      ) {
         const current = $(this).attr("id");
-        console.log(current)
+        console.log(current);
         $(".article-nav a").each(function() {
           if ($(this).attr("href") == `#${current}`) {
             $(".article-nav a").removeClass("active");
@@ -360,29 +405,42 @@ document.addEventListener("DOMContentLoaded", () => {
         $(".article-nav a").removeClass("active");
       }
     });
-
   });
 
-  $('.mobile-search-handler').on('click', function () {
-    if ($(this).hasClass('active')) {
-      $(this).removeClass('active');
-      $('.header-inner .search').hide();
+  $(".mobile-search-handler").on("click", function() {
+    if ($(this).hasClass("active")) {
+      $(this).removeClass("active");
+      $(".header-inner .search").hide();
     } else {
-      $(this).addClass('active');
-      $('.header-inner .search').show();
+      $(this).addClass("active");
+      $(".header-inner .search").show();
     }
-  })
+  });
 
-  $('.blog-head-search__handler').on('click', function () {
-    if ($(this).hasClass('active')) {
-      $(this).removeClass('active');
-      $('.header__overlay').hide();
-      $('.blog-search').removeClass('active');
+  $(".blog-head-search__handler").on("click", function() {
+    if ($(this).hasClass("active")) {
+      $(this).removeClass("active");
+      $(".header__overlay").hide();
+      $(".blog-search").removeClass("active");
     } else {
-      $(this).addClass('active');
-      $('.header__overlay').show();
-      $('.blog-search').addClass('active');
+      $(this).addClass("active");
+      $(".header__overlay").show();
+      $(".blog-search").addClass("active");
     }
-  })
+  });
+});
 
+$(".brands-swordsmiths-item__btn").on("click", function() {
+  if ($(this).hasClass("active")) {
+    $(this).removeClass("active");
+    return $(this)
+      .parent()
+      .find(".brands-swordsmiths-portfolio__list")
+      .removeClass("active");
+  }
+  $(this).addClass("active");
+  $(this)
+    .parent()
+    .find(".brands-swordsmiths-portfolio__list")
+    .addClass("active");
 });

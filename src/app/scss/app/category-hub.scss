@@ -90,6 +90,27 @@
     width: calc(20% - 10px);
     max-width: 240px;
     @include transition();
+    &__thumb {
+      position: relative;
+    }
+    &__labels {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      z-index: 2;
+    }
+    &__label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      background: $main-70;
+      border-radius: 2px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      padding: 0 4px;
+    }
     &__title{
       height: 53px;
       display: flex;
