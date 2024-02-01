@@ -269,18 +269,18 @@ export default () => {
 
 
 
-  $(window).on("load", () => {
-    if (window.innerWidth < 641) {
-      $('.looking-for-katana__price').after($('.looking-for-katana__logos'));
-      $('.looking-for-katana__logos').slick({
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        centerMode: true,
-        arrows: false,
-        variableWidth: true,
-      })
-    }
-  })
+  // $(window).on("load", () => {
+  //   if (window.innerWidth < 641) {
+  //     $('.looking-for-katana__price').after($('.looking-for-katana__logos'));
+  //     $('.looking-for-katana__logos').slick({
+  //       slidesToShow: 5,
+  //       slidesToScroll: 1,
+  //       centerMode: true,
+  //       arrows: false,
+  //       variableWidth: true,
+  //     })
+  //   }
+  // })
 
 };
 

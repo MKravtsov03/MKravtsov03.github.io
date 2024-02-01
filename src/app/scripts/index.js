@@ -170,11 +170,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (window.innerWidth < 641) {
-      $(".product-widget__footer").append($(".lead-time"));
+      $('.looking-for-katana__price').after($('.looking-for-katana__logos'));
+      // $(".product-widget__footer").append($(".lead-time"));
     } else {
-      $(".product-widget__footer .product-price").after($(".lead-time"));
+      // $(".product-widget__footer .product-price").after($(".lead-time"));
+      $(".looking-for-katana__header").append($('.looking-for-katana__logos'));
     }
   });
+
+  $('.product-widget__content-more').on('click', function() {
+    if ($(this).hasClass('active')) {
+      $(this).parent().find('.product-widget__content-inner').removeClass('open');
+      $(this).removeClass('active');
+      $(this).text('Read more')
+    } else {
+      $(this).parent().find('.product-widget__content-inner').addClass('open');
+      $(this).addClass('active');
+      $(this).text('Read less')
+    }
+
+  })
 
   $(".anchor").on("click", function ancordsLinks(e) {
     const id = $(this).attr("href");

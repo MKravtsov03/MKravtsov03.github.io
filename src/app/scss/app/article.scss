@@ -534,7 +534,6 @@
     font-size: 19px;
     font-weight: 700;
     line-height: 120%;
-
     color: $main;
   }
   &__logos {
@@ -542,7 +541,11 @@
     align-items: center;
     gap: 16px;
     @include response(640px) {
-      margin: 0 -20px 30px;
+      margin: 0 -10px 15px;
+      padding-bottom: 14px;
+      gap: 5px;
+      justify-content: space-between;
+      border-bottom: 1px solid $main-10;
     }
   }
   &__logo-item {
@@ -554,10 +557,10 @@
       width: 58px !important;
       max-width: 100%;
       border-radius: 50%;
+      flex-shrink: 0;
       background: #fff;
       justify-content: center;
       border: 1px solid $main-30;
-      margin: 0 4px;
       overflow: hidden;
       img {
         max-width: 42px;
@@ -571,6 +574,9 @@
     text-transform: uppercase;
     color: $main-50;
     margin-top: 4px;
+    @include response(640px) {
+      font-size: 12px;
+    }
   }
   &__price {
     font-size: 14px;
@@ -591,6 +597,13 @@
     bottom: 0;
     background: url("../data/looking-bg.svg");
     background-repeat: no-repeat;
+    @include response(640px) {
+      background-image: url("../data/looking-bg-mobile.svg");
+      width: 230px;
+      height: 220px;
+      bottom: auto;
+      top: 0;
+    }
   }
 }
 
@@ -626,6 +639,29 @@
     a {
       font-weight: 400;
     }
+    &-more {
+      display: none;
+    }
+    @include response(640px) {
+      &-inner {
+        overflow: hidden;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        &.open {
+          -webkit-line-clamp: initial;
+        }
+      }
+      &-more {
+        display: inline;
+        color: $main-70;
+        text-decoration: underline;
+        &.active {
+          color: $accent;
+        }
+      }
+    }
   }
   &__footer {
     display: flex;
@@ -635,14 +671,28 @@
     border: 1px solid $main-10;
     background: #F9F9F9;
     padding: 20px;
+    &-inner {
+      @include response(640px) {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
     .product-price  {
       font-size: 32px;
       line-height: 110%;
+      @include response(640px) {
+        font-size: 28px;
+      }
       &__sale {
         line-height: 1;
       }
       &__old {
         font-size: 17px;
+        @include response(640px) {
+          font-size: 12px;
+        }
       }
       .discount {
         font-size: 10px;
@@ -658,6 +708,11 @@
       color: $main-50;
       font-weight: 700;
       gap: 8px;
+      &__label {
+        @include response(640px) {
+          display: none;
+        }
+      }
       .product-delivery__time {
         margin-bottom: 0;
         color: $approval;
@@ -671,6 +726,7 @@
     }
     @include response(640px) {
      flex-direction: column;
+      margin: 0 -20px 0;
       align-items: flex-start;
       .button {
         width: 100%;

@@ -4175,7 +4175,13 @@ yx-axis
     gap: 16px; }
     @media only screen and (max-width: 640px) {
       .looking-for-katana__logos {
-        margin: 0 -20px 30px; } }
+        margin: 0 -10px 15px;
+        padding-bottom: 14px;
+        gap: 5px;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        border-bottom: 1px solid #E6E9E9; } }
   .looking-for-katana__logo-item {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
@@ -4190,12 +4196,13 @@ yx-axis
         width: 58px !important;
         max-width: 100%;
         border-radius: 50%;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
         background: #fff;
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
         border: 1px solid #B3BDBC;
-        margin: 0 4px;
         overflow: hidden; }
         .looking-for-katana__logo-item img {
           max-width: 42px; } }
@@ -4206,6 +4213,9 @@ yx-axis
     text-transform: uppercase;
     color: #80918F;
     margin-top: 4px; }
+    @media only screen and (max-width: 640px) {
+      .looking-for-katana__label {
+        font-size: 12px; } }
   .looking-for-katana__price {
     font-size: 14px;
     font-weight: 600;
@@ -4223,6 +4233,13 @@ yx-axis
     bottom: 0;
     background: url("../data/looking-bg.svg");
     background-repeat: no-repeat; }
+    @media only screen and (max-width: 640px) {
+      .looking-for-katana::after {
+        background-image: url("../data/looking-bg-mobile.svg");
+        width: 230px;
+        height: 220px;
+        bottom: auto;
+        top: 0; } }
 
 .product-widget {
   border-radius: 2px;
@@ -4260,6 +4277,23 @@ yx-axis
     margin-bottom: 20px; }
     .product-widget__content a {
       font-weight: 400; }
+    .product-widget__content-more {
+      display: none; }
+    @media only screen and (max-width: 640px) {
+      .product-widget__content-inner {
+        overflow: hidden;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        text-overflow: ellipsis; }
+        .product-widget__content-inner.open {
+          -webkit-line-clamp: initial; }
+      .product-widget__content-more {
+        display: inline;
+        color: #4D6562;
+        text-decoration: underline; }
+        .product-widget__content-more.active {
+          color: #FF3D00; } }
   .product-widget__footer {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -4274,13 +4308,31 @@ yx-axis
     border: 1px solid #E6E9E9;
     background: #F9F9F9;
     padding: 20px; }
+    @media only screen and (max-width: 640px) {
+      .product-widget__footer-inner {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between; } }
     .product-widget__footer .product-price {
       font-size: 32px;
       line-height: 110%; }
+      @media only screen and (max-width: 640px) {
+        .product-widget__footer .product-price {
+          font-size: 28px; } }
       .product-widget__footer .product-price__sale {
         line-height: 1; }
       .product-widget__footer .product-price__old {
         font-size: 17px; }
+        @media only screen and (max-width: 640px) {
+          .product-widget__footer .product-price__old {
+            font-size: 12px; } }
       .product-widget__footer .product-price .discount {
         font-size: 10px;
         text-transform: uppercase;
@@ -4297,6 +4349,9 @@ yx-axis
       color: #80918F;
       font-weight: 700;
       gap: 8px; }
+      @media only screen and (max-width: 640px) {
+        .product-widget__footer .lead-time__label {
+          display: none; } }
       .product-widget__footer .lead-time .product-delivery__time {
         margin-bottom: 0;
         color: #0D9A88; }
@@ -4310,6 +4365,7 @@ yx-axis
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
         flex-direction: column;
+        margin: 0 -20px 0;
         -webkit-box-align: start;
         -ms-flex-align: start;
         align-items: flex-start; }

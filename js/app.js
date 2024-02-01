@@ -11067,9 +11067,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (window.innerWidth < 641) {
-      (0, _jquery2.default)(".product-widget__footer").append((0, _jquery2.default)(".lead-time"));
+      (0, _jquery2.default)('.looking-for-katana__price').after((0, _jquery2.default)('.looking-for-katana__logos'));
+      // $(".product-widget__footer").append($(".lead-time"));
     } else {
-      (0, _jquery2.default)(".product-widget__footer .product-price").after((0, _jquery2.default)(".lead-time"));
+      // $(".product-widget__footer .product-price").after($(".lead-time"));
+      (0, _jquery2.default)(".looking-for-katana__header").append((0, _jquery2.default)('.looking-for-katana__logos'));
+    }
+  });
+
+  (0, _jquery2.default)('.product-widget__content-more').on('click', function () {
+    if ((0, _jquery2.default)(this).hasClass('active')) {
+      (0, _jquery2.default)(this).parent().find('.product-widget__content-inner').removeClass('open');
+      (0, _jquery2.default)(this).removeClass('active');
+      (0, _jquery2.default)(this).text('Read more');
+    } else {
+      (0, _jquery2.default)(this).parent().find('.product-widget__content-inner').addClass('open');
+      (0, _jquery2.default)(this).addClass('active');
+      (0, _jquery2.default)(this).text('Read less');
     }
   });
 
@@ -16767,18 +16781,18 @@ exports.default = function () {
     prevArrow: "\n                    <button type=\"button\" class=\"slick-arrow slick-prev\">\n                        <svg width=\"21\" height=\"36\" viewBox=\"0 0 21 36\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                            <path d=\"M1.40808 19.5919L16.4081 34.5919C16.8308 35.0146 17.4041 35.252 18.0018 35.252C18.5996 35.252 19.1729 35.0146 19.5956 34.5919C20.0183 34.1692 20.2557 33.5959 20.2557 32.9981C20.2557 32.4003 20.0183 31.8271 19.5956 31.4044L6.18746 18L19.5918 4.59187C19.8011 4.38258 19.9672 4.13411 20.0804 3.86065C20.1937 3.5872 20.252 3.29411 20.252 2.99812C20.252 2.70213 20.1937 2.40904 20.0804 2.13559C19.9672 1.86213 19.8011 1.61366 19.5918 1.40437C19.3825 1.19508 19.1341 1.02905 18.8606 0.915785C18.5872 0.802516 18.2941 0.744217 17.9981 0.744217C17.7021 0.744217 17.409 0.802516 17.1356 0.915785C16.8621 1.02905 16.6136 1.19508 16.4043 1.40437L1.40434 16.4044C1.19482 16.6136 1.02868 16.8622 0.91544 17.1359C0.802199 17.4095 0.744088 17.7028 0.744436 17.9989C0.744785 18.295 0.803587 18.5882 0.917471 18.8615C1.03135 19.1349 1.19808 19.3831 1.40808 19.5919Z\" fill=\"#80918F\"/>\n                        </svg>\n                    </button>\n                    "
   });
 
-  (0, _jquery2.default)(window).on("load", function () {
-    if (window.innerWidth < 641) {
-      (0, _jquery2.default)('.looking-for-katana__price').after((0, _jquery2.default)('.looking-for-katana__logos'));
-      (0, _jquery2.default)('.looking-for-katana__logos').slick({
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        centerMode: true,
-        arrows: false,
-        variableWidth: true
-      });
-    }
-  });
+  // $(window).on("load", () => {
+  //   if (window.innerWidth < 641) {
+  //     $('.looking-for-katana__price').after($('.looking-for-katana__logos'));
+  //     $('.looking-for-katana__logos').slick({
+  //       slidesToShow: 5,
+  //       slidesToScroll: 1,
+  //       centerMode: true,
+  //       arrows: false,
+  //       variableWidth: true,
+  //     })
+  //   }
+  // })
 };
 
 /***/ }),
